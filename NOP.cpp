@@ -33,7 +33,7 @@ BOOL CNop::InitInstance()
 	try {
 		HideThreadFromDebugger();
 
-		//InitOverlay();
+		InitOverlay();
 
 		// initialize features and shit. MFC/ATL/Winsock
 		if(WSAStartup(0x0202, &wsd))

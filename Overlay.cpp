@@ -1,23 +1,15 @@
 #include "Overlay.h"
 #include "defs.h"
 
-//=====================================================================================
-
 typedef HRESULT (WINAPI* CreateDevice_Prototype)        (LPDIRECT3D9, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, LPDIRECT3DDEVICE9*);
-typedef HRESULT (WINAPI* Reset_Prototype)               (LPDIRECT3DDEVICE9, D3DPRESENT_PARAMETERS*);
 typedef HRESULT (WINAPI* EndScene_Prototype)            (LPDIRECT3DDEVICE9);
-typedef HRESULT (WINAPI* DrawIndexedPrimitive_Prototype)(LPDIRECT3DDEVICE9, D3DPRIMITIVETYPE, INT, UINT, UINT, UINT, UINT);
-
 static CreateDevice_Prototype         CreateDevice_Pointer         = NULL;
-static Reset_Prototype                Reset_Pointer                = NULL;
 static EndScene_Prototype             EndScene_Pointer             = NULL;
-static DrawIndexedPrimitive_Prototype DrawIndexedPrimitive_Pointer = NULL;
 
 static HRESULT WINAPI Direct3DCreate9_VMTable    (VOID);
 static HRESULT WINAPI CreateDevice_Detour        (LPDIRECT3D9, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, LPDIRECT3DDEVICE9*);
 static HRESULT WINAPI EndScene_Detour            (LPDIRECT3DDEVICE9);
 
-static DWORD WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(LPVOID);
 static PDWORD Direct3D_VMTable = NULL;
 
 
@@ -37,17 +29,13 @@ static void PrintText(LPD3DXFONT Font, int x, int y, int Red, int Green, int Blu
 	Font->DrawText(NULL, logbuf, -1, &rct, 0, fontColor );
 }
 
-static void WINAPI HookD3D9()
-{
-	Direct3DCreate9_VMTable();
-}
 
-static HRESULT WINAPI Direct3DCreate9_VMTable()
+static void HookD3D9()
 {
 	LPDIRECT3D9 Direct3D_Object = Direct3DCreate9(D3D_SDK_VERSION);
 
 	if(Direct3D_Object == NULL)
-		return D3DERR_INVALIDCALL;
+		return;
 
 	Direct3D_VMTable = (PDWORD)*(PDWORD)Direct3D_Object;
 	Direct3D_Object->Release();
@@ -58,14 +46,9 @@ static HRESULT WINAPI Direct3DCreate9_VMTable()
 	{
 		*(PDWORD)&CreateDevice_Pointer = Direct3D_VMTable[16];
 		*(PDWORD)&Direct3D_VMTable[16] = (DWORD)CreateDevice_Detour;
-		*(PDWORD)&Direct3D_VMTable[42] = (DWORD)EndScene_Detour;
 
-		if(VirtualProtect(&Direct3D_VMTable[16], sizeof(DWORD), dwProtect, &dwProtect) == 0)
-			return D3DERR_INVALIDCALL;
-		else return D3D_OK;
+		VirtualProtect(&Direct3D_VMTable[16], sizeof(DWORD), dwProtect, &dwProtect);
 	}
-	else
-		return D3DERR_INVALIDCALL;
 }
 
 static HRESULT WINAPI CreateDevice_Detour(LPDIRECT3D9 Direct3D_Object, UINT Adapter, D3DDEVTYPE DeviceType, HWND FocusWindow,
