@@ -17,16 +17,18 @@ static void PrintText(LPD3DXFONT Font, int x, int y, int Red, int Green, int Blu
 {
 	D3DCOLOR fontColor = D3DCOLOR_ARGB(Alpha, Red, Green, Blue);
 	RECT rct;
-	rct.left=x;
-	rct.top=y;
-	rct.right=rct.left+1000;
-	rct.bottom=rct.top+1000;
+	rct.left = x;
+	rct.top = y;
+	rct.right = rct.left + 1000;
+	rct.bottom = rct.top + 1000;
 	va_list va_alist;
-	char logbuf[256] = {0};
-	va_start (va_alist, text);
-	_vsnprintf_s(logbuf+strlen(logbuf), sizeof(logbuf), sizeof(logbuf) - strlen(logbuf), text, va_alist);
-	va_end (va_alist);
-	Font->DrawText(NULL, logbuf, -1, &rct, 0, fontColor );
+
+	char logbuf[0x1000];
+	va_start(va_alist, text);
+	_vsnprintf_s(logbuf, sizeof(logbuf), sizeof(logbuf), text, va_alist);
+	va_end(va_alist);
+
+	Font->DrawText(NULL, logbuf, -1, &rct, 0, fontColor);
 }
 
 
@@ -75,6 +77,7 @@ static HRESULT WINAPI CreateDevice_Detour(LPDIRECT3D9 Direct3D_Object, UINT Adap
 	{
 		Direct3D_VMTable = (PDWORD)*(PDWORD)*Returned_Device_Interface;
 		*(PDWORD)&EndScene_Pointer = (DWORD)Direct3D_VMTable[42];
+		Direct3D_VMTable[42] = (DWORD)EndScene_Detour;
 	}
 
 	return Returned_Result;
@@ -90,7 +93,7 @@ static HRESULT WINAPI EndScene_Detour(LPDIRECT3DDEVICE9 Device_Interface)
 	ONCE(
 		D3DXCreateFontA(
 			Device_Interface,
-			10,
+			15,
 			0,
 			FW_NORMAL,
 			0,
@@ -104,7 +107,7 @@ static HRESULT WINAPI EndScene_Detour(LPDIRECT3DDEVICE9 Device_Interface)
 		);
 	);
 
-	PrintText(font, 5, (Viewport.Height - 25), 255, 255, 0, 128, OVERLAY_TEXT);
+	PrintText(font, 10, (Viewport.Height - 40), 255, 255, 0, 128, OVERLAY_TEXT);
 
 	return EndScene_Pointer(Device_Interface);
 }
