@@ -1,16 +1,26 @@
 #include "Overlay.h"
+#include "CProtectionManager.h"
 #include "defs.h"
 
 typedef HRESULT (WINAPI* CreateDevice_Prototype)        (LPDIRECT3D9, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, LPDIRECT3DDEVICE9*);
+typedef HRESULT (WINAPI* Reset_Prototype)               (LPDIRECT3DDEVICE9, D3DPRESENT_PARAMETERS*);
+typedef HRESULT (WINAPI* BeginScene_Prototype)           (LPDIRECT3DDEVICE9);
 typedef HRESULT (WINAPI* EndScene_Prototype)            (LPDIRECT3DDEVICE9);
 static CreateDevice_Prototype         CreateDevice_Pointer         = NULL;
+static Reset_Prototype                Reset_Pointer                = NULL;
+static BeginScene_Prototype           BeginScene_Pointer           = NULL;
 static EndScene_Prototype             EndScene_Pointer             = NULL;
 
 static HRESULT WINAPI Direct3DCreate9_VMTable    (VOID);
 static HRESULT WINAPI CreateDevice_Detour        (LPDIRECT3D9, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, LPDIRECT3DDEVICE9*);
+static HRESULT WINAPI Reset_Detour               (LPDIRECT3DDEVICE9, D3DPRESENT_PARAMETERS*);
 static HRESULT WINAPI EndScene_Detour            (LPDIRECT3DDEVICE9);
 
+static DWORD WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(LPVOID);
 static PDWORD Direct3D_VMTable = NULL;
+
+static LPD3DXFONT font;
+static D3DVIEWPORT9 Viewport;
 
 
 static void PrintText(LPD3DXFONT Font, int x, int y, int Red, int Green, int Blue, int Alpha, const char *text, ...)
@@ -31,13 +41,22 @@ static void PrintText(LPD3DXFONT Font, int x, int y, int Red, int Green, int Blu
 	Font->DrawText(NULL, logbuf, -1, &rct, 0, fontColor);
 }
 
+static DWORD WINAPI HookD3D9(LPVOID)
+{
+    if(Direct3DCreate9_VMTable() == D3D_OK)
+    {
+        return true;
+    }
+    else{return false;}
+}
 
-static void HookD3D9()
+
+static HRESULT WINAPI Direct3DCreate9_VMTable()
 {
 	LPDIRECT3D9 Direct3D_Object = Direct3DCreate9(D3D_SDK_VERSION);
 
 	if(Direct3D_Object == NULL)
-		return;
+		return D3DERR_INVALIDCALL;
 
 	Direct3D_VMTable = (PDWORD)*(PDWORD)Direct3D_Object;
 	Direct3D_Object->Release();
@@ -49,45 +68,76 @@ static void HookD3D9()
 		*(PDWORD)&CreateDevice_Pointer = Direct3D_VMTable[16];
 		*(PDWORD)&Direct3D_VMTable[16] = (DWORD)CreateDevice_Detour;
 
-		VirtualProtect(&Direct3D_VMTable[16], sizeof(DWORD), dwProtect, &dwProtect);
-	}
-}
-
-static HRESULT WINAPI CreateDevice_Detour(LPDIRECT3D9 Direct3D_Object, UINT Adapter, D3DDEVTYPE DeviceType, HWND FocusWindow,
-					DWORD BehaviorFlags, D3DPRESENT_PARAMETERS* PresentationParameters,
-					LPDIRECT3DDEVICE9* Returned_Device_Interface)
-{
-	HRESULT Returned_Result = CreateDevice_Pointer(Direct3D_Object, Adapter, DeviceType, FocusWindow, BehaviorFlags,
-											  PresentationParameters, Returned_Device_Interface);
-
-	DWORD dwProtect;
-
-	if(VirtualProtect(&Direct3D_VMTable[16], sizeof(DWORD), PAGE_READWRITE, &dwProtect) != 0)
-	{
-		*(PDWORD)&Direct3D_VMTable[16] = *(PDWORD)&CreateDevice_Pointer;
-		CreateDevice_Pointer           = NULL;
-
 		if(VirtualProtect(&Direct3D_VMTable[16], sizeof(DWORD), dwProtect, &dwProtect) == 0)
 			return D3DERR_INVALIDCALL;
 	}
 	else
 		return D3DERR_INVALIDCALL;
 
-	if(Returned_Result == D3D_OK)
-	{
-		Direct3D_VMTable = (PDWORD)*(PDWORD)*Returned_Device_Interface;
-		*(PDWORD)&EndScene_Pointer = (DWORD)Direct3D_VMTable[42];
-		Direct3D_VMTable[42] = (DWORD)EndScene_Detour;
-	}
-
-	return Returned_Result;
+	return D3D_OK;
 }
+
+static HRESULT WINAPI CreateDevice_Detour(LPDIRECT3D9 Direct3D_Object, UINT Adapter, D3DDEVTYPE DeviceType, HWND FocusWindow,
+					DWORD BehaviorFlags, D3DPRESENT_PARAMETERS* PresentationParameters,
+					LPDIRECT3DDEVICE9* Returned_Device_Interface)
+{
+  HRESULT Returned_Result = CreateDevice_Pointer(Direct3D_Object, Adapter, DeviceType, FocusWindow, BehaviorFlags,
+	                                          PresentationParameters, Returned_Device_Interface);
+
+  DWORD dwProtect;
+
+  if(VirtualProtect(&Direct3D_VMTable[16], sizeof(DWORD), PAGE_READWRITE, &dwProtect) != 0)
+  {
+    *(PDWORD)&Direct3D_VMTable[16] = *(PDWORD)&CreateDevice_Pointer;
+    CreateDevice_Pointer           = NULL;
+
+    if(VirtualProtect(&Direct3D_VMTable[16], sizeof(DWORD), dwProtect, &dwProtect) == 0)
+    return D3DERR_INVALIDCALL;
+  }
+  else
+  return D3DERR_INVALIDCALL;
+
+  if(Returned_Result == D3D_OK)
+  {
+    Direct3D_VMTable = (PDWORD)*(PDWORD)*Returned_Device_Interface;
+
+    *(PDWORD)&Reset_Pointer                = (DWORD)Direct3D_VMTable[16];
+    *(PDWORD)&BeginScene_Pointer           = (DWORD)Direct3D_VMTable[41];
+    *(PDWORD)&EndScene_Pointer             = (DWORD)Direct3D_VMTable[42];
+
+    if(CreateThread(NULL, 0, VirtualMethodTableRepatchingLoopToCounterExtensionRepatching, NULL, 0, NULL) == NULL)
+    return D3DERR_INVALIDCALL;
+  }
+
+  return Returned_Result;
+}
+
+static HRESULT WINAPI Reset_Detour(LPDIRECT3DDEVICE9 Device_Interface, D3DPRESENT_PARAMETERS* PresentationParameters)
+{
+    font->Release(); // Same story for the font. We have to Release it before we create n new one else it WILL crash.
+    D3DXCreateFontA(
+			Device_Interface,
+			15,
+			0,
+			FW_NORMAL,
+			0,
+			TRUE,
+			DEFAULT_CHARSET,
+			OUT_DEFAULT_PRECIS,
+			DEFAULT_QUALITY,
+			DEFAULT_PITCH | FF_DONTCARE,
+			TEXT("Arial"),
+			&font
+		);
+
+  return Reset_Pointer(Device_Interface, PresentationParameters);
+}
+
+//=====================================================================================
+
 
 static HRESULT WINAPI EndScene_Detour(LPDIRECT3DDEVICE9 Device_Interface)
 {
-	static LPD3DXFONT font;
-	static D3DVIEWPORT9 Viewport;
-
 	Device_Interface->GetViewport(&Viewport);
 
 	ONCE(
@@ -112,7 +162,20 @@ static HRESULT WINAPI EndScene_Detour(LPDIRECT3DDEVICE9 Device_Interface)
 	return EndScene_Pointer(Device_Interface);
 }
 
+static DWORD WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(LPVOID)
+{
+	while(1)
+	{
+		Sleep(100);
+
+		*(PDWORD)&Direct3D_VMTable[42] = (DWORD)EndScene_Detour;
+		*(PDWORD)&Direct3D_VMTable[16] = (DWORD)Reset_Detour;
+	}
+
+  return 1;
+}
+
 void InitOverlay()
 {
-	HookD3D9();
+	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)HookD3D9, NULL, NULL, NULL);
 }
