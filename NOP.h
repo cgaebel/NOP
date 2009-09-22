@@ -10,14 +10,7 @@
 #define NOP_API __declspec(dllimport)
 #endif
 
-class CNop : public CWinApp
-{
-protected:
-	WSADATA wsd;
-public:
-	BOOL InitInstance();
-	int ExitInstance();
-};
-
 extern "C" __declspec(noreturn) __declspec(dllexport) void __cdecl OnFailure(const char* reason);
 extern "C" __declspec(noreturn) __declspec(dllexport) void __cdecl OnHackDetected(const char* message);
+
+extern HINSTANCE g_hInstance;

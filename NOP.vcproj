@@ -21,8 +21,8 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			UseOfMFC="2"
-			UseOfATL="1"
+			UseOfMFC="0"
+			UseOfATL="0"
 			CharacterSet="2"
 			>
 			<Tool
@@ -100,7 +100,8 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="2"
-			UseOfMFC="2"
+			UseOfMFC="0"
+			UseOfATL="0"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
@@ -279,18 +280,6 @@
 			</File>
 			<File
 				RelativePath=".\Resource.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Splash Screen"
-			>
-			<File
-				RelativePath=".\CSplashScreenDlg.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\CSplashScreenDlg.h"
 				>
 			</File>
 		</Filter>

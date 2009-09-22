@@ -3,8 +3,6 @@
 
 using namespace std;
 
-extern CNop theApp;
-
 CProtectionManager* CProtectionManager::Get()
 {
 	static CProtectionManager* ptr = NULL;
@@ -69,8 +67,6 @@ DWORD CProtectionManager::ActiveProtectionThread(CProtectionManager* simulatedTh
 	} catch(...) {
 		OnHackDetected("Unhandled exception occured in one of the protection functions.");
 	}
-
-	return 0;
 }
 
 void CProtectionManager::BeginActiveProtection()
