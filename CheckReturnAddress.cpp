@@ -4,7 +4,7 @@
 
 const char* CheckReturnAddress()
 {
-	try {
+	__try {
 		// We patch all the functions listed by creating codecaves to check the return value and
 		// jumping to it in the epiloge of each function. The codecave checks to see if the return
 		// value of the function is within Gunz.exe's code segment. If it isn't, it calls OnHackDetected
@@ -170,7 +170,7 @@ const char* CheckReturnAddress()
 #undef ADD_ESP_10_RETN
 #undef FS_RETN
 #undef RETN
-	} catch(...) {
+	} __except(EXCEPTION_EXECUTE_HANDLER) {
 		return __FUNCTION__;
 	}
 

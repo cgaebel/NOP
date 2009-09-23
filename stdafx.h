@@ -43,11 +43,12 @@
 // Platform-specific.
 #include <intrin.h>
 
+// Winsock.
+#include <winsock2.h>
+#pragma comment(lib, "ws2_32.lib")
+
 // Platform-specific.
-#include <afxwin.h>
-#include <afxtempl.h>
-#include <atlbase.h>
-#include <atlwin.h>
+#include <windows.h>
 #include <psapi.h>
 #include <omp.h>
 #include <shlwapi.h>
@@ -60,10 +61,6 @@
 #pragma comment(lib, "windowscodecs.lib")
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "Advapi32.lib")
-
-// Winsock.
-#include <winsock2.h>
-#pragma comment(lib, "ws2_32.lib")
 
 // Standard C++.
 #include <cassert>
@@ -105,7 +102,7 @@
 
 // The ONCE delegate macro.
 #define ONCE_HELPER(instructionsToRunOnce, onceVar)	\
-	do {											\
+	{												\
 		static bool onceVar = true;					\
 													\
 		if(onceVar)									\
@@ -113,7 +110,7 @@
 			onceVar = false;						\
 			instructionsToRunOnce					\
 		}											\
-	} while(0)
+	}
 
 // Use this macro to run a block of code only the first time it is called.
 #define ONCE(instructionsToRunOnce) \
@@ -123,7 +120,3 @@
 #define ASSERTUME(expression)	\
 	assert(expression);			\
 	__assume(expression)
-
-#ifdef _DEBUG
-	#define new DEBUG_NEW
-#endif

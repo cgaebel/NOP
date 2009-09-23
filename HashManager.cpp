@@ -52,8 +52,5 @@ bool IsValidFileHash(std::string fileHash)
 
 bool IsValidMemoryHash(std::string memoryHash)
 {
-#ifdef _DEBUG
-	return true;
-#endif
 	return (memoryHashTree.find(memoryHash) != memoryHashTree.end());
 }

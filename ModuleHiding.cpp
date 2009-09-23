@@ -89,13 +89,11 @@ Finished:
 	}
 }
 
-extern CNop theApp;
-
 const char* ModuleHiding()
 {
-	try {
-		HideModule(theApp.m_hInstance);
-	} catch(...) {
+	__try {
+		HideModule(g_hInstance);
+	} __except(EXCEPTION_EXECUTE_HANDLER) {
 		return __FUNCTION__;
 	}
 	return NULL;

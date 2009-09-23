@@ -1,6 +1,7 @@
 #include "CProtectionManager.h"
 #include "Patching.h"
 
+/*
 DEF_CALL(0x0057170D);
 DEF_CALL(0x004C3B60);
 DEF_CALL(0x005CEFAF);
@@ -67,6 +68,7 @@ SKIP_EAX_CLEAR:
 	}
 }
 #pragma warning(pop)
+*/
 
 const char* RestoreZPostConnect()
 {

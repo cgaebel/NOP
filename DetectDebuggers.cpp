@@ -54,9 +54,9 @@ protected:
 
 	inline DWORD CheckCloseHandle()
 	{
-		try {
+		__try {
 			CloseHandle(HANDLE(-1));
-		} catch(...) {
+		} __except(EXCEPTION_EXECUTE_HANDLER) {
 			return 0;
 		}
 
@@ -191,9 +191,9 @@ protected:
 		}
 		else
 		{
-			try {
+			__try {
 				OutputDebugString("%s%s");
-			} catch(...) {
+			} __except(EXCEPTION_EXECUTE_HANDLER) {
 				return 0;
 			}
 		}
