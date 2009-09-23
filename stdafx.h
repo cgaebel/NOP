@@ -40,9 +40,6 @@
 #include <fstream>
 #include <sstream>
 
-// Platform-specific.
-#include <intrin.h>
-
 // Winsock.
 #include <winsock2.h>
 #pragma comment(lib, "ws2_32.lib")

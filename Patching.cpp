@@ -62,12 +62,6 @@ namespace Patching
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void __fastcall PatchShortJump(DWORD _Src, signed char delta)
 	{
-		ASSERTUME(
-			"Attempting to short jump when we should be long jumping." &&
-			(delta > -128) &&
-			(delta < 128)
-		);
-
 		BYTE jumpBuffer[1 + sizeof(delta)];
 
 		jumpBuffer[0] = 0xEB;

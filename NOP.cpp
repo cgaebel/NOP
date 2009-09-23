@@ -71,7 +71,7 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			CProtectionManager::Get()->AddPassiveProtection(RestoreZPostConnect);	// The restore MUST be done BEFORE the return address check.
 			//CProtectionManager::Get()->AddPassiveProtection(RestorePostBasicInfo);
 			CProtectionManager::Get()->AddPassiveProtection(CheckReturnAddress);
-	#ifndef _DEBUG
+	#ifndef _DEBUGintr
 			CProtectionManager::Get()->AddPassiveProtection(FileHash);
 	#endif
 

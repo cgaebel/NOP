@@ -1,7 +1,5 @@
 #include "CProtectionManager.h"
 
-#include <intrin.h>
-
 #include "defs.h"
 
 #pragma warning(disable:6309)

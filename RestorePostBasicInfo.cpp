@@ -11,7 +11,7 @@ DEF_CALL(0x004C3000);
 
 #pragma warning(push)
 #pragma warning(disable:4733)
-__declspec(naked) static void PostBasicInfo()
+static void __declspec(naked) PostBasicInfo()
 {
 	__asm
 	{

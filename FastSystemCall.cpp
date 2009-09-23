@@ -243,7 +243,7 @@ static void SetServices()
 
 extern "C"
 {
-	__declspec(naked) static void __cdecl __adjustESP(int)
+	static void __declspec(naked) __cdecl __adjustESP(int)
 	{
 		__asm
 		{
@@ -253,7 +253,7 @@ extern "C"
 		}
 	}
 
-	__declspec(naked) static void __cdecl __moveEAX(int)
+	static void __declspec(naked) __cdecl __moveEAX(int)
 	{
 		__asm
 		{
@@ -263,7 +263,7 @@ extern "C"
 		}
 	}
 
-	__declspec(naked) static NTSTATUS __cdecl KiFastSystemCall()
+	static NTSTATUS __declspec(naked) __cdecl KiFastSystemCall()
 	{
 		__asm
 		{
@@ -276,7 +276,6 @@ extern "C"
 
 NTSTATUS FastSystemCall(size_t _RequestID, ...)
 {
-	ASSERTUME(_RequestID >= 0);
 	ASSERTUME(_RequestID < _countof(syscallTable));
 
 	NTSTATUS returnVal;

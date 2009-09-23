@@ -143,6 +143,7 @@
 				WarnAsError="true"
 				DebugInformationFormat="0"
 				CallingConvention="2"
+				CompileAs="2"
 				ForcedIncludeFiles="stdafx.h;resource.h"
 				ForcedUsingFiles=""
 				EnablePREfast="true"

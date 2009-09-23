@@ -8,7 +8,6 @@ typedef HRESULT (WINAPI* BeginScene_Prototype)           (LPDIRECT3DDEVICE9);
 typedef HRESULT (WINAPI* EndScene_Prototype)            (LPDIRECT3DDEVICE9);
 static CreateDevice_Prototype         CreateDevice_Pointer         = NULL;
 static Reset_Prototype                Reset_Pointer                = NULL;
-static BeginScene_Prototype           BeginScene_Pointer           = NULL;
 static EndScene_Prototype             EndScene_Pointer             = NULL;
 
 static HRESULT WINAPI Direct3DCreate9_VMTable    (VOID);
@@ -102,7 +101,6 @@ static HRESULT WINAPI CreateDevice_Detour(LPDIRECT3D9 Direct3D_Object, UINT Adap
     Direct3D_VMTable = (PDWORD)*(PDWORD)*Returned_Device_Interface;
 
     *(PDWORD)&Reset_Pointer                = (DWORD)Direct3D_VMTable[16];
-    *(PDWORD)&BeginScene_Pointer           = (DWORD)Direct3D_VMTable[41];
     *(PDWORD)&EndScene_Pointer             = (DWORD)Direct3D_VMTable[42];
 
     if(CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)VirtualMethodTableRepatchingLoopToCounterExtensionRepatching, NULL, 0, NULL) == NULL)
