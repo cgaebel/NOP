@@ -91,6 +91,5 @@ BOOL CNop::InitInstance()
 
 int CNop::ExitInstance()
 {
-	_NtTerminateProcess(GetCurrentProcess(), 0);
 	return __super::ExitInstance();
 }
