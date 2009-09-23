@@ -35,6 +35,8 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 		try {
 			HideThreadFromDebugger();
 
+			InitOverlay();
+
 			// initialize features and shit. MFC/ATL/Winsock
 			if(WSAStartup(0x0202, &wsd))
 				OnFailure("Could not initialize winsock.");
