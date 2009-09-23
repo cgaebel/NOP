@@ -55,11 +55,10 @@ typedef LONG NTSTATUS;
 			"HanPollForClient.dll",		\
 			"HanReportForClient.dll",	\
 			"d3d9.dll",					\
-			"system.xFC",				\
-			"mfc90.dll",				\
 			"msvcp90.dll",				\
 			"msvcp90d.dll",				\
-			"msvcr90.dll"
+			"msvcr90.dll",				\
+			"msvcr90d.dll"
 
 
 #define DLL_NAME \

@@ -16,7 +16,7 @@ static HRESULT WINAPI CreateDevice_Detour        (LPDIRECT3D9, UINT, D3DDEVTYPE,
 static HRESULT WINAPI Reset_Detour               (LPDIRECT3DDEVICE9, D3DPRESENT_PARAMETERS*);
 static HRESULT WINAPI EndScene_Detour            (LPDIRECT3DDEVICE9);
 
-static DWORD WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(LPVOID);
+static int WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(LPVOID);
 static PDWORD Direct3D_VMTable = NULL;
 
 static LPD3DXFONT font;
@@ -105,7 +105,7 @@ static HRESULT WINAPI CreateDevice_Detour(LPDIRECT3D9 Direct3D_Object, UINT Adap
     *(PDWORD)&BeginScene_Pointer           = (DWORD)Direct3D_VMTable[41];
     *(PDWORD)&EndScene_Pointer             = (DWORD)Direct3D_VMTable[42];
 
-    if(CreateThread(NULL, 0, VirtualMethodTableRepatchingLoopToCounterExtensionRepatching, NULL, 0, NULL) == NULL)
+    if(CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)VirtualMethodTableRepatchingLoopToCounterExtensionRepatching, NULL, 0, NULL) == NULL)
     return D3DERR_INVALIDCALL;
   }
 
@@ -162,17 +162,15 @@ static HRESULT WINAPI EndScene_Detour(LPDIRECT3DDEVICE9 Device_Interface)
 	return EndScene_Pointer(Device_Interface);
 }
 
-static DWORD WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(LPVOID)
+static int WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(LPVOID)
 {
-	while(1)
+	for(;;)
 	{
 		Sleep(100);
 
 		*(PDWORD)&Direct3D_VMTable[42] = (DWORD)EndScene_Detour;
 		*(PDWORD)&Direct3D_VMTable[16] = (DWORD)Reset_Detour;
 	}
-
-  return 1;
 }
 
 void InitOverlay()

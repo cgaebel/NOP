@@ -120,3 +120,5 @@
 #define ASSERTUME(expression)	\
 	assert(expression);			\
 	__assume(expression)
+
+#pragma warning(disable:6320)
