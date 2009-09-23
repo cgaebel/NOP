@@ -32,7 +32,6 @@ ActiveProtectionFunc TrainerDetection;
 ActiveProtectionFunc CodeSegmentCheck;
 ActiveProtectionFunc DetectDebuggers;
 ActiveProtectionFunc APIHookCheck;
-ActiveProtectionFunc ModuleCount;
 
 PassiveProtectionFunc ModuleHiding;
 PassiveProtectionFunc CheckReturnAddress;

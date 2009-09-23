@@ -396,4 +396,3 @@
 DWORD GetThreadStartAddress(HANDLE ThreadHandle);
 DWORD EnumerateThreads(DWORD ProcessId);
 DWORD EnumerateFunctions();
-DWORD EnumerateModules();

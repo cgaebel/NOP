@@ -384,10 +384,6 @@
 					>
 				</File>
 				<File
-					RelativePath=".\ModuleCount.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\TrainerDetection.cpp"
 					>
 				</File>

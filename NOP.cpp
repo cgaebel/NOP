@@ -20,6 +20,13 @@ using namespace std;
 	Fix the checksums on the server.
 */
 
+/*
+	TODO:
+
+	Replace the HashManager's backend with : ms-help://MS.VSCC.v90/MS.MSDNQTR.v90.en/dv_vclib/html/f86552e8-8acd-4b23-bdc5-0c3a247ebd74.htm
+		instead of winsock. I hear its faster, and easier.
+*/
+
 HINSTANCE g_hInstance;
 static WSADATA wsd;
 
