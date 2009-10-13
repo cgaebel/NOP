@@ -24,7 +24,12 @@ using namespace std;
 	TODO:
 
 	Replace the HashManager's backend with : ms-help://MS.VSCC.v90/MS.MSDNQTR.v90.en/dv_vclib/html/f86552e8-8acd-4b23-bdc5-0c3a247ebd74.htm
-		instead of winsock. I hear its faster, and easier.
+	instead of winsock. I hear its faster, and easier.
+
+	Create a universal banning system. When a hack is detected, the person gets banned. When the game starts up, it does an HTTP pull from
+	my server to see if the person is banned. If banned, die, else, continue.
+
+	Use http://forum.ragezone.com/f245/unlinking-modules-from-the-peb-595839/ as another anti-cheat method.
 */
 
 HINSTANCE g_hInstance;
@@ -47,7 +52,7 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			// initialize features and shit. MFC/ATL/Winsock
 			if(WSAStartup(0x0202, &wsd))
 				OnFailure("Could not initialize winsock.");
-			InitHashTree();
+			HashManager::Get()->InitHashTree();
 
 			/*
 				Protection modules:
@@ -72,27 +77,32 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 					Load the rootkit (optional)					- 0xFE
 			*/
 
-	#ifndef _DEBUG
+	#ifdef NDEBUG
 			CProtectionManager::Get()->AddPassiveProtection(ModuleHiding);
+			//CProtectionManager::Get()->AddPassiveProtection(HideFromPEB);		// <- UNTESTED.
 	#endif
 			CProtectionManager::Get()->AddPassiveProtection(RestoreZPostConnect);	// The restore MUST be done BEFORE the return address check.
-			//CProtectionManager::Get()->AddPassiveProtection(RestorePostBasicInfo);
+			//CProtectionManager::Get()->AddPassiveProtection(RestorePostBasicInfo);	// <- TODO
 			CProtectionManager::Get()->AddPassiveProtection(CheckReturnAddress);
-	#ifndef _DEBUGintr
+	#ifdef NDEBUG
 			CProtectionManager::Get()->AddPassiveProtection(FileHash);
 	#endif
 
-	#ifndef _DEBUG
-			CProtectionManager::Get()->AddActiveProtection(DetectDebuggers);
+	#ifdef NDEBUG
+			//CProtectionManager::Get()->AddActiveProtection(DetectDebuggers);	// <- BROKEN MODULE.
 	#endif
 			CProtectionManager::Get()->AddActiveProtection(TrainerDetection);
 			CProtectionManager::Get()->AddActiveProtection(CodeSegmentCheck);
-			//CProtectionManager::Get()->AddActiveProtection(APIHookCheck);
+			//CProtectionManager::Get()->AddActiveProtection(APIHookCheck);		// <- BROKEN MODULE.
 
 			CProtectionManager::Get()->BeginActiveProtection();
 		} catch(...) {
 			OnFailure("Something that should not have gone wrong, did go wrong.");
 		}
+	}
+	else if(reason == DLL_PROCESS_DETACH)
+	{
+		ExitProcess(0);
 	}
 
 	return true;

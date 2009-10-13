@@ -42,18 +42,19 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/MP"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;NOP_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
+				RuntimeLibrary="1"
 				DefaultCharIsUnsigned="true"
 				UsePrecompiledHeader="2"
 				WarningLevel="4"
 				WarnAsError="true"
 				DebugInformationFormat="3"
 				CallingConvention="2"
-				ForcedIncludeFiles="stdafx.h;resource.h"
+				ForcedIncludeFiles="stdafx.h"
 				ForcedUsingFiles=""
 				EnablePREfast="false"
 			/>
@@ -122,6 +123,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/MP"
 				Optimization="2"
 				InlineFunctionExpansion="2"
 				EnableIntrinsicFunctions="true"
@@ -131,20 +133,21 @@
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;NOP_EXPORTS"
 				StringPooling="true"
 				MinimalRebuild="false"
-				RuntimeLibrary="2"
-				StructMemberAlignment="4"
-				BufferSecurityCheck="true"
-				EnableFunctionLevelLinking="true"
+				RuntimeLibrary="1"
+				StructMemberAlignment="0"
+				BufferSecurityCheck="false"
+				EnableFunctionLevelLinking="false"
 				FloatingPointModel="0"
-				FloatingPointExceptions="true"
+				FloatingPointExceptions="false"
 				DefaultCharIsUnsigned="true"
+				RuntimeTypeInfo="false"
 				UsePrecompiledHeader="2"
 				WarningLevel="4"
 				WarnAsError="true"
 				DebugInformationFormat="0"
 				CallingConvention="2"
 				CompileAs="2"
-				ForcedIncludeFiles="stdafx.h;resource.h"
+				ForcedIncludeFiles="stdafx.h"
 				ForcedUsingFiles=""
 				EnablePREfast="true"
 			/>
@@ -159,13 +162,13 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalOptions="/NODEFAULTLIB:MSVCRTD"
+				AdditionalOptions=""
 				LinkIncremental="1"
 				UACExecutionLevel="1"
 				GenerateDebugInformation="false"
 				SubSystem="2"
 				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
+				EnableCOMDATFolding="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -189,6 +192,87 @@
 			<Tool
 				Name="VCPostBuildEventTool"
 				CommandLine=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Profile|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="2"
+			UseOfMFC="0"
+			UseOfATL="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="/MP"
+				Optimization="0"
+				PreprocessorDefinitions="WIN32;_WINDOWS;_USRDLL;NOP_EXPORTS;NDEBUG"
+				StringPooling="true"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				DefaultCharIsUnsigned="true"
+				UsePrecompiledHeader="2"
+				WarningLevel="4"
+				WarnAsError="true"
+				DebugInformationFormat="3"
+				CallingConvention="2"
+				ForcedIncludeFiles="stdafx.h"
+				ForcedUsingFiles=""
+				EnablePREfast="false"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				LinkIncremental="1"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 	</Configurations>
@@ -259,29 +343,11 @@
 				>
 			</File>
 			<File
+				RelativePath=".\NTInternals.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Patching.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
-			>
-			<File
-				RelativePath=".\NOP.bmp"
-				>
-			</File>
-			<File
-				RelativePath=".\NOP.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\NOP.rc"
-				>
-			</File>
-			<File
-				RelativePath=".\Resource.h"
 				>
 			</File>
 		</Filter>
@@ -301,6 +367,14 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Profile|Win32"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -353,6 +427,10 @@
 				</File>
 				<File
 					RelativePath=".\FileHash.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HideFromPEB.cpp"
 					>
 				</File>
 				<File

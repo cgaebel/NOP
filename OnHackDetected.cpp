@@ -5,6 +5,7 @@ void __cdecl OnFailure(const char* reason)
 {
 	if(reason == NULL)
 		OnFailure("OSHI- An unknown error occurred.");
+
 	{
 		std::ofstream out(FAILURE_FILELOG);
 		out << "Failed: " << reason << std::endl;
@@ -23,7 +24,7 @@ void __cdecl OnHackDetected(const char* message)
 		hacklog << "Hack detected: " << message << std::endl;
 	}
 
-#ifndef _DEBUG
+#ifdef NDEBUG
 	BlockInput(TRUE);
 
 	// TODO: Ban the user.

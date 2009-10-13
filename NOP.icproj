@@ -10,11 +10,13 @@
 		<Configuration
 			Name="Release|Win32">
 			<Tool
+				Name="GeneralTool"
+				InterproceduralOptimization="true"/>
+			<Tool
 				Name="CppCmplrTool"
 				Optimization="1000"
 				GlobalOptimizations="true"
-				Parallelization="true"
-				Cpp0xSupport="true"/>
+				InterproceduralOptimization="2"/>
 		</Configuration>
 	</Configurations>
 	<Files/>

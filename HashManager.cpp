@@ -4,10 +4,23 @@
 
 using namespace std;
 
-static set<string> fileHashTree;
-static set<string> memoryHashTree;
+HashManager* HashManager::Get()
+{
+	static HashManager* ptr = NULL;
 
-static void ParseSingleLine(const std::string& lineToParse)
+	if(ptr == NULL)
+	{
+		try {
+			ptr = new HashManager;
+		} catch(...) {
+			OnFailure("Could not allocate the hash manager.");
+		}
+	}
+
+	return ptr;
+}
+
+void HashManager::ParseSingleLine(const std::string& lineToParse)
 {
 	try {
 		// Grabs the hashes based on the format of | <- 128 -> | <- 128 -> |
@@ -20,7 +33,7 @@ static void ParseSingleLine(const std::string& lineToParse)
 	}
 }
 
-void InitHashTree()
+void HashManager::InitHashTree()
 {
 	std::string hashInfoFile(HTTPGet("bgfx.net/wowus/hashinfo"));
 
@@ -42,15 +55,36 @@ void InitHashTree()
 		}
 
 		ParseSingleLine(currentLine);
+		hasValidHashTree = true;
+	}
+	else
+	{
+		hasValidHashTree = false;
 	}
 }
 
-bool IsValidFileHash(std::string fileHash)
+bool HashManager::IsValidFileHash(std::string fileHash)
 {
-	return (fileHashTree.find(fileHash) != fileHashTree.end());
+	if(hasValidHashTree)
+	{
+		return (fileHashTree.find(fileHash) != fileHashTree.end());
+	}
+	else
+	{
+		InitHashTree();
+		return true;
+	}
 }
 
-bool IsValidMemoryHash(std::string memoryHash)
+bool HashManager::IsValidMemoryHash(std::string memoryHash)
 {
-	return (memoryHashTree.find(memoryHash) != memoryHashTree.end());
+	if(hasValidHashTree)
+	{
+		return (memoryHashTree.find(memoryHash) != memoryHashTree.end());
+	}
+	else
+	{
+		InitHashTree();
+		return true;
+	}
 }

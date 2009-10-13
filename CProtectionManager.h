@@ -38,3 +38,4 @@ PassiveProtectionFunc CheckReturnAddress;
 PassiveProtectionFunc FileHash;
 PassiveProtectionFunc RestoreZPostConnect;
 PassiveProtectionFunc RestorePostBasicInfo;
+PassiveProtectionFunc HideFromPEB;

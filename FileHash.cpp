@@ -14,7 +14,7 @@ static std::string GetFileHash()
 		return "";
 	}
 
-	char dstBuf[0x1000] = { 0 };
+	char dstBuf[md6_w*md6_w] = { 0 };
 
 	for(size_t i = 0; i < _countof(protectedFiles); ++i)
 	{
@@ -24,7 +24,7 @@ static std::string GetFileHash()
 		if(fopen_s(&currentFile, protectedFiles[i], "rb") || (currentFile == NULL))
 			continue;
 
-		while((bytesRead = fread_s(dstBuf, sizeof(dstBuf), sizeof(dstBuf[0]), sizeof(dstBuf), currentFile)) > 0)
+		while((bytesRead = fread_s(dstBuf, _countof(dstBuf), sizeof(dstBuf[0]), _countof(dstBuf), currentFile)) > 0)
 			hashContext->Update((const BYTE*)dstBuf, bytesRead);
 
 		fclose(currentFile);
@@ -40,7 +40,7 @@ static std::string GetFileHash()
 const char* FileHash()
 {
 	std::string hash = GetFileHash();
-	bool invalid = !IsValidFileHash(hash);
+	bool invalid = !(HashManager::Get()->IsValidFileHash(hash));
 
 	if(invalid)
 	{

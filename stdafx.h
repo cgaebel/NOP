@@ -20,6 +20,8 @@
 
 // Platform-specific.
 #include <windows.h>
+#include <shlwapi.h>
+#pragma comment(lib, "shlwapi.lib")
 
 // Standard C++.
 #include <cassert>

@@ -26,7 +26,7 @@ static BOOL EnumWindowsHandler(HWND hwnd, bool* retVal)
 	// If the blacklisted name is in the title, diediedie.
 	for(size_t i = 0; i < _countof(titleBlacklist); ++i)
 	{
-		if(strstr(title, titleBlacklist[i]))
+		if(StrStrI(title, titleBlacklist[i]))
 		{
 			*retVal = true;
 			return FALSE;

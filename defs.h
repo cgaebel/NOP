@@ -2,8 +2,8 @@
 
 typedef LONG NTSTATUS;
 
-//#define CODE_SEGMENT_BEGIN	((BYTE*)0x00401000)
-#define CODE_SEGMENT_BEGIN	((BYTE*)0x004437FF)	/* used to be 0x004F37FF */
+#define CODE_SEGMENT_BEGIN	((BYTE*)0x00401000)
+//#define CODE_SEGMENT_BEGIN	((BYTE*)0x004437FF)	/* used to be 0x004F37FF */
 #define CODE_SEGMENT_END	((BYTE*)0x005E5FFF)
 
 #define MODULE_SPACE_BEGIN	((BYTE*)0x70000000)
@@ -43,7 +43,8 @@ typedef LONG NTSTATUS;
 			"Invalid Module Count.txt"
 
 #define TRAINER_WINDOW_TITLE_BLACKLIST	\
-			"ZxPwd"
+			"ZxPwd",					\
+			"injector"
 
 #define FILE_CHECKSUM_PROTECTED_FILES	\
 			"svchost.exe",				\
@@ -55,11 +56,8 @@ typedef LONG NTSTATUS;
 			"HanPollForClient.dll",		\
 			"HanReportForClient.dll",	\
 			"d3d9.dll",					\
-			"msvcp90.dll",				\
-			"msvcp90d.dll",				\
-			"msvcr90.dll",				\
-			"msvcr90d.dll"
-
+			"d3dx9_41.dll",				\
+			"System.xFC"
 
 #define DLL_NAME \
 			"NOP.dll"

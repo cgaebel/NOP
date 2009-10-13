@@ -43,7 +43,6 @@ DWORD CProtectionManager::ActiveProtectionThread(CProtectionManager* simulatedTh
 	::SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
 
 	try {
-
 		for(;;)
 		{
 			for(
@@ -61,11 +60,8 @@ DWORD CProtectionManager::ActiveProtectionThread(CProtectionManager* simulatedTh
 			// Run the checks every 3 seconds.
 			Sleep(3000);
 		}
-
-	} catch(exception& ex) {
-		OnHackDetected(ex.what());
 	} catch(...) {
-		OnHackDetected("Unhandled exception occured in one of the protection functions.");
+		OnHackDetected("Unhandled C++ exception occured in one of the protection functions.");
 	}
 }
 

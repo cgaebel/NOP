@@ -3,20 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{EAF909A5-FA59-4C3D-9431-0FCC20D5BCF9}") = "NOP", "NOP.icproj", "{C9572D59-0FE0-4959-9259-DA2AC44F4916}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mrs", "..\mrs\mrs.vcproj", "{ECCE91D3-9593-472F-BD32-648B0FA8E225}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Profile|Win32 = Profile|Win32
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Debug|Win32.ActiveCfg = Debug|Win32
 		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Debug|Win32.Build.0 = Debug|Win32
+		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Profile|Win32.ActiveCfg = Profile|Win32
+		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Profile|Win32.Build.0 = Profile|Win32
 		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Release|Win32.ActiveCfg = Release|Win32
 		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Release|Win32.Build.0 = Release|Win32
-		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Release|Win32.Build.0 = Release|Win32
-		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Release|Win32.ActiveCfg = Release|Win32
-		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Debug|Win32.Build.0 = Debug|Win32
+		{ECCE91D3-9593-472F-BD32-648B0FA8E225}.Debug|Win32.ActiveCfg = mrs.exe|Win32
+		{ECCE91D3-9593-472F-BD32-648B0FA8E225}.Debug|Win32.Build.0 = mrs.exe|Win32
+		{ECCE91D3-9593-472F-BD32-648B0FA8E225}.Profile|Win32.ActiveCfg = Profile|Win32
+		{ECCE91D3-9593-472F-BD32-648B0FA8E225}.Profile|Win32.Build.0 = Profile|Win32
+		{ECCE91D3-9593-472F-BD32-648B0FA8E225}.Release|Win32.ActiveCfg = gunz.exe|Win32
+		{ECCE91D3-9593-472F-BD32-648B0FA8E225}.Release|Win32.Build.0 = gunz.exe|Win32
 		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Debug|Win32.Build.0 = Debug|Win32
+		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Profile|Win32.ActiveCfg = Profile|Win32
+		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Release|Win32.ActiveCfg = Release|Win32
+		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
