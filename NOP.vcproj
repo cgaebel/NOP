@@ -226,7 +226,7 @@
 				StringPooling="true"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="1"
+				RuntimeLibrary="0"
 				DefaultCharIsUnsigned="true"
 				UsePrecompiledHeader="2"
 				WarningLevel="4"
@@ -510,6 +510,142 @@
 				RelativePath=".\Overlay.h"
 				>
 			</File>
+		</Filter>
+		<Filter
+			Name="AsmJit"
+			>
+			<File
+				RelativePath=".\AsmJit\AsmJit.debug.lib"
+				>
+			</File>
+			<File
+				RelativePath=".\AsmJit\AsmJit.release.lib"
+				>
+			</File>
+			<Filter
+				Name="Header Files"
+				>
+				<File
+					RelativePath=".\AsmJit\AsmJit.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Assembler.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\AssemblerX86X64.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Build.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Compiler.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\CompilerX86X64.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Config.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\CpuInfo.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Defs.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\DefsX86X64.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Lock.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Logger.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\LoggerX86X64.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\MemoryManager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Serializer.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\SerializerX86X64.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\Util.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\VirtualMemory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\WarningsPop.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AsmJit\WarningsPush.h"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Whitepapers"
+			>
+			<Filter
+				Name="Protocol"
+				>
+				<File
+					RelativePath=".\Command Parameter Types.txt"
+					>
+				</File>
+				<File
+					RelativePath=".\Dexgod Command Dump.txt"
+					>
+				</File>
+				<File
+					RelativePath=".\Gunz Packet Protocol.txt"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Matchserver"
+				>
+				<File
+					RelativePath=".\Matchserver PDB Dump.txt"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="GunzOld"
+				>
+				<File
+					RelativePath=".\GunzOld Address Dump.txt"
+					>
+				</File>
+				<File
+					RelativePath=".\GunzOld PDB Dump.txt"
+					>
+				</File>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>

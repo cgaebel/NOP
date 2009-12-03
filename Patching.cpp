@@ -27,6 +27,11 @@ namespace Patching
 		VirtualProtect(_Dst, patchSize, ulOldProtect[0], &(ulOldProtect[1]));
 	}
 
+	DWORD GetDistanceToAddress(DWORD source, DWORD destination, size_t bufferSize)
+	{
+		return destination - source - bufferSize;	// Integer overflow is not only permitted here, but desired behaviour.
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	/// @brief	Patches an unconditional jump (JMP) from one location in memory that's more than 0x80
 	///			away.
@@ -84,7 +89,7 @@ namespace Patching
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void __fastcall PatchUnconditionalJump(DWORD _Src, DWORD _Dst)
 	{
-		DWORD jmpPayload = _Dst - _Src - 5;		// Integer overflow is not only permitted here, but desired behaviour.
+		DWORD jmpPayload = GetDistanceToAddress(_Src, _Dst, 5);
 
 		if(jmpPayload < 256)
 		{

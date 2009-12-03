@@ -44,7 +44,8 @@ typedef LONG NTSTATUS;
 
 #define TRAINER_WINDOW_TITLE_BLACKLIST	\
 			"ZxPwd",					\
-			"injector"
+			"injector",					\
+			"*REMADE*"
 
 #define FILE_CHECKSUM_PROTECTED_FILES	\
 			"svchost.exe",				\
@@ -57,7 +58,8 @@ typedef LONG NTSTATUS;
 			"HanReportForClient.dll",	\
 			"d3d9.dll",					\
 			"d3dx9_41.dll",				\
-			"System.xFC"
+			"System.xFC",				\
+			"GunzLauncher.exe"
 
 #define DLL_NAME \
 			"NOP.dll"

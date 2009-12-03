@@ -37,6 +37,7 @@
 // Application-specific.
 #include "./Hash/HMD6.h"
 #include "HideThreadFromDebugger.h"
+#include "./AsmJit/AsmJit.h"
 
 #ifdef _DEBUG
 	#pragma comment(lib, "./Hash/Hash.debug.lib")

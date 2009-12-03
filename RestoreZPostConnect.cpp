@@ -70,6 +70,16 @@ SKIP_EAX_CLEAR:
 #pragma warning(pop)
 */
 
+//using namespace AsmJit;
+
+//static AsmJit::Assembler ZPostConnectBuilder;
+
+//void BuildZPostConnect()
+//{
+//	ZPostConnectBuilder.push(imm(-1));
+//	ZPostConnectBuilder.push(imm(0x005D6E1E));
+//}
+
 const char* RestoreZPostConnect()
 {
 	Patching::Patch((void*)0x004325B0,
@@ -87,6 +97,7 @@ const char* RestoreZPostConnect()
 		"\x00\x5E\xE8\xC7\xEA\x13\x00\x81\xC4\x14\x01\x00\x00\xC3"
 	, 190);
 
-	//Patching::PatchUnconditionalJump(0x004325B0, (DWORD)ZPostConnect);
+	//BuildZPostConnect();
+	//Patching::PatchUnconditionalJump(0x004325B0, (DWORD)ZPostConnectBuilder.make());
 	return NULL;
 }

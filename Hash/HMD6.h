@@ -148,7 +148,6 @@ private:
 
 	static int DefaultR(int d, int keylen);
 
-protected:
 	void Init(int hashLengthInBits, const unsigned char *salt, int saltLen, int mode, int rounds);
 	void CompressBlock(md6_word* C, int ell, bool lastCompression);
 

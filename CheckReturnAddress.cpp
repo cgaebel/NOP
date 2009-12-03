@@ -36,13 +36,23 @@ const char* CheckReturnAddress()
 			"\x83\xC4\x10"						// add esp, 10								; 0x005E5F11
 		,37);
 
-		Patching::Patch((void*)0x005E5F14,
+		BYTE patchBuffer[] = (BYTE*)
 			"\x3E\x81\x3C\xE4\xFF\x5F\x5E\x00\x7F\x0B\x3E\x81\x3C\xE4\x00\x00"
 			"\x40\x00\x7C\x01\xC3\xB8\xD0\x5E\x5E\x00\x40\x50\xB8\xBF\x5E\x5E"
-			"\x00\x40\x50\xE8\x8A\xEC\xDC\x75\x50\xE8\xC0\xB2\xDC\x75\x83\xF8"
+			"\x00\x40\x50\xE8"
+				"\x8A\xEC\xDC\x75"	// LoadLibraryA
+			"\x50\xE8"
+				"\xC0\xB2\xDC\x75"	// GetProcAddress
+			"\x83\xF8"
 			"\x00\x0F\x84\xB5\xA0\xE1\xFF\xBB\xDF\x5E\x5E\x00\x43\x53\xFF\xD0"
-			"\x83\xC4\x04\xE9\xA4\xA0\xE1\xFF\x00\x00"
-		, 74);
+			"\x83\xC4\x04\xE9\xA4\xA0\xE1\xFF\x00\x00";
+
+		// TODO: This.
+		// Fix up the patch to include the correct addresses of LoadLibraryA and GetProcAddress.
+		//*(DWORD*)(patchBuffer + 36) = Patching::GetDistanceToAddress(0x005E5F14 + 35, (DWORD)LoadLibraryA);
+		//*(DWORD*)(patchBuffer + 42) = Patching::GetDistanceToAddress(0x005E5F14 + 41, (DWORD)GetProcAddress);
+
+		Patching::Patch((void*)0x005E5F14, patchBuffer, sizeof(patchBuffer));
 
 		Patching::Patch((void*)0x005E5F7A,
 			"\x83\xC4\x20"					// add esp, 20								; 0x005E5F7A
