@@ -301,11 +301,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\NOP.cpp"
+				RelativePath=".\Logging.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\OnHackDetected.cpp"
+				RelativePath=".\NOP.cpp"
 				>
 			</File>
 			<File
@@ -438,11 +438,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\RestorePostBasicInfo.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RestoreZPostConnect.cpp"
+					RelativePath=".\RestoreRemovedFunctions.cpp"
 					>
 				</File>
 			</Filter>

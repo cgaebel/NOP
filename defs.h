@@ -9,16 +9,19 @@ typedef LONG NTSTATUS;
 #define MODULE_SPACE_BEGIN	((BYTE*)0x70000000)
 #define MODULE_SPACE_END	((BYTE*)0x7FFFFFFF)
 
-#define FAILURE_FILELOG \
+#define FAILURE_FILELOG		\
 			"NOP.log"
 
-#define HACKLOG_FILENAME \
+#define HACKLOG_FILENAME	\
 			"NOP.log"
 
-#define MEMORY_HASH_FAILED_FILENAME	\
+#define INFO_FILENAME		\
+			"NOP.log"
+
+#define MEMORY_HASH_FAILED_FILENAME		\
 			"Invalid Memory Hash.txt"
 
-#define FILE_HASH_FAILED_FILENAME \
+#define FILE_HASH_FAILED_FILENAME		\
 			"Invalid File Hash.txt"
 
 #define API_FUNCTIONS \

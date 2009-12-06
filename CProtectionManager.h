@@ -36,6 +36,5 @@ ActiveProtectionFunc APIHookCheck;
 PassiveProtectionFunc ModuleHiding;
 PassiveProtectionFunc CheckReturnAddress;
 PassiveProtectionFunc FileHash;
-PassiveProtectionFunc RestoreZPostConnect;
-PassiveProtectionFunc RestorePostBasicInfo;
+PassiveProtectionFunc RestoreRemovedFunctions;
 PassiveProtectionFunc HideFromPEB;
