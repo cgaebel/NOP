@@ -4,20 +4,10 @@
 
 using namespace std;
 
-HashManager* HashManager::Get()
+HashManager& HashManager::Get()
 {
-	static HashManager* ptr = NULL;
-
-	if(ptr == NULL)
-	{
-		try {
-			ptr = new HashManager;
-		} catch(...) {
-			OnFailure("Could not allocate the hash manager.");
-		}
-	}
-
-	return ptr;
+	static HashManager instance;
+	return instance;
 }
 
 void HashManager::ParseSingleLine(const std::string& lineToParse)

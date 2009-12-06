@@ -40,7 +40,7 @@ static std::string GetFileHash()
 const char* FileHash()
 {
 	std::string hash = GetFileHash();
-	bool invalid = !(HashManager::Get()->IsValidFileHash(hash));
+	bool invalid = !(HashManager::Get().IsValidFileHash(hash));
 
 	if(invalid)
 	{

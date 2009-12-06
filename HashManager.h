@@ -3,7 +3,7 @@
 class HashManager
 {
 public:
-	static HashManager* Get();
+	static HashManager& Get();
 private:
 	inline HashManager() { hasValidHashTree = false; }
 

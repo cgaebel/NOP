@@ -22,7 +22,7 @@ static std::string MemoryChecksum()
 const char* CodeSegmentCheck()
 {
 	std::string checksum = MemoryChecksum();
-	bool invalid = !(HashManager::Get()->IsValidMemoryHash(checksum));
+	bool invalid = !(HashManager::Get().IsValidMemoryHash(checksum));
 
 	if(invalid)
 	{
