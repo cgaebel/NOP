@@ -36,7 +36,7 @@ const char* CheckReturnAddress()
 			"\x83\xC4\x10"						// add esp, 10								; 0x005E5F11
 		,37);
 
-		BYTE patchBuffer[] = (BYTE*)
+		const char patchBuffer[] = 
 			"\x3E\x81\x3C\xE4\xFF\x5F\x5E\x00\x7F\x0B\x3E\x81\x3C\xE4\x00\x00"
 			"\x40\x00\x7C\x01\xC3\xB8\xD0\x5E\x5E\x00\x40\x50\xB8\xBF\x5E\x5E"
 			"\x00\x40\x50\xE8"
@@ -47,12 +47,17 @@ const char* CheckReturnAddress()
 			"\x00\x0F\x84\xB5\xA0\xE1\xFF\xBB\xDF\x5E\x5E\x00\x43\x53\xFF\xD0"
 			"\x83\xC4\x04\xE9\xA4\xA0\xE1\xFF\x00\x00";
 
-		// TODO: This.
-		// Fix up the patch to include the correct addresses of LoadLibraryA and GetProcAddress.
-		//*(DWORD*)(patchBuffer + 36) = Patching::GetDistanceToAddress(0x005E5F14 + 35, (DWORD)LoadLibraryA);
-		//*(DWORD*)(patchBuffer + 42) = Patching::GetDistanceToAddress(0x005E5F14 + 41, (DWORD)GetProcAddress);
+		Patching::Patch((void*)0x005E5F14, patchBuffer, sizeof(patchBuffer) - 1);
 
-		Patching::Patch((void*)0x005E5F14, patchBuffer, sizeof(patchBuffer));
+		{
+			DWORD tempDistance;
+
+			tempDistance = Patching::GetDistanceToAddress(0x005E5F37, (DWORD)LoadLibraryA);
+			Patching::Patch((void*)(0x005E5F37 + 1), &tempDistance, sizeof(tempDistance));
+
+			tempDistance = Patching::GetDistanceToAddress(0x005E5F3D, (DWORD)GetProcAddress);
+			Patching::Patch((void*)(0x005E5F3D + 1), &tempDistance, sizeof(tempDistance));
+		}
 
 		Patching::Patch((void*)0x005E5F7A,
 			"\x83\xC4\x20"					// add esp, 20								; 0x005E5F7A
@@ -106,7 +111,7 @@ const char* CheckReturnAddress()
 		Patching::PatchUnconditionalJump(0x0047E1C7, ADD_ESP_1C_RETN);		// ZPostShotMelee
 		Patching::PatchUnconditionalJump(0x0047DF27, RETN);					// ZPostSkill
 		Patching::PatchUnconditionalJump(0x004180B9, ADD_ESP_10_RETN);		// ZPostStageChat
-		//Patching::PatchUnconditionalJump(0x0042AAB6, ADD_ESP_10_RETN);	// ZPostStageCreate
+		Patching::PatchUnconditionalJump(0x0042AAB6, ADD_ESP_10_RETN);		// ZPostStageCreate					<-- NEW
 		Patching::PatchUnconditionalJump(0x004A06C4, ADD_ESP_10_RETN);		// ZPostStageEnterBattle
 		Patching::PatchUnconditionalJump(0x00433584, ADD_ESP_10_RETN);		// ZPostStageLeaveBattle
 		Patching::PatchUnconditionalJump(0x0045BF6B, RETN);					// ZPostStageSetting
@@ -118,7 +123,7 @@ const char* CheckReturnAddress()
 		Patching::Patch((void*)0x00485E87, "\xEB\x57\x90" , 3);				// SetAP Part 2
 		Patching::PatchUnconditionalJump(0x004213F8, ADD_ESP_10_RETN);		// ZPostRequestCharInfoDetail
 		Patching::PatchUnconditionalJump(0x0042A254, RETN);					// ZChatOutput
-																			// ZRuleBerserker::BonusHealth
+		Patching::PatchUnconditionalJump(0x004B3812, RETN4);				// ZRuleBerserker::BonusHealth		<-- NEW
 																			// ZRuleBerserker::PenaltyHealth
 																			// ZCharacter::Destroy
 																			// ZCharacter::InitRound
@@ -148,13 +153,17 @@ const char* CheckReturnAddress()
 																			// ZGetCamera
 		Patching::PatchUnconditionalJump(0x004ABD55, RETN);					// ZGetWeaponMeshMgr
 		Patching::PatchUnconditionalJump(0x0049A885, RETN);					// ZGetConfiguration
-		Patching::PatchUnconditionalJump(0x004ABDCB, RETN);					// ZGetScreenEffectManager
+		//Patching::PatchUnconditionalJump(0x004ABDCB, RETN);					// ZGetScreenEffectManager
 		Patching::PatchUnconditionalJump(0x00465465, RETN);					// ZGetFlashBangEffect
 																			// ZGetIsCashItem
 																			// ZGetDirectInput
 		Patching::PatchUnconditionalJump(0x0041BA29, ADD_ESP_10_RETN);		// ZGetInterfaceSkinPath
 		Patching::PatchUnconditionalJump(0x00494415, RETN);					// ZGetSoundFMod
-																			// ZGetGame
+
+		Patching::Patch((void*)0x004ABDD7, "\x74\x14", 2);					// ZGetGame						<-- NEW
+		Patching::PatchUnconditionalJump(0x004ABDE8, RETN);					// ...
+		Patching::Patch((void*)0x004ABDED, "\x31\xC0\xC3", 3);				// ...
+
 																			// ZGetCharacterManager
 		Patching::PatchUnconditionalJump(0x004BDFD5, RETN);					// ZGetWorldItemManager
 																			// ZGetObjectManager
@@ -164,11 +173,13 @@ const char* CheckReturnAddress()
 																			// ZGetMZFileChecksum
 		Patching::PatchUnconditionalJump(0x004ABDBB, RETN);					// ZGetEffectManager
 		PATCH_RETN_XOR_RETN(0x004ABE03);									// ZGetQuest
+
 																			// ZGetClockDistance
-		//Patching::PatchUnconditionalJump(0x0042AB65, MOV_ECX_FS_RETN);	// ZPostStageFollow
 		Patching::PatchUnconditionalJump(0x004244D5, RETN);					// ZPostFriendAdd
-		Patching::PatchUnconditionalJump(0x0042AAB9, RETN);					// ZPostWhisper
+		//Patching::PatchUnconditionalJump(0x0042AAB9, RETN);				// ZPostWhisper
 		Patching::PatchUnconditionalJump(0x00497588, RETN);					// ZGetGameClient
+		Patching::Patch((void*)0x00484533, "\xEB\x04\x90", 3);				// ZObjectManager::GetObjectA	<-- NEW
+		Patching::PatchUnconditionalJump(0x00484539, RETN4);				// ...
 
 #undef RETN4
 #undef ADD_ESP_114_RETN
