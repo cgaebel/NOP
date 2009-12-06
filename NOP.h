@@ -13,4 +13,6 @@
 extern "C" __declspec(noreturn) __declspec(dllexport) void __cdecl OnFailure(const char* reason);
 extern "C" __declspec(noreturn) __declspec(dllexport) void __cdecl OnHackDetected(const char* message);
 
+void __cdecl LogInformation(const char* info);
+
 extern HINSTANCE g_hInstance;

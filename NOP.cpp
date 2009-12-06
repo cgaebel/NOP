@@ -40,18 +40,23 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 {
 	if(reason == DLL_PROCESS_ATTACH)
 	{
+		LogInformation("Attached!");
+
 		DisableThreadLibraryCalls(hDllHandle);
 		g_hInstance = hDllHandle;
 
 		try {
+			LogInformation("Hiding the thread...");
 			HideThreadFromDebugger();
 
+			LogInformation("Advertising...");
 			InitOverlay();
 
 			// initialize features and shit. In this case, winsock!
+			LogInformation("Starting winsock and grabbing the hash tree...");
 			if(WSAStartup(0x0202, &wsd))
 				OnFailure("Could not initialize winsock.");
-			HashManager::Get()->InitHashTree();
+			HashManager::Get().InitHashTree();
 
 			/*
 				Protection modules:
@@ -76,25 +81,34 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 					Load the rootkit (optional)					- 2
 			*/
 
+			LogInformation("Initializing passive protection...");
 	#ifdef NDEBUG
-			//CProtectionManager::Get()->AddPassiveProtection(ModuleHiding);	// Removed due to redundancy with HideFromPEB.
-			CProtectionManager::Get()->AddPassiveProtection(HideFromPEB);		// <- UNTESTED.
+			LogInformation("Hiding the module...");
+			CProtectionManager::Get()->AddPassiveProtection(HideFromPEB);
 	#endif
-			CProtectionManager::Get()->AddPassiveProtection(RestoreZPostConnect);	// The restore MUST be done BEFORE the return address check.
-			//CProtectionManager::Get()->AddPassiveProtection(RestorePostBasicInfo);	// <- TODO
+			LogInformation("Hotpatching memory...");
+			CProtectionManager::Get()->AddPassiveProtection(RestoreRemovedFunctions);	// The restore MUST be done BEFORE the return address check.
 			CProtectionManager::Get()->AddPassiveProtection(CheckReturnAddress);
 	#ifdef NDEBUG
+			LogInformation("Checking the file hash...");
 			CProtectionManager::Get()->AddPassiveProtection(FileHash);
 	#endif
 
+			LogInformation("Initializing active protection...");
 	#ifdef NDEBUG
 			//CProtectionManager::Get()->AddActiveProtection(DetectDebuggers);	// <- BROKEN MODULE. Damn you, Guy!
 	#endif
 			CProtectionManager::Get()->AddActiveProtection(TrainerDetection);
+#ifdef NDEBUG
 			CProtectionManager::Get()->AddActiveProtection(CodeSegmentCheck);
+#endif
 			//CProtectionManager::Get()->AddActiveProtection(APIHookCheck);		// <- BROKEN MODULE. Damn you, Guy!
 
+			LogInformation("Beginning the active protection loop...");
 			CProtectionManager::Get()->BeginActiveProtection();
+
+			LogInformation("Done!");
+
 		} catch(...) {
 			OnFailure("Something that should not have gone wrong, did go wrong.");
 		}
