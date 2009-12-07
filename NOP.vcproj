@@ -194,87 +194,6 @@
 				CommandLine=""
 			/>
 		</Configuration>
-		<Configuration
-			Name="Profile|Win32"
-			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
-			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="2"
-			UseOfMFC="0"
-			UseOfATL="0"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				AdditionalOptions="/MP"
-				Optimization="0"
-				PreprocessorDefinitions="WIN32;_WINDOWS;_USRDLL;NOP_EXPORTS;NDEBUG"
-				StringPooling="true"
-				MinimalRebuild="true"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="0"
-				DefaultCharIsUnsigned="true"
-				UsePrecompiledHeader="2"
-				WarningLevel="4"
-				WarnAsError="true"
-				DebugInformationFormat="3"
-				CallingConvention="2"
-				ForcedIncludeFiles="stdafx.h"
-				ForcedUsingFiles=""
-				EnablePREfast="false"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				LinkIncremental="1"
-				GenerateDebugInformation="true"
-				SubSystem="2"
-				TargetMachine="1"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -284,10 +203,6 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-			<File
-				RelativePath=".\CProtectionManager.cpp"
-				>
-			</File>
 			<File
 				RelativePath=".\HashManager.cpp"
 				>
@@ -318,10 +233,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\CProtectionManager.h"
-				>
-			</File>
 			<File
 				RelativePath=".\defs.h"
 				>
@@ -373,14 +284,6 @@
 						UsePrecompiledHeader="1"
 					/>
 				</FileConfiguration>
-				<FileConfiguration
-					Name="Profile|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\stdafx.h"
@@ -395,29 +298,41 @@
 			Name="Hash"
 			>
 			<File
-				RelativePath=".\Hash\CCRC32.h"
+				RelativePath=".\CCRC32.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Hash\Hash.debug.lib"
+				RelativePath=".\CCRC32.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Hash\Hash.release.lib"
+				RelativePath=".\HMD6.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Hash\HMD6.h"
+				RelativePath=".\HMD6.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Hash\IHash.h"
+				RelativePath=".\IHash.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\IHash.h"
 				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Protection Methods"
 			>
+			<File
+				RelativePath=".\CProtectionManager.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\CProtectionManager.h"
+				>
+			</File>
 			<Filter
 				Name="Passive"
 				>
@@ -434,7 +349,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\ModuleHiding.cpp"
+					RelativePath=".\HideModule.cpp"
 					>
 				</File>
 				<File
@@ -446,51 +361,11 @@
 				Name="Active"
 				>
 				<File
-					RelativePath=".\APIHookCheck.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\CodeSegmentCheck.cpp"
 					>
 				</File>
 				<File
-					RelativePath=".\DetectDebuggers.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\TrainerDetection.cpp"
-					>
-				</File>
-			</Filter>
-		</Filter>
-		<Filter
-			Name="OnionAPI"
-			>
-			<Filter
-				Name="Header Files"
-				>
-				<File
-					RelativePath=".\FastSystemCall.h"
-					>
-				</File>
-				<File
-					RelativePath=".\OnionAPI.h"
-					>
-				</File>
-				<File
-					RelativePath=".\OnionDefs.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Source Files"
-				>
-				<File
-					RelativePath=".\FastSystemCall.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\OnionAPI.cpp"
 					>
 				</File>
 			</Filter>
@@ -508,104 +383,12 @@
 			</File>
 		</Filter>
 		<Filter
-			Name="AsmJit"
-			>
-			<File
-				RelativePath=".\AsmJit\AsmJit.debug.lib"
-				>
-			</File>
-			<File
-				RelativePath=".\AsmJit\AsmJit.release.lib"
-				>
-			</File>
-			<Filter
-				Name="Header Files"
-				>
-				<File
-					RelativePath=".\AsmJit\AsmJit.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Assembler.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\AssemblerX86X64.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Build.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Compiler.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\CompilerX86X64.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Config.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\CpuInfo.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Defs.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\DefsX86X64.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Lock.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Logger.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\LoggerX86X64.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\MemoryManager.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Serializer.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\SerializerX86X64.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\Util.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\VirtualMemory.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\WarningsPop.h"
-					>
-				</File>
-				<File
-					RelativePath=".\AsmJit\WarningsPush.h"
-					>
-				</File>
-			</Filter>
-		</Filter>
-		<Filter
 			Name="Whitepapers"
 			>
+			<File
+				RelativePath=".\Release\Release.bat"
+				>
+			</File>
 			<Filter
 				Name="Protocol"
 				>
