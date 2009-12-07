@@ -35,15 +35,10 @@
 #pragma comment(lib, "d3dx9.lib")
 
 // Application-specific.
-#include "./Hash/HMD6.h"
-#include "HideThreadFromDebugger.h"
-#include "./AsmJit/AsmJit.h"
-
-#ifdef _DEBUG
-	#pragma comment(lib, "./Hash/Hash.debug.lib")
-#else
-	#pragma comment(lib, "./Hash/Hash.release.lib")
-#endif
+#include "defs.h"
+#include "IHash.h"
+#include "HMD6.h"
+#include "NOP.h"
 
 // Helps with assembly call tables.
 #define DEF_CALL(address)			static void* __call__##address = (void*)address
@@ -66,8 +61,6 @@
 	ONCE_HELPER(instructionsToRunOnce, __onceVar__##__COUNTER__)
 
 // Asserts that optimize in release mode.
-#define ASSERTUME(expression)	\
-	assert(expression);			\
-	__assume(expression)
+#define ASSERTUME	__noop
 
 #pragma warning(disable:6320)
