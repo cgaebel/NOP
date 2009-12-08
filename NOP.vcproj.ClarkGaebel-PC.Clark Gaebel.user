@@ -9,7 +9,7 @@
 			Name="Debug|Win32"
 			>
 			<DebugSettings
-				Command="C:\Program Files (x86)\Freestyle GunZ\gunz.exe"
+				Command=""
 				WorkingDirectory=""
 				CommandArguments=""
 				Attach="false"
