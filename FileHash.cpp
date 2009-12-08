@@ -1,6 +1,5 @@
 #include "CProtectionManager.h"
 #include "HashManager.h"
-#include "defs.h"
 
 static std::string GetFileHash()
 {
@@ -43,10 +42,7 @@ const char* FileHash()
 	bool invalid = !(HashManager::Get().IsValidFileHash(hash));
 
 	if(invalid)
-	{
-		std::ofstream out(FILE_HASH_FAILED_FILENAME);
-		out << hash << std::endl;
-	}
+		LogInformation(hash.c_str());
 
 	return (invalid) ? __FUNCTION__ : NULL;
 }

@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "NOP.h"
 #include "HashManager.h"
-#include "FastSystemCall.h"
 #include "Patching.h"
 #include "CProtectionManager.h"
 #include "Overlay.h"
+#include "HideThreadFromDebugger.h"
 
 using namespace std;
 
@@ -33,9 +33,6 @@ using namespace std;
 HINSTANCE g_hInstance;
 static WSADATA wsd;
 
-// For debugging purposes when Visual Studio is fucking up.
-#define ANNOY(num) MessageBoxA(NULL, #num, "Beep!", MB_OK)
-
 bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 {
 	if(reason == DLL_PROCESS_ATTACH)
@@ -56,7 +53,6 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			LogInformation("Starting winsock and grabbing the hash tree...");
 			if(WSAStartup(0x0202, &wsd))
 				OnFailure("Could not initialize winsock.");
-			HashManager::Get().InitHashTree();
 
 			/*
 				Protection modules:
@@ -89,20 +85,13 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			LogInformation("Hotpatching memory...");
 			CProtectionManager::Get()->AddPassiveProtection(RestoreRemovedFunctions);	// The restore MUST be done BEFORE the return address check.
 			CProtectionManager::Get()->AddPassiveProtection(CheckReturnAddress);
-	#ifdef NDEBUG
+
 			LogInformation("Checking the file hash...");
 			CProtectionManager::Get()->AddPassiveProtection(FileHash);
-	#endif
 
 			LogInformation("Initializing active protection...");
-	#ifdef NDEBUG
-			//CProtectionManager::Get()->AddActiveProtection(DetectDebuggers);	// <- BROKEN MODULE. Damn you, Guy!
-	#endif
 			CProtectionManager::Get()->AddActiveProtection(TrainerDetection);
-#ifdef NDEBUG
 			CProtectionManager::Get()->AddActiveProtection(CodeSegmentCheck);
-#endif
-			//CProtectionManager::Get()->AddActiveProtection(APIHookCheck);		// <- BROKEN MODULE. Damn you, Guy!
 
 			LogInformation("Beginning the active protection loop...");
 			CProtectionManager::Get()->BeginActiveProtection();

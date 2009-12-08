@@ -45,36 +45,15 @@ void HashManager::InitHashTree()
 		}
 
 		ParseSingleLine(currentLine);
-		hasValidHashTree = true;
-	}
-	else
-	{
-		hasValidHashTree = false;
 	}
 }
 
 bool HashManager::IsValidFileHash(std::string fileHash)
 {
-	if(hasValidHashTree)
-	{
-		return (fileHashTree.find(fileHash) != fileHashTree.end());
-	}
-	else
-	{
-		InitHashTree();
-		return true;
-	}
+	return (fileHashTree.find(fileHash) != fileHashTree.end());
 }
 
 bool HashManager::IsValidMemoryHash(std::string memoryHash)
 {
-	if(hasValidHashTree)
-	{
-		return (memoryHashTree.find(memoryHash) != memoryHashTree.end());
-	}
-	else
-	{
-		InitHashTree();
-		return true;
-	}
+	return (memoryHashTree.find(memoryHash) != memoryHashTree.end());
 }

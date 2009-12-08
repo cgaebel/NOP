@@ -1,5 +1,6 @@
 #include "CProtectionManager.h"
 #include "NOP.h"
+#include "HideThreadFromDebugger.h"
 
 using namespace std;
 
@@ -55,10 +56,12 @@ DWORD CProtectionManager::ActiveProtectionThread(CProtectionManager* simulatedTh
 
 				if(retval != NULL)
 					OnHackDetected(retval);
+
+				Sleep(500);
 			}
 
 			// Run the checks every 3 seconds.
-			Sleep(3000);
+			Sleep(2000);
 		}
 	} catch(...) {
 		OnHackDetected("Unhandled C++ exception occured in one of the protection functions.");

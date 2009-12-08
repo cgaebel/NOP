@@ -21,14 +21,14 @@ static std::string MemoryChecksum()
 
 const char* CodeSegmentCheck()
 {
-	std::string checksum = MemoryChecksum();
-	bool invalid = !(HashManager::Get().IsValidMemoryHash(checksum));
+	std::string checksum;
 
-	if(invalid)
+	if(HashManager::Get().IsValidMemoryHash(checksum = MemoryChecksum()))
+		return NULL;
+
+	else
 	{
-		std::ofstream out(MEMORY_HASH_FAILED_FILENAME);
-		out << checksum << std::endl;
+		LogInformation(checksum.c_str());
+		return __FUNCTION__;
 	}
-
-	return invalid ? __FUNCTION__ : NULL;
 }

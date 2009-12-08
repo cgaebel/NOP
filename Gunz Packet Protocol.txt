@@ -1,0 +1,47 @@
+[x]		= BYTE
+[ x ]	= SHORT
+[ ... ]	= Variable size
+
+       HEADER                    PAYLOAD
+[ A ][ B ][ C ][ D ]	[ E ][F][   ... G ...   ]
+
+A
+==
+Version information.
+0x0A for encryption/decryption key
+0x64 for decrypted
+0x65 for encrypted
+TODO: Check veldi for encryption/decryption algorithm.
+
+B
+==
+The size of the packet.
+NOTE: This includes the size of the header.
+
+C
+==
+The packet's checksum.
+Set to zero, build the rest of the packet, then run the entire packet through the checksum algorithm.
+
+D
+==
+The size of the packet's payload.
+NOTE: Does NOT include the size of the header.
+
+E
+==
+The command ID. Excellent for logging! See "Dexgod Command Dump.txt"
+
+F
+==
+The packet ID.
+Starts at zero and is incremented every time a packet is sent.
+Used to verify packet integrity.
+IDEA: When sending packets in the hooked send and recv functions, keep a private packetID and add
+	  the two together whenever a packet is sent. It starts at zero and is incremented every time a
+	  packet is sent.
+
+G
+==
+D-sizeof(E)-sizeof(F) bytes long.
+The parameters to the command.

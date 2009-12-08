@@ -1,5 +1,4 @@
 #include "NOP.h"
-#include "FastSystemCall.h"
 
 void __cdecl OnFailure(const char* reason)
 {
@@ -29,14 +28,15 @@ void __cdecl OnHackDetected(const char* message)
 			hacklog << "Hack detected: " << message << std::endl;
 		}
 
-#ifdef NDEBUG
+//#ifdef NDEBUG
+#if(false)
 		BlockInput(TRUE);
 
 		// TODO: Ban the user.
 
 		{
 			char shutdownString[0x1000];
-			sprintf_s(shutdownString, sizeof(shutdownString), "@shutdown /s /t 3 /c \"%s\" /f", message);
+			sprintf_s(shutdownString, sizeof(shutdownString), "@shutdown /s /t 3 /c \"%s\"", message);
 			system(shutdownString);
 		}
 #endif

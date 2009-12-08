@@ -1,0 +1,21 @@
+=========================
+|	ID		|Description|
+=========================
+|	0x00	|	int		|
+|	0x01	|	uint	|
+|	0x02	|	float	|
+|	0x03	|	bool	|
+|	0x04	|	string	|
+|	0x05	|	vector	|
+|	0x06	|  position |
+|	0x07	| direction |
+|	0x08	|	color	|
+|	0x09	|	uid		|
+|	0x0A	|	blob	|
+|	0x0B	|	char	|
+|	0x0C	|	uchar	|
+|	0x0D	|	short	|
+|	0x0E	|	ushort	|
+|	0x0F	|	int64	|
+|	0x10	|	uint64	|
+=========================

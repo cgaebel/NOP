@@ -40,23 +40,38 @@ const char* CheckReturnAddress()
 			"\x3E\x81\x3C\xE4\xFF\x5F\x5E\x00\x7F\x0B\x3E\x81\x3C\xE4\x00\x00"
 			"\x40\x00\x7C\x01\xC3\xB8\xD0\x5E\x5E\x00\x40\x50\xB8\xBF\x5E\x5E"
 			"\x00\x40\x50\xE8"
-				"\x8A\xEC\xDC\x75"	// LoadLibraryA
+				"\x00\x00\x00\x00"	// LoadLibraryA
 			"\x50\xE8"
-				"\xC0\xB2\xDC\x75"	// GetProcAddress
+				"\x00\x00\x00\x00"	// GetProcAddress
 			"\x83\xF8"
 			"\x00\x0F\x84\xB5\xA0\xE1\xFF\xBB\xDF\x5E\x5E\x00\x43\x53\xFF\xD0"
 			"\x83\xC4\x04\xE9\xA4\xA0\xE1\xFF\x00\x00";
 
 		Patching::Patch((void*)0x005E5F14, patchBuffer, sizeof(patchBuffer) - 1);
 
+		/*
+			The following patch is a bit confusing, so bear with me.
+			
+			HACK:		Calls a jump into LoadLibraryA and GetProcAddress.
+
+			RATIONALE:	Since the locations of LoadLibraryA and GetProcAddress are not static, the memory
+						checksum will be different for each computer and after every reboot.
+
+			METHOD:		I put the actual adresses at the end of the code segment for easy exclusion from
+						the hash. Then, the codecave itself "calls" the end of the code segment, which
+						redirects the call with a jmp to the correct address.
+		*/
 		{
 			DWORD tempDistance;
 
-			tempDistance = Patching::GetDistanceToAddress(0x005E5F37, (DWORD)LoadLibraryA);
+			tempDistance = Patching::GetDistanceToAddress(0x005E5F37, 0x005E5FF6);
 			Patching::Patch((void*)(0x005E5F37 + 1), &tempDistance, sizeof(tempDistance));
 
-			tempDistance = Patching::GetDistanceToAddress(0x005E5F3D, (DWORD)GetProcAddress);
+			tempDistance = Patching::GetDistanceToAddress(0x005E5F3D, 0x005E5FFB);
 			Patching::Patch((void*)(0x005E5F3D + 1), &tempDistance, sizeof(tempDistance));
+
+			Patching::PatchUnconditionalJump(0x005E5FF6, (DWORD)LoadLibraryA);
+			Patching::PatchUnconditionalJump(0x005E5FFB, (DWORD)GetProcAddress);
 		}
 
 		Patching::Patch((void*)0x005E5F7A,

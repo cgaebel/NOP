@@ -30,10 +30,8 @@ public:
 // Protection modules:
 ActiveProtectionFunc TrainerDetection;
 ActiveProtectionFunc CodeSegmentCheck;
-ActiveProtectionFunc DetectDebuggers;
-ActiveProtectionFunc APIHookCheck;
 
-PassiveProtectionFunc ModuleHiding;
+PassiveProtectionFunc HideModule;
 PassiveProtectionFunc CheckReturnAddress;
 PassiveProtectionFunc FileHash;
 PassiveProtectionFunc RestoreRemovedFunctions;

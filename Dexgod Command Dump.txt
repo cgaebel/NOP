@@ -1,0 +1,3870 @@
+Parameter types
+====================================================
+0x00: int
+0x01: uint
+0x02: float
+0x03: bool
+0x04: string
+0x05: vector
+0x06: position
+0x07: direction
+0x08: color
+0x09: uid
+0x0A: blob
+0x0B: char
+0x0C: uchar
+0x0D: short
+0x0E: ushort
+0x0F: int64
+0x10: uint64
+
+Dump
+====================================================
+Command ID = B
+Command = "Server.GetKey"
+Command Help = "Get Key"
+
+    Parameter Type = A
+    Parameter = "Encrypted Values"
+
+Command ID = A
+Command = "Client.GetKey"
+Command Help = "Get Key"
+
+    Parameter Type = A
+    Parameter = "Encrypted Values"
+
+Command ID = C9
+Command = "Local.Info"
+Command Help = "Local information"
+
+Command ID = CA
+Command = "Local.Echo"
+Command Help = "Local echo test"
+
+    Parameter Type = 4
+    Parameter = "Message"
+
+Command ID = CB
+Command = "Local.Login"
+Command Help = "Local Login"
+
+    Parameter Type = 9
+    Parameter = "uidComm"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+Command ID = 0
+Command = "Help"
+Command Help = "This command"
+
+Command ID = 1
+Command = "Version"
+Command Help = "Version description"
+
+Command ID = 64
+Command = "DebugTest"
+Command Help = "Debug Test"
+
+Command ID = 12D
+Command = "Net.Enum"
+Command Help = "Enum server list"
+
+Command ID = 12E
+Command = "Net.Connect"
+Command Help = "Connect to server"
+
+    Parameter Type = 4
+    Parameter = "Address"
+
+Command ID = 12F
+Command = "Net.Disconnect"
+Command Help = "Disconnect to server"
+
+Command ID = 130
+Command = "Net.Clear"
+Command Help = "Clear Connection"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+Command ID = 141
+Command = "Net.CheckPing"
+Command Help = "Check ping time"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+Command ID = 142
+Command = "Net.Ping"
+Command Help = "Ping"
+
+    Parameter Type = 1
+    Parameter = "TimeStamp"
+
+Command ID = 143
+Command = "Net.Pong"
+Command Help = "Pong"
+
+    Parameter Type = 1
+    Parameter = "TimeStamp"
+
+Command ID = 144
+Command = "HShield.Ping"
+Command Help = "Ping"
+
+    Parameter Type = 1
+    Parameter = "TimeStamp"
+
+    Parameter Type = A
+    Parameter = "CRCInfo"
+
+Command ID = 145
+Command = "HShield.Pong"
+Command Help = "Pong"
+
+    Parameter Type = 1
+    Parameter = "TimeStamp"
+
+    Parameter Type = A
+    Parameter = "AckMsg"
+
+Command ID = 137
+Command = "Net.OnConnect"
+Command Help = "On Connect"
+
+Command ID = 138
+Command = "Net.OnDisConnect"
+Command Help = "On Disconnect"
+
+Command ID = 139
+Command = "Net.OnError"
+Command Help = "On Error"
+
+    Parameter Type = 0
+    Parameter = "ErrorCode"
+
+Command ID = 14B
+Command = "Net.ConnectToZoneServer"
+Command Help = "Connect to zone-server"
+
+Command ID = 155
+Command = "Net.RequestInfo"
+Command Help = "Request Net information"
+
+Command ID = 156
+Command = "Net.ResponseInfo"
+Command Help = "Response Net information"
+
+    Parameter Type = 4
+    Parameter = "Information"
+
+Command ID = 15F
+Command = "Net.Echo"
+Command Help = "Echo test"
+
+    Parameter Type = 4
+    Parameter = "Message"
+
+Command ID = 192
+Command = "Match.Announce"
+Command Help = "Announce Server Message"
+
+    Parameter Type = 1
+    Parameter = "Type"
+
+    Parameter Type = 4
+    Parameter = "Msg"
+
+Command ID = 169
+Command = "Clock.Synchronize"
+Command Help = "Synchronize Clock"
+
+    Parameter Type = 1
+    Parameter = "GlobalClock(msec)"
+
+Command ID = 3E9
+Command = "Match.Login"
+Command Help = "Login Match Server"
+
+    Parameter Type = 4
+    Parameter = "UserID"
+
+    Parameter Type = 4
+    Parameter = "Password"
+
+    Parameter Type = 0
+    Parameter = "CommandVersion"
+
+    Parameter Type = 1
+    Parameter = "nChecksumPack"
+
+    Parameter Type = A
+    Parameter = "MD5Hash"
+
+Command ID = 3EA
+Command = "Match.ResponseLogin"
+Command Help = "Response Login"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 4
+    Parameter = "ServerName"
+
+    Parameter Type = B
+    Parameter = "ServerMode"
+
+    Parameter Type = 4
+    Parameter = "AccountID"
+
+    Parameter Type = C
+    Parameter = "UGradeID"
+
+    Parameter Type = C
+    Parameter = "PGradeID"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 4
+    Parameter = "RandomValue"
+
+    Parameter Type = A
+    Parameter = "EncryptMsg"
+
+Command ID = 193
+Command = "Match.Response.Result"
+Command Help = "Response Result"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 3EB
+Command = "Match.LoginNetmarble"
+Command Help = "Login from Netmarble"
+
+    Parameter Type = 4
+    Parameter = "CPCookie"
+
+    Parameter Type = 4
+    Parameter = "SpareParam"
+
+    Parameter Type = 0
+    Parameter = "CommandVersion"
+
+    Parameter Type = 1
+    Parameter = "nChecksumPack"
+
+Command ID = 3EC
+Command = "Match.LoginNetmarbleJP"
+Command Help = "Login from Netmarble Japan"
+
+    Parameter Type = 4
+    Parameter = "LoginID"
+
+    Parameter Type = 4
+    Parameter = "LoginPW"
+
+    Parameter Type = 0
+    Parameter = "CommandVersion"
+
+    Parameter Type = 1
+    Parameter = "nChecksumPack"
+
+Command ID = 3ED
+Command = "Match.LoginFromDBAgent"
+Command Help = "Login from DBAgent"
+
+    Parameter Type = 9
+    Parameter = "CommUID"
+
+    Parameter Type = 4
+    Parameter = "LoginID"
+
+    Parameter Type = 4
+    Parameter = "Name"
+
+    Parameter Type = 0
+    Parameter = "Sex"
+
+    Parameter Type = 3
+    Parameter = "bFreeLoginIP"
+
+    Parameter Type = 1
+    Parameter = "nChecksumPack"
+
+Command ID = 3F0
+Command = "Match.LoginFailedFromDBAgent"
+Command Help = "Login Failed from DBAgent"
+
+    Parameter Type = 9
+    Parameter = "CommUID"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 3F1
+Command = "Match.FinH"
+Command Help = "FinH"
+
+Command ID = 3F2
+Command = "MC_MATCH_DISCONNMSG"
+Command Help = "disconnect reason"
+
+    Parameter Type = 1
+    Parameter = "message id"
+
+Command ID = 3F3
+Command = "MC_MATCH_LOGIN_NHNUSA"
+Command Help = "Login from nhn usa."
+
+    Parameter Type = 4
+    Parameter = "UserID"
+
+    Parameter Type = 4
+    Parameter = "szAuthStr"
+
+    Parameter Type = 0
+    Parameter = "CommandVersion"
+
+    Parameter Type = 1
+    Parameter = "nChecksumPack"
+
+Command ID = 44D
+Command = "Match.ObjectCache"
+Command Help = "Match Object Cache"
+
+    Parameter Type = C
+    Parameter = "Type"
+
+    Parameter Type = A
+    Parameter = "ObjectCache"
+
+Command ID = 3EE
+Command = "Match.BridgePeer"
+Command Help = "Match BridgePeer"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 1
+    Parameter = "dwIP"
+
+    Parameter Type = 1
+    Parameter = "nPort"
+
+Command ID = 3EF
+Command = "Match.BridgePeerACK"
+Command Help = "ACK for BridgePeer"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 0
+    Parameter = "nCode"
+
+Command ID = 4B1
+Command = "MatchServer.RequestRecommandedChannel"
+Command Help = "Request recommanded channel"
+
+Command ID = 4B2
+Command = "MatchServer.ResponseRecommandedChannel"
+Command Help = "Response recommanded channel"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+Command ID = 4B5
+Command = "Channel.Join"
+Command Help = "Join a Channel"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+Command ID = 4B7
+Command = "Channel.ResponseJoin"
+Command Help = "Response Join a Channel"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+    Parameter Type = 0
+    Parameter = "ChannelType"
+
+    Parameter Type = 4
+    Parameter = "ChannelName"
+
+    Parameter Type = 3
+    Parameter = "EnableInterface"
+
+Command ID = 4B6
+Command = "Channel.RequestJoinFromName"
+Command Help = "Join a Channel From Name"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 0
+    Parameter = "nChannelType"
+
+    Parameter Type = 4
+    Parameter = "ChannelName"
+
+Command ID = 4B8
+Command = "Channel.Leave"
+Command Help = "Leave Channel"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+Command ID = 4BB
+Command = "Channel.ListStart"
+Command Help = "Channel List transmit start"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 0
+    Parameter = "nChannelType"
+
+Command ID = 4BC
+Command = "Channel.ListStop"
+Command Help = "Channel List transmit stop"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+Command ID = 4BD
+Command = "Channel.List"
+Command Help = "Channel List"
+
+    Parameter Type = A
+    Parameter = "ChannelList"
+
+Command ID = 4C9
+Command = "Channel.Request.Chat"
+Command Help = "Request Chat to Channel"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+    Parameter Type = 4
+    Parameter = "Chat"
+
+Command ID = 4CA
+Command = "Channel.Chat"
+Command Help = "Chat to Channel"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+    Parameter Type = 4
+    Parameter = "PlayerName"
+
+    Parameter Type = 4
+    Parameter = "Chat"
+
+    Parameter Type = 0
+    Parameter = "nGrade"
+
+Command ID = 4CE
+Command = "Channel.Request.Rule"
+Command Help = "Request the Channel Rule"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+Command ID = 4CF
+Command = "Channel.Response.Rule"
+Command Help = "Response the Channel Rule"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+    Parameter Type = 4
+    Parameter = "RuleName"
+
+Command ID = 4D0
+Command = "Channel.RequestAllPlayerList"
+Command Help = "Request Channel All Player List"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+    Parameter Type = 1
+    Parameter = "PlaceFilter"
+
+    Parameter Type = 1
+    Parameter = "Options"
+
+Command ID = 4D1
+Command = "Channel.ResponseAllPlayerList"
+Command Help = "Response Channel All Player List"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+    Parameter Type = A
+    Parameter = "PlayerList"
+
+Command ID = 515
+Command = "Stage.Create"
+Command Help = "Create a Stage"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 4
+    Parameter = "StageName"
+
+    Parameter Type = 3
+    Parameter = "IsPrivate"
+
+    Parameter Type = 4
+    Parameter = "Password"
+
+Command ID = 518
+Command = "Stage.RequestJoin"
+Command Help = "Request Join a Stage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 519
+Command = "Stage.RequestPrivateJoin"
+Command Help = "Request Join a Private Stage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 4
+    Parameter = "Password"
+
+Command ID = 517
+Command = "Stage.Join"
+Command Help = "Join a Stage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 1
+    Parameter = "nRoomNo"
+
+    Parameter Type = 4
+    Parameter = "StageName"
+
+Command ID = 51B
+Command = "Stage.Leave"
+Command Help = "Leave Stage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 51C
+Command = "Stage.Request.PlayerList"
+Command Help = "Requst PlayerList from the Stage"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 51D
+Command = "Stage.Follow"
+Command Help = "Follow User to Stage"
+
+    Parameter Type = 4
+    Parameter = "strTarget"
+
+Command ID = 51E
+Command = "Stage.Response.Follow"
+Command Help = "Response Follow User to Stage"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 51A
+Command = "Stage.ResponseJoin"
+Command Help = "Response Join a Stage"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 534
+Command = "Stage.RequirePassword"
+Command Help = "Require password"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 4
+    Parameter = "StageName"
+
+Command ID = 5AB
+Command = "RequestGameInfo"
+Command Help = "Request Game Info"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 5AC
+Command = "ResponseGameInfo"
+Command Help = "Response Game Info"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = A
+    Parameter = "GameInfo"
+
+    Parameter Type = A
+    Parameter = "RuleInfo"
+
+    Parameter Type = A
+    Parameter = "PlayerInfo"
+
+Command ID = 516
+Command = "Stage.ResponseCreate"
+Command Help = "Response Create a Stage"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 579
+Command = "Stage.Request.EnterBattle"
+Command Help = "Request Enter Stage Battle"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 57A
+Command = "Stage.EnterBattle"
+Command Help = "Enter Stage Battle"
+
+    Parameter Type = C
+    Parameter = "Param"
+
+    Parameter Type = A
+    Parameter = "CharData"
+
+Command ID = 57B
+Command = "Stage.LeaveBattle"
+Command Help = "Leave Stage Battle"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 597
+Command = "Stage.Start"
+Command Help = "Start Stage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 0
+    Parameter = "nCountdown"
+
+Command ID = 586
+Command = "Stage.Map"
+Command Help = "Change Map"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 4
+    Parameter = "MapName"
+
+Command ID = 529
+Command = "Stage.Chat"
+Command Help = "Chat to Stage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 4
+    Parameter = "Chat"
+
+Command ID = 52A
+Command = "Stage.RequestQuickJoin"
+Command Help = "Stage Request QuickJoin"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = A
+    Parameter = "Param"
+
+Command ID = 52B
+Command = "Stage.ResponseQuickJoin"
+Command Help = "Stage Response QuickJoin"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 533
+Command = "Stage.StageGo"
+Command Help = "Stage Go"
+
+    Parameter Type = 1
+    Parameter = "RoomNo"
+
+Command ID = 58E
+Command = "Stage.State"
+Command Help = "Change State In Stage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 0
+    Parameter = "nState"
+
+Command ID = 58F
+Command = "Stage.Team"
+Command Help = "Change Team"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 1
+    Parameter = "nTeam"
+
+Command ID = 58D
+Command = "Stage.Master"
+Command Help = "Set Master"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+Command ID = 520
+Command = "Stage.ListStart"
+Command Help = "Stage List transmit start"
+
+Command ID = 521
+Command = "Stage.ListStop"
+Command Help = "Stage List transmit stop"
+
+Command ID = 522
+Command = "Stage.List"
+Command Help = "Stage List"
+
+    Parameter Type = B
+    Parameter = "PrevStageListCount"
+
+    Parameter Type = B
+    Parameter = "NextStageListCount"
+
+    Parameter Type = A
+    Parameter = "StageList"
+
+Command ID = 51F
+Command = "Stage.RequestStageList"
+Command Help = "Request Stage List"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+    Parameter Type = 0
+    Parameter = "StageCursor"
+
+Command ID = 4C5
+Command = "Channel.RequestPlayerList"
+Command Help = "Request Channel Player List"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidChannel"
+
+    Parameter Type = 0
+    Parameter = "PlayerListPage"
+
+Command ID = 4C6
+Command = "Channel.ResponsePlayerList"
+Command Help = "Response Channel Player List"
+
+    Parameter Type = C
+    Parameter = "TotalPlayerCount"
+
+    Parameter Type = C
+    Parameter = "PlayerListPage"
+
+    Parameter Type = A
+    Parameter = "PlayerList"
+
+Command ID = 583
+Command = "Stage.RequestStageSetting"
+Command Help = "Request stage setting"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 584
+Command = "Stage.ResponseStageSetting"
+Command Help = "Response stage setting"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = A
+    Parameter = "StageSetting"
+
+    Parameter Type = A
+    Parameter = "CharSetting"
+
+    Parameter Type = 0
+    Parameter = "StageState"
+
+    Parameter Type = 9
+    Parameter = "uidMaster"
+
+Command ID = 585
+Command = "Stage.StageSetting"
+Command Help = "Setting up Stage"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = A
+    Parameter = "StageSetting"
+
+Command ID = 598
+Command = "Stage.Launch"
+Command Help = "Launch Stage"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 4
+    Parameter = "MapName"
+
+Command ID = 5A2
+Command = "Stage.Finish"
+Command Help = "Finish Stage"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 5B5
+Command = "Stage.RequestPeerList"
+Command Help = "Request peer list"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 5B6
+Command = "Stage.ResponsePeerList"
+Command Help = "Response peer list"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = A
+    Parameter = "PeerList"
+
+Command ID = 5A1
+Command = "Loading.Complete"
+Command Help = "Loading Complete"
+
+    Parameter Type = 9
+    Parameter = "ChrUID"
+
+    Parameter Type = 0
+    Parameter = "Percent"
+
+Command ID = 5BF
+Command = "Match.RequestPeerRelay"
+Command Help = "Request Peer Relay"
+
+    Parameter Type = 9
+    Parameter = "PlayerUID"
+
+    Parameter Type = 9
+    Parameter = "PeerCharUID"
+
+Command ID = 5C0
+Command = "Match.ResponsePeerRelay"
+Command Help = "Response Peer Relay"
+
+    Parameter Type = 9
+    Parameter = "PeerCharUID"
+
+Command ID = 5DD
+Command = "Stage.RoundState"
+Command Help = "Sync State of a StageRound"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 0
+    Parameter = "nRound"
+
+    Parameter Type = 0
+    Parameter = "nState"
+
+    Parameter Type = 0
+    Parameter = "nArg"
+
+Command ID = 5E7
+Command = "Game.Kill"
+Command Help = "Object Die"
+
+    Parameter Type = 9
+    Parameter = "Attacker"
+
+Command ID = 5EB
+Command = "Game.Requst.Spawn"
+Command Help = "Request Spawn"
+
+    Parameter Type = 9
+    Parameter = "CharUID"
+
+    Parameter Type = 6
+    Parameter = "Position"
+
+    Parameter Type = 7
+    Parameter = "Direction"
+
+Command ID = 5EC
+Command = "Game.Response.Spawn"
+Command Help = "Response Spawn"
+
+    Parameter Type = 9
+    Parameter = "CharUID"
+
+    Parameter Type = 11
+    Parameter = "Position"
+
+    Parameter Type = 11
+    Parameter = "Direction"
+
+Command ID = 5E9
+Command = "Game.LevelUp"
+Command Help = "Game.LevelUp"
+
+    Parameter Type = 9
+    Parameter = "Player"
+
+    Parameter Type = 0
+    Parameter = "Level"
+
+Command ID = 5EA
+Command = "Game.LevelDown"
+Command Help = "Game.LevelDown"
+
+    Parameter Type = 9
+    Parameter = "Player"
+
+    Parameter Type = 0
+    Parameter = "Level"
+
+Command ID = 5E8
+Command = "Game.Dead"
+Command Help = "Game.Dead"
+
+    Parameter Type = 9
+    Parameter = "Attacker"
+
+    Parameter Type = 1
+    Parameter = "AttackerArg"
+
+    Parameter Type = 9
+    Parameter = "Victim"
+
+    Parameter Type = 1
+    Parameter = "VictimArg"
+
+Command ID = 5ED
+Command = "Game.TeamBonus"
+Command Help = "Game.TeamBonus"
+
+    Parameter Type = 9
+    Parameter = "CharUID"
+
+    Parameter Type = 1
+    Parameter = "ExpArg"
+
+Command ID = 5F1
+Command = "Game.RequestTimeSync"
+Command Help = "Request TimeSync for Game"
+
+    Parameter Type = 1
+    Parameter = "LocalTimeStamp"
+
+Command ID = 5F2
+Command = "Game.ResponseTimeSync"
+Command Help = "Response TimeSync for Game"
+
+    Parameter Type = 1
+    Parameter = "LocalTimeStamp"
+
+    Parameter Type = 1
+    Parameter = "GlobalTimeStamp"
+
+Command ID = 5F3
+Command = "Game.ReportTimeSync"
+Command Help = "Report TimeSync for Verify SpeedHack"
+
+    Parameter Type = 1
+    Parameter = "LocalTimeStamp"
+
+    Parameter Type = 1
+    Parameter = "MemoryChecksum"
+
+Command ID = 587
+Command = "Stage.RequestForcedEntry"
+Command Help = "Request Forced Entry"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+Command ID = 588
+Command = "Stage.ResponseForcedEntry"
+Command Help = "Response Forced Entry"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 5DE
+Command = "Stage.RoundFinishInfo"
+Command Help = "Update Round Finished Info"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = A
+    Parameter = "PeerInfo"
+
+    Parameter Type = A
+    Parameter = "KillInfo"
+
+Command ID = 191
+Command = "Match.Notify"
+Command Help = "Notify Message"
+
+    Parameter Type = 1
+    Parameter = "nMsgID"
+
+Command ID = 641
+Command = "Match.Whisper"
+Command Help = "Whisper Message to a User"
+
+    Parameter Type = 4
+    Parameter = "SenderName"
+
+    Parameter Type = 4
+    Parameter = "TargetName"
+
+    Parameter Type = 4
+    Parameter = "Message"
+
+Command ID = 642
+Command = "Match.Where"
+Command Help = "Ask Player Location"
+
+    Parameter Type = 4
+    Parameter = "TargetName"
+
+Command ID = 645
+Command = "Match.UserOption"
+Command Help = "Set User Option"
+
+    Parameter Type = 1
+    Parameter = "OptionFlags"
+
+Command ID = 673
+Command = "ChatRoom.Create"
+Command Help = "Create a ChatRoom"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 4
+    Parameter = "ChatRoomName"
+
+Command ID = 674
+Command = "ChatRoom.Join"
+Command Help = "Join a ChatRoom"
+
+    Parameter Type = 4
+    Parameter = "PlayerName"
+
+    Parameter Type = 4
+    Parameter = "ChatRoomName"
+
+Command ID = 675
+Command = "ChatRoom.Leave"
+Command Help = "Leave a Chat Room"
+
+    Parameter Type = 4
+    Parameter = "PlayerName"
+
+    Parameter Type = 4
+    Parameter = "ChatRoomName"
+
+Command ID = 681
+Command = "ChatRoom.SelectWrite"
+Command Help = "Select ChatRoom to Write"
+
+    Parameter Type = 4
+    Parameter = "ChatRoomName"
+
+Command ID = 67D
+Command = "ChatRoom.Invite"
+Command Help = "Invite a user to ChatRoom"
+
+    Parameter Type = 4
+    Parameter = "SenderName"
+
+    Parameter Type = 4
+    Parameter = "TargetName"
+
+    Parameter Type = 4
+    Parameter = "ChatRoomName"
+
+Command ID = 67E
+Command = "ChatRoom.Chat"
+Command Help = "ChatRoom Chat"
+
+    Parameter Type = 4
+    Parameter = "ChatRoomName"
+
+    Parameter Type = 4
+    Parameter = "SenderName"
+
+    Parameter Type = 4
+    Parameter = "Message"
+
+Command ID = 6A5
+Command = "Match.RequestAccountCharList"
+Command Help = "Request Account Character List"
+
+    Parameter Type = 4
+    Parameter = "SKey"
+
+    Parameter Type = A
+    Parameter = "EMsg"
+
+Command ID = 6A6
+Command = "Match.ResponseAccountCharList"
+Command Help = "Response Account Character List"
+
+    Parameter Type = A
+    Parameter = "CharList"
+
+Command ID = 6B7
+Command = "Match.RequestAccountCharInfo"
+Command Help = "Request Account Character Info"
+
+    Parameter Type = B
+    Parameter = "CharNum"
+
+Command ID = 6B8
+Command = "Match.ResponseAccountCharInfo"
+Command Help = "Response Account Character Info"
+
+    Parameter Type = B
+    Parameter = "CharNum"
+
+    Parameter Type = A
+    Parameter = "CharInfo"
+
+Command ID = 6A7
+Command = "Match.RequestSelectChar"
+Command Help = "Request Select Character"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = 1
+    Parameter = "CharIndex"
+
+Command ID = 6A8
+Command = "Match.ResponseSelectChar"
+Command Help = "Response Select Character"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = A
+    Parameter = "CharInfo"
+
+    Parameter Type = A
+    Parameter = "MyExtraCharInfo"
+
+Command ID = 6A9
+Command = "Match.RequestCharInfo"
+Command Help = "Request Character Info"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = 1
+    Parameter = "CharIndex"
+
+Command ID = 6AA
+Command = "Match.ResponseCharInfo"
+Command Help = "Response Character Info"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = A
+    Parameter = "CharInfo"
+
+Command ID = 6B1
+Command = "Match.RequestDeleteChar"
+Command Help = "Request Delete Character"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = 1
+    Parameter = "CharIndex"
+
+    Parameter Type = 4
+    Parameter = "CharName"
+
+Command ID = 6B2
+Command = "Match.ResponseDeleteChar"
+Command Help = "Response Delete Character"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 6AF
+Command = "Match.RequestCreateChar"
+Command Help = "Request Create Character"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = 1
+    Parameter = "CharIndex"
+
+    Parameter Type = 4
+    Parameter = "Name"
+
+    Parameter Type = 1
+    Parameter = "Sex"
+
+    Parameter Type = 1
+    Parameter = "Hair"
+
+    Parameter Type = 1
+    Parameter = "Face"
+
+    Parameter Type = 1
+    Parameter = "Costume"
+
+Command ID = 6B0
+Command = "Match.ResponseCreateChar"
+Command Help = "Response Create Character"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 4
+    Parameter = "CharName"
+
+Command ID = 6B3
+Command = "Match.RequestCopyToTestServer"
+Command Help = "Request Copy To TestServer"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+Command ID = 6B4
+Command = "Match.ResponseCopyToTestServer"
+Command Help = "Response Copy To TestServer"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 6B5
+Command = "Match.RequestCharInfoDetail"
+Command Help = "Request Character Info Detail"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = 4
+    Parameter = "CharName"
+
+Command ID = 6B6
+Command = "Match.ResponseCharInfoDetail"
+Command Help = "Response Character Info Detail"
+
+    Parameter Type = A
+    Parameter = "CharInfo"
+
+Command ID = 709
+Command = "Match.RequestSimpleCharInfo"
+Command Help = "Request Simple CharInfo"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+Command ID = 70A
+Command = "Match.ResponseSimpleCharInfo"
+Command Help = "Response Simple CharInfo"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = A
+    Parameter = "SimpleCharInfo"
+
+Command ID = 70B
+Command = "Match.RequestMySimpleCharInfo"
+Command Help = "Request My Simple CharInfo"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+Command ID = 70C
+Command = "Match.ResponseMySimpleCharInfo"
+Command Help = "Response My Simple CharInfo"
+
+    Parameter Type = A
+    Parameter = "MySimpleCharInfo"
+
+Command ID = 713
+Command = "Match.RequestBuyItem"
+Command Help = "Request Buy Item"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 1
+    Parameter = "ItemID"
+
+Command ID = 714
+Command = "Match.ResponseBuyItem"
+Command Help = "Response Buy Item"
+
+    Parameter Type = 0
+    Parameter = "result"
+
+Command ID = 715
+Command = "Match.RequestSellItem"
+Command Help = "Request Sell Item"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "uidItem"
+
+Command ID = 716
+Command = "Match.ResponseSellItem"
+Command Help = "Response Sell Item"
+
+    Parameter Type = 0
+    Parameter = "result"
+
+Command ID = 717
+Command = "Match.RequestShopItemList"
+Command Help = "Request Shop Item List"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = 0
+    Parameter = "FirstItemIndex"
+
+    Parameter Type = 0
+    Parameter = "ItemCount"
+
+Command ID = 718
+Command = "Match.ResponseShopItemList"
+Command Help = "Response Shop Item List"
+
+    Parameter Type = A
+    Parameter = "ItemList"
+
+Command ID = 71D
+Command = "Match.RequestCharacterItemList"
+Command Help = "Request Character Item List"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+Command ID = 71E
+Command = "Match.ResponseCharacterItemList"
+Command Help = "Response Character Item List"
+
+    Parameter Type = 0
+    Parameter = "Bounty"
+
+    Parameter Type = A
+    Parameter = "EquipItemList"
+
+    Parameter Type = A
+    Parameter = "ItemList"
+
+Command ID = 71F
+Command = "MatchRequestEquipItem"
+Command Help = "Request Equip Item"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "uidItem"
+
+    Parameter Type = 1
+    Parameter = "EquipmentSlot"
+
+Command ID = 720
+Command = "MatchResponseEquipItem"
+Command Help = "Response Equip Item"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 721
+Command = "MatchRequestTakeoffItem"
+Command Help = "Request Takeoff Item"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+    Parameter Type = 1
+    Parameter = "EquipmentSlot"
+
+Command ID = 722
+Command = "MatchResponseTakeoffItem"
+Command Help = "Response Takeoff Item"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 727
+Command = "Match.RequestAccountItemList"
+Command Help = "Request Account Item List"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+Command ID = 728
+Command = "Match.ResponseAccountItemList"
+Command Help = "Response Account Item List"
+
+    Parameter Type = A
+    Parameter = "ItemList"
+
+Command ID = 729
+Command = "Match.RequestBringAccountItem"
+Command Help = "Request Bring Account Item"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 0
+    Parameter = "AIID"
+
+Command ID = 72A
+Command = "Match.ResponseBringAccountItem"
+Command Help = "Response Bring Account Item"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 72B
+Command = "Match.RequestBringBackAccountItem"
+Command Help = "Request BringBack Account Item"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "uidItem"
+
+Command ID = 72C
+Command = "Match.ResponseBringBackAccountItem"
+Command Help = "Response BringBack Account Item"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 72D
+Command = "Match.ExpiredRentItem"
+Command Help = "Match.Expired Rent Item"
+
+    Parameter Type = A
+    Parameter = "ItemIDList"
+
+Command ID = 5FB
+Command = "Match.Request.Suicide"
+Command Help = "Request Suicide"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+Command ID = 5FC
+Command = "Match.Response.Suicide"
+Command Help = "Response Suicide"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+Command ID = 605
+Command = "Match.Request.Obtain.WorldItem"
+Command Help = "Request Obtain WorldItem"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 0
+    Parameter = "nItemUID"
+
+Command ID = 606
+Command = "Match.WorldItem.Obtain"
+Command Help = "Obtain WorldItem"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 0
+    Parameter = "nItemUID"
+
+Command ID = 607
+Command = "Match.WorldItem.Spawn"
+Command Help = "Spawn WorldItem"
+
+    Parameter Type = A
+    Parameter = "SpawnInfo"
+
+Command ID = 608
+Command = "Match.Request.Spawn.WorldItem"
+Command Help = "Request Spawn WorldItem"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 0
+    Parameter = "ItemID"
+
+    Parameter Type = 6
+    Parameter = "ItemPos"
+
+Command ID = 609
+Command = "Match.Request.Spawn.WorldItem"
+Command Help = "Request Spawn WorldItem"
+
+    Parameter Type = 0
+    Parameter = "nWorldItemUID"
+
+Command ID = 610
+Command = "Match.Reset.TeamMembers"
+Command Help = "Reset Team Members"
+
+    Parameter Type = A
+    Parameter = "TeamMemberData"
+
+Command ID = 60F
+Command = "Match.Assign.Commander"
+Command Help = "Assign Commander"
+
+    Parameter Type = 9
+    Parameter = "uidRedCommander"
+
+    Parameter Type = 9
+    Parameter = "uidBlueCommander"
+
+Command ID = 611
+Command = "Match.Set.Observer"
+Command Help = "Set Observer"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+Command ID = 623
+Command = "Match.Ladder.Request.Challenge"
+Command Help = "Request Challenge a Ladder"
+
+    Parameter Type = 0
+    Parameter = "MemberCount"
+
+    Parameter Type = 1
+    Parameter = "Options"
+
+    Parameter Type = A
+    Parameter = "MemberNames"
+
+Command ID = 624
+Command = "Match.Ladder.Response.Challenge"
+Command Help = "Response Challenge a Ladder"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 626
+Command = "Match.Ladder.SearchRival"
+Command Help = "Search a Ladder Rival"
+
+Command ID = 627
+Command = "Match.Ladder.Request.CancelChallenge"
+Command Help = "Request Cancel Challenge"
+
+Command ID = 628
+Command = "Match.Ladder.CancelChallenge"
+Command Help = "Cancel Ladder Challenge"
+
+    Parameter Type = 4
+    Parameter = "CharName"
+
+Command ID = 62A
+Command = "Ladder.Prepare"
+Command Help = "Prepare Ladder Game"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 0
+    Parameter = "nTeam"
+
+Command ID = 62B
+Command = "Ladder.Launch"
+Command Help = "Launch Ladder Game"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = 4
+    Parameter = "MapName"
+
+Command ID = 619
+Command = "Match.RequestProposal"
+Command Help = "Request Proposal"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 0
+    Parameter = "ProposalMode"
+
+    Parameter Type = 0
+    Parameter = "RequestID"
+
+    Parameter Type = 0
+    Parameter = "ReplierCount"
+
+    Parameter Type = A
+    Parameter = "ReplierCharNames"
+
+Command ID = 61A
+Command = "Match.ResponseProposal"
+Command Help = "Response Proposal"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 0
+    Parameter = "ProposalMode"
+
+    Parameter Type = 0
+    Parameter = "RequestID"
+
+Command ID = 61B
+Command = "Match.AskAgreement"
+Command Help = "Ask Agreement"
+
+    Parameter Type = 9
+    Parameter = "uidProposer"
+
+    Parameter Type = A
+    Parameter = "MembersCharName"
+
+    Parameter Type = 0
+    Parameter = "ProposalMode"
+
+    Parameter Type = 0
+    Parameter = "RequestID"
+
+Command ID = 61C
+Command = "Match.ReplyAgreement"
+Command Help = "Reply Agreement"
+
+    Parameter Type = 9
+    Parameter = "uidProposer"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 4
+    Parameter = "Replier"
+
+    Parameter Type = 0
+    Parameter = "ProposalMode"
+
+    Parameter Type = 0
+    Parameter = "RequestID"
+
+    Parameter Type = 3
+    Parameter = "Agreement"
+
+Command ID = 76D
+Command = "Match.Friend.Add"
+Command Help = "Add a Friend"
+
+    Parameter Type = 4
+    Parameter = "Name"
+
+Command ID = 76E
+Command = "Match.Friend.Remove"
+Command Help = "Remove a Friend"
+
+    Parameter Type = 4
+    Parameter = "Name"
+
+Command ID = 76F
+Command = "Match.Friend.List"
+Command Help = "List Friend"
+
+Command ID = 770
+Command = "Match.Response.FriendList"
+Command Help = "Response List Friend"
+
+    Parameter Type = A
+    Parameter = "FriendList"
+
+Command ID = 771
+Command = "Match.Friend.Msg"
+Command Help = "Message to Friends"
+
+    Parameter Type = 4
+    Parameter = "Msg"
+
+Command ID = 7D0
+Command = "Match.Clan.RequestCreateClan"
+Command Help = "Request Create Clan"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 0
+    Parameter = "RequestID"
+
+    Parameter Type = 4
+    Parameter = "ClanName"
+
+    Parameter Type = 4
+    Parameter = "Member1CharName"
+
+    Parameter Type = 4
+    Parameter = "Member2CharName"
+
+    Parameter Type = 4
+    Parameter = "Member3CharName"
+
+    Parameter Type = 4
+    Parameter = "Member4CharName"
+
+Command ID = 7D1
+Command = "Match.Clan.ResponseCreateClan"
+Command Help = "Response Create Clan"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 0
+    Parameter = "RequestID"
+
+Command ID = 7D2
+Command = "Match.Clan.AskSponsorAgreement"
+Command Help = "Ask Sponsor's Agreement"
+
+    Parameter Type = 0
+    Parameter = "RequestID"
+
+    Parameter Type = 4
+    Parameter = "ClanName"
+
+    Parameter Type = 9
+    Parameter = "uidClanMaster"
+
+    Parameter Type = 4
+    Parameter = "szClanMaster"
+
+Command ID = 7D3
+Command = "Match.Clan.AnswerSponsorAgreement"
+Command Help = "Answer Sponsor's Agreement"
+
+    Parameter Type = 0
+    Parameter = "RequestID"
+
+    Parameter Type = 9
+    Parameter = "uidClanMaster"
+
+    Parameter Type = 4
+    Parameter = "SponsorCharName"
+
+    Parameter Type = 3
+    Parameter = "Answer"
+
+Command ID = 7D4
+Command = "Match.Clan.RequestAgreedCreateClan"
+Command Help = "Request Agreed Create Clan"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 4
+    Parameter = "ClanName"
+
+    Parameter Type = 4
+    Parameter = "Member1CharName"
+
+    Parameter Type = 4
+    Parameter = "Member2CharName"
+
+    Parameter Type = 4
+    Parameter = "Member3CharName"
+
+    Parameter Type = 4
+    Parameter = "Member4CharName"
+
+Command ID = 7D5
+Command = "Match.Clan.AgreedResponseCreateClan"
+Command Help = "Response Agreed Create Clan"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 7D6
+Command = "Match.Clan.RequestCloseClan"
+Command Help = "Request Close Clan"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 4
+    Parameter = "ClanName"
+
+Command ID = 7D7
+Command = "Match.Clan.ResponseCloseClan"
+Command Help = "Response Close Clan"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 7D8
+Command = "Match.Clan.RequestJoinClan"
+Command Help = "Request Join Clan"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 4
+    Parameter = "ClanName"
+
+    Parameter Type = 4
+    Parameter = "szJoiner"
+
+Command ID = 7D9
+Command = "Match.Clan.ResponseJoinClan"
+Command Help = "Response Join Clan"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 7DA
+Command = "Match.Clan.AskJoinAgreement"
+Command Help = "Ask Join Agreement"
+
+    Parameter Type = 4
+    Parameter = "ClanName"
+
+    Parameter Type = 9
+    Parameter = "uidClanAdmin"
+
+    Parameter Type = 4
+    Parameter = "szClanAdmin"
+
+Command ID = 7DB
+Command = "Match.Clan.AnswerJoinAgreement"
+Command Help = "Answer Join Agreement"
+
+    Parameter Type = 9
+    Parameter = "uidClanAdmin"
+
+    Parameter Type = 4
+    Parameter = "JoinerCharName"
+
+    Parameter Type = 3
+    Parameter = "Answer"
+
+Command ID = 7DC
+Command = "Match.Clan.RequestAgreedJoinClan"
+Command Help = "Request Agreed Join Clan"
+
+    Parameter Type = 9
+    Parameter = "uidClanAdmin"
+
+    Parameter Type = 4
+    Parameter = "ClanName"
+
+    Parameter Type = 4
+    Parameter = "szJoiner"
+
+Command ID = 7DD
+Command = "Match.Clan.ResponseAgreedJoinClan"
+Command Help = "Response Agreed Join Clan"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 7DE
+Command = "Match.Clan.RequestLeaveClan"
+Command Help = "Request Leave Clan"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+Command ID = 7DF
+Command = "Match.Clan.ResponseLeaveClan"
+Command Help = "Response Leave Clan"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 7E0
+Command = "Match.Clan.UpdateCharClanInfo"
+Command Help = "Update Char ClanInfo"
+
+    Parameter Type = A
+    Parameter = "ClanInfo"
+
+Command ID = 7E1
+Command = "Match.Clan.Master.RequestChangeGrade"
+Command Help = "Request Change ClanGrade"
+
+    Parameter Type = 9
+    Parameter = "uidClanMaster"
+
+    Parameter Type = 4
+    Parameter = "szMember"
+
+    Parameter Type = 0
+    Parameter = "Grade"
+
+Command ID = 7E2
+Command = "Match.Clan.Master.ResponseChangeGrade"
+Command Help = "Response Change ClanGrade"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 7E3
+Command = "Match.Clan.Admin.RequestExpelMember"
+Command Help = "Request Expel ClanMember"
+
+    Parameter Type = 9
+    Parameter = "uidClanAdmin"
+
+    Parameter Type = 4
+    Parameter = "szMember"
+
+Command ID = 7E4
+Command = "Match.Clan.Admin.ResponseLeaveMember"
+Command Help = "Response Expel ClanMember"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 7E5
+Command = "Match.Clan.Request.Msg"
+Command Help = "Request Clan Msg"
+
+    Parameter Type = 9
+    Parameter = "uidSender"
+
+    Parameter Type = 4
+    Parameter = "Msg"
+
+Command ID = 7E6
+Command = "Match.Clan.Msg"
+Command Help = "Clan Msg"
+
+    Parameter Type = 4
+    Parameter = "SenderName"
+
+    Parameter Type = 4
+    Parameter = "Msg"
+
+Command ID = 7E7
+Command = "Match.Clan.Request.ClanMemberList"
+Command Help = "Request Clan Member List"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+Command ID = 7E8
+Command = "Match.Clan.Response.ClanMemberList"
+Command Help = "Response Clan Member List"
+
+    Parameter Type = A
+    Parameter = "ClanMemberList"
+
+Command ID = 7E9
+Command = "Match.Clan.Request.Clan.Info"
+Command Help = "Request Clan Info"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 4
+    Parameter = "ClanName"
+
+Command ID = 7EA
+Command = "Match.Clan.Response.Clan.Info"
+Command Help = "Response Clan Info"
+
+    Parameter Type = A
+    Parameter = "ClanInfo"
+
+Command ID = 7EB
+Command = "Match.Clan.Standby.ClanList"
+Command Help = "Standby Clan List"
+
+    Parameter Type = 0
+    Parameter = "PrevClanListCount"
+
+    Parameter Type = 0
+    Parameter = "NextClanListCount"
+
+    Parameter Type = A
+    Parameter = "ClanList"
+
+Command ID = 7EC
+Command = "Match.Clan.Member.Connected"
+Command Help = "Member Connected"
+
+    Parameter Type = 4
+    Parameter = "szMember"
+
+Command ID = 803
+Command = "Match.Clan.Request.EmblemURL"
+Command Help = "Request EmblemURL"
+
+    Parameter Type = 0
+    Parameter = "ClanCLID"
+
+Command ID = 804
+Command = "Match.Clan.Response.EmblemURL"
+Command Help = "Response EmblemURL"
+
+    Parameter Type = 0
+    Parameter = "ClanCLID"
+
+    Parameter Type = 0
+    Parameter = "EmblemChecksum"
+
+    Parameter Type = 4
+    Parameter = "EmblemURL"
+
+Command ID = 807
+Command = "Match.Clan.Local.EmblemReady"
+Command Help = "Notify Emblem Ready"
+
+    Parameter Type = 0
+    Parameter = "ClanCLID"
+
+    Parameter Type = 4
+    Parameter = "EmblemURL"
+
+Command ID = 808
+Command = "MC_MATCH_CLAN_ACCOUNCE_DELETE"
+Command Help = "delete clan info announce to clan member"
+
+    Parameter Type = 4
+    Parameter = "delete info"
+
+Command ID = 834
+Command = "Match.Callvote"
+Command Help = "Callvote"
+
+    Parameter Type = 4
+    Parameter = "strDiscuss"
+
+    Parameter Type = 4
+    Parameter = "strArg"
+
+Command ID = 835
+Command = "Match.NotifyCallvote"
+Command Help = "Notify Callvote"
+
+    Parameter Type = 4
+    Parameter = "strDiscuss"
+
+    Parameter Type = 4
+    Parameter = "strArg"
+
+Command ID = 836
+Command = "Match.NotifyVoteResult"
+Command Help = "Notify Vote Result"
+
+    Parameter Type = 4
+    Parameter = "strDiscuss"
+
+    Parameter Type = 0
+    Parameter = "nResult"
+
+Command ID = 839
+Command = "Match.VoteYes"
+Command Help = "Vote"
+
+Command ID = 83A
+Command = "Match.VoteNo"
+Command Help = "Vote"
+
+Command ID = 83C
+Command = "Vote stop"
+Command Help = "Vote stop"
+
+Command ID = 898
+Command = "Match.Broadcast.ClanRenewVictories"
+Command Help = "Broadcast Clan Renew Victories"
+
+    Parameter Type = 4
+    Parameter = "strWinnerClanName"
+
+    Parameter Type = 4
+    Parameter = "strLoserClanName"
+
+    Parameter Type = 0
+    Parameter = "nVictories"
+
+Command ID = 899
+Command = "Match.Broadcast.ClanInterruptVictories"
+Command Help = "Broadcast Clan Interrupt Victories"
+
+    Parameter Type = 4
+    Parameter = "strWinnerClanName"
+
+    Parameter Type = 4
+    Parameter = "strLoserClanName"
+
+    Parameter Type = 0
+    Parameter = "nVictories"
+
+Command ID = 89A
+Command = "Match.Broadcast.DuelRenewVictories"
+Command Help = "Broadcast Duel Renew Victories"
+
+    Parameter Type = 4
+    Parameter = "strChampionName"
+
+    Parameter Type = 4
+    Parameter = "strChannelName"
+
+    Parameter Type = 0
+    Parameter = "nRoomNumber"
+
+    Parameter Type = 0
+    Parameter = "nVictories"
+
+Command ID = 89B
+Command = "Match.Broadcast.DuelInterruptVictories"
+Command Help = "Broadcast Duel Interrupt Victories"
+
+    Parameter Type = 4
+    Parameter = "strChampionName"
+
+    Parameter Type = 4
+    Parameter = "strInterrupterName"
+
+    Parameter Type = 0
+    Parameter = "nVictories"
+
+Command ID = BB9
+Command = "Match.Assign.Berserker"
+Command Help = "Assign Berserker"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+Command ID = C1C
+Command = "Match.Duel.Queue Info"
+Command Help = "Queue Info"
+
+    Parameter Type = A
+    Parameter = "QueueInfo"
+
+Command ID = 177C
+Command = "Match.Quest.Ping"
+Command Help = "QuestPing"
+
+    Parameter Type = 1
+    Parameter = "nTimeStamp"
+
+Command ID = 177D
+Command = "Match.Quest.Pong"
+Command Help = "QuestPong"
+
+    Parameter Type = 1
+    Parameter = "nTimeStamp"
+
+Command ID = 259
+Command = "Event.ChangeMaster"
+Command Help = "Take out Master from Stage"
+
+Command ID = 25A
+Command = "Event.ChangePassword"
+Command Help = "Change Password on Stage"
+
+    Parameter Type = 4
+    Parameter = "strPassword"
+
+Command ID = 263
+Command = "Event.RequestJJang"
+Command Help = "Request JJang mark to a Player"
+
+    Parameter Type = 4
+    Parameter = "strTargetName"
+
+Command ID = 264
+Command = "Event.RemoveJJang"
+Command Help = "Remove JJang mark from a Player"
+
+    Parameter Type = 4
+    Parameter = "strTargetName"
+
+Command ID = 265
+Command = "Event.UpdateJJang"
+Command Help = "Update JJang Player"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 3
+    Parameter = "bJjang"
+
+Command ID = 1770
+Command = "Quest.NPCSpawn"
+Command Help = "Npc Spawn"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "nNpcUID"
+
+    Parameter Type = C
+    Parameter = "nNpcType"
+
+    Parameter Type = C
+    Parameter = "PositionIndex"
+
+Command ID = 1771
+Command = "Quest.Entrust.NPC.Control"
+Command Help = "Entrust Npc Control"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "nNpcUID"
+
+Command ID = 1772
+Command = "Quest.Checksum.NPCInfo"
+Command Help = "Checksum NPC Info"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 1
+    Parameter = "checksum"
+
+Command ID = 1773
+Command = "Quest.Request.NPCDead"
+Command Help = "Request Npc Dead"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "uidNPC"
+
+    Parameter Type = 11
+    Parameter = "NpcPosition"
+
+Command ID = 1774
+Command = "Quest.NPCDead"
+Command Help = "Npc Dead"
+
+    Parameter Type = 9
+    Parameter = "uidKillerPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidNPC"
+
+Command ID = 1775
+Command = "Quest.RefreshPlayerStatus"
+Command Help = "Refresh Player Status"
+
+Command ID = 1776
+Command = "Quest.NPC.AllClear"
+Command Help = "Clear All NPC"
+
+Command ID = 17D4
+Command = "Quest.Round.Start"
+Command Help = "Quest Start Round"
+
+    Parameter Type = C
+    Parameter = "round"
+
+Command ID = 1777
+Command = "Quest.RequestDead"
+Command Help = "Quest Request Dead"
+
+Command ID = 1778
+Command = "Quest.PlayerDead"
+Command Help = "Quest Player Dead"
+
+    Parameter Type = 9
+    Parameter = "Victim"
+
+Command ID = 1779
+Command = "Quest.ObtainQuestItem"
+Command Help = "Obtain QuestItem"
+
+    Parameter Type = 1
+    Parameter = "QuestItemID"
+
+Command ID = 177B
+Command = "Quest.ObtainZItem"
+Command Help = "Obtain ZItem"
+
+    Parameter Type = 1
+    Parameter = "ItemID"
+
+Command ID = 177A
+Command = "Quest.State.Mapset"
+Command Help = "Change Stage Quest Mapset Setting"
+
+    Parameter Type = 9
+    Parameter = "uidStage"
+
+    Parameter Type = B
+    Parameter = "QuestMapset"
+
+Command ID = 17AD
+Command = "Quest.Stage.GameInfo"
+Command Help = "Quest Stage GameInfo"
+
+    Parameter Type = B
+    Parameter = "Quest level"
+
+    Parameter Type = B
+    Parameter = "Mapset ID"
+
+    Parameter Type = 1
+    Parameter = "QuestScenarioID"
+
+Command ID = 17AE
+Command = "Quest.SectorBonus"
+Command Help = "Quest Sector Bonus"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = 1
+    Parameter = "XPBonus"
+
+Command ID = 17A3
+Command = "Quest.GameInfo"
+Command Help = "Quest Game Info"
+
+    Parameter Type = A
+    Parameter = "Info"
+
+Command ID = 17A4
+Command = "Quest.Combat.State"
+Command Help = "Quest Combat State"
+
+    Parameter Type = B
+    Parameter = "CombatState"
+
+Command ID = 17A5
+Command = "Quest.Sector.Start"
+Command Help = "Quest Sector Start"
+
+    Parameter Type = B
+    Parameter = "SectorIndex"
+
+Command ID = 17A6
+Command = "Quest.Complete"
+Command Help = "Complete Quest"
+
+    Parameter Type = A
+    Parameter = "RewardInfo"
+
+Command ID = 17A7
+Command = "Quest"
+Command Help = "Quest failed"
+
+Command ID = 17A9
+Command = "Quest.Request.Moveto.Portal"
+Command Help = "Request Moveto Portal"
+
+    Parameter Type = B
+    Parameter = "CurrSectorIndex"
+
+Command ID = 17AA
+Command = "Quest.Moveto.Portal"
+Command Help = "Moveto Portal"
+
+    Parameter Type = B
+    Parameter = "SectorIndex"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+Command ID = 17AB
+Command = "Quest.Readyto.NewSector"
+Command Help = "Ready To New Sector"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+Command ID = 1798
+Command = "Quest.Peer.NPC.BasicInfo"
+Command Help = "NPC BasicInfo"
+
+    Parameter Type = A
+    Parameter = "Info"
+
+Command ID = 1799
+Command = "Quest.Peer.NPC.HPInfo"
+Command Help = "NPC HPInfo"
+
+    Parameter Type = 0
+    Parameter = "nNPCCount"
+
+    Parameter Type = A
+    Parameter = "HPTable"
+
+Command ID = 179A
+Command = "Quest.Peer.NPC.Attack.Melee"
+Command Help = "NPC Melee Attack"
+
+    Parameter Type = 9
+    Parameter = "uidOwner"
+
+Command ID = 179B
+Command = "Quest.Peer.NPC.Attack.Range"
+Command Help = "NPC Range Attack"
+
+    Parameter Type = 9
+    Parameter = "uidOwner"
+
+    Parameter Type = A
+    Parameter = "Info"
+
+Command ID = 179C
+Command = "Quest.Peer.NPC.Skill.Start"
+Command Help = "NPC Skill Start"
+
+    Parameter Type = 9
+    Parameter = "uidOwner"
+
+    Parameter Type = 0
+    Parameter = "nSkill"
+
+    Parameter Type = 9
+    Parameter = "uidTarget"
+
+    Parameter Type = 6
+    Parameter = "targetPos"
+
+Command ID = 179D
+Command = "Quest.Peer.NPC.Skill.Execute"
+Command Help = "NPC Skill Start"
+
+    Parameter Type = 9
+    Parameter = "uidOwner"
+
+    Parameter Type = 0
+    Parameter = "nSkill"
+
+    Parameter Type = 9
+    Parameter = "uidTarget"
+
+    Parameter Type = 6
+    Parameter = "targetPos"
+
+Command ID = 179E
+Command = "Quest.Peer.NPC.Dead"
+Command Help = "NPC Dead"
+
+    Parameter Type = 9
+    Parameter = "uidKillerPlayer"
+
+    Parameter Type = 9
+    Parameter = "uidNPC"
+
+Command ID = 1AF5
+Command = "Quest.Test.RequestNPCSpawn"
+Command Help = "NPC Spawn"
+
+    Parameter Type = 0
+    Parameter = "NPC Type"
+
+    Parameter Type = 0
+    Parameter = "NPC Count"
+
+Command ID = 1AF6
+Command = "Quest.Test.ClearNPC"
+Command Help = "Clear NPC"
+
+Command ID = 1AF7
+Command = "Quest.Test.SectorClear"
+Command Help = "Sector Clear"
+
+Command ID = 1AF8
+Command = "Quest.Test.Finish"
+Command Help = "Finish Quest"
+
+Command ID = EA61
+Command = "Test.BirdTest1"
+Command Help = "BirdTest1"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+    Parameter Type = A
+    Parameter = "Dummy"
+
+Command ID = EA62
+Command = "Test.PeerTest.Ping"
+Command Help = "PeerTest Ping"
+
+Command ID = EA63
+Command = "Test.PeerTest.Pong"
+Command Help = "PeerTest Pong"
+
+Command ID = 1F5
+Command = "Admin.Announce"
+Command Help = "Announce"
+
+    Parameter Type = 9
+    Parameter = "uidAdmin"
+
+    Parameter Type = 4
+    Parameter = "Msg"
+
+    Parameter Type = 1
+    Parameter = "MsgType"
+
+Command ID = 209
+Command = "Admin.PingToAll"
+Command Help = "Ping to All Clients"
+
+Command ID = 1F9
+Command = "Admin.RequestServerInfo"
+Command Help = "Request Server Info"
+
+    Parameter Type = 9
+    Parameter = "uidAdmin"
+
+Command ID = 1FA
+Command = "Admin.ResponseServerInfo"
+Command Help = "Response Server Info"
+
+    Parameter Type = A
+    Parameter = "ServerInfo"
+
+Command ID = 1FF
+Command = "Admin.Halt"
+Command Help = "Halt Server"
+
+    Parameter Type = 9
+    Parameter = "uidAdmin"
+
+Command ID = 200
+Command = "Admin.Terminal"
+Command Help = "Admin.Terminal"
+
+    Parameter Type = 9
+    Parameter = "uidAdmin"
+
+    Parameter Type = 4
+    Parameter = "message"
+
+Command ID = 201
+Command = "Admin.RequestUpdateAccountUGrade"
+Command Help = "Request Update Account UGrade"
+
+    Parameter Type = 9
+    Parameter = "uidAdmin"
+
+    Parameter Type = 4
+    Parameter = "uidTargetCharName"
+
+Command ID = 202
+Command = "Admin.ResponseUpdateAccountUGrade"
+Command Help = "Response Update Account UGrade"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+Command ID = 203
+Command = "Admin.RequestBanPlayer"
+Command Help = "Request Ban Player"
+
+    Parameter Type = 9
+    Parameter = "uidAdmin"
+
+    Parameter Type = 4
+    Parameter = "uidTargetCharName"
+
+Command ID = 204
+Command = "Admin.ResponseBanPlayer"
+Command Help = "Response Ban Player"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+Command ID = 20A
+Command = "Admin.RequestSwitchLadderGame"
+Command Help = "Request Switch LadderGame"
+
+    Parameter Type = 9
+    Parameter = "uidAdmin"
+
+    Parameter Type = 3
+    Parameter = "IsEnabled"
+
+Command ID = 213
+Command = "Admin.Hide"
+Command Help = "Hide Admin Player"
+
+Command ID = 214
+Command = "Admin.ReloadClientHash"
+Command Help = "Reload Client Hash"
+
+Command ID = 215
+Command = "MC_ADMIN_RESET_ALL_HACKING_BLOCK"
+Command Help = "reset all hacking block"
+
+Command ID = 271B
+Command = "Peer.Open"
+Command Help = "Peer Connection Opened"
+
+    Parameter Type = 9
+    Parameter = "uidPlayer"
+
+Command ID = 2725
+Command = "Peer.Move"
+Command Help = "Move Object"
+
+    Parameter Type = 6
+    Parameter = "Position"
+
+    Parameter Type = 5
+    Parameter = "Direction"
+
+    Parameter Type = 5
+    Parameter = "Velocity"
+
+    Parameter Type = 0
+    Parameter = "StateUpper"
+
+    Parameter Type = 0
+    Parameter = "StateLower"
+
+Command ID = 2726
+Command = "Peer.ObjectChangeWeapon"
+Command Help = "Change Object Weapon"
+
+    Parameter Type = 0
+    Parameter = "WeaponID"
+
+Command ID = 2727
+Command = "Peer.ObjectChangeParts"
+Command Help = "Change Object Parts"
+
+    Parameter Type = 0
+    Parameter = "PartsType"
+
+    Parameter Type = 0
+    Parameter = "PartsID"
+
+Command ID = 272F
+Command = "Peer.ObjectAttack"
+Command Help = "Object Attack"
+
+    Parameter Type = 0
+    Parameter = "AttackType"
+
+    Parameter Type = 5
+    Parameter = "Position"
+
+Command ID = 2730
+Command = "Peer.ObjectDamage"
+Command Help = "Object Damage"
+
+    Parameter Type = 9
+    Parameter = "TargetUID"
+
+    Parameter Type = 0
+    Parameter = "Damage"
+
+Command ID = 2744
+Command = "Peer.Chat"
+Command Help = "Chat"
+
+    Parameter Type = 0
+    Parameter = "TeamID"
+
+    Parameter Type = 4
+    Parameter = "Msg"
+
+Command ID = 2745
+Command = "Peer.ChatIcon"
+Command Help = "ChatIcon"
+
+    Parameter Type = 3
+    Parameter = "bStart"
+
+Command ID = 2746
+Command = "Peer.Reaction"
+Command Help = "React"
+
+    Parameter Type = 2
+    Parameter = "Time"
+
+    Parameter Type = 0
+    Parameter = "ReactionID"
+
+Command ID = 2747
+Command = "Peer.EnchantDamage"
+Command Help = "EnchantDamage"
+
+    Parameter Type = 9
+    Parameter = "OwnerUID"
+
+    Parameter Type = 9
+    Parameter = "TargetUID"
+
+Command ID = 2732
+Command = "Peer.Shot"
+Command Help = "Shot"
+
+    Parameter Type = A
+    Parameter = "Info"
+
+Command ID = 2735
+Command = "Peer.Shot.Melee"
+Command Help = "ShotMelee"
+
+    Parameter Type = 2
+    Parameter = "Time"
+
+    Parameter Type = 6
+    Parameter = "Position"
+
+    Parameter Type = 0
+    Parameter = "nShot"
+
+Command ID = 2733
+Command = "Peer.Shot.Sp"
+Command Help = "ShotSp"
+
+    Parameter Type = 2
+    Parameter = "Time"
+
+    Parameter Type = 6
+    Parameter = "Position"
+
+    Parameter Type = 5
+    Parameter = "Direction"
+
+    Parameter Type = 0
+    Parameter = "Type"
+
+    Parameter Type = 0
+    Parameter = "SelType"
+
+Command ID = 2731
+Command = "Peer.Reload"
+Command Help = "Reload"
+
+Command ID = 273E
+Command = "Peer.ObjectSpMotion"
+Command Help = "Object SpMotion"
+
+    Parameter Type = 0
+    Parameter = "SelType"
+
+Command ID = 271F
+Command = "Peer.ChangeCharacter"
+Command Help = "ChangeCharacter"
+
+Command ID = 2739
+Command = "Peer.Die"
+Command Help = "Die"
+
+    Parameter Type = 9
+    Parameter = "Attacker"
+
+Command ID = 273A
+Command = "Peer.Spawn"
+Command Help = "Spawn"
+
+    Parameter Type = 6
+    Parameter = "Position"
+
+    Parameter Type = 7
+    Parameter = "Direction"
+
+Command ID = 273D
+Command = "Peer.Dash"
+Command Help = "Dash"
+
+    Parameter Type = A
+    Parameter = "DashInfo"
+
+Command ID = 2734
+Command = "Peer.ObjectSkill"
+Command Help = "Skill"
+
+    Parameter Type = 2
+    Parameter = "Time"
+
+    Parameter Type = 0
+    Parameter = "SkillID"
+
+    Parameter Type = 0
+    Parameter = "SelType"
+
+Command ID = 271C
+Command = "Peer.CharacterBasicInfo"
+Command Help = "BasicInfo"
+
+    Parameter Type = A
+    Parameter = "Info"
+
+Command ID = 271D
+Command = "Peer.CharacterHPInfo"
+Command Help = "HPInfo"
+
+    Parameter Type = 2
+    Parameter = "fHP"
+
+Command ID = 271E
+Command = "Peer.CharacterHPAPInfo"
+Command Help = "HPAPInfo"
+
+    Parameter Type = 2
+    Parameter = "fHP"
+
+    Parameter Type = 2
+    Parameter = "fAP"
+
+Command ID = 2715
+Command = "Peer.UDPTest"
+Command Help = "UDP Test on Peer-to-Peer"
+
+Command ID = 2716
+Command = "Peer.UDPTestReply"
+Command Help = "UDP Test Reply on Peer-to-Peer"
+
+Command ID = 2711
+Command = "Peer.Ping"
+Command Help = "Ping"
+
+    Parameter Type = 1
+    Parameter = "TimeStamp"
+
+Command ID = 2712
+Command = "Peer.Pong"
+Command Help = "Pong"
+
+    Parameter Type = 1
+    Parameter = "TimeStamp"
+
+Command ID = 13C5
+Command = "Agent.LocateToClient"
+Command Help = "Locate Agent to Client"
+
+    Parameter Type = 9
+    Parameter = "AgentUID"
+
+    Parameter Type = 4
+    Parameter = "Address"
+
+    Parameter Type = 0
+    Parameter = "Port"
+
+    Parameter Type = 0
+    Parameter = "UDPPort"
+
+Command ID = 13A0
+Command = "Agent.ResponseLogin"
+Command Help = "Response Login result to Client"
+
+Command ID = 13CF
+Command = "Agent.PeerBindTCP"
+Command Help = "Bind Client to Peer by TCP"
+
+    Parameter Type = 9
+    Parameter = "CharUID"
+
+Command ID = 13D0
+Command = "Agent.PeerBindUDP"
+Command Help = "Bind Client to Peer by UDP"
+
+    Parameter Type = 9
+    Parameter = "CharUID"
+
+    Parameter Type = 4
+    Parameter = "strLocalIP"
+
+    Parameter Type = 1
+    Parameter = "nLocalPort"
+
+    Parameter Type = 4
+    Parameter = "strIP"
+
+    Parameter Type = 1
+    Parameter = "nPort"
+
+Command ID = 13D1
+Command = "Agent.PeerUnbind"
+Command Help = "Unbind Client from Peer"
+
+    Parameter Type = 9
+    Parameter = "CharUID"
+
+Command ID = 1395
+Command = "Agent.Error"
+Command Help = "Error about Agent"
+
+    Parameter Type = 0
+    Parameter = "ErrorCode"
+
+Command ID = 13D9
+Command = "Agent.TunnelingTCP"
+Command Help = "Tunneling TCP"
+
+    Parameter Type = 9
+    Parameter = "SendUID"
+
+    Parameter Type = 9
+    Parameter = "RecvUID"
+
+    Parameter Type = A
+    Parameter = "Data"
+
+Command ID = 13DA
+Command = "Agent.TunnelingUDP"
+Command Help = "Tunneling UDP"
+
+    Parameter Type = 9
+    Parameter = "SendUID"
+
+    Parameter Type = 9
+    Parameter = "RecvUID"
+
+    Parameter Type = A
+    Parameter = "Data"
+
+Command ID = 13DB
+Command = "Agent.AllowTunnelingTCP"
+Command Help = "Allow Tunneling by TCP"
+
+Command ID = 13DC
+Command = "Agent.AllowTunnelingUDP"
+Command Help = "Allow Tunneling by UDP"
+
+Command ID = 13ED
+Command = "Agent.DebugPing"
+Command Help = "Debug Ping Test for Agent"
+
+    Parameter Type = 9
+    Parameter = "TestUID"
+
+Command ID = 13EE
+Command = "Agent.DebugTest"
+Command Help = "Trigger Debug code for Agent"
+
+    Parameter Type = 4
+    Parameter = "strMsg"
+
+Command ID = 1B59
+Command = "Announce."
+Command Help = "make announce for scheduler."
+
+    Parameter Type = 4
+    Parameter = "strAnnounce"
+
+Command ID = 1B5A
+Command = "Announce."
+Command Help = "send announce of scheduler."
+
+    Parameter Type = 4
+    Parameter = "strAnnounce"
+
+Command ID = 1B5B
+Command = "Switch clan server status."
+Command Help = "if server type is clan server, then this command is can chage server status."
+
+Command ID = 1B5C
+Command = "Switch clan server status."
+Command Help = "up"
+
+Command ID = 1B5D
+Command = "MC_MATCH_SCHEDULE_STOP_SERVER"
+Command Help = "stop server"
+
+    Parameter Type = 4
+    Parameter = "announce"
+
+Command ID = 7919
+Command = "test"
+Command Help = "test"
+
+    Parameter Type = 0
+    Parameter = "test code"
+
+Command ID = 791E
+Command = "MC_RESPONSE_KEEPER_MANAGER_CONNECT"
+Command Help = "connect"
+
+    Parameter Type = 9
+    Parameter = "KeeperManagerUID"
+
+Command ID = 792C
+Command = "MC_REQUEST_KEEPERMGR_ANNOUNCE"
+Command Help = "keeper manager request to keeper do that announce to it's match server"
+
+    Parameter Type = 4
+    Parameter = "announce"
+
+Command ID = 792D
+Command = "MC_REQUEST_KEEPER_ANNOUNCE"
+Command Help = "keeper request to matchserver do that announce"
+
+    Parameter Type = 4
+    Parameter = "announce"
+
+Command ID = 791A
+Command = "Check ping"
+Command Help = "Check ping"
+
+Command ID = 791C
+Command = "request matchserver status"
+Command Help = "request matchserver status from keeper"
+
+Command ID = 791D
+Command = "response matchserver ststus"
+Command Help = "response matchserver status"
+
+    Parameter Type = 0
+    Parameter = "is open DB"
+
+    Parameter Type = 4
+    Parameter = "server release version"
+
+    Parameter Type = C
+    Parameter = "connected agent count"
+
+Command ID = 7D18
+Command = "MC_REQUEST_DOWNLOAD_SERVER_PATCH_FILE"
+Command Help = "request download server patch file"
+
+Command ID = 7D1C
+Command = "MC_REQUEST_STOP_SERVER"
+Command Help = "request stop server"
+
+Command ID = 791F
+Command = "MC_REQUEST_CONNECTION_STATE"
+Command Help = "request current server state"
+
+Command ID = 7920
+Command = "MC_RESPONSE_CONNECTION_STATE"
+Command Help = "response current server state"
+
+    Parameter Type = 0
+    Parameter = "resut"
+
+Command ID = 7921
+Command = "MC_REQUEST_SERVER_HEARBEAT"
+Command Help = "request server hearbeat check"
+
+Command ID = 7922
+Command = "MC_RESPONSE_SERVER_HEARHEAT"
+Command Help = "response server hearbeat check"
+
+Command ID = 7D1A
+Command = "MC_REQUEST_START_SERVER"
+Command Help = "request start match server"
+
+Command ID = 7923
+Command = "MC_REQUEST_KEEPER_CONNECT_MATCHSERVER"
+Command Help = "request keeper connect to match server"
+
+Command ID = 7924
+Command = "MC_RESPONSE_KEEPER_CONNECT_MATCHSERVER"
+Command Help = "response keeper connect to match server"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+Command ID = 7925
+Command = "MC_REQUEST_REFRESH_SERVER"
+Command Help = "request check match server heartbeat"
+
+Command ID = 7D1E
+Command = "MC_REQUEST_PREPARE_SERVER_PATCH"
+Command Help = "request prepare patch"
+
+Command ID = 7D20
+Command = "MC_REQUEST_SERVER_PATCH"
+Command Help = "request patching"
+
+Command ID = 7926
+Command = "MC_REQUEST_LAST_JOB_STATE"
+Command Help = "request last job state"
+
+Command ID = 7927
+Command = "MC_RESPONSE_LAST_JOB_STATE"
+Command Help = "response last job state"
+
+    Parameter Type = 0
+    Parameter = "job"
+
+    Parameter Type = 0
+    Parameter = "result"
+
+Command ID = 7928
+Command = "MC_REQUEST_CONFIG_STATE"
+Command Help = "request config state"
+
+Command ID = 7929
+Command = "MC_RESPONSE_CONFIG_STATE"
+Command Help = "response config state"
+
+    Parameter Type = 0
+    Parameter = "server config"
+
+    Parameter Type = 0
+    Parameter = "agent config"
+
+    Parameter Type = 0
+    Parameter = "download config"
+
+    Parameter Type = 0
+    Parameter = "prepare config"
+
+    Parameter Type = 0
+    Parameter = "patch config"
+
+Command ID = 792A
+Command = "MC_REQUEST_SET_ONE_CONFIG"
+Command Help = "reqeust set one config"
+
+    Parameter Type = 0
+    Parameter = "config id"
+
+    Parameter Type = 0
+    Parameter = "confing state"
+
+Command ID = 792B
+Command = "MC_RESPONSE_SET_ONE_CONFIG"
+Command Help = "response set one config"
+
+    Parameter Type = 0
+    Parameter = "config id"
+
+    Parameter Type = 0
+    Parameter = "confing state"
+
+Command ID = 810A
+Command = "MC_REQUEST_STOP_AGENT_SERVER"
+Command Help = "request stop agent"
+
+Command ID = 810C
+Command = "MC_REQUEST_START_AGENT_SERVER"
+Command Help = "request start agent"
+
+Command ID = 810E
+Command = "MC_REQUEST_DOWNLOAD_AGENT_PATCH_FILE"
+Command Help = "request download agent patch file"
+
+Command ID = 8110
+Command = "MC_REQUEST_PREPARE_AGENT_PATCH"
+Command Help = "request prepare agent patch"
+
+Command ID = 8112
+Command = "MC_REQUEST_AGENT_PATCH"
+Command Help = "request agent patch"
+
+Command ID = 792E
+Command = "MC_REQUEST_RESET_PATCH"
+Command Help = "request reset patch job state"
+
+Command ID = 792F
+Command = "MC_REQUEST_DISCONNECT_SERVER"
+Command Help = "request disconnect match server"
+
+Command ID = 7930
+Command = "MC_REQUEST_REBOOT_WINDOWS"
+Command Help = "request restart windows"
+
+Command ID = 7931
+Command = "MC_REQUEST_ANNOUNCE_STOP_SERVER"
+Command Help = "request stop server with administrator announce."
+
+Command ID = 7932
+Command = "MC_RESPONSE_ANNOUNCE_STOP_SERVER"
+Command Help = "response stop server with administrator announce."
+
+Command ID = 84D1
+Command = "MC_REQUEST_KEEPER_MANAGER_SCHEDULE"
+Command Help = "reqeust keeper manager schedule"
+
+    Parameter Type = 0
+    Parameter = "type"
+
+    Parameter Type = 0
+    Parameter = "year"
+
+    Parameter Type = 0
+    Parameter = "month"
+
+    Parameter Type = 0
+    Parameter = "day"
+
+    Parameter Type = 0
+    Parameter = "hour"
+
+    Parameter Type = 0
+    Parameter = "min"
+
+    Parameter Type = 0
+    Parameter = "count"
+
+    Parameter Type = 0
+    Parameter = "command"
+
+    Parameter Type = 4
+    Parameter = "announce"
+
+Command ID = 84D2
+Command = "MC_RESPONSE_KEEPER_MANAGER_SCHEDULE"
+Command Help = "response keeper manager schedule"
+
+    Parameter Type = 0
+    Parameter = "command type"
+
+    Parameter Type = B
+    Parameter = "result"
+
+Command ID = 7933
+Command = "MC_REQUEST_SERVER_AGENT_STATE"
+Command Help = "request current state of server and agent"
+
+Command ID = 7934
+Command = "MC_RESPONSE_SERVER_AGENT_STATE"
+Command Help = "response current state of server and agent"
+
+    Parameter Type = 0
+    Parameter = "server state"
+
+    Parameter Type = 0
+    Parameter = "agent state"
+
+Command ID = 8113
+Command = "MC_REQUEST_SERVER_STATUS"
+Command Help = "request server status"
+
+Command ID = 8114
+Command = "MC_RESPONSE_SERVER_STATUS"
+Command Help = "response server status resquest"
+
+    Parameter Type = 0
+    Parameter = "is open DB"
+
+    Parameter Type = 4
+    Parameter = "server release vision"
+
+    Parameter Type = 4
+    Parameter = "server file was last modified"
+
+    Parameter Type = 4
+    Parameter = "agent file was last modified"
+
+    Parameter Type = 4
+    Parameter = "keeper file was last modified"
+
+    Parameter Type = 10
+    Parameter = "server file size"
+
+    Parameter Type = 10
+    Parameter = "agent file size"
+
+    Parameter Type = 10
+    Parameter = "keeper file size"
+
+    Parameter Type = C
+    Parameter = "agent count"
+
+Command ID = 84D3
+Command = "MC_REQUEST_START_SERVER_SCHEDULE"
+Command Help = "start server."
+
+Command ID = 7935
+Command = "MC_REQUEST_WRITE_CLIENT_CRC"
+Command Help = "request gunz client file crc32 checksum write on server.ini."
+
+    Parameter Type = 1
+    Parameter = "gunz client file crc32 checksum"
+
+Command ID = 7936
+Command = "MC_RESPONSE_WRITE_CLIENT_CRC"
+Command Help = "response write client crc32 request"
+
+    Parameter Type = 3
+    Parameter = "result"
+
+Command ID = 7937
+Command = "MC_REQUEST_KEEPER_RELOAD_SERVER_CONFIG"
+Command Help = "keeper manager send to keeper request server reload server.ini file."
+
+    Parameter Type = 4
+    Parameter = "file list"
+
+Command ID = 7938
+Command = "MC_REQUEST_RELOAD_CONFIG"
+Command Help = "keeper request server reload server.ini file"
+
+    Parameter Type = 4
+    Parameter = "file list"
+
+Command ID = 7939
+Command = "MC_REQUEST_KEEPER_ADD_HASHMAP"
+Command Help = ""
+
+    Parameter Type = 4
+    Parameter = "new hash value"
+
+Command ID = 793A
+Command = "MC_RESPONSE_KEEPER_ADD_HASHMAP"
+Command Help = ""
+
+    Parameter Type = 3
+    Parameter = "result"
+
+Command ID = 793B
+Command = "MC_REQUEST_ADD_HASHMAP"
+Command Help = ""
+
+    Parameter Type = 4
+    Parameter = "new hash value"
+
+Command ID = 793C
+Command = "MC_RESPONSE_ADD_HASHMAP"
+Command Help = ""
+
+    Parameter Type = 3
+    Parameter = "result"
+
+Command ID = 5208
+Command = "Quest item"
+Command Help = "Request my quest item list"
+
+    Parameter Type = 9
+    Parameter = "uid"
+
+Command ID = 5209
+Command = "Quest item"
+Command Help = "Response my quest item list"
+
+    Parameter Type = A
+    Parameter = "My quest item list"
+
+Command ID = 520A
+Command = "Quest item"
+Command Help = "Request buy quest item"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 0
+    Parameter = "QuestItemID"
+
+Command ID = 520B
+Command = "Quest item"
+Command Help = "Response buy quest item"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 0
+    Parameter = "Player Bounty"
+
+Command ID = 520C
+Command = "Quest item"
+Command Help = "Request sell quest item"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 0
+    Parameter = "QuestItemID"
+
+    Parameter Type = 0
+    Parameter = "Count"
+
+Command ID = 520D
+Command = "Quest item"
+Command Help = "Response sell quest item"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 0
+    Parameter = "Player Bounty"
+
+Command ID = 520E
+Command = "Quest"
+Command Help = "Quest reward."
+
+    Parameter Type = 0
+    Parameter = "XP"
+
+    Parameter Type = 0
+    Parameter = "Bounty"
+
+    Parameter Type = A
+    Parameter = "Reward quest item"
+
+    Parameter Type = A
+    Parameter = "Reward ZItem"
+
+Command ID = 520F
+Command = "Quest"
+Command Help = "Request drop sacrifice item"
+
+    Parameter Type = 9
+    Parameter = "Drop item owner"
+
+    Parameter Type = 0
+    Parameter = "Slot index"
+
+    Parameter Type = 0
+    Parameter = "ItemID"
+
+Command ID = 5210
+Command = "Quest"
+Command Help = "Response drop sacrifice item"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 9
+    Parameter = "requester of drop sacrifice item."
+
+    Parameter Type = 0
+    Parameter = "Slot index"
+
+    Parameter Type = 0
+    Parameter = "ItemID"
+
+Command ID = 5211
+Command = "Quest"
+Command Help = "Request callback sacrifice item"
+
+    Parameter Type = 9
+    Parameter = "Callback item requester"
+
+    Parameter Type = 0
+    Parameter = "Slot index"
+
+    Parameter Type = 0
+    Parameter = "ItemID"
+
+Command ID = 5212
+Command = "Quest"
+Command Help = "Request callback sacrifice item"
+
+    Parameter Type = 0
+    Parameter = "Result"
+
+    Parameter Type = 9
+    Parameter = "requester of callback sacrifice item."
+
+    Parameter Type = 0
+    Parameter = "Slot index"
+
+    Parameter Type = 0
+    Parameter = "ItemID"
+
+Command ID = 5213
+Command = "Quest"
+Command Help = "Request slot info"
+
+    Parameter Type = 9
+    Parameter = "Sender"
+
+Command ID = 5214
+Command = "Quest"
+Command Help = "Response slot info"
+
+    Parameter Type = 9
+    Parameter = "Owner 1"
+
+    Parameter Type = 0
+    Parameter = "ItemID 1"
+
+    Parameter Type = 9
+    Parameter = "Owner 2"
+
+    Parameter Type = 0
+    Parameter = "ItemID 2"
+
+Command ID = 17D5
+Command = "Quest"
+Command Help = "Request stage quest level"
+
+    Parameter Type = 9
+    Parameter = "sender"
+
+Command ID = 17D6
+Command = "Quest"
+Command Help = "Response stage quest level"
+
+    Parameter Type = 0
+    Parameter = "Quest level"
+
+Command ID = 17AC
+Command = "Quest"
+Command Help = "Failed start quest."
+
+    Parameter Type = 0
+    Parameter = "Failed type."
+
+    Parameter Type = 9
+    Parameter = "pair param"
+
+Command ID = 5215
+Command = "monster info"
+Command Help = "monster info"
+
+    Parameter Type = B
+    Parameter = "monster db index"
+
+Command ID = 5216
+Command = "Quest"
+Command Help = "request monster bible info"
+
+    Parameter Type = 9
+    Parameter = "requester"
+
+Command ID = 5217
+Command = "Quest"
+Command Help = "response monster bible info"
+
+    Parameter Type = 9
+    Parameter = "requester"
+
+    Parameter Type = A
+    Parameter = "Monster bible info"
+
+Command ID = 9C41
+Command = "MC_REQUEST_SERVER_LIST_INFO"
+Command Help = "request connectable server list info."
+
+Command ID = 9C42
+Command = "MC_RESPONSE_SERVER_LIST_INFO"
+Command Help = "response connectable server list info"
+
+    Parameter Type = A
+    Parameter = "server list"
+
+Command ID = 9C43
+Command = "MC_RESPONSE_BLOCK_COUNTRY_CODE_IP"
+Command Help = "response connected ip country code is blocked"
+
+    Parameter Type = 4
+    Parameter = "Country code"
+
+    Parameter Type = 4
+    Parameter = "Routing URL"
+
+Command ID = C351
+Command = "MC_RESPONSE_BLOCK_COUNTRYCODE"
+Command Help = "response block ip connected."
+
+    Parameter Type = 4
+    Parameter = "Comment"
+
+Command ID = C352
+Command = "MC_LOCAL_UPDATE_USE_COUNTRY_FILTER"
+Command Help = "update use country filter."
+
+Command ID = C353
+Command = "MC_LOCAL_GET_DB_IP_TO_COUNTRY"
+Command Help = "get db ip to country code."
+
+Command ID = C354
+Command = "MC_LOCAL_GET_DB_BLOCK_COUNTRY_CODE"
+Command Help = "get db block country code."
+
+Command ID = C355
+Command = "MC_LOCAL_GET_DB_CUSTOM_IP"
+Command Help = "get db custom ip."
+
+Command ID = C356
+Command = "MC_LOCAL_UPDAET_IP_TO_COUNTRY"
+Command Help = "update ip to country code."
+
+Command ID = C357
+Command = "MC_LOCAL_UPDAET_BLOCK_COUTRYCODE"
+Command Help = "update block country code."
+
+Command ID = C358
+Command = "MC_LOCAL_UPDAET_CUSTOM_IP"
+Command Help = "update custom ip."
+
+Command ID = C359
+Command = "MC_LOCAL_UPDATE_ACCEPT_INVALID_IP"
+Command Help = "update accept invalid ip."
+
+Command ID = 1F41
+Command = "MC_REQUEST_XTRAP_HASHVALUE"
+Command Help = "request new client hash value"
+
+    Parameter Type = 4
+    Parameter = "new random value"
+
+Command ID = 1F42
+Command = "MC_RESPONSE_XTRAP_HASHVALUE"
+Command Help = "response new client hash value"
+
+    Parameter Type = 4
+    Parameter = "new hash value"
+
+Command ID = 2329
+Command = "MC_REQUEST_GAMEGUARD_AUTH"
+Command Help = "requet new gameguard auth"
+
+    Parameter Type = 1
+    Parameter = "index"
+
+    Parameter Type = 1
+    Parameter = "value1"
+
+    Parameter Type = 1
+    Parameter = "value2"
+
+    Parameter Type = 1
+    Parameter = "value3"
+
+Command ID = 232A
+Command = "MC_RESPONSE_GAMEGUARD_AUTH"
+Command Help = "game client response new gameguard auth to server"
+
+    Parameter Type = 1
+    Parameter = "index"
+
+    Parameter Type = 1
+    Parameter = "value1"
+
+    Parameter Type = 1
+    Parameter = "value2"
+
+    Parameter Type = 1
+    Parameter = "value3"
+
+Command ID = 232B
+Command = "MC_REQUEST_GAMEGUARD_AUTH_2"
+Command Help = "requet new gameguard auth"
+
+    Parameter Type = 1
+    Parameter = "index"
+
+    Parameter Type = 1
+    Parameter = "value1"
+
+    Parameter Type = 1
+    Parameter = "value2"
+
+    Parameter Type = 1
+    Parameter = "value3"
+
+Command ID = 232C
+Command = "MC_RESPONSE_GAMEGUARD_AUTH_2"
+Command Help = "game client response new gameguard auth to server"
+
+    Parameter Type = 1
+    Parameter = "index"
+
+    Parameter Type = 1
+    Parameter = "value1"
+
+    Parameter Type = 1
+    Parameter = "value2"
+
+    Parameter Type = 1
+    Parameter = "value3"
+
+Command ID = A028
+Command = "Con.Clear"
+Command Help = "Clear Console"
+
+Command ID = A029
+Command = "Con.Size"
+Command Help = "Resize Console"
+
+    Parameter Type = 0
+    Parameter = "width"
+
+    Parameter Type = 0
+    Parameter = "height"
+
+Command ID = A02A
+Command = "Con.Hide"
+Command Help = "Hide Console"
+
+Command ID = A02B
+Command = "con"
+Command Help = "Test Command for connection"
+
+Command ID = A02C
+Command = "dis"
+Command Help = "Test Command for disconnection"
+
+Command ID = A410
+Command = "t"
+Command Help = "Get Test Info"
+
+Command ID = A411
+Command = "bp"
+Command Help = "Begin Profile"
+
+Command ID = A412
+Command = "ep"
+Command Help = "End Profile"
+
+Command ID = C738
+Command = "ChangeSkin"
+Command Help = "Change Interface Skin"
+
+    Parameter Type = 4
+    Parameter = "SkinName"
+
+Command ID = C739
+Command = "Report119"
+Command Help = "Report 119"
+
+Command ID = C73A
+Command = "Message"
+Command Help = "Message"
+
+    Parameter Type = 0
+    Parameter = "nMessageID"
+
+Command ID = CB21
+Command = "Local.Event.Optain.Special.WorldItem"
+Command Help = "Event Optain Special WorldItem"
+
+    Parameter Type = 0
+    Parameter = "WorldItemID"
+
+Command ID = CF08
+Command = "Quest.NPCLocalSpawn"
+Command Help = "Npc Local Spawn"
+
+    Parameter Type = 9
+    Parameter = "uidChar"
+
+    Parameter Type = 9
+    Parameter = "nNpcUID"
+
+    Parameter Type = C
+    Parameter = "nNpcType"
+
+    Parameter Type = C
+    Parameter = "PositionIndex"
+

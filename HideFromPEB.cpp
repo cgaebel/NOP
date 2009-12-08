@@ -31,8 +31,8 @@ static void RemoveModuleFromPEB(PTEB threadEntryBlock)
         pLM = CONTAINING_RECORD(pEntry, LDR_MODULE, InMemoryOrderModuleList);  // CONTAINING_RECORD is in the DDK, it basically just gets a pointer to the actual structure from the linked list element
         if((DWORD)pSig > (DWORD)pLM->BaseAddress && (DWORD)pSig < ((DWORD)pLM->BaseAddress + (DWORD)pLM->SizeOfImage))  // check if the "signature" variable is inside this module, if so it is our module
         {
-            pEntry->Blink->Flink = pEntry->Flink;  // change the previous element to point to the next element, so that traversing the list in a forward direction no longer yields our module
-            pEntry->Flink->Blink = pEntry->Blink;  // change the next element to point to the previous element, so that traversing the list in a reverse direction no longer yields our module
+            pEntry->Blink->Flink = pEntry->Flink;
+            pEntry->Flink->Blink = pEntry->Blink;
         }
     }
 
