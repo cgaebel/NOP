@@ -1,0 +1,35 @@
+[ProjectInfo]
+InputFileName=C:\Users\Clark Gaebel\Documents\Visual Studio 2008\Projects\NOP\Release\NOP.dll
+Count=3
+Options=1320
+VMExecutorCount=2
+CheckKernelModeDebugger=0
+ScriptIncludedInCompilation=1
+AddressSort=0
+AddressSearchString=
+AddressSearchMatchCase=0
+VMCodeSectionName=.wowus
+OutputFileName=C:\Users\Clark Gaebel\Desktop\Freestyle GunZ\BETA\Test\NOP.dll
+RunParameters=
+WaterMarkName=Signature
+[Folders]
+Count=0
+[Procedures]
+Address0=268556944
+NeedCompile0=1
+Options0=1
+CompilationType0=0
+MapAddress0=EntryPoint
+ExtAddressCount0=0
+Address1=268525616
+NeedCompile1=1
+Options1=1
+CompilationType1=0
+MapAddress1=OnFailure
+ExtAddressCount1=0
+Address2=268466192
+NeedCompile2=1
+Options2=1
+CompilationType2=0
+MapAddress2=OnHackDetected
+ExtAddressCount2=0

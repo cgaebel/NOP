@@ -199,209 +199,29 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Source Files"
-			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			Name="Self-protection Config"
 			>
 			<File
-				RelativePath=".\HashManager.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\HideThreadFromDebugger.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\HTTP.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Logging.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\NOP.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Patching.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
-			<File
-				RelativePath=".\defs.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HashManager.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HideThreadFromDebugger.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HTTP.h"
-				>
-			</File>
-			<File
-				RelativePath=".\NOP.h"
-				>
-			</File>
-			<File
-				RelativePath=".\NTInternals.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Patching.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="PCH"
-			>
-			<File
-				RelativePath=".\stdafx.cpp"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						UsePrecompiledHeader="1"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\stdafx.h"
-				>
-			</File>
-			<File
-				RelativePath=".\targetver.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Hash"
-			>
-			<File
-				RelativePath=".\CCRC32.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\CCRC32.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HMD6.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\HMD6.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IHash.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\IHash.h"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Protection Methods"
-			>
-			<File
-				RelativePath=".\AntiHackCore.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\AntiHackCore.h"
-				>
-			</File>
-			<Filter
-				Name="Passive"
-				>
-				<File
-					RelativePath=".\CheckReturnAddress.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\FileHash.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\HideFromPEB.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\HideModule.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\RestoreRemovedFunctions.cpp"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Active"
-				>
-				<File
-					RelativePath=".\CodeSegmentCheck.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\TrainerDetection.cpp"
-					>
-				</File>
-			</Filter>
-		</Filter>
-		<Filter
-			Name="Overlay"
-			>
-			<File
-				RelativePath=".\Overlay.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Overlay.h"
+				RelativePath=".\Protection Configuration\NOP.dll.vmp"
 				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Whitepapers"
 			>
-			<File
-				RelativePath=".\Release\Release.bat"
-				>
-			</File>
 			<Filter
 				Name="Protocol"
 				>
 				<File
-					RelativePath=".\Command Parameter Types.txt"
+					RelativePath=".\Whitepapers\Command Parameter Types.txt"
 					>
 				</File>
 				<File
-					RelativePath=".\Dexgod Command Dump.txt"
+					RelativePath=".\Whitepapers\Dexgod Command Dump.txt"
 					>
 				</File>
 				<File
-					RelativePath=".\Gunz Packet Protocol.txt"
+					RelativePath=".\Whitepapers\Gunz Packet Protocol.txt"
 					>
 				</File>
 			</Filter>
@@ -409,7 +229,7 @@
 				Name="Matchserver"
 				>
 				<File
-					RelativePath=".\Matchserver PDB Dump.txt"
+					RelativePath=".\Whitepapers\Matchserver PDB Dump.txt"
 					>
 				</File>
 			</Filter>
@@ -417,11 +237,199 @@
 				Name="GunzOld"
 				>
 				<File
-					RelativePath=".\GunzOld Address Dump.txt"
+					RelativePath=".\Whitepapers\GunzOld Address Dump.txt"
 					>
 				</File>
 				<File
-					RelativePath=".\GunzOld PDB Dump.txt"
+					RelativePath=".\Whitepapers\GunzOld PDB Dump.txt"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="src"
+			>
+			<Filter
+				Name="Header Files"
+				Filter="h;hpp;hxx;hm;inl;inc;xsd"
+				UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+				>
+				<File
+					RelativePath=".\defs.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HashManager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HideThreadFromDebugger.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HTTP.h"
+					>
+				</File>
+				<File
+					RelativePath=".\NOP.h"
+					>
+				</File>
+				<File
+					RelativePath=".\NTInternals.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Patching.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Hash"
+				>
+				<File
+					RelativePath=".\CCRC32.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\CCRC32.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HMD6.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HMD6.h"
+					>
+				</File>
+				<File
+					RelativePath=".\IHash.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\IHash.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Overlay"
+				>
+				<File
+					RelativePath=".\Overlay.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Overlay.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="PCH"
+				>
+				<File
+					RelativePath=".\stdafx.cpp"
+					>
+					<FileConfiguration
+						Name="Debug|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"
+						/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32"
+						>
+						<Tool
+							Name="VCCLCompilerTool"
+							UsePrecompiledHeader="1"
+						/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\stdafx.h"
+					>
+				</File>
+				<File
+					RelativePath=".\targetver.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Protection Modules"
+				>
+				<File
+					RelativePath=".\AntiHackCore.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\AntiHackCore.h"
+					>
+				</File>
+				<Filter
+					Name="Passive"
+					>
+					<File
+						RelativePath=".\CheckReturnAddress.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\FileHash.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\HideFromPEB.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\HideModule.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\RestoreRemovedFunctions.cpp"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Active"
+					>
+					<File
+						RelativePath=".\CodeSegmentCheck.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\TrainerDetection.cpp"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="Source Files"
+				Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+				UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+				>
+				<File
+					RelativePath=".\HashManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HideThreadFromDebugger.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HTTP.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Logging.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\NOP.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Patching.cpp"
 					>
 				</File>
 			</Filter>
