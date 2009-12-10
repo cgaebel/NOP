@@ -86,12 +86,17 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			GetAntiHackCore().AddPassiveProtection(RestoreRemovedFunctions);	// The restore MUST be done BEFORE the return address check.
 			GetAntiHackCore().AddPassiveProtection(CheckReturnAddress);
 
+#ifdef NDEBUG
 			LogInformation("Checking the file hash...");
 			GetAntiHackCore().AddPassiveProtection(FileHash);
+#endif
 
 			LogInformation("Initializing active protection...");
 			GetAntiHackCore().AddActiveProtection(TrainerDetection);
+
+#ifdef NDEBUG
 			GetAntiHackCore().AddActiveProtection(CodeSegmentCheck);
+#endif
 
 			LogInformation("Beginning the active protection loop...");
 			GetAntiHackCore().BeginActiveProtection();
