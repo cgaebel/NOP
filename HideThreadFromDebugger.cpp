@@ -1,6 +1,6 @@
 #include "HideThreadFromDebugger.h"
+#include "NTInternals.h"
 
-typedef LONG NTSTATUS;
 typedef NTSTATUS (*NSIT)(HANDLE, UINT, PVOID, ULONG);
 
 static NSIT NtSetInformationThread = (NSIT)GetProcAddress(GetModuleHandle("ntdll.dll"), "NtSetInformationThread");

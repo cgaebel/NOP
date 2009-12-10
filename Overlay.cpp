@@ -1,5 +1,5 @@
 #include "Overlay.h"
-#include "CProtectionManager.h"
+//#include "AntiHackCore.h"
 #include "defs.h"
 
 typedef HRESULT (WINAPI* CreateDevice_Prototype)        (LPDIRECT3D9, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, LPDIRECT3DDEVICE9*);

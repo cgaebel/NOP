@@ -2,7 +2,7 @@
 #include "NOP.h"
 #include "HashManager.h"
 #include "Patching.h"
-#include "CProtectionManager.h"
+#include "AntiHackCore.h"
 #include "Overlay.h"
 #include "HideThreadFromDebugger.h"
 
@@ -80,21 +80,21 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			LogInformation("Initializing passive protection...");
 	#ifdef NDEBUG
 			LogInformation("Hiding the module...");
-			CProtectionManager::Get()->AddPassiveProtection(HideFromPEB);
+			GetAntiHackCore().AddPassiveProtection(HideFromPEB);
 	#endif
 			LogInformation("Hotpatching memory...");
-			CProtectionManager::Get()->AddPassiveProtection(RestoreRemovedFunctions);	// The restore MUST be done BEFORE the return address check.
-			CProtectionManager::Get()->AddPassiveProtection(CheckReturnAddress);
+			GetAntiHackCore().AddPassiveProtection(RestoreRemovedFunctions);	// The restore MUST be done BEFORE the return address check.
+			GetAntiHackCore().AddPassiveProtection(CheckReturnAddress);
 
 			LogInformation("Checking the file hash...");
-			CProtectionManager::Get()->AddPassiveProtection(FileHash);
+			GetAntiHackCore().AddPassiveProtection(FileHash);
 
 			LogInformation("Initializing active protection...");
-			CProtectionManager::Get()->AddActiveProtection(TrainerDetection);
-			CProtectionManager::Get()->AddActiveProtection(CodeSegmentCheck);
+			GetAntiHackCore().AddActiveProtection(TrainerDetection);
+			GetAntiHackCore().AddActiveProtection(CodeSegmentCheck);
 
 			LogInformation("Beginning the active protection loop...");
-			CProtectionManager::Get()->BeginActiveProtection();
+			GetAntiHackCore().BeginActiveProtection();
 
 			LogInformation("Done!");
 

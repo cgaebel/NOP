@@ -760,7 +760,7 @@ HMD6::HMD6(int bitLength, const unsigned char* salt, int saltLength)
 		std::string strSaltHash;
 		{
 			HMD6 saltHash(bitLength);
-			strSaltHash = dynamic_cast<IHash*>(&saltHash)->GetHash((const BYTE*)salt, saltLength);
+			strSaltHash = dynamic_cast<IHash*>(&saltHash)->GetHashAndReset((const BYTE*)salt, saltLength);
 		}
 
 		Init(bitLength, (const unsigned char*)strSaltHash.c_str(), (int)strSaltHash.length(), md6_default_L, DefaultR(bitLength, (int)(strSaltHash.length())));

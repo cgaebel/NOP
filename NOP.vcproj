@@ -326,11 +326,11 @@
 			Name="Protection Methods"
 			>
 			<File
-				RelativePath=".\CProtectionManager.cpp"
+				RelativePath=".\AntiHackCore.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\CProtectionManager.h"
+				RelativePath=".\AntiHackCore.h"
 				>
 			</File>
 			<Filter

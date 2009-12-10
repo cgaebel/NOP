@@ -1,4 +1,4 @@
-#include "CProtectionManager.h"
+#include "AntiHackCore.h"
 #include "Patching.h"
 
 // Decryption routines at: 0x00538680, 0x00538960, and 0x00538D12
@@ -144,5 +144,5 @@ const char* RestoreRemovedFunctions()
 	RestoreMRSDecryptionRoutines();
 	RestorePostBasicInfo();
 
-	return NULL;
+	return NO_HACK_DETECTED;
 }

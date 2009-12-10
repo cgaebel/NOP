@@ -1,4 +1,4 @@
-#include "CProtectionManager.h"
+#include "AntiHackCore.h"
 #include "NOP.h"
 #include "defs.h"
 
@@ -40,5 +40,5 @@ const char* TrainerDetection()
 {
 	bool hackDetected = false;
 	EnumWindows((WNDENUMPROC)EnumWindowsHandler, (LPARAM)(&hackDetected));
-	return (hackDetected) ? __FUNCTION__ : NULL;
+	return (hackDetected) ? HACK_DETECTED : NO_HACK_DETECTED;
 }

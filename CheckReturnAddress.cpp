@@ -1,4 +1,4 @@
-#include "CProtectionManager.h"
+#include "AntiHackCore.h"
 #include "Patching.h"
 #include "defs.h"
 
@@ -126,7 +126,7 @@ const char* CheckReturnAddress()
 		Patching::PatchUnconditionalJump(0x0047E1C7, ADD_ESP_1C_RETN);		// ZPostShotMelee
 		Patching::PatchUnconditionalJump(0x0047DF27, RETN);					// ZPostSkill
 		Patching::PatchUnconditionalJump(0x004180B9, ADD_ESP_10_RETN);		// ZPostStageChat
-		Patching::PatchUnconditionalJump(0x0042AAB6, ADD_ESP_10_RETN);		// ZPostStageCreate					<-- NEW
+		Patching::PatchUnconditionalJump(0x0042AAB6, ADD_ESP_10_RETN);		// ZPostStageCreate
 		Patching::PatchUnconditionalJump(0x004A06C4, ADD_ESP_10_RETN);		// ZPostStageEnterBattle
 		Patching::PatchUnconditionalJump(0x00433584, ADD_ESP_10_RETN);		// ZPostStageLeaveBattle
 		Patching::PatchUnconditionalJump(0x0045BF6B, RETN);					// ZPostStageSetting
@@ -138,7 +138,7 @@ const char* CheckReturnAddress()
 		Patching::Patch((void*)0x00485E87, "\xEB\x57\x90" , 3);				// SetAP Part 2
 		Patching::PatchUnconditionalJump(0x004213F8, ADD_ESP_10_RETN);		// ZPostRequestCharInfoDetail
 		Patching::PatchUnconditionalJump(0x0042A254, RETN);					// ZChatOutput
-		Patching::PatchUnconditionalJump(0x004B3812, RETN4);				// ZRuleBerserker::BonusHealth		<-- NEW
+		Patching::PatchUnconditionalJump(0x004B3812, RETN4);				// ZRuleBerserker::BonusHealth
 																			// ZRuleBerserker::PenaltyHealth
 																			// ZCharacter::Destroy
 																			// ZCharacter::InitRound
@@ -175,7 +175,7 @@ const char* CheckReturnAddress()
 		Patching::PatchUnconditionalJump(0x0041BA29, ADD_ESP_10_RETN);		// ZGetInterfaceSkinPath
 		Patching::PatchUnconditionalJump(0x00494415, RETN);					// ZGetSoundFMod
 
-		Patching::Patch((void*)0x004ABDD7, "\x74\x14", 2);					// ZGetGame						<-- NEW
+		Patching::Patch((void*)0x004ABDD7, "\x74\x14", 2);					// ZGetGame
 		Patching::PatchUnconditionalJump(0x004ABDE8, RETN);					// ...
 		Patching::Patch((void*)0x004ABDED, "\x31\xC0\xC3", 3);				// ...
 
@@ -193,7 +193,7 @@ const char* CheckReturnAddress()
 		Patching::PatchUnconditionalJump(0x004244D5, RETN);					// ZPostFriendAdd
 		//Patching::PatchUnconditionalJump(0x0042AAB9, RETN);				// ZPostWhisper
 		Patching::PatchUnconditionalJump(0x00497588, RETN);					// ZGetGameClient
-		Patching::Patch((void*)0x00484533, "\xEB\x04\x90", 3);				// ZObjectManager::GetObjectA	<-- NEW
+		Patching::Patch((void*)0x00484533, "\xEB\x04\x90", 3);				// ZObjectManager::GetObjectA
 		Patching::PatchUnconditionalJump(0x00484539, RETN4);				// ...
 
 #undef RETN4
@@ -207,9 +207,9 @@ const char* CheckReturnAddress()
 #undef FS_RETN
 #undef RETN
 	} __except(EXCEPTION_EXECUTE_HANDLER) {
-		return __FUNCTION__;
+		return HACK_DETECTED;
 	}
 
 	// Hacks aren't detected here. The patch does it itself.
-	return NULL;
+	return NO_HACK_DETECTED;
 }

@@ -15,7 +15,7 @@ public:
 	virtual std::string GetHash() = NULL;
 
 	// Gets the hash from the data supplied all at once.
-	virtual std::string GetHash(const BYTE* data, const size_t len);
+	virtual std::string GetHashAndReset(const BYTE* data, const size_t len);
 
 	// Clears the hash. To be reused later.
 	virtual void Reset() = NULL;

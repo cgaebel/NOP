@@ -1,31 +1,21 @@
-#include "CProtectionManager.h"
+#include "AntiHackCore.h"
 #include "NOP.h"
 #include "HideThreadFromDebugger.h"
 
 using namespace std;
 
-CProtectionManager* CProtectionManager::Get()
+AntiHackCore& AntiHackCore::Get()
 {
-	static CProtectionManager* ptr = NULL;
-
-	if(ptr == NULL)
-	{
-		try {
-			ptr = new CProtectionManager;
-		} catch(...) {
-			OnFailure("Could not allocate the protection manager.");
-		}
-	}
-
-	return ptr;
+	static AntiHackCore instance;
+	return instance;
 }
 
-void CProtectionManager::AddActiveProtection(ActiveProtectionFunc* functor)
+void AntiHackCore::AddActiveProtection(ActiveProtectionFunc* functor)
 {
 	activeProtectionMechanisms.push_back(functor);
 }
 
-void CProtectionManager::AddPassiveProtection(PassiveProtectionFunc* functor)
+void AntiHackCore::AddPassiveProtection(PassiveProtectionFunc* functor)
 {
 	const char* retval = NULL;
 	try {
@@ -38,7 +28,7 @@ void CProtectionManager::AddPassiveProtection(PassiveProtectionFunc* functor)
 	}
 }
 
-DWORD CProtectionManager::ActiveProtectionThread(CProtectionManager* simulatedThis)
+DWORD AntiHackCore::ActiveProtectionThread(AntiHackCore* simulatedThis)
 {
 	HideThreadFromDebugger();
 	::SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
@@ -68,7 +58,7 @@ DWORD CProtectionManager::ActiveProtectionThread(CProtectionManager* simulatedTh
 	}
 }
 
-void CProtectionManager::BeginActiveProtection()
+void AntiHackCore::BeginActiveProtection()
 {
 	ONCE(
 		if(!CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)ActiveProtectionThread, this, NULL, NULL))

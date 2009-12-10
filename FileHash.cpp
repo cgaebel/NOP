@@ -1,4 +1,4 @@
-#include "CProtectionManager.h"
+#include "AntiHackCore.h"
 #include "HashManager.h"
 
 static std::string GetFileHash()
@@ -44,5 +44,5 @@ const char* FileHash()
 	if(invalid)
 		LogInformation(hash.c_str());
 
-	return (invalid) ? __FUNCTION__ : NULL;
+	return (invalid) ? HACK_DETECTED : NO_HACK_DETECTED;
 }

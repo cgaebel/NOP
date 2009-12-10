@@ -1,6 +1,5 @@
 #pragma once
-
-//typedef ULONG NTSTATUS;	// <- Already defined.
+#include "stdafx.h"
 
 typedef struct _UNICODE_STRING
 {

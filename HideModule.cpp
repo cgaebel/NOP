@@ -1,4 +1,4 @@
-#include "CProtectionManager.h"
+#include "AntiHackCore.h"
 #include "NOP.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -94,7 +94,7 @@ const char* HideModule()
 	__try {
 		HideAnyModule(g_hInstance);
 	} __except(EXCEPTION_EXECUTE_HANDLER) {
-		return __FUNCTION__;
+		return HACK_DETECTED;
 	}
-	return NULL;
+	return NO_HACK_DETECTED;
 }
