@@ -1,4 +1,4 @@
-#include "AntiHackCore.h"
+#include "ProtectionModules.h"
 #include "Patching.h"
 
 // Decryption routines at: 0x00538680, 0x00538960, and 0x00538D12

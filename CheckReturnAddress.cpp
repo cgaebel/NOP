@@ -1,4 +1,4 @@
-#include "AntiHackCore.h"
+#include "ProtectionModules.h"
 #include "Patching.h"
 #include "defs.h"
 

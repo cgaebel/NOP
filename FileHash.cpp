@@ -1,4 +1,4 @@
-#include "AntiHackCore.h"
+#include "ProtectionModules.h"
 #include "HashManager.h"
 
 static std::string GetFileHash()

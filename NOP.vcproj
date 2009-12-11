@@ -366,6 +366,10 @@
 					RelativePath=".\AntiHackCore.h"
 					>
 				</File>
+				<File
+					RelativePath=".\ProtectionModules.h"
+					>
+				</File>
 				<Filter
 					Name="Passive"
 					>
