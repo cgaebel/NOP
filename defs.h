@@ -38,5 +38,5 @@ typedef LONG NTSTATUS;
 
 // In order to update the date, you MUST do a rebuild all.
 #define OVERLAY_TEXT \
-			"Powered by NOP " __DATE__ "\n"	\
+			"Protected by NOP " __DATE__ "\n"	\
 			"Created by Clark Gaebel"
