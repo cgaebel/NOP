@@ -437,6 +437,54 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Detours"
+				>
+				<File
+					RelativePath=".\Detours\CDetour.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\CDetour.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\CDetourDis.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\creatwth.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\detours.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\detours.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\disasm.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\image.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\LVCByteArray.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\LVCByteArray.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Detours\modules.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>

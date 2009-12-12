@@ -38,11 +38,8 @@
 #include "defs.h"
 #include "IHash.h"
 #include "HMD6.h"
+#include "Detours/CDetour.h"
 #include "NOP.h"
-
-// Helps with assembly call tables.
-#define DEF_CALL(address)			static void* __call__##address = (void*)address
-#define CALL_FROM_TABLE(address)	CALL [__call__##address]
 
 // The ONCE delegate macro.
 #define ONCE_HELPER(instructionsToRunOnce, onceVar)	\
@@ -62,5 +59,3 @@
 
 // Asserts that optimize in release mode.
 #define ASSERTUME	__noop
-
-#pragma warning(disable:6320)

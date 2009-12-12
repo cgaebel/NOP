@@ -100,12 +100,5 @@ namespace Patching
 			*(DWORD*)(jmpBuffer + 1) = (DWORD)jmpPayload;
 			Patch((void*)_Src, jmpBuffer, sizeof(jmpBuffer));
 		}
-/*
-		DWORD delta = _Dst - _Src;
-
-		((delta > (signed long)(128)) || (delta < (signed long)(-128))) ?
-			PatchLongJump (_Src, (signed long)delta):
-			PatchShortJump(_Src, (signed char)delta);
-*/
 	}
 }
