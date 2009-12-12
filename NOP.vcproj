@@ -473,6 +473,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Detours\LVCByteArray.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Detours\LVCByteArray.h"
 					>
 				</File>
