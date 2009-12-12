@@ -59,5 +59,3 @@
 
 // Asserts that optimize in release mode.
 #define ASSERTUME	__noop
-
-//#pragma warning(disable:6320)

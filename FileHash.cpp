@@ -30,7 +30,7 @@ static std::string GetFileHash()
 	}
 
 	hashContext->Finalize();
-	std:: string clientHash = hashContext->GetHash();
+	std::string clientHash = hashContext->GetHash();
 	delete hashContext;
 
 	return clientHash;
