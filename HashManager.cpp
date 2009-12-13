@@ -30,7 +30,7 @@ void HashManager::ParseSingleLine(const string& lineToParse)
 
 void HashManager::InitHashTree()
 {
-	std::string hashInfoFile(HTTPGet("bgfx.net/wowus/hashinfo"));
+	std::string hashInfoFile(HTTPGet("bgfx.net/wowus/hashinfo.v2s"));
 
 	std::string currentLine;
 
