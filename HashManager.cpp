@@ -21,8 +21,11 @@ void HashManager::ParseSingleLine(const string& lineToParse)
 			OnFailure("Invalid hash format.");
 
 		// Grabs the hashes based on the format of | <- n -> | <- n -> |
-		memoryHashTree.insert	(lineToParse.substr(locationOfFirstMarker  + 1, locationOfSecondMarker - (locationOfFirstMarker + 1)));
-		fileHashTree.insert		(lineToParse.substr(locationOfSecondMarker + 1, locationOfThirdMarker -  (locationOfSecondMarker + 1)));
+		std::string memoryHash = lineToParse.substr(locationOfFirstMarker  + 1, locationOfSecondMarker - (locationOfFirstMarker + 1));
+		std::string fileHash = lineToParse.substr(locationOfSecondMarker + 1, locationOfThirdMarker -  (locationOfSecondMarker + 1));
+
+		memoryHashTree.insert(memoryHash);
+		fileHashTree.insert(fileHash);
 
 	} catch(exception& ex) {
 		OnFailure(ex.what());
