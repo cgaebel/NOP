@@ -1,5 +1,6 @@
 #include "ProtectionModules.h"
 #include "HashManager.h"
+#include "CCRC32.h"
 
 static std::string GetFileHash()
 {
@@ -8,12 +9,12 @@ static std::string GetFileHash()
 	IHash* hashContext = NULL;
 
 	try {
-		hashContext = new HMD6;
+		hashContext = new CCRC32;
 	} catch(...) {
-		return "";
+		OnFailure("Could not allocate the file hash. Out of memory?");
 	}
 
-	char dstBuf[md6_w*md6_w] = { 0 };
+	char dstBuf[1024] = { 0 };
 
 	for(size_t i = 0; i < _countof(protectedFiles); ++i)
 	{

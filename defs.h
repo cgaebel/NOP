@@ -17,7 +17,8 @@ typedef LONG NTSTATUS;
 #define TRAINER_WINDOW_TITLE_BLACKLIST	\
 			"ZxPwd",					\
 			"injector",					\
-			"*REMADE*"
+			"*REMADE*",					\
+			"cheatengine"
 
 #define DLL_NAME \
 			"NOP.dll"

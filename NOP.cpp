@@ -56,6 +56,9 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			LogInformation("Advertising...");
 			InitOverlay();
 
+			LogInformation("Starting winsock...");
+			InitializeWinsock();
+
 			LogInformation("Initializing passive protection...");
 #ifdef NDEBUG
 			LogInformation("Hiding the module...");
