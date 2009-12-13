@@ -37,7 +37,6 @@
 // Application-specific.
 #include "defs.h"
 #include "IHash.h"
-#include "HMD6.h"
 #include "Detours/CDetour.h"
 #include "NOP.h"
 

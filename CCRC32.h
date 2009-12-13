@@ -13,4 +13,6 @@ public:
 	void Finalize();
 
 	std::string GetHash();
+
+	void Reset();
 };

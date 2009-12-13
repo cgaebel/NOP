@@ -72,7 +72,7 @@ const DWORD CCRC32::polyTable[256] = {
 
 CCRC32::CCRC32()
 {
-	crc = 0xFFFFFFFF;
+	Reset();
 }
 
 void CCRC32::Update(const BYTE* data, const size_t len)
@@ -104,4 +104,9 @@ std::string CCRC32::GetHash()
 		final[i++] = dstBuf[j];
 
 	return final;
+}
+
+void CCRC32::Reset()
+{
+	crc = 0xFFFFFFFF;
 }

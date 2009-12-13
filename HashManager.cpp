@@ -10,12 +10,17 @@ HashManager& HashManager::Get()
 	return instance;
 }
 
-void HashManager::ParseSingleLine(const std::string& lineToParse)
+void HashManager::ParseSingleLine(const string& lineToParse)
 {
 	try {
-		// Grabs the hashes based on the format of | <- 128 -> | <- 128 -> |
-		memoryHashTree.insert(lineToParse.substr(1, 128));
-		fileHashTree.insert(lineToParse.substr(130, 128));
+		string::size_type locationOfFirstMarker  = lineToParse.find("|");
+		string::size_type locationOfSecondMarker = lineToParse.find("|", locationOfFirstMarker  + 1);
+		string::size_type locationOfThirdMarker  = lineToParse.find("|", locationOfSecondMarker + 1);
+
+		// Grabs the hashes based on the format of | <- n -> | <- n -> |
+		memoryHashTree.insert	(lineToParse.substr(locationOfFirstMarker  + 1, locationOfSecondMarker - (locationOfFirstMarker + 1)));
+		fileHashTree.insert		(lineToParse.substr(locationOfSecondMarker + 1, locationOfThirdMarker -  (locationOfSecondMarker + 1)));
+
 	} catch(exception& ex) {
 		OnFailure(ex.what());
 	} catch(...) {
