@@ -17,6 +17,9 @@ void HashManager::ParseSingleLine(const string& lineToParse)
 		string::size_type locationOfSecondMarker = lineToParse.find("|", locationOfFirstMarker  + 1);
 		string::size_type locationOfThirdMarker  = lineToParse.find("|", locationOfSecondMarker + 1);
 
+		if((locationOfFirstMarker == string::npos) || (locationOfSecondMarker == string::npos) || (locationOfThirdMarker == string::npos))
+			OnFailure("Invalid hash format.");
+
 		// Grabs the hashes based on the format of | <- n -> | <- n -> |
 		memoryHashTree.insert	(lineToParse.substr(locationOfFirstMarker  + 1, locationOfSecondMarker - (locationOfFirstMarker + 1)));
 		fileHashTree.insert		(lineToParse.substr(locationOfSecondMarker + 1, locationOfThirdMarker -  (locationOfSecondMarker + 1)));
