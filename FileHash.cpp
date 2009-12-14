@@ -49,5 +49,5 @@ PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 		return NO_HACK_DETECTED;
 #else
 		return (invalid) ? HACK_DETECTED : NO_HACK_DETECTED;
-#endif	
+#endif
 }
