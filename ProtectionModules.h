@@ -19,5 +19,4 @@ ActiveProtectionFunc CodeSegmentCheck;
 PassiveProtectionFunc HideModule;
 PassiveProtectionFunc CheckReturnAddress;
 PassiveProtectionFunc FileHash;
-PassiveProtectionFunc RestoreRemovedFunctions;
 PassiveProtectionFunc HideFromPEB;

@@ -16,8 +16,9 @@ public:
 	{																											\
 	public:																										\
 		Initializer##name()																						\
-			: moduleName(#name), logMessage(loadingMessage)														\
 		{																										\
+			moduleName = #name;																					\
+			logMessage = loadingMessage;																		\
 		}																										\
 																												\
 		void Run() const;																						\

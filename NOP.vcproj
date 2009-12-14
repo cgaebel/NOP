@@ -356,7 +356,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Protection Modules"
+				Name="Modules"
 				>
 				<File
 					RelativePath=".\AntiHackCore.cpp"
@@ -389,10 +389,6 @@
 						RelativePath=".\HideModule.cpp"
 						>
 					</File>
-					<File
-						RelativePath=".\RestoreRemovedFunctions.cpp"
-						>
-					</File>
 				</Filter>
 				<Filter
 					Name="Active"
@@ -403,6 +399,14 @@
 					</File>
 					<File
 						RelativePath=".\TrainerDetection.cpp"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Initialization"
+					>
+					<File
+						RelativePath=".\RestoreRemovedFunctions.cpp"
 						>
 					</File>
 				</Filter>

@@ -64,7 +64,6 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			GetAntiHackCore().AddPassiveProtection(HideFromPEB);
 #endif
 			LogInformation("Hotpatching memory...");
-			GetAntiHackCore().AddPassiveProtection(RestoreRemovedFunctions);	// The restore MUST be done BEFORE the return address check.
 			GetAntiHackCore().AddPassiveProtection(CheckReturnAddress);
 
 #ifdef NDEBUG
