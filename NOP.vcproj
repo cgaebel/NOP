@@ -485,6 +485,42 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Core"
+				>
+				<File
+					RelativePath=".\ActiveProtectionModule.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Core.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Core.h"
+					>
+				</File>
+				<File
+					RelativePath=".\InitializationModule.h"
+					>
+				</File>
+				<File
+					RelativePath=".\ListAdder.h"
+					>
+				</File>
+				<File
+					RelativePath=".\ListSingletons.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\ListSingletons.h"
+					>
+				</File>
+				<File
+					RelativePath=".\PassiveProtectionModule.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>
