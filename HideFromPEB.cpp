@@ -1,22 +1,16 @@
 #include "Core.h"
 #include "NTInternals.h"
 
-static TEB* GetCurrentTeb()
+PASSIVE_PROTECTION(HideFromPEB, "Hiding the module...")
 {
-	TEB* teb = NULL;
+	TEB* threadEntryBlock;
 
 	__asm
 	{
-		mov eax,fs:[0x18]
-		mov teb, eax
+		mov eax, fs:[0x18]
+		mov threadEntryBlock, eax
 	}
 
-	return teb;
-}
-
-// Source: https://forum.gamedeception.net/showthread.php?t=4091
-static void RemoveModuleFromPEB(TEB* threadEntryBlock)
-{
 	LDR_MODULE* pLM = NULL;
 
 	const char* pSig = __DATE__;	// Can point to any string.
@@ -59,11 +53,6 @@ static void RemoveModuleFromPEB(TEB* threadEntryBlock)
             pEntry->Flink->Blink = pEntry->Blink;
         }
     }
-}
-
-PASSIVE_PROTECTION(HideFromPEB, "Hiding the thread...")
-{
-	RemoveModuleFromPEB(GetCurrentTeb());
 
 	return NO_HACK_DETECTED;
 }
