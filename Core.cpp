@@ -46,7 +46,8 @@ void Initialize()
 
 void RunPassiveProtection()
 {
-	assert(initialized);
+	if(!initialized)
+		OnFailure("Wtf we're starting protection without initialization? Yarite.");
 
 	LogInformation("Beginning passive protection...");
 
@@ -72,7 +73,10 @@ void RunPassiveProtection()
 
 int __stdcall BeginActiveProtection_Proxy()
 {
-	assert(passived && initialized);
+	if(!initialized)
+		OnFailure("Why, exactly, are we starting the active protection BEFORE initialization?");
+	else if(!passived)
+		OnFailure("Oh god. You gotta do the passive protection BEFORE active protection, bro.");
 
 	LogInformation("Beginning active protection...");
 	SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
