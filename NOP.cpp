@@ -35,7 +35,6 @@ static WSADATA wsd;
 
 static void InitializeWinsock()
 {
-	LogInformation("Starting winsock...");
 	if(WSAStartup(0x0202, &wsd))
 		OnFailure("Could not initialize winsock.");
 }
