@@ -8,15 +8,15 @@ public:
 	const char* moduleName;
 	const char* logMessage;
 
-	virtual const char* Run() const = 0;
+	virtual const bool Run() const = 0;
 };
 
 #define PASSIVE_PROTECTION(name, loadingMessage)																\
 	class PProtection##name : public PassiveProtectionModule													\
 	{																											\
 	private:																									\
-		static const char* HACK_DETECTED;																		\
-		static const char* NO_HACK_DETECTED;																	\
+		static const bool HACK_DETECTED;																		\
+		static const bool NO_HACK_DETECTED;																		\
 	public:																										\
 		PProtection##name()																						\
 		{																										\
@@ -24,12 +24,12 @@ public:
 			logMessage = loadingMessage;																		\
 		}																										\
 																												\
-		const char* Run() const;																				\
+		const bool Run() const;																						\
 	};																											\
 																												\
-	const char* PProtection##name::HACK_DETECTED = #name;														\
-	const char* PProtection##name::NO_HACK_DETECTED = NULL;														\
+	const bool PProtection##name::HACK_DETECTED = true;														\
+	const bool PProtection##name::NO_HACK_DETECTED = false;													\
 																												\
 	static int adder##name = ListAdder<PassiveProtectionModule>(GetPassiveProtectionList(), new PProtection##name);	\
 																												\
-	const char* PProtection##name::Run() const
+	bool const PProtection##name::Run() const

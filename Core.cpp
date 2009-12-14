@@ -29,10 +29,8 @@ void RunPassiveProtection()
 
 		LogInformation(currentModule->logMessage);
 
-		const char* retVal = currentModule->Run();
-
-		if(retVal != NULL)
-			OnHackDetected(retVal);
+		if(currentModule->Run())
+			OnHackDetected(currentModule->moduleName);
 	}
 }
 

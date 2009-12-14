@@ -1,4 +1,4 @@
-#include "ProtectionModules.h"
+#include "Core.h"
 #include "HashManager.h"
 #include "CCRC32.h"
 
@@ -37,7 +37,7 @@ static std::string GetFileHash()
 	return clientHash;
 }
 
-const char* FileHash()
+PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 {
 	std::string hash = GetFileHash();
 	bool invalid = !(HashManager::Get().IsValidFileHash(hash));
@@ -45,5 +45,9 @@ const char* FileHash()
 	if(invalid)
 		LogInformation(hash.c_str());
 
-	return (invalid) ? HACK_DETECTED : NO_HACK_DETECTED;
+#ifdef _DEBUG
+		return NO_HACK_DETECTED;
+#else
+		return (invalid) ? HACK_DETECTED : NO_HACK_DETECTED;
+#endif	
 }

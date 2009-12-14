@@ -50,11 +50,6 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			GetAntiHackCore().AddPassiveProtection(HideFromPEB);
 #endif
 
-#ifdef NDEBUG
-			LogInformation("Checking the file hash...");
-			GetAntiHackCore().AddPassiveProtection(FileHash);
-#endif
-
 			LogInformation("Initializing active protection...");
 			GetAntiHackCore().AddActiveProtection(TrainerDetection);
 
