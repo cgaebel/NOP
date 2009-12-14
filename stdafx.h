@@ -39,6 +39,7 @@
 #include "IHash.h"
 #include "Detours/CDetour.h"
 #include "NOP.h"
+#include "Core.h"
 
 // The ONCE delegate macro.
 #define ONCE_HELPER(instructionsToRunOnce, onceVar)	\
