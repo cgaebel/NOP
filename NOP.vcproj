@@ -359,7 +359,23 @@
 					>
 				</File>
 				<Filter
-					Name="Passive"
+					Name="Initialization"
+					>
+					<File
+						RelativePath=".\InitializeOverlay.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\InitializeWinsock.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\RestoreRemovedFunctions.cpp"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Passive Protection"
 					>
 					<File
 						RelativePath=".\CheckReturnAddress.cpp"
@@ -379,7 +395,7 @@
 					</File>
 				</Filter>
 				<Filter
-					Name="Active"
+					Name="Active Protection"
 					>
 					<File
 						RelativePath=".\CodeSegmentCheck.cpp"
@@ -387,22 +403,6 @@
 					</File>
 					<File
 						RelativePath=".\TrainerDetection.cpp"
-						>
-					</File>
-				</Filter>
-				<Filter
-					Name="Initialization"
-					>
-					<File
-						RelativePath=".\InitializeOverlay.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\InitializeWinsock.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\RestoreRemovedFunctions.cpp"
 						>
 					</File>
 				</Filter>

@@ -19,16 +19,17 @@ public:
 		static const char* NO_HACK_DETECTED;																	\
 	public:																										\
 		PProtection##name()																						\
-			: moduleName(#name), logMessage(loadingMessage)														\
 		{																										\
+			moduleName = #name;																					\
+			logMessage = loadingMessage;																		\
 		}																										\
 																												\
-		void Run() const;																						\
+		const char* Run() const;																				\
 	};																											\
 																												\
-	PProtection##name::HACK_DETECTED = #name;																	\
-	PProtection##name::NO_HACK_DETECTED = NULL;																	\
+	const char* PProtection##name::HACK_DETECTED = #name;														\
+	const char* PProtection##name::NO_HACK_DETECTED = NULL;														\
 																												\
 	static int adder##name = ListAdder<PassiveProtectionModule>(GetPassiveProtectionList(), new PProtection##name);	\
 																												\
-	void PProtection##name::Run() const
+	const char* PProtection##name::Run() const

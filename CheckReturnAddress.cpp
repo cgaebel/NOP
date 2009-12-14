@@ -1,8 +1,8 @@
-#include "ProtectionModules.h"
+#include "Core.h"
 #include "Patching.h"
 #include "defs.h"
 
-const char* CheckReturnAddress()
+PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 {
 	// We patch all the functions listed by creating codecaves to check the return value and
 	// jumping to it in the epiloge of each function. The codecave checks to see if the return
