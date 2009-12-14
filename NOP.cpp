@@ -1,9 +1,6 @@
 #include "stdafx.h"
 #include "NOP.h"
-#include "HashManager.h"
-#include "Patching.h"
-#include "AntiHackCore.h"
-#include "HideThreadFromDebugger.h"
+#include "Core.h"
 
 using namespace std;
 
@@ -41,30 +38,14 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 		g_hInstance = hDllHandle;
 
 		try {
-			LogInformation("Hiding the thread...");
-			HideThreadFromDebugger();
-
-			LogInformation("Initializing passive protection...");
-#ifdef NDEBUG
-			LogInformation("Hiding the module...");
-			GetAntiHackCore().AddPassiveProtection(HideFromPEB);
-#endif
-
-			LogInformation("Initializing active protection...");
-			GetAntiHackCore().AddActiveProtection(TrainerDetection);
-
-#ifdef NDEBUG
-			GetAntiHackCore().AddActiveProtection(CodeSegmentCheck);
-#endif
-
-			LogInformation("Beginning the active protection loop...");
-			GetAntiHackCore().BeginActiveProtection();
-
-			LogInformation("Done!");
-
+			StartAntiHack();
+		} catch(exception& ex) {
+			OnFailure(ex.what());
 		} catch(...) {
 			OnFailure("Something that should not have gone wrong, did go wrong.");
 		}
+
+		LogInformation("Done!");
 	}
 	else if(reason == DLL_PROCESS_DETACH)
 	{

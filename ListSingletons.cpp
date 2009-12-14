@@ -17,3 +17,9 @@ std::list<ActiveProtectionModule*>& GetActiveProtectionList()
 	static std::list<ActiveProtectionModule*> instance;
 	return instance;
 }
+
+std::list<const char*>& GetIgnoreList()
+{
+	static std::list<const char*> instance;
+	return instance;
+}

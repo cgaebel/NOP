@@ -8,3 +8,5 @@ class ActiveProtectionModule;
 std::list<InitializationModule*>& GetInitializationList();
 std::list<PassiveProtectionModule*>& GetPassiveProtectionList();
 std::list<ActiveProtectionModule*>& GetActiveProtectionList();
+
+std::list<const char*>& GetIgnoreList();

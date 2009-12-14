@@ -21,10 +21,14 @@ namespace Patching
 		static const HANDLE currentProcess = GetCurrentProcess();
 
 		DWORD ulOldProtect[2];
-		VirtualProtect(_Dst, patchSize, PAGE_EXECUTE_READWRITE, &(ulOldProtect[0]));
-		FlushInstructionCache(currentProcess, _Dst, patchSize);
-		memcpy_s(_Dst, patchSize, _Src, patchSize);
-		VirtualProtect(_Dst, patchSize, ulOldProtect[0], &(ulOldProtect[1]));
+		if(!VirtualProtect(_Dst, patchSize, PAGE_EXECUTE_READWRITE, &(ulOldProtect[0])))
+			OnFailure("Patching::Patch <- 1st VirtualProtect call.");
+		if(!FlushInstructionCache(currentProcess, _Dst, patchSize))
+			OnFailure("Patching::Patch <- FlushInstructionCache.");
+		if(memcpy_s(_Dst, patchSize, _Src, patchSize))
+			OnFailure("Patching::Patch <- memcpy_s.");
+		if(!VirtualProtect(_Dst, patchSize, ulOldProtect[0], &(ulOldProtect[1])))
+			OnFailure("Patching::Patch <- 2nd VirtualProtect call.");
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////

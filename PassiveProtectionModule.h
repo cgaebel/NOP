@@ -1,11 +1,11 @@
 #pragma once
+#include "Module.h"
 #include "ListSingletons.h"
 #include "ListAdder.h"
 
-class PassiveProtectionModule
+class PassiveProtectionModule : public Module
 {
 public:
-	const char* moduleName;
 	const char* logMessage;
 
 	virtual const bool Run() const = 0;
@@ -24,11 +24,11 @@ public:
 			logMessage = loadingMessage;																		\
 		}																										\
 																												\
-		const bool Run() const;																						\
+		const bool Run() const;																					\
 	};																											\
 																												\
-	const bool PProtection##name::HACK_DETECTED = true;														\
-	const bool PProtection##name::NO_HACK_DETECTED = false;													\
+	const bool PProtection##name::HACK_DETECTED = true;															\
+	const bool PProtection##name::NO_HACK_DETECTED = false;														\
 																												\
 	static int adder##name = ListAdder<PassiveProtectionModule>(GetPassiveProtectionList(), new PProtection##name);	\
 																												\

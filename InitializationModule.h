@@ -1,11 +1,11 @@
 #pragma once
+#include "Module.h"
 #include "ListSingletons.h"
 #include "ListAdder.h"
 
-class InitializationModule
+class InitializationModule : public Module
 {
 public:
-	const char* moduleName;
 	const char* logMessage;
 
 	virtual void Run() const = 0;

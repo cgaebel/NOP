@@ -346,18 +346,6 @@
 			<Filter
 				Name="Modules"
 				>
-				<File
-					RelativePath=".\AntiHackCore.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\AntiHackCore.h"
-					>
-				</File>
-				<File
-					RelativePath=".\ProtectionModules.h"
-					>
-				</File>
 				<Filter
 					Name="Initialization"
 					>
@@ -390,13 +378,17 @@
 						>
 					</File>
 					<File
-						RelativePath=".\HideModule.cpp"
+						RelativePath=".\PassiveDebuggerHiding.cpp"
 						>
 					</File>
 				</Filter>
 				<Filter
 					Name="Active Protection"
 					>
+					<File
+						RelativePath=".\ActiveDebuggerHiding.cpp"
+						>
+					</File>
 					<File
 						RelativePath=".\CodeSegmentCheck.cpp"
 						>
@@ -501,6 +493,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Ignore.h"
+					>
+				</File>
+				<File
 					RelativePath=".\InitializationModule.h"
 					>
 				</File>
@@ -514,6 +510,10 @@
 				</File>
 				<File
 					RelativePath=".\ListSingletons.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Module.h"
 					>
 				</File>
 				<File
