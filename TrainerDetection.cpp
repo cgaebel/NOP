@@ -1,4 +1,4 @@
-#include "ProtectionModules.h"
+#include "Core.h"
 #include "NOP.h"
 #include "defs.h"
 
@@ -36,7 +36,7 @@ static BOOL EnumWindowsHandler(HWND hwnd, bool* retVal)
 	return TRUE;
 }
 
-const char* TrainerDetection()
+ACTIVE_PROTECTION(TrainerDetection)
 {
 	bool hackDetected = false;
 	EnumWindows((WNDENUMPROC)EnumWindowsHandler, (LPARAM)(&hackDetected));

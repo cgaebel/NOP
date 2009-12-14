@@ -1,4 +1,4 @@
-#include "ProtectionModules.h"
+#include "Core.h"
 #include "NTInternals.h"
 
 static TEB* GetCurrentTeb()
@@ -61,7 +61,7 @@ static void RemoveModuleFromPEB(TEB* threadEntryBlock)
     }
 }
 
-const char* HideFromPEB()
+PASSIVE_PROTECTION(HideFromPEB, "Hiding the thread...")
 {
 	RemoveModuleFromPEB(GetCurrentTeb());
 

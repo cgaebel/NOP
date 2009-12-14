@@ -1,34 +1,32 @@
 #pragma once
+#include "Module.h"
 #include "ListSingletons.h"
 #include "ListAdder.h"
 
-class ActiveProtectionModule
+class ActiveProtectionModule : public Module
 {
 public:
-	const char* moduleName;
-	const char* logMessage;
-
-	virtual const char* Run() const = 0;
+	virtual bool Run() const = 0;
 };
 
-#define ACTIVE_PROTECTION(name, loadingMessage)																	\
+#define ACTIVE_PROTECTION(name)																					\
 	class AProtection##name : public ActiveProtectionModule														\
 	{																											\
 	private:																									\
-		static const char* HACK_DETECTED;																		\
-		static const char* NO_HACK_DETECTED;																	\
+		static const bool HACK_DETECTED;																		\
+		static const bool NO_HACK_DETECTED;																		\
 	public:																										\
 		AProtection##name()																						\
-			: moduleName(#name), logMessage(loadingMessage)														\
 		{																										\
+			moduleName = #name;																					\
 		}																										\
 																												\
-		void Run() const;																						\
+		bool Run() const;																						\
 	};																											\
 																												\
-	AProtection##name::HACK_DETECTED = #name;																	\
-	AProtection##name::NO_HACK_DETECTED = NULL;																	\
+	const bool AProtection##name::HACK_DETECTED = true;															\
+	const bool AProtection##name::NO_HACK_DETECTED = false;														\
 																												\
 	static int adder##name = ListAdder<ActiveProtectionModule>(GetActiveProtectionList(), new AProtection##name);	\
 																												\
-	void AProtection##name::Run() const
+	bool AProtection##name::Run() const
