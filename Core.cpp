@@ -2,6 +2,9 @@
 #include "ListSingletons.h"
 #include "NOP.h"
 
+static bool initialized = false;
+static bool passived = true;
+
 static bool IsIgnoredModule(const Module* module)
 {
 	std::list<const char*>& ignoreList(GetIgnoreList());
@@ -36,10 +39,14 @@ void Initialize()
 	}
 
 	LogInformation((ConvertToString(initList.size()) + " initialization module(s) loaded.").c_str());
+
+	initialized = true;
 }
 
 void RunPassiveProtection()
 {
+	assert(initialized);
+
 	LogInformation("Beginning passive protection...");
 
 	std::list<PassiveProtectionModule*> protectionList = GetPassiveProtectionList();
@@ -58,10 +65,14 @@ void RunPassiveProtection()
 	}
 
 	LogInformation((ConvertToString(protectionList.size()) + " passive protection module(s) loaded.").c_str());
+
+	passived = true;
 }
 
 int __stdcall BeginActiveProtection_Proxy()
 {
+	assert(passived && initialized);
+
 	LogInformation("Beginning active protection...");
 	SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
 
