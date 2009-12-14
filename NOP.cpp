@@ -49,8 +49,6 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 			LogInformation("Hiding the module...");
 			GetAntiHackCore().AddPassiveProtection(HideFromPEB);
 #endif
-			LogInformation("Hotpatching memory...");
-			GetAntiHackCore().AddPassiveProtection(CheckReturnAddress);
 
 #ifdef NDEBUG
 			LogInformation("Checking the file hash...");
