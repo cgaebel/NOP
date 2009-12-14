@@ -41,3 +41,9 @@ typedef LONG NTSTATUS;
 #define OVERLAY_TEXT \
 			"Protected by NOP " __DATE__ "\n"	\
 			"Created by Clark Gaebel"
+
+#define INNER_CORE_LOOP_DELAY	\
+			20
+
+#define OUTER_CORE_LOOP_DELAY	\
+			2000

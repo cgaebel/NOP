@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "ListSingletons.h"
 #include "NOP.h"
+#include "defs.h"
 
 static bool initialized = false;
 static bool passived = true;
@@ -92,10 +93,10 @@ int __stdcall BeginActiveProtection_Proxy()
 			if(currentModule->Run())
 				OnHackDetected(currentModule->moduleName);
 
-			Sleep(20);
+			Sleep(INNER_CORE_LOOP_DELAY);
 		}
 
-		Sleep(2000);
+		Sleep(OUTER_CORE_LOOP_DELAY);
 	}
 }
 
