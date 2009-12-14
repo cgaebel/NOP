@@ -57,5 +57,5 @@
 #define ONCE(instructionsToRunOnce) \
 	ONCE_HELPER(instructionsToRunOnce, __onceVar__##__COUNTER__)
 
-// Asserts that optimize in release mode.
+// Asserts that optimize in release mode. DISABLED DUE TO INTEL CPP BEING STUPID.
 #define ASSERTUME	__noop
