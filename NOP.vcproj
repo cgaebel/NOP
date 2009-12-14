@@ -312,18 +312,6 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Overlay"
-				>
-				<File
-					RelativePath=".\Overlay.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\Overlay.h"
-					>
-				</File>
-			</Filter>
-			<Filter
 				Name="PCH"
 				>
 				<File
@@ -405,6 +393,14 @@
 				<Filter
 					Name="Initialization"
 					>
+					<File
+						RelativePath=".\InitializeOverlay.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\InitializeWinsock.cpp"
+						>
+					</File>
 					<File
 						RelativePath=".\RestoreRemovedFunctions.cpp"
 						>

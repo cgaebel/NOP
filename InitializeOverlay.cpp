@@ -1,5 +1,4 @@
-#include "Overlay.h"
-//#include "AntiHackCore.h"
+#include "Core.h"
 #include "defs.h"
 
 typedef HRESULT (WINAPI* CreateDevice_Prototype)        (LPDIRECT3D9, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, LPDIRECT3DDEVICE9*);
@@ -42,11 +41,7 @@ static void PrintText(LPD3DXFONT Font, int x, int y, int Red, int Green, int Blu
 
 static DWORD WINAPI HookD3D9(LPVOID)
 {
-    if(Direct3DCreate9_VMTable() == D3D_OK)
-    {
-        return true;
-    }
-    else{return false;}
+    return Direct3DCreate9_VMTable() == D3D_OK;
 }
 
 
@@ -171,7 +166,7 @@ static int WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(L
 	}
 }
 
-void InitOverlay()
+INITIALIZER(Overlay, "Loading the NOP overlay...")
 {
 	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)HookD3D9, NULL, NULL, NULL);
 }

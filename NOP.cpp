@@ -3,7 +3,6 @@
 #include "HashManager.h"
 #include "Patching.h"
 #include "AntiHackCore.h"
-#include "Overlay.h"
 #include "HideThreadFromDebugger.h"
 
 using namespace std;
@@ -31,13 +30,6 @@ using namespace std;
 */
 
 HINSTANCE g_hInstance;
-static WSADATA wsd;
-
-static void InitializeWinsock()
-{
-	if(WSAStartup(0x0202, &wsd))
-		OnFailure("Could not initialize winsock.");
-}
 
 bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 {
@@ -51,12 +43,6 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 		try {
 			LogInformation("Hiding the thread...");
 			HideThreadFromDebugger();
-
-			LogInformation("Advertising...");
-			InitOverlay();
-
-			LogInformation("Starting winsock...");
-			InitializeWinsock();
 
 			LogInformation("Initializing passive protection...");
 #ifdef NDEBUG
