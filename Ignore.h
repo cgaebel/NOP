@@ -3,4 +3,4 @@
 #include "ListAdder.h"
 
 #define IGNORE_MODULE(moduleName)	\
-	static int ignore__##moduleName = ListAdder(GetIgnoreList(), #moduleName)
+	static int __ignore__##moduleName = ListAdder(GetIgnoreList(), #moduleName)
