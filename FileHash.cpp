@@ -37,6 +37,10 @@ static std::string GetFileHash()
 	return clientHash;
 }
 
+#ifdef _DEBUG
+	IGNORE_MODULE(FileHash);
+#endif
+
 PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 {
 	std::string hash = GetFileHash();
@@ -45,9 +49,5 @@ PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 	if(invalid)
 		LogInformation(hash.c_str());
 
-#ifdef _DEBUG
-		return NO_HACK_DETECTED;
-#else
-		return (invalid) ? HACK_DETECTED : NO_HACK_DETECTED;
-#endif
+	return (invalid) ? HACK_DETECTED : NO_HACK_DETECTED;
 }
