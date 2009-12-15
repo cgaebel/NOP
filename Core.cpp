@@ -22,17 +22,31 @@ static bool IsIgnoredModule(const Module* module)
 	return false;
 }
 
+template <class ModuleClass>
+static void RemoveIgnoredModules(std::list<ModuleClass*>& toRemoveFrom)
+{
+	std::list<const char*>& ignoreList(GetIgnoreList());
+
+	for(std::list<const char*>::iterator i = ignoreList.begin(); i != ignoreList.end(); ++i)
+		for(std::list<ModuleClass*>::iterator j = toRemoveFrom.begin(); j != toRemoveFrom.end();)
+		{
+			std::list<ModuleClass*>::iterator temp = j++;
+
+			if(strcmp(*i, (**j).moduleName) == 0)
+				toRemoveFrom.remove(*temp);
+		}
+}
+
 void Initialize()
 {
 	LogInformation("Initializing...");
 	std::list<InitializationModule*> initList = GetInitializationList();
 
+	RemoveIgnoredModules(initList);
+
 	for(std::list<InitializationModule*>::iterator i = initList.begin(); i != initList.end(); ++i)
 	{
 		InitializationModule* currentModule = *i;
-
-		if(IsIgnoredModule(currentModule))
-			continue;
 
 		LogInformation(currentModule->logMessage);
 
@@ -53,12 +67,11 @@ void RunPassiveProtection()
 
 	std::list<PassiveProtectionModule*> protectionList = GetPassiveProtectionList();
 
+	RemoveIgnoredModules(protectionList);
+
 	for(std::list<PassiveProtectionModule*>::iterator i = protectionList.begin(); i != protectionList.end(); ++i)
 	{
 		PassiveProtectionModule* currentModule = *i;
-
-		if(IsIgnoredModule(currentModule))
-			continue;
 
 		LogInformation(currentModule->logMessage);
 
@@ -83,6 +96,8 @@ int __stdcall BeginActiveProtection_Proxy()
 
 	std::list<ActiveProtectionModule*> activeProtectionList = GetActiveProtectionList();
 
+	RemoveIgnoredModules(activeProtectionList);
+
 	LogInformation((ConvertToString(activeProtectionList.size()) + " active protection module(s) loaded.").c_str());
 
 	for(;;)
@@ -90,9 +105,6 @@ int __stdcall BeginActiveProtection_Proxy()
 		for(std::list<ActiveProtectionModule*>::iterator i = activeProtectionList.begin(); i != activeProtectionList.end(); ++i)
 		{
 			ActiveProtectionModule* currentModule = *i;
-
-			if(IsIgnoredModule(currentModule))
-				continue;
 
 			if(currentModule->Run())
 				OnHackDetected(currentModule->moduleName);
