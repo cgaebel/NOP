@@ -460,6 +460,10 @@
 					RelativePath=".\RestoreRemovedFunctions.cpp"
 					>
 				</File>
+				<File
+					RelativePath=".\UnmaskAdminNames.cpp"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
