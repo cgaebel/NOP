@@ -4,18 +4,6 @@
 
 using namespace std;
 
-/*
-	Integration steps:
-
-	Start up the gunzlauncher
-	Pack and crypt my dll
-	Put all relevant files in the gunz directory
-	Use COFF explorer to add OnHackDetected as an import to gunz.exe
-	Replace ZPostConnect with retn
-	//Replace ZGame::PostBasicInfo with retn
-	Fix the checksums on the server.
-*/
-
 HINSTANCE g_hInstance;
 
 bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
@@ -29,6 +17,7 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 
 		try {
 			StartAntiHack();
+
 		} catch(exception& ex) {
 			OnFailure(ex.what());
 		} catch(...) {
