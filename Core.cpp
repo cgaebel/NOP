@@ -3,6 +3,7 @@
 #include "NOP.h"
 #include "defs.h"
 
+// Variables that sanity check the developer. We are all our own worst enemies!
 static bool initialized = false;
 static bool passived = true;
 
