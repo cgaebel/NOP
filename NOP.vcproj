@@ -137,6 +137,7 @@
 				StructMemberAlignment="0"
 				BufferSecurityCheck="false"
 				EnableFunctionLevelLinking="false"
+				EnableEnhancedInstructionSet="0"
 				FloatingPointModel="0"
 				FloatingPointExceptions="false"
 				DefaultCharIsUnsigned="true"

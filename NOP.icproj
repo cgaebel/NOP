@@ -8,6 +8,12 @@
 	VCNestedProjectFileName="NOP.vcproj">
 	<Configurations>
 		<Configuration
+			Name="Debug|Win32">
+			<Tool
+				Name="CppCmplrTool"
+				Cpp0xSupport="true"/>
+		</Configuration>
+		<Configuration
 			Name="Release|Win32">
 			<Tool
 				Name="GeneralTool"
@@ -16,7 +22,10 @@
 				Name="CppCmplrTool"
 				Optimization="1000"
 				GlobalOptimizations="true"
-				InterproceduralOptimization="2"/>
+				InterproceduralOptimization="2"
+				EnableEnhancedInstructionSet="1001"
+				Parallelization="false"
+				Cpp0xSupport="true"/>
 		</Configuration>
 	</Configurations>
 	<Files/>
