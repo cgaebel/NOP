@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "HashManager.h"
 #include "CCRC32.h"
+#include "NOP.h"
 
 static std::string GetFileHash()
 {
@@ -23,6 +24,8 @@ static std::string GetFileHash()
 
 		if(fopen_s(&currentFile, protectedFiles[i], "rb") || (currentFile == NULL))
 			continue;
+
+		LogInformation((std::string("Current file: ") + protectedFiles[i]).c_str());
 
 		while((bytesRead = fread_s(dstBuf, _countof(dstBuf), sizeof(dstBuf[0]), _countof(dstBuf), currentFile)) > 0)
 			hashContext->Update((const BYTE*)dstBuf, bytesRead);
