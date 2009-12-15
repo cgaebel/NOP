@@ -27,14 +27,16 @@ static void RemoveIgnoredModules(std::list<ModuleClass*>& toRemoveFrom)
 {
 	std::list<const char*>& ignoreList(GetIgnoreList());
 
-	for(std::list<const char*>::iterator i = ignoreList.begin(); i != ignoreList.end(); ++i)
-		for(std::list<ModuleClass*>::iterator j = toRemoveFrom.begin(); j != toRemoveFrom.end();)
+	for(std::list<ModuleClass*>::iterator i = toRemoveFrom.begin(); i != toRemoveFrom.end();)
+	{
+		for(std::list<const char*>::iterator j = ignoreList.begin(); j != ignoreList.end(); ++j)
 		{
-			std::list<ModuleClass*>::iterator temp = j++;
+			std::list<ModuleClass*>::iterator temp = i++;
 
-			if(strcmp(*i, (**j).moduleName) == 0)
+			if(strcmp(*j, (**i).moduleName) == 0)
 				toRemoveFrom.remove(*temp);
 		}
+	}
 }
 
 void Initialize()
