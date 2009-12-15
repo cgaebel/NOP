@@ -2,11 +2,11 @@
 #include "NOP.h"
 #include "HashManager.h"
 #include "defs.h"
-#include "CCRC32.h"
+#include "HMD6.h"
 
 static std::string MemoryChecksum()
 {
-	static CCRC32 runningHash;
+	static HMD6 runningHash;
 	return runningHash.GetHashAndReset(CODE_SEGMENT_BEGIN, CODE_SEGMENT_END - CODE_SEGMENT_BEGIN);
 }
 

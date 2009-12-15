@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "HashManager.h"
-#include "CCRC32.h"
+#include "HMD6.h"
 #include "NOP.h"
 
 static std::string GetFileHash()
@@ -10,7 +10,7 @@ static std::string GetFileHash()
 	IHash* hashContext = NULL;
 
 	try {
-		hashContext = new CCRC32;
+		hashContext = new HMD6;
 	} catch(...) {
 		OnFailure("Could not allocate the file hash. Out of memory?");
 	}
