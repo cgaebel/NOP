@@ -23,8 +23,6 @@ bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
 		} catch(...) {
 			OnFailure("Something that should not have gone wrong, did go wrong.");
 		}
-
-		LogInformation("Done!");
 	}
 	else if(reason == DLL_PROCESS_DETACH)
 	{
