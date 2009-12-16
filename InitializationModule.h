@@ -24,6 +24,6 @@ public:
 		void Run() const;																						\
 	};																											\
 																												\
-	static int adder##name = ListAdder<InitializationModule>(GetInitializationList(), new Initializer##name);	\
+	static auto adder##name = ListAdder<InitializationModule>(GetInitializationList(), new Initializer##name);	\
 																												\
 	void Initializer##name::Run() const

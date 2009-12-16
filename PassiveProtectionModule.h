@@ -30,6 +30,6 @@ public:
 	const bool PProtection##name::HACK_DETECTED = true;															\
 	const bool PProtection##name::NO_HACK_DETECTED = false;														\
 																												\
-	static int adder##name = ListAdder<PassiveProtectionModule>(GetPassiveProtectionList(), new PProtection##name);	\
+	static auto adder##name = ListAdder<PassiveProtectionModule>(GetPassiveProtectionList(), new PProtection##name);	\
 																												\
 	bool const PProtection##name::Run() const
