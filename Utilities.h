@@ -22,7 +22,8 @@ namespace Utilities
 	// Asserts that optimize in release mode. DISABLED DUE TO INTEL CPP BEING STUPID.
 	#define ASSERTUME	__noop
 
-	std::string ConvertToString(size_t num);
+	std::string ConvertUIntToString(const unsigned int var);
+	std::string ConvertSizeTToString(const size_t var);
 
 	template <class _Functor>
 	int __stdcall CreateThreadProxy(_Functor* functor)
