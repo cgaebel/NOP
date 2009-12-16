@@ -15,7 +15,8 @@ static bool IsIgnoredModule(const std::tr1::shared_ptr<Module> module)
 	bool ignored = false;
 
 	std::for_each(ignoreList.begin(), ignoreList.end(),
-		[&](const char* currentName)
+		[moduleName, &ignored]
+		(const char* currentName)
 		{
 			if(strcmp(currentName, moduleName) == 0)
 				ignored = true;
@@ -32,12 +33,22 @@ static void RemoveIgnoredModules(std::list<std::tr1::shared_ptr<ModuleClass> >& 
 
 	std::list<std::tr1::shared_ptr<ModuleClass> > toRemove;
 
-	for(auto i = toRemoveFrom.begin(); i != toRemoveFrom.end();++i)
-		if(IsIgnoredModule(*i))
-			toRemove.push_back(*i);
+	std::for_each(toRemoveFrom.begin(), toRemoveFrom.end(),
+		[&]
+		(std::tr1::shared_ptr<ModuleClass> currentModule)
+		{
+			if(IsIgnoredModule(currentModule))
+				toRemove.push_back(currentModule);
+		}
+	);
 
-	for(auto i = toRemove.begin(); i != toRemove.end(); ++i)
-		toRemoveFrom.remove(*i);
+	std::for_each(toRemove.begin(), toRemove.end(),
+		[&]
+		(std::tr1::shared_ptr<ModuleClass> removeTarget)
+		{
+			toRemoveFrom.remove(removeTarget);
+		}
+	);
 }
 
 void Initialize()
