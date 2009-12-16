@@ -15,7 +15,7 @@ typedef DWORD DWORD_PTR;
 #if (_MSC_VER < 1310)
 #else
 #include <strsafe.h>
-#endif
+#endif\
 
 //#define DETOUR_DEBUG 1
 #define DETOURS_INTERNAL
@@ -532,7 +532,7 @@ static BOOL UpdateImports(HANDLE hProcess, LPCSTR *plpDlls, DWORD nDlls)
         }
 
         DWORD nOffset = obTab + (sizeof(DWORD_PTR) * (4 * n));
-        piid[n].OriginalFirstThunk = obBase + nOffset;
+		*(DWORD*)(&(piid[n])) = obBase + nOffset;
         pt = ((DWORD_PTR*)(pbNew + nOffset));
         pt[0] = IMAGE_ORDINAL_FLAG + 1;
         pt[1] = 0;
@@ -557,7 +557,7 @@ static BOOL UpdateImports(HANDLE hProcess, LPCSTR *plpDlls, DWORD nDlls)
                       piid[i].ForwarderChain,
                       piid[i].Name,
                       piid[i].FirstThunk));
-        if (piid[i].OriginalFirstThunk == 0 && piid[i].FirstThunk == 0) {
+        if (*(DWORD*)(&(piid[i])) == 0 && piid[i].FirstThunk == 0) {
             break;
         }
     }

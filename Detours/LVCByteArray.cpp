@@ -50,7 +50,7 @@ BYTE* LVCByteArray::Copy()
 
 void LVCByteArray::Grow(unsigned int uiSize)
 {
-	BYTE* pbNewBuffer = (BYTE*)realloc(m_pbBuffer, (m_uiSize + uiSize) * sizeof(BYTE));
+	auto pbNewBuffer = (BYTE*)realloc(m_pbBuffer, (m_uiSize + uiSize) * sizeof(BYTE));
 
 	if(pbNewBuffer == NULL)
 		throw std::exception("Out of memory!");

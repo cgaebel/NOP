@@ -1,18 +1,13 @@
-#include "ProtectionModules.h"
+#include "Core.h"
 #include "HashManager.h"
-#include "CCRC32.h"
+#include "HMD6.h"
+#include "NOP.h"
 
 static std::string GetFileHash()
 {
 	static const char* protectedFiles[] = { FILE_CHECKSUM_PROTECTED_FILES };
 
-	IHash* hashContext = NULL;
-
-	try {
-		hashContext = new CCRC32;
-	} catch(...) {
-		OnFailure("Could not allocate the file hash. Out of memory?");
-	}
+	std::tr1::shared_ptr<IHash> hashContext(new HMD6);
 
 	char dstBuf[1024] = { 0 };
 
@@ -24,6 +19,8 @@ static std::string GetFileHash()
 		if(fopen_s(&currentFile, protectedFiles[i], "rb") || (currentFile == NULL))
 			continue;
 
+		LogInformation((std::string("Current file: ") + protectedFiles[i]).c_str());
+
 		while((bytesRead = fread_s(dstBuf, _countof(dstBuf), sizeof(dstBuf[0]), _countof(dstBuf), currentFile)) > 0)
 			hashContext->Update((const BYTE*)dstBuf, bytesRead);
 
@@ -31,15 +28,13 @@ static std::string GetFileHash()
 	}
 
 	hashContext->Finalize();
-	std::string clientHash = hashContext->GetHash();
-	delete hashContext;
 
-	return clientHash;
+	return hashContext->GetHash();
 }
 
-const char* FileHash()
+PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 {
-	std::string hash = GetFileHash();
+	auto hash = GetFileHash();
 	bool invalid = !(HashManager::Get().IsValidFileHash(hash));
 
 	if(invalid)

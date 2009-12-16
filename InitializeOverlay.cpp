@@ -1,5 +1,4 @@
-#include "Overlay.h"
-//#include "AntiHackCore.h"
+#include "Core.h"
 #include "defs.h"
 
 typedef HRESULT (WINAPI* CreateDevice_Prototype)        (LPDIRECT3D9, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, LPDIRECT3DDEVICE9*);
@@ -24,7 +23,7 @@ static D3DVIEWPORT9 Viewport;
 
 static void PrintText(LPD3DXFONT Font, int x, int y, int Red, int Green, int Blue, int Alpha, const char *text, ...)
 {
-	D3DCOLOR fontColor = D3DCOLOR_ARGB(Alpha, Red, Green, Blue);
+	auto fontColor = D3DCOLOR_ARGB(Alpha, Red, Green, Blue);
 	RECT rct;
 	rct.left = x;
 	rct.top = y;
@@ -42,17 +41,13 @@ static void PrintText(LPD3DXFONT Font, int x, int y, int Red, int Green, int Blu
 
 static DWORD WINAPI HookD3D9(LPVOID)
 {
-    if(Direct3DCreate9_VMTable() == D3D_OK)
-    {
-        return true;
-    }
-    else{return false;}
+    return Direct3DCreate9_VMTable() == D3D_OK;
 }
 
 
 static HRESULT WINAPI Direct3DCreate9_VMTable()
 {
-	LPDIRECT3D9 Direct3D_Object = Direct3DCreate9(D3D_SDK_VERSION);
+	auto Direct3D_Object = Direct3DCreate9(D3D_SDK_VERSION);
 
 	if(Direct3D_Object == NULL)
 		return D3DERR_INVALIDCALL;
@@ -80,7 +75,7 @@ static HRESULT WINAPI CreateDevice_Detour(LPDIRECT3D9 Direct3D_Object, UINT Adap
 					DWORD BehaviorFlags, D3DPRESENT_PARAMETERS* PresentationParameters,
 					LPDIRECT3DDEVICE9* Returned_Device_Interface)
 {
-  HRESULT Returned_Result = CreateDevice_Pointer(Direct3D_Object, Adapter, DeviceType, FocusWindow, BehaviorFlags,
+  auto Returned_Result = CreateDevice_Pointer(Direct3D_Object, Adapter, DeviceType, FocusWindow, BehaviorFlags,
 	                                          PresentationParameters, Returned_Device_Interface);
 
   DWORD dwProtect;
@@ -171,7 +166,7 @@ static int WINAPI VirtualMethodTableRepatchingLoopToCounterExtensionRepatching(L
 	}
 }
 
-void InitOverlay()
+INITIALIZER(Overlay, "Loading the NOP overlay...")
 {
 	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)HookD3D9, NULL, NULL, NULL);
 }

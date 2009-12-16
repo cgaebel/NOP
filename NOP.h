@@ -10,9 +10,13 @@
 #define NOP_API __declspec(dllimport)
 #endif
 
-extern "C" __declspec(noreturn) __declspec(dllexport) void __cdecl OnFailure(const char* reason);
+#include "stdafx.h"
+
+std::string ConvertToString(size_t num);
+
 extern "C" __declspec(noreturn) __declspec(dllexport) void __cdecl OnHackDetected(const char* message);
 
+__declspec(noreturn) void __cdecl OnFailure(const char* reason);
 void __cdecl LogInformation(const char* info);
 
 extern HINSTANCE g_hInstance;

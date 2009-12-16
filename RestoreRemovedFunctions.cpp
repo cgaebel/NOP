@@ -1,4 +1,4 @@
-#include "ProtectionModules.h"
+#include "Core.h"
 #include "Patching.h"
 
 // Decryption routines at: 0x00538680, 0x00538960, and 0x00538D12
@@ -138,11 +138,9 @@ static void RestoreZPostConnect()
 	, 12 * 16 - 2);
 }
 
-const char* RestoreRemovedFunctions()
+INITIALIZER(RestoreRemovedFunctions, "Restoring functions...")
 {
 	RestoreZPostConnect();
 	RestoreMRSDecryptionRoutines();
 	RestorePostBasicInfo();
-
-	return NO_HACK_DETECTED;
 }

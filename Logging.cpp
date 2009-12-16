@@ -1,5 +1,7 @@
 #include "NOP.h"
 
+using namespace Utilities;
+
 void __cdecl OnFailure(const char* reason)
 {
 	if(reason == NULL)
