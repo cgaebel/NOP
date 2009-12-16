@@ -54,18 +54,18 @@ static void RemoveIgnoredModules(std::list<std::tr1::shared_ptr<ModuleClass> >& 
 void Initialize()
 {
 	LogInformation("Initializing...");
-	auto& initList = GetInitializationList();
 
+	auto& initList = GetInitializationList();
 	RemoveIgnoredModules(initList);
 
-	for(auto i = initList.begin(); i != initList.end(); ++i)
-	{
-		std::tr1::shared_ptr<InitializationModule> currentModule = *i;
-
-		LogInformation(currentModule->logMessage);
-
-		currentModule->Run();
-	}
+	std::for_each(initList.begin(), initList.end(),
+		[]
+		(std::tr1::shared_ptr<InitializationModule> currentModule)
+		{
+			LogInformation(currentModule->logMessage);
+			currentModule->Run();
+		}
+	);
 
 	LogInformation((ConvertToString(initList.size()) + " initialization module(s) loaded.").c_str());
 
@@ -80,18 +80,18 @@ void RunPassiveProtection()
 	LogInformation("Beginning passive protection...");
 
 	auto& protectionList = GetPassiveProtectionList();
-
 	RemoveIgnoredModules(protectionList);
 
-	for(auto i = protectionList.begin(); i != protectionList.end(); ++i)
-	{
-		std::tr1::shared_ptr<PassiveProtectionModule> currentModule = *i;
+	std::for_each(protectionList.begin(), protectionList.end(),
+		[]
+		(std::tr1::shared_ptr<PassiveProtectionModule> currentModule)
+		{
+			LogInformation(currentModule->logMessage);
 
-		LogInformation(currentModule->logMessage);
-
-		if(currentModule->Run())
-			OnHackDetected(currentModule->moduleName);
-	}
+			if(currentModule->Run())
+				OnHackDetected(currentModule->moduleName);
+		}
+	);
 
 	LogInformation((ConvertToString(protectionList.size()) + " passive protection module(s) loaded.").c_str());
 
@@ -100,7 +100,7 @@ void RunPassiveProtection()
 
 void BeginActiveProtection()
 {
-	Utilities::CreateThread(
+	auto activeProtectionThread =
 		[]()
 		{
 			if(!initialized)
@@ -131,8 +131,9 @@ void BeginActiveProtection()
 
 				Sleep(OUTER_CORE_LOOP_DELAY);
 			}
-		}
-	);
+		};
+
+	Utilities::CreateThread(activeProtectionThread);
 }
 
 void StartAntiHack()
