@@ -38,7 +38,7 @@ static void RemoveIgnoredModules(std::list<std::tr1::shared_ptr<ModuleClass> >& 
 
 	std::for_each(toRemoveFrom.begin(), toRemoveFrom.end(),
 		[&]
-		(std::tr1::shared_ptr<ModuleClass> currentModule)
+		(std::tr1::shared_ptr<ModuleClass>& currentModule)
 		{
 			if(IsIgnoredModule(currentModule))
 				toRemove.push_back(currentModule);
@@ -47,7 +47,7 @@ static void RemoveIgnoredModules(std::list<std::tr1::shared_ptr<ModuleClass> >& 
 
 	std::for_each(toRemove.begin(), toRemove.end(),
 		[&]
-		(std::tr1::shared_ptr<ModuleClass> removeTarget)
+		(std::tr1::shared_ptr<ModuleClass>& removeTarget)
 		{
 			LogInformation((std::string("Warning: Ignoring module ") + removeTarget->moduleName).c_str());
 			toRemoveFrom.remove(removeTarget);
@@ -64,7 +64,7 @@ void Initialize()
 
 	std::for_each(initList.begin(), initList.end(),
 		[]
-		(std::tr1::shared_ptr<InitializationModule> currentModule)
+		(std::tr1::shared_ptr<InitializationModule>& currentModule)
 		{
 			LogInformation(currentModule->logMessage);
 			currentModule->Run();
@@ -88,7 +88,7 @@ void RunPassiveProtection()
 
 	std::for_each(protectionList.begin(), protectionList.end(),
 		[]
-		(std::tr1::shared_ptr<PassiveProtectionModule> currentModule)
+		(std::tr1::shared_ptr<PassiveProtectionModule>& currentModule)
 		{
 			LogInformation(currentModule->logMessage);
 
@@ -123,15 +123,15 @@ void BeginActiveProtection()
 
 			for(;;)
 			{
-				for(auto i = activeProtectionList.begin(); i != activeProtectionList.end(); ++i)
-				{
-					auto currentModule = *i;
+				std::for_each(activeProtectionList.begin(), activeProtectionList.end(),
+					[](std::tr1::shared_ptr<ActiveProtectionModule>& currentModule)
+					{
+						if(currentModule->Run())
+							OnHackDetected(currentModule->moduleName);
 
-					if(currentModule->Run())
-						OnHackDetected(currentModule->moduleName);
-
-					Sleep(INNER_CORE_LOOP_DELAY);
-				}
+						Sleep(INNER_CORE_LOOP_DELAY);
+					}
+				);
 
 				Sleep(OUTER_CORE_LOOP_DELAY);
 			}
