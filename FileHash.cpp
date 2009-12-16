@@ -7,13 +7,7 @@ static std::string GetFileHash()
 {
 	static const char* protectedFiles[] = { FILE_CHECKSUM_PROTECTED_FILES };
 
-	IHash* hashContext = NULL;
-
-	try {
-		hashContext = new HMD6;
-	} catch(...) {
-		OnFailure("Could not allocate the file hash. Out of memory?");
-	}
+	std::tr1::shared_ptr<IHash> hashContext(new HMD6);
 
 	char dstBuf[1024] = { 0 };
 
@@ -34,10 +28,8 @@ static std::string GetFileHash()
 	}
 
 	hashContext->Finalize();
-	auto clientHash = hashContext->GetHash();
-	delete hashContext;
 
-	return clientHash;
+	return hashContext->GetHash();
 }
 
 #ifdef _DEBUG

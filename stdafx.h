@@ -28,6 +28,8 @@
 #include <vector>
 #include <set>
 #include <algorithm>
+#include <regex>
+#include <memory>
 
 // Streams.
 #include <fstream>

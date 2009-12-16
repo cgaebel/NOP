@@ -24,6 +24,8 @@ public:
 		void Run() const;																						\
 	};																											\
 																												\
-	static auto adder##name = ListAdder<InitializationModule>(GetInitializationList(), new Initializer##name);	\
+	static auto adder##name = ListAdder_SharedPtr(GetInitializationList(),										\
+		std::tr1::shared_ptr<InitializationModule>(new Initializer##name)										\
+	);																											\
 																												\
 	void Initializer##name::Run() const

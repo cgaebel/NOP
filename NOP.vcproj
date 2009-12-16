@@ -141,7 +141,7 @@
 				FloatingPointModel="0"
 				FloatingPointExceptions="false"
 				DefaultCharIsUnsigned="true"
-				RuntimeTypeInfo="false"
+				RuntimeTypeInfo="true"
 				UsePrecompiledHeader="2"
 				WarningLevel="4"
 				WarnAsError="true"

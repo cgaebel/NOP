@@ -1,20 +1,20 @@
 #include "ListSingletons.h"
 
-std::list<InitializationModule*>& GetInitializationList()
+std::list<std::tr1::shared_ptr<InitializationModule> >& GetInitializationList()
 {
-	static std::list<InitializationModule*> instance;
+	static std::list<std::tr1::shared_ptr<InitializationModule> > instance;
 	return instance;
 }
 
-std::list<PassiveProtectionModule*>& GetPassiveProtectionList()
+std::list<std::tr1::shared_ptr<PassiveProtectionModule> >& GetPassiveProtectionList()
 {
-	static std::list<PassiveProtectionModule*> instance;
+	static std::list<std::tr1::shared_ptr<PassiveProtectionModule> > instance;
 	return instance;
 }
 
-std::list<ActiveProtectionModule*>& GetActiveProtectionList()
+std::list<std::tr1::shared_ptr<ActiveProtectionModule> >& GetActiveProtectionList()
 {
-	static std::list<ActiveProtectionModule*> instance;
+	static std::list<std::tr1::shared_ptr<ActiveProtectionModule> > instance;
 	return instance;
 }
 

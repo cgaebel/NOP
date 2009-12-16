@@ -7,11 +7,11 @@
 static auto initialized = false;
 static auto passived = true;
 
-static bool IsIgnoredModule(const Module* module)
+static bool IsIgnoredModule(const std::tr1::shared_ptr<Module> module)
 {
 	auto& ignoreList(GetIgnoreList());
 
-	auto moduleName = module->moduleName;
+	const auto moduleName = module->moduleName;
 	bool ignored = false;
 
 	std::for_each(ignoreList.begin(), ignoreList.end(),
@@ -26,11 +26,11 @@ static bool IsIgnoredModule(const Module* module)
 }
 
 template <class ModuleClass>
-static void RemoveIgnoredModules(std::list<ModuleClass*>& toRemoveFrom)
+static void RemoveIgnoredModules(std::list<std::tr1::shared_ptr<ModuleClass> >& toRemoveFrom)
 {
 	auto& ignoreList(GetIgnoreList());
 
-	std::list<ModuleClass*> toRemove;
+	std::list<std::tr1::shared_ptr<ModuleClass> > toRemove;
 
 	for(auto i = toRemoveFrom.begin(); i != toRemoveFrom.end();++i)
 		if(IsIgnoredModule(*i))
@@ -49,7 +49,7 @@ void Initialize()
 
 	for(auto i = initList.begin(); i != initList.end(); ++i)
 	{
-		InitializationModule* currentModule = *i;
+		std::tr1::shared_ptr<InitializationModule> currentModule = *i;
 
 		LogInformation(currentModule->logMessage);
 
@@ -74,7 +74,7 @@ void RunPassiveProtection()
 
 	for(auto i = protectionList.begin(); i != protectionList.end(); ++i)
 	{
-		PassiveProtectionModule* currentModule = *i;
+		std::tr1::shared_ptr<PassiveProtectionModule> currentModule = *i;
 
 		LogInformation(currentModule->logMessage);
 
