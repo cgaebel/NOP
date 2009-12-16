@@ -1,8 +1,9 @@
 #pragma once
 #include <list>
+#include <memory>
 
 template <class ModuleClass>
-int ListAdder_Basic(std::list<ModuleClass>& list, ModuleClass module)
+int ListAdder_Basic(std::list<ModuleClass*>& list, ModuleClass* module)
 {
 	list.push_back(module);
 	return 0;
