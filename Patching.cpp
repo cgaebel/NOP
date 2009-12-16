@@ -18,7 +18,7 @@ namespace Patching
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	void __fastcall Patch(void* _Dst, const void* _Src, size_t patchSize)
 	{
-		static const HANDLE currentProcess = GetCurrentProcess();
+		static const auto currentProcess = GetCurrentProcess();
 
 		DWORD ulOldProtect[2];
 		if(!VirtualProtect(_Dst, patchSize, PAGE_EXECUTE_READWRITE, &(ulOldProtect[0])))

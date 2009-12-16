@@ -23,7 +23,7 @@ static D3DVIEWPORT9 Viewport;
 
 static void PrintText(LPD3DXFONT Font, int x, int y, int Red, int Green, int Blue, int Alpha, const char *text, ...)
 {
-	D3DCOLOR fontColor = D3DCOLOR_ARGB(Alpha, Red, Green, Blue);
+	auto fontColor = D3DCOLOR_ARGB(Alpha, Red, Green, Blue);
 	RECT rct;
 	rct.left = x;
 	rct.top = y;
@@ -47,7 +47,7 @@ static DWORD WINAPI HookD3D9(LPVOID)
 
 static HRESULT WINAPI Direct3DCreate9_VMTable()
 {
-	LPDIRECT3D9 Direct3D_Object = Direct3DCreate9(D3D_SDK_VERSION);
+	auto Direct3D_Object = Direct3DCreate9(D3D_SDK_VERSION);
 
 	if(Direct3D_Object == NULL)
 		return D3DERR_INVALIDCALL;
@@ -75,7 +75,7 @@ static HRESULT WINAPI CreateDevice_Detour(LPDIRECT3D9 Direct3D_Object, UINT Adap
 					DWORD BehaviorFlags, D3DPRESENT_PARAMETERS* PresentationParameters,
 					LPDIRECT3DDEVICE9* Returned_Device_Interface)
 {
-  HRESULT Returned_Result = CreateDevice_Pointer(Direct3D_Object, Adapter, DeviceType, FocusWindow, BehaviorFlags,
+  auto Returned_Result = CreateDevice_Pointer(Direct3D_Object, Adapter, DeviceType, FocusWindow, BehaviorFlags,
 	                                          PresentationParameters, Returned_Device_Interface);
 
   DWORD dwProtect;

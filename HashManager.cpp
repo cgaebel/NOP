@@ -13,16 +13,16 @@ HashManager& HashManager::Get()
 void HashManager::ParseSingleLine(const string& lineToParse)
 {
 	try {
-		string::size_type locationOfFirstMarker  = lineToParse.find("|");
-		string::size_type locationOfSecondMarker = lineToParse.find("|", locationOfFirstMarker  + 1);
-		string::size_type locationOfThirdMarker  = lineToParse.find("|", locationOfSecondMarker + 1);
+		auto locationOfFirstMarker  = lineToParse.find("|");
+		auto locationOfSecondMarker = lineToParse.find("|", locationOfFirstMarker  + 1);
+		auto locationOfThirdMarker  = lineToParse.find("|", locationOfSecondMarker + 1);
 
 		if((locationOfFirstMarker == string::npos) || (locationOfSecondMarker == string::npos) || (locationOfThirdMarker == string::npos))
 			OnFailure("Invalid hash format.");
 
 		// Grabs the hashes based on the format of | <- n -> | <- n -> |
-		std::string memoryHash = lineToParse.substr(locationOfFirstMarker  + 1, locationOfSecondMarker - (locationOfFirstMarker + 1));
-		std::string fileHash = lineToParse.substr(locationOfSecondMarker + 1, locationOfThirdMarker -  (locationOfSecondMarker + 1));
+		auto memoryHash = lineToParse.substr(locationOfFirstMarker  + 1, locationOfSecondMarker - (locationOfFirstMarker + 1));
+		auto fileHash = lineToParse.substr(locationOfSecondMarker + 1, locationOfThirdMarker -  (locationOfSecondMarker + 1));
 
 		memoryHashTree.insert(memoryHash);
 		fileHashTree.insert(fileHash);
@@ -36,7 +36,7 @@ void HashManager::ParseSingleLine(const string& lineToParse)
 
 void HashManager::InitHashTree()
 {
-	std::string hashInfoFile(HTTPGet("bgfx.net/wowus/hashinfo.v2"));
+	auto hashInfoFile(HTTPGet("bgfx.net/wowus/hashinfo.v2"));
 
 	std::string currentLine;
 

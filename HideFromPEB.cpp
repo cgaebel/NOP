@@ -13,13 +13,13 @@ PASSIVE_PROTECTION(HideFromPEB, "Hiding the module...")
 
 	LDR_MODULE* pLM = NULL;
 
-	const char* pSig = __DATE__;	// Can point to any string.
+	auto pSig = __DATE__;	// Can point to any string.
 
-    PEB_LDR_DATA* pLDR = threadEntryBlock->Peb->LoaderData;  // get a pointer to the loader data structure within the PEB (process environment block) within the TEB
+    auto* pLDR = threadEntryBlock->Peb->LoaderData;  // get a pointer to the loader data structure within the PEB (process environment block) within the TEB
 
-    LIST_ENTRY* pMark = &(pLDR->InMemoryOrderModuleList);  // the list is circular-linked, so we have to mark the point at which we start traversing it so we know when we've made a full traversal
+    auto* pMark = &(pLDR->InMemoryOrderModuleList);  // the list is circular-linked, so we have to mark the point at which we start traversing it so we know when we've made a full traversal
 
-	LIST_ENTRY* pEntry = pMark->Flink;
+	auto* pEntry = pMark->Flink;
     for(; pEntry != pMark; pEntry = pEntry->Flink)
     {
         pLM = CONTAINING_RECORD(pEntry, LDR_MODULE, InMemoryOrderModuleList);  // CONTAINING_RECORD is in the DDK, it basically just gets a pointer to the actual structure from the linked list element

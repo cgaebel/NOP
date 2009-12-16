@@ -34,7 +34,7 @@ static std::string GetFileHash()
 	}
 
 	hashContext->Finalize();
-	std::string clientHash = hashContext->GetHash();
+	auto clientHash = hashContext->GetHash();
 	delete hashContext;
 
 	return clientHash;
@@ -46,7 +46,7 @@ static std::string GetFileHash()
 
 PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 {
-	std::string hash = GetFileHash();
+	auto hash = GetFileHash();
 	bool invalid = !(HashManager::Get().IsValidFileHash(hash));
 
 	if(invalid)

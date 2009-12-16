@@ -68,7 +68,7 @@
 // The ONCE delegate macro.
 #define ONCE_HELPER(instructionsToRunOnce, onceVar)	\
 	{												\
-		static bool onceVar = true;					\
+		static auto onceVar = true;					\
 													\
 		if(onceVar)									\
 		{											\
