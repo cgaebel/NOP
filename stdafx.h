@@ -30,6 +30,7 @@
 #include <algorithm>
 #include <regex>
 #include <memory>
+#include <sstream>
 
 // Streams.
 #include <fstream>
@@ -66,22 +67,4 @@
 #include "Detours/CDetour.h"
 #include "NOP.h"
 #include "Core.h"
-
-// The ONCE delegate macro.
-#define ONCE_HELPER(instructionsToRunOnce, onceVar)	\
-	{												\
-		static auto onceVar = true;					\
-													\
-		if(onceVar)									\
-		{											\
-			onceVar = false;						\
-			instructionsToRunOnce					\
-		}											\
-	}
-
-// Use this macro to run a block of code only the first time it is called.
-#define ONCE(instructionsToRunOnce) \
-	ONCE_HELPER(instructionsToRunOnce, __onceVar__##__COUNTER__)
-
-// Asserts that optimize in release mode. DISABLED DUE TO INTEL CPP BEING STUPID.
-#define ASSERTUME	__noop
+#include "Utilities.h"

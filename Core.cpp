@@ -87,41 +87,41 @@ void RunPassiveProtection()
 	passived = true;
 }
 
-int __stdcall BeginActiveProtection_Proxy()
-{
-	if(!initialized)
-		OnFailure("Why, exactly, are we starting the active protection BEFORE initialization?");
-	else if(!passived)
-		OnFailure("Oh god. You gotta do the passive protection BEFORE active protection, bro.");
-
-	LogInformation("Beginning active protection...");
-	SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
-
-	auto& activeProtectionList = GetActiveProtectionList();
-
-	RemoveIgnoredModules(activeProtectionList);
-
-	LogInformation((ConvertToString(activeProtectionList.size()) + " active protection module(s) loaded.").c_str());
-
-	for(;;)
-	{
-		for(auto i = activeProtectionList.begin(); i != activeProtectionList.end(); ++i)
-		{
-			auto currentModule = *i;
-
-			if(currentModule->Run())
-				OnHackDetected(currentModule->moduleName);
-
-			Sleep(INNER_CORE_LOOP_DELAY);
-		}
-
-		Sleep(OUTER_CORE_LOOP_DELAY);
-	}
-}
-
 void BeginActiveProtection()
 {
-	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)BeginActiveProtection_Proxy, NULL, NULL, NULL);
+	Utilities::CreateThread(
+		[]()
+		{
+			if(!initialized)
+				OnFailure("Why, exactly, are we starting the active protection BEFORE initialization?");
+			else if(!passived)
+				OnFailure("Oh god. You gotta do the passive protection BEFORE active protection, bro.");
+
+			LogInformation("Beginning active protection...");
+			SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
+
+			auto& activeProtectionList = GetActiveProtectionList();
+
+			RemoveIgnoredModules(activeProtectionList);
+
+			LogInformation((ConvertToString(activeProtectionList.size()) + " active protection module(s) loaded.").c_str());
+
+			for(;;)
+			{
+				for(auto i = activeProtectionList.begin(); i != activeProtectionList.end(); ++i)
+				{
+					auto currentModule = *i;
+
+					if(currentModule->Run())
+						OnHackDetected(currentModule->moduleName);
+
+					Sleep(INNER_CORE_LOOP_DELAY);
+				}
+
+				Sleep(OUTER_CORE_LOOP_DELAY);
+			}
+		}
+	);
 }
 
 void StartAntiHack()

@@ -1,12 +1,6 @@
 #include "NOP.h"
-#include <sstream>
 
-std::string ConvertToString(size_t num)
-{
-	std::ostringstream stream;
-	stream << num;
-	return stream.str();
-}
+using namespace Utilities;
 
 void __cdecl OnFailure(const char* reason)
 {
