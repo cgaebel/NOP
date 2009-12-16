@@ -27,7 +27,7 @@ public:
 	const bool AProtection##name::HACK_DETECTED = true;															\
 	const bool AProtection##name::NO_HACK_DETECTED = false;														\
 																												\
-	static auto adder##name = ListAdder_SharedPtr(GetActiveProtectionList(),												\
+	static auto adder##name = ListAdder_SharedPtr(GetActiveProtectionList(),									\
 		std::tr1::shared_ptr<ActiveProtectionModule>(new AProtection##name)										\
 	);																											\
 																												\
