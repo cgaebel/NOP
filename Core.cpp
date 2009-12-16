@@ -2,6 +2,9 @@
 #include "ListSingletons.h"
 #include "NOP.h"
 #include "defs.h"
+#include "Utilities.h"
+
+using namespace Utilities;
 
 // Variables that sanity check the developer. We are all our own worst enemies!
 static auto initialized = false;
@@ -68,7 +71,7 @@ void Initialize()
 		}
 	);
 
-	LogInformation((ConvertToString(initList.size()) + " initialization module(s) loaded.").c_str());
+	LogInformation((Utilities::ConvertSizeTToString(initList.size()) + " initialization module(s) loaded.").c_str());
 
 	initialized = true;
 }
@@ -94,7 +97,7 @@ void RunPassiveProtection()
 		}
 	);
 
-	LogInformation((ConvertToString(protectionList.size()) + " passive protection module(s) loaded.").c_str());
+	LogInformation((ConvertSizeTToString(protectionList.size()) + " passive protection module(s) loaded.").c_str());
 
 	passived = true;
 }
@@ -116,7 +119,7 @@ void BeginActiveProtection()
 
 			RemoveIgnoredModules(activeProtectionList);
 
-			LogInformation((ConvertToString(activeProtectionList.size()) + " active protection module(s) loaded.").c_str());
+			LogInformation((ConvertSizeTToString(activeProtectionList.size()) + " active protection module(s) loaded.").c_str());
 
 			for(;;)
 			{
@@ -134,7 +137,7 @@ void BeginActiveProtection()
 			}
 		};
 
-	Utilities::CreateThread(activeProtectionThread);
+	::Utilities::CreateThread(activeProtectionThread);
 }
 
 void StartAntiHack()
