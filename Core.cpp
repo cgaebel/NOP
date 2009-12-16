@@ -46,6 +46,7 @@ static void RemoveIgnoredModules(std::list<std::tr1::shared_ptr<ModuleClass> >& 
 		[&]
 		(std::tr1::shared_ptr<ModuleClass> removeTarget)
 		{
+			LogInformation((std::string("Warning: Ignoring module ") + removeTarget->moduleName).c_str());
 			toRemoveFrom.remove(removeTarget);
 		}
 	);
