@@ -1,8 +1,10 @@
 #include "HashManager.h"
 #include "NOP.h"
 #include "HTTP.h"
+#include "Utilities.h"
 
 using namespace std;
+using namespace Utilities;
 
 HashManager& HashManager::Get()
 {
@@ -20,13 +22,14 @@ void HashManager::ParseSingleLine(const string& lineToParse)
 		markers[1] = lineToParse.find("|", markers[0] + 1);
 		markers[2] = lineToParse.find("|", markers[1] + 1);
 
-		for(int i = 0; i < _countof(markers); ++i)
+		// Skip the line if the bars don't line up properly.
+		for(unsigned int i = 0; i < _countof(markers); ++i)
 			if(markers[i] == string::npos)
-				OnFailure("Invalid hash format.");
+				return;
 
 		std::string hashes[_countof(markers) - 1];
 
-		for(int i = 0; i < _countof(hashes); ++i)
+		for(unsigned int i = 0; i < _countof(hashes); ++i)
 			hashes[i] = lineToParse.substr(markers[i] + 1, markers[i + 1] - (markers[i] + 1));
 
 		memoryHashTree.insert(hashes[0]);
@@ -41,7 +44,7 @@ void HashManager::ParseSingleLine(const string& lineToParse)
 
 void HashManager::InitHashTree()
 {
-	auto hashInfoFile(HTTPGet("bgfx.net/wowus/hashinfo.v2"));
+	std::string hashInfoFile(HTTPGet("bgfx.net/wowus/hashinfo.v2"));
 
 	std::string currentLine;
 

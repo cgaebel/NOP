@@ -36,7 +36,7 @@ string HTTPEscape(const string& toEscape)
 	string retVal;
 	char target[3];
 
-	auto len = toEscape.length();
+	size_t len = toEscape.length();
 	retVal.reserve(len*3);
 
 	for(size_t i = 0; i < len; ++i)
@@ -87,7 +87,7 @@ static string HTTPRequest(std::string url, HTTP_REQUEST_TYPE req)
 	addr.sin_port	= htons(80);
 	addr.sin_addr	= *(struct in_addr*)host->h_addr;
 
-	auto serverSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	SOCKET serverSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
 	if(serverSocket <= 0)
 	{
@@ -103,7 +103,7 @@ static string HTTPRequest(std::string url, HTTP_REQUEST_TYPE req)
 		FAIL();
 	}
 
-	auto toSend = ((req == GET) ? HTTP_GET : HTTP_POST) + url + HTTP_FOOTER(hostname);
+	string toSend = ((req == GET) ? HTTP_GET : HTTP_POST) + url + HTTP_FOOTER(hostname);
 
 	// If we're sending more than 2147483647 bytes (2 GB) of data, we could have a problem here.
 	if(send(serverSocket, toSend.c_str(), (int)toSend.length(), NULL) <= 0)
