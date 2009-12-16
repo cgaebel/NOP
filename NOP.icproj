@@ -11,7 +11,8 @@
 			Name="Debug|Win32">
 			<Tool
 				Name="CppCmplrTool"
-				Cpp0xSupport="true"/>
+				Cpp0xSupport="true"
+				RecognizeRestrictKeyword="true"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32">
@@ -25,7 +26,8 @@
 				InterproceduralOptimization="2"
 				EnableEnhancedInstructionSet="1001"
 				Parallelization="false"
-				Cpp0xSupport="true"/>
+				Cpp0xSupport="true"
+				RecognizeRestrictKeyword="true"/>
 		</Configuration>
 	</Configurations>
 	<Files/>

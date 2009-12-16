@@ -1150,7 +1150,7 @@ BOOL CImage::Read(HANDLE hFile)
     }
 
     DWORD nFiles = 0;
-    for (; iidp[nFiles].OriginalFirstThunk != 0; nFiles++) {
+    for (; (*(DWORD*)&(iidp[nFiles])) != 0; nFiles++) {
     }
 
     CImageImportFile **ppLastFile = &m_pImportFiles;
@@ -1179,7 +1179,7 @@ BOOL CImage::Read(HANDLE hFile)
             goto fail;
         }
 
-        pImportFile->m_rvaOriginalFirstThunk = iidp->OriginalFirstThunk;
+        pImportFile->m_rvaOriginalFirstThunk = *(DWORD*)iidp;
         pImportFile->m_rvaFirstThunk = iidp->FirstThunk;
         pImportFile->m_nForwarderChain = iidp->ForwarderChain;
         pImportFile->m_pImportNames = NULL;
@@ -1205,9 +1205,9 @@ BOOL CImage::Read(HANDLE hFile)
             goto fail;
         }
 
-        DWORD rvaThunk = iidp->OriginalFirstThunk;
+        DWORD rvaThunk = *(DWORD*)iidp;
         PIMAGE_THUNK_DATA pAddrThunk = (PIMAGE_THUNK_DATA)RvaToVa(rvaThunk);
-        rvaThunk = oidp->OriginalFirstThunk;
+        rvaThunk = *(DWORD*)oidp;
         PIMAGE_THUNK_DATA pLookThunk = (PIMAGE_THUNK_DATA)RvaToVa(rvaThunk);
 
         DWORD nNames = 0;
@@ -1808,7 +1808,7 @@ BOOL CImage::Write(HANDLE hFile)
                 ULONG rvaIgnored;
 
                 lookupTable.Allocate(IMAGE_ORDINAL_FLAG+1,
-                                     (DWORD *)&piidDst->OriginalFirstThunk);
+                                     (DWORD *)&(*(DWORD*)piidDst));
                 boundTable.Allocate(IMAGE_ORDINAL_FLAG+1,
                                     (DWORD *)&piidDst->FirstThunk);
 
@@ -1819,7 +1819,7 @@ BOOL CImage::Write(HANDLE hFile)
                 ULONG rvaIgnored;
 
                 piidDst->FirstThunk = (ULONG)pImportFile->m_rvaFirstThunk;
-                lookupTable.Current((DWORD *)&piidDst->OriginalFirstThunk);
+                lookupTable.Current((DWORD *)&(*(DWORD*)piidDst));
 
                 for (n = 0; n < pImportFile->m_nImportNames; n++) {
                     CImageImportName *pImportName = &pImportFile->m_pImportNames[n];

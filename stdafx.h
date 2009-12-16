@@ -24,9 +24,10 @@
 #define _WIN32_WINDOWS 0x0410	// Change this to the appropriate value to target Windows Me or later.
 #endif
 
-// STL Containers.
+// STL.
 #include <vector>
 #include <set>
+#include <algorithm>
 
 // Streams.
 #include <fstream>
@@ -36,6 +37,7 @@
 #pragma comment(lib, "ws2_32.lib")
 
 // Platform-specific.
+#include <WinNT.h>
 #include <windows.h>
 #include <dbghelp.h>
 #include <shlwapi.h>
@@ -59,7 +61,6 @@
 // Application-specific.
 #include "defs.h"
 #include "IHash.h"
-#include "Detours/detours.h"
 #include "Detours/CDetour.h"
 #include "NOP.h"
 #include "Core.h"

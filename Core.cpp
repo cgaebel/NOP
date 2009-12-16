@@ -4,49 +4,50 @@
 #include "defs.h"
 
 // Variables that sanity check the developer. We are all our own worst enemies!
-static bool initialized = false;
-static bool passived = true;
+static auto initialized = false;
+static auto passived = true;
 
 static bool IsIgnoredModule(const Module* module)
 {
-	std::list<const char*>& ignoreList(GetIgnoreList());
+	auto& ignoreList(GetIgnoreList());
 
-	std::list<const char*>::iterator begin = ignoreList.begin();
-	std::list<const char*>::iterator end = ignoreList.end();
+	auto moduleName = module->moduleName;
+	bool ignored = false;
 
-	const char* moduleName = module->moduleName;
+	std::for_each(ignoreList.begin(), ignoreList.end(),
+		[&](const char* currentName)
+		{
+			if(strcmp(currentName, moduleName) == 0)
+				ignored = true;
+		}
+	);
 
-	for(std::list<const char*>::iterator i = begin; i != end; ++i)
-		if(strcmp(*i, moduleName) == 0)
-			return true;
-
-	return false;
+	return ignored;
 }
 
 template <class ModuleClass>
 static void RemoveIgnoredModules(std::list<ModuleClass*>& toRemoveFrom)
 {
-	std::list<const char*>& ignoreList(GetIgnoreList());
+	auto& ignoreList(GetIgnoreList());
 
 	std::list<ModuleClass*> toRemove;
 
-	for(std::list<ModuleClass*>::iterator i = toRemoveFrom.begin(); i != toRemoveFrom.end();++i)
-		for(std::list<const char*>::iterator j = ignoreList.begin(); j != ignoreList.end(); ++j)
-			if(strcmp(*j, (**i).moduleName) == 0)
-				toRemove.push_back(*i);
+	for(auto i = toRemoveFrom.begin(); i != toRemoveFrom.end();++i)
+		if(IsIgnoredModule(*i))
+			toRemove.push_back(*i);
 
-	for(std::list<ModuleClass*>::iterator i = toRemove.begin(); i != toRemove.end(); ++i)
+	for(auto i = toRemove.begin(); i != toRemove.end(); ++i)
 		toRemoveFrom.remove(*i);
 }
 
 void Initialize()
 {
 	LogInformation("Initializing...");
-	std::list<InitializationModule*> initList = GetInitializationList();
+	auto& initList = GetInitializationList();
 
 	RemoveIgnoredModules(initList);
 
-	for(std::list<InitializationModule*>::iterator i = initList.begin(); i != initList.end(); ++i)
+	for(auto i = initList.begin(); i != initList.end(); ++i)
 	{
 		InitializationModule* currentModule = *i;
 
@@ -67,11 +68,11 @@ void RunPassiveProtection()
 
 	LogInformation("Beginning passive protection...");
 
-	std::list<PassiveProtectionModule*> protectionList = GetPassiveProtectionList();
+	auto& protectionList = GetPassiveProtectionList();
 
 	RemoveIgnoredModules(protectionList);
 
-	for(std::list<PassiveProtectionModule*>::iterator i = protectionList.begin(); i != protectionList.end(); ++i)
+	for(auto i = protectionList.begin(); i != protectionList.end(); ++i)
 	{
 		PassiveProtectionModule* currentModule = *i;
 
@@ -96,7 +97,7 @@ int __stdcall BeginActiveProtection_Proxy()
 	LogInformation("Beginning active protection...");
 	SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
 
-	std::list<ActiveProtectionModule*> activeProtectionList = GetActiveProtectionList();
+	auto& activeProtectionList = GetActiveProtectionList();
 
 	RemoveIgnoredModules(activeProtectionList);
 
@@ -104,9 +105,9 @@ int __stdcall BeginActiveProtection_Proxy()
 
 	for(;;)
 	{
-		for(std::list<ActiveProtectionModule*>::iterator i = activeProtectionList.begin(); i != activeProtectionList.end(); ++i)
+		for(auto i = activeProtectionList.begin(); i != activeProtectionList.end(); ++i)
 		{
-			ActiveProtectionModule* currentModule = *i;
+			auto currentModule = *i;
 
 			if(currentModule->Run())
 				OnHackDetected(currentModule->moduleName);
