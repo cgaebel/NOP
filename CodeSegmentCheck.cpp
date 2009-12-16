@@ -10,10 +10,6 @@ static std::string MemoryChecksum()
 	return runningHash.GetHashAndReset(CODE_SEGMENT_BEGIN, CODE_SEGMENT_END - CODE_SEGMENT_BEGIN);
 }
 
-#ifdef _DEBUG
-	IGNORE_MODULE(CodeSegmentCheck);
-#endif
-
 ACTIVE_PROTECTION(CodeSegmentCheck)
 {
 	std::string checksum;

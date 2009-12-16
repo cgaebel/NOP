@@ -32,10 +32,6 @@ static std::string GetFileHash()
 	return hashContext->GetHash();
 }
 
-#ifdef _DEBUG
-	IGNORE_MODULE(FileHash);
-#endif
-
 PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 {
 	auto hash = GetFileHash();
