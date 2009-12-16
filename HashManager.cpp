@@ -10,22 +10,27 @@ HashManager& HashManager::Get()
 	return instance;
 }
 
+// Grabs the hashes based on the format of | <- n -> | <- n -> |
 void HashManager::ParseSingleLine(const string& lineToParse)
 {
 	try {
-		auto locationOfFirstMarker  = lineToParse.find("|");
-		auto locationOfSecondMarker = lineToParse.find("|", locationOfFirstMarker  + 1);
-		auto locationOfThirdMarker  = lineToParse.find("|", locationOfSecondMarker + 1);
+		std::string::size_type markers[3];
+			
+		markers[0] = lineToParse.find("|");
+		markers[1] = lineToParse.find("|", markers[0] + 1);
+		markers[2] = lineToParse.find("|", markers[1] + 1);
 
-		if((locationOfFirstMarker == string::npos) || (locationOfSecondMarker == string::npos) || (locationOfThirdMarker == string::npos))
-			OnFailure("Invalid hash format.");
+		for(int i = 0; i < _countof(markers); ++i)
+			if(markers[i] == string::npos)
+				OnFailure("Invalid hash format.");
 
-		// Grabs the hashes based on the format of | <- n -> | <- n -> |
-		auto memoryHash = lineToParse.substr(locationOfFirstMarker  + 1, locationOfSecondMarker - (locationOfFirstMarker + 1));
-		auto fileHash = lineToParse.substr(locationOfSecondMarker + 1, locationOfThirdMarker -  (locationOfSecondMarker + 1));
+		std::string hashes[_countof(markers) - 1];
 
-		memoryHashTree.insert(memoryHash);
-		fileHashTree.insert(fileHash);
+		for(int i = 0; i < _countof(hashes); ++i)
+			hashes[i] = lineToParse.substr(markers[i] + 1, markers[i + 1] - (markers[i] + 1));
+
+		memoryHashTree.insert(hashes[0]);
+		fileHashTree.insert(hashes[1]);
 
 	} catch(exception& ex) {
 		OnFailure(ex.what());
