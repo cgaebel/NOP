@@ -7,10 +7,10 @@
 using namespace Utilities;
 
 // Variables that sanity check the developer. We are all our own worst enemies!
-static auto initialized = false;
-static auto passived = true;
+static bool initialized = false;
+static bool passived = true;
 
-static bool IsIgnoredModule(const std::tr1::shared_ptr<Module> module)
+static bool IsIgnoredModule(const std::tr1::shared_ptr<Module>& module)
 {
 	auto& ignoreList(GetIgnoreList());
 
