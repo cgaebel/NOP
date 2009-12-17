@@ -7,7 +7,6 @@ static BOOL EnumWindowsHandler(HWND hwnd, bool* retVal)
 	char title[0x1000];
 	GetWindowText(hwnd, title, _countof(title));
 
-	// Add any more blacklisted titles here:
 	static const char* titleBlacklist[] = {
 		TRAINER_WINDOW_TITLE_BLACKLIST
 	};
