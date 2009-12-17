@@ -1,58 +1,52 @@
 #include "Core.h"
 #include "NTInternals.h"
 
+TEB* GetTEB()
+{
+	__asm mov eax, fs:[0x18]
+	__asm ret
+}
+
+// check if the "signature" variable is inside this module, if so it is our module
+template <class PtrType, class LdrModuleType>
+static bool PointerIsInModule(PtrType pointer, LdrModuleType module)
+{
+	return	(
+				(DWORD)pointer > (DWORD)(module->BaseAddress)
+			)
+			&&
+			(
+				(DWORD)pointer <
+				(
+					(DWORD)(module->BaseAddress) + (DWORD)(module->SizeOfImage)
+				)
+			);
+}
+
+template <class _IterType>
+static void RemoveFromRootList(_IterType toRemove)
+{
+	toRemove->Blink->Flink = toRemove->Flink;
+	toRemove->Flink->Blink = toRemove->Blink;
+}
+
+void RemoveThisModuleFromList(LIST_ENTRY* listHead)
+{
+	// Can point to any string as long as it's in OUR address space.
+	static const char* signature = __DATE__;
+
+	for(LIST_ENTRY* currentEntry = listHead->Flink; currentEntry != listHead; currentEntry = currentEntry->Flink)
+        if(PointerIsInModule(signature, CONTAINING_RECORD(currentEntry, LDR_MODULE, InMemoryOrderModuleList)))
+			RemoveFromRootList(currentEntry);
+}
+
 PASSIVE_PROTECTION(HideFromPEB, "Hiding the module...")
 {
-	TEB* threadEntryBlock;
+    PEB_LDR_DATA* loader = GetTEB()->Peb->LoaderData;
 
-	__asm
-	{
-		mov eax, fs:[0x18]
-		mov threadEntryBlock, eax
-	}
-
-	LDR_MODULE* pLM = NULL;
-
-	auto pSig = __DATE__;	// Can point to any string.
-
-    auto* pLDR = threadEntryBlock->Peb->LoaderData;  // get a pointer to the loader data structure within the PEB (process environment block) within the TEB
-
-    auto* pMark = &(pLDR->InMemoryOrderModuleList);  // the list is circular-linked, so we have to mark the point at which we start traversing it so we know when we've made a full traversal
-
-	auto* pEntry = pMark->Flink;
-    for(; pEntry != pMark; pEntry = pEntry->Flink)
-    {
-        pLM = CONTAINING_RECORD(pEntry, LDR_MODULE, InMemoryOrderModuleList);  // CONTAINING_RECORD is in the DDK, it basically just gets a pointer to the actual structure from the linked list element
-        if((DWORD)pSig > (DWORD)pLM->BaseAddress && (DWORD)pSig < ((DWORD)pLM->BaseAddress + (DWORD)pLM->SizeOfImage))  // check if the "signature" variable is inside this module, if so it is our module
-        {
-            pEntry->Blink->Flink = pEntry->Flink;
-            pEntry->Flink->Blink = pEntry->Blink;
-        }
-    }
-
-    pMark = &(pLDR->InLoadOrderModuleList);
-
-    for(pEntry = pMark->Flink; pEntry != pMark; pEntry = pEntry->Flink)
-    {
-        pLM = CONTAINING_RECORD(pEntry, LDR_MODULE, InLoadOrderModuleList);
-        if((DWORD)pSig > (DWORD)pLM->BaseAddress && (DWORD)pSig < ((DWORD)pLM->BaseAddress + (DWORD)pLM->SizeOfImage))
-        {
-            pEntry->Blink->Flink = pEntry->Flink;
-            pEntry->Flink->Blink = pEntry->Blink;
-        }
-    }
-
-    pMark = &(pLDR->InInitializationOrderModuleList);
-
-    for(pEntry = pMark->Flink; pEntry != pMark; pEntry = pEntry->Flink)
-    {
-        pLM = CONTAINING_RECORD(pEntry, LDR_MODULE, InInitializationOrderModuleList);
-        if((DWORD)pSig > (DWORD)pLM->BaseAddress && (DWORD)pSig < ((DWORD)pLM->BaseAddress + (DWORD)pLM->SizeOfImage))
-        {
-            pEntry->Blink->Flink = pEntry->Flink;
-            pEntry->Flink->Blink = pEntry->Blink;
-        }
-    }
+	RemoveThisModuleFromList(&(loader->InInitializationOrderModuleList));
+	RemoveThisModuleFromList(&(loader->InLoadOrderModuleList));
+	RemoveThisModuleFromList(&(loader->InMemoryOrderModuleList));
 
 	return NO_HACK_DETECTED;
 }
