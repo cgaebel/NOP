@@ -1,15 +1,14 @@
 #include "Core.h"
 #include "NTInternals.h"
 
-TEB* GetTEB()
+static TEB* GetTEB()
 {
 	__asm mov eax, fs:[0x18]
 	__asm ret
 }
 
 // check if the "signature" variable is inside this module, if so it is our module
-template <class PtrType, class LdrModuleType>
-static bool PointerIsInModule(PtrType pointer, LdrModuleType module)
+static bool PointerIsInModule(const void* pointer, const LDR_MODULE* module)
 {
 	return	(
 				(DWORD)pointer > (DWORD)(module->BaseAddress)
@@ -23,14 +22,13 @@ static bool PointerIsInModule(PtrType pointer, LdrModuleType module)
 			);
 }
 
-template <class _IterType>
-static void RemoveFromRootList(_IterType toRemove)
+static void RemoveFromRootList(LIST_ENTRY* toRemove)
 {
 	toRemove->Blink->Flink = toRemove->Flink;
 	toRemove->Flink->Blink = toRemove->Blink;
 }
 
-void RemoveThisModuleFromList(LIST_ENTRY* listHead)
+static void RemoveThisModuleFromList(LIST_ENTRY* listHead)
 {
 	// Can point to any string as long as it's in OUR address space.
 	static const char* signature = __DATE__;
