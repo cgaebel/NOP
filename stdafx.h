@@ -68,3 +68,4 @@
 #include "NOP.h"
 #include "Core.h"
 #include "Utilities.h"
+#include "DllInstance.h"

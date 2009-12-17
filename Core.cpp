@@ -142,7 +142,19 @@ void BeginActiveProtection()
 
 void StartAntiHack()
 {
-	Initialize();
-	RunPassiveProtection();
-	BeginActiveProtection();
+	LogInformation("Anti-hack core starting...");
+	try
+	{
+		Initialize();
+		RunPassiveProtection();
+		BeginActiveProtection();
+	}
+	catch(std::exception& ex)
+	{
+		OnFailure(ex.what());
+	}
+	catch(...)
+	{
+		OnFailure("Something that should not have gone wrong in the anti-hack core, did go wrong.");
+	}
 }
