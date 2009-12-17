@@ -16,12 +16,14 @@ static bool PointerIsInModule(DWORD pointer, const LDR_MODULE* module)
 	return (pointer > startAddress) && (pointer < endAddress);
 }
 
+// Removes the list entry from the list is belongs to.
 static void RemoveFromRootList(LIST_ENTRY* toRemove)
 {
 	toRemove->Blink->Flink = toRemove->Flink;
 	toRemove->Flink->Blink = toRemove->Blink;
 }
 
+// Removes the current dll from the list it is passed.
 static void RemoveThisModuleFromList(LIST_ENTRY* listHead)
 {
 	// Can point to any string as long as it's in OUR address space.
