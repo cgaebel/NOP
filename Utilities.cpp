@@ -1,4 +1,5 @@
 #include "Utilities.h"
+#include <sstream>
 
 namespace Utilities
 {

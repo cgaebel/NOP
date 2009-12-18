@@ -23,15 +23,27 @@ static void RemoveFromRootList(LIST_ENTRY* toRemove)
 	toRemove->Flink->Blink = toRemove->Blink;
 }
 
+template <class _Lambda>
+void IterateThroughLinkedList(LIST_ENTRY* listHead, const _Lambda& lambda)
+{
+	for(LIST_ENTRY* currentEntry = listHead->Flink; currentEntry != listHead; currentEntry = currentEntry->Flink)
+		lambda(currentEntry);
+}
+
 // Removes the current dll from the list it is passed.
 static void RemoveThisModuleFromList(LIST_ENTRY* listHead)
 {
-	// Can point to any string as long as it's in OUR address space.
-	static DWORD signature = (DWORD)__DATE__;
+	IterateThroughLinkedList(listHead,
+		[]
+		(LIST_ENTRY* currentEntry)
+		{
+			// Can point to any string as long as it's in OUR address space.
+			static DWORD signature = (DWORD)__DATE__;
 
-	for(LIST_ENTRY* currentEntry = listHead->Flink; currentEntry != listHead; currentEntry = currentEntry->Flink)
-        if(PointerIsInModule(signature, CONTAINING_RECORD(currentEntry, LDR_MODULE, InMemoryOrderModuleList)))
-			RemoveFromRootList(currentEntry);
+			if(PointerIsInModule(signature, CONTAINING_RECORD(currentEntry, LDR_MODULE, InMemoryOrderModuleList)))
+				RemoveFromRootList(currentEntry);
+		}
+	);
 }
 
 PASSIVE_PROTECTION(HideFromPEB, "Hiding the module...")
