@@ -1,5 +1,5 @@
 #pragma once
-#include "stdafx.h"
+#include <windows.h>
 
 typedef struct _UNICODE_STRING
 {
