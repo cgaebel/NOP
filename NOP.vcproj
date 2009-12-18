@@ -461,6 +461,10 @@
 					RelativePath=".\UnmaskAdminNames.cpp"
 					>
 				</File>
+				<File
+					RelativePath=".\UnmaskDuelChat.cpp"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
