@@ -24,11 +24,9 @@ static std::string GetFileHash()
 
 		LogInformation((std::string("Current file: ") + protectedFiles[i]).c_str());
 
-		do
-		{
+		do {
 			currentFile.read(dstBuf, _countof(dstBuf));
 			hashContext->Update((const BYTE*)dstBuf, _countof(dstBuf));
-
 		} while(currentFile);
 
 		hashContext->Update((const BYTE*)dstBuf, currentFile.gcount());
