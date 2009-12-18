@@ -16,8 +16,17 @@ static std::string GetFileHash()
 		FILE* currentFile = NULL;
 		size_t bytesRead;
 
-		if(fopen_s(&currentFile, protectedFiles[i], "rb") || (currentFile == NULL))
+		if(fopen_s(&currentFile, protectedFiles[i], "rb"))
+		{
+			LogInformation((std::string("Failed to open file: ") + protectedFiles[i]).c_str());
 			continue;
+		}
+
+		if(currentFile == NULL)
+		{
+			LogInformation((std::string("Failed to open file: ") + protectedFiles[i]).c_str());
+			continue;
+		}
 
 		LogInformation((std::string("Current file: ") + protectedFiles[i]).c_str());
 
