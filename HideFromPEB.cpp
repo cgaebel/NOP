@@ -1,7 +1,7 @@
 #include "Core.h"
 #include "NTInternals.h"
 
-static TEB* GetTEB()
+static __declspec(naked) TEB* GetTEB()
 {
 	__asm mov eax, fs:[0x18]
 	__asm ret
