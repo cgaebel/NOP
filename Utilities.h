@@ -35,11 +35,11 @@ namespace Utilities
 	}
 
 	template <class _Functor>
-	void CreateThread(_Functor toRun)
+	HANDLE CreateThread(_Functor toRun)
 	{
 		auto* proxy = new _Functor;
 		*proxy = toRun;
 
-		::CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)CreateThreadProxy<_Functor>, proxy, NULL, NULL);
+		return ::CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)CreateThreadProxy<_Functor>, proxy, NULL, NULL);
 	}
 }
