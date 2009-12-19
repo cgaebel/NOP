@@ -317,18 +317,6 @@
 						>
 					</File>
 				</Filter>
-				<Filter
-					Name="GunzOld"
-					>
-					<File
-						RelativePath=".\Whitepapers\GunzOld Address Dump.txt"
-						>
-					</File>
-					<File
-						RelativePath=".\Whitepapers\GunzOld PDB Dump.txt"
-						>
-					</File>
-				</Filter>
 			</Filter>
 			<Filter
 				Name="Runnable"
@@ -372,6 +360,14 @@
 				<Filter
 					Name="GunzOld"
 					>
+					<File
+						RelativePath=".\Gunz\GunzOld\GunzOld Address Dump.txt"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\GunzOld\GunzOld PDB Dump.txt"
+						>
+					</File>
 				</Filter>
 				<Filter
 					Name="JGunzOld"
@@ -755,6 +751,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\defs.h"
+				>
+			</File>
+			<File
 				RelativePath=".\InitializationModule.h"
 				>
 			</File>
@@ -866,10 +866,6 @@
 		<Filter
 			Name="Helpers"
 			>
-			<File
-				RelativePath=".\defs.h"
-				>
-			</File>
 			<File
 				RelativePath=".\DllInstance.cpp"
 				>

@@ -5,14 +5,17 @@ typedef LONG NTSTATUS;
 #define CODE_SEGMENT_BEGIN	((BYTE*)0x00401000)
 #define CODE_SEGMENT_END	((BYTE*)0x005E5FAA)
 
-#define FAILURE_FILELOG		\
+#define FAILURE_FILELOG					\
 			"NOP.log"
 
-#define HACKLOG_FILENAME	\
+#define HACKLOG_FILENAME				\
 			"NOP.log"
 
-#define INFO_FILENAME		\
+#define INFO_FILENAME					\
 			"NOP.log"
+
+#define MRS_KEY							\
+			"\x4F"
 
 #define TRAINER_WINDOW_TITLE_BLACKLIST	\
 			"ZxPwd",					\

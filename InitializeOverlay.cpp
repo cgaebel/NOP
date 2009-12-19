@@ -168,7 +168,9 @@ static HRESULT WINAPI EndScene_Detour(LPDIRECT3DDEVICE9 Device_Interface)
 	return EndScene_Pointer(Device_Interface);
 }
 
+/*
 INITIALIZER(Overlay, "Loading the NOP overlay...")
 {
 	Utilities::CreateThread(VirtualMethodTableRepatchingLoopToCounterExtensionRepatching());
 }
+*/
