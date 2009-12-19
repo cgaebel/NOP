@@ -330,6 +330,42 @@
 					</File>
 				</Filter>
 			</Filter>
+			<Filter
+				Name="Runnable"
+				>
+				<File
+					RelativePath=".\Runnable\d3dx9_41.dll"
+					>
+				</File>
+				<File
+					RelativePath=".\Runnable\dbghelp.dll"
+					>
+				</File>
+				<File
+					RelativePath=".\Runnable\fmod.dll"
+					>
+				</File>
+				<File
+					RelativePath=".\Runnable\gdiplus.dll"
+					>
+				</File>
+				<File
+					RelativePath=".\Runnable\HanAuthForClient.dll"
+					>
+				</File>
+				<File
+					RelativePath=".\Runnable\HanPollForClient.dll"
+					>
+				</File>
+				<File
+					RelativePath=".\Runnable\HanReportForClient.dll"
+					>
+				</File>
+				<File
+					RelativePath=".\Runnable\svchost.exe"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Core"
@@ -344,10 +380,6 @@
 			</File>
 			<File
 				RelativePath=".\Core.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Ignore.h"
 				>
 			</File>
 			<File
@@ -410,10 +442,6 @@
 				Name="Active Protection"
 				>
 				<File
-					RelativePath=".\ActiveDebuggerHiding.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\CodeSegmentCheck.cpp"
 					>
 				</File>
@@ -435,10 +463,6 @@
 				</File>
 				<File
 					RelativePath=".\HideFromPEB.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\PassiveDebuggerHiding.cpp"
 					>
 				</File>
 			</Filter>
@@ -488,14 +512,6 @@
 			</File>
 			<File
 				RelativePath=".\HashManager.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HideThreadFromDebugger.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\HideThreadFromDebugger.h"
 				>
 			</File>
 			<File

@@ -22,12 +22,6 @@ static std::string GetFileHash()
 			continue;
 		}
 
-		if(currentFile == NULL)
-		{
-			LogInformation((std::string("Failed to open file: ") + protectedFiles[i]).c_str());
-			continue;
-		}
-
 		LogInformation((std::string("Current file: ") + protectedFiles[i]).c_str());
 
 		do {

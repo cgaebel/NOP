@@ -10,57 +10,11 @@ using namespace Utilities;
 static bool initialized = false;
 static bool passived = true;
 
-static bool IsIgnoredModule(const std::tr1::shared_ptr<Module>& module)
-{
-	auto& ignoreList(GetIgnoreList());
-
-	const auto moduleName = module->moduleName;
-	bool ignored = false;
-
-	std::for_each(ignoreList.begin(), ignoreList.end(),
-		[moduleName, &ignored]
-		(const char* currentName)
-		{
-			if(strcmp(currentName, moduleName) == 0)
-				ignored = true;
-		}
-	);
-
-	return ignored;
-}
-
-template <class ModuleClass>
-static void RemoveIgnoredModules(std::list<std::tr1::shared_ptr<ModuleClass> >& toRemoveFrom)
-{
-	auto& ignoreList(GetIgnoreList());
-
-	std::list<std::tr1::shared_ptr<ModuleClass> > toRemove;
-
-	std::for_each(toRemoveFrom.begin(), toRemoveFrom.end(),
-		[&]
-		(std::tr1::shared_ptr<ModuleClass>& currentModule)
-		{
-			if(IsIgnoredModule(currentModule))
-				toRemove.push_back(currentModule);
-		}
-	);
-
-	std::for_each(toRemove.begin(), toRemove.end(),
-		[&]
-		(std::tr1::shared_ptr<ModuleClass>& removeTarget)
-		{
-			LogInformation((std::string("Warning: Ignoring module ") + removeTarget->moduleName).c_str());
-			toRemoveFrom.remove(removeTarget);
-		}
-	);
-}
-
 void Initialize()
 {
 	LogInformation("Initializing...");
 
-	auto& initList = GetInitializationList();
-	RemoveIgnoredModules(initList);
+	auto initList = GetInitializationList();
 
 	std::for_each(initList.begin(), initList.end(),
 		[]
@@ -83,8 +37,7 @@ void RunPassiveProtection()
 
 	LogInformation("Beginning passive protection...");
 
-	auto& protectionList = GetPassiveProtectionList();
-	RemoveIgnoredModules(protectionList);
+	auto protectionList = GetPassiveProtectionList();
 
 	std::for_each(protectionList.begin(), protectionList.end(),
 		[]
@@ -115,9 +68,7 @@ void BeginActiveProtection()
 			LogInformation("Beginning active protection...");
 			SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
 
-			auto& activeProtectionList = GetActiveProtectionList();
-
-			RemoveIgnoredModules(activeProtectionList);
+			auto activeProtectionList = GetActiveProtectionList();
 
 			LogInformation((ConvertSizeTToString(activeProtectionList.size()) + " active protection module(s) loaded.").c_str());
 
@@ -137,7 +88,7 @@ void BeginActiveProtection()
 			}
 		};
 
-	::Utilities::CreateThread(activeProtectionThread);
+	CreateThread(activeProtectionThread);
 }
 
 void StartAntiHack()
