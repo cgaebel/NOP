@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XML id="droptable">
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 고블린
+        
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<!-- 병정 고블린 -->
+<DROPSET id="11" name="G11">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200011"	rate="0.10" />							<!-- 날고기 -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200011"	rate="0.10" />							<!-- 날고기 -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200011"	rate="0.10" />							<!-- 날고기 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200011"	rate="0.10" />							<!-- 날고기 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200011"	rate="0.10" />							<!-- 날고기 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200011"	rate="0.10" />							<!-- 날고기 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 고블린거너 -->
+<DROPSET id="12" name="G12">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200012"	rate="0.10" />							<!-- 불고기 -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200012"	rate="0.10" />							<!-- 불고기 -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200012"	rate="0.10" />							<!-- 불고기 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200012"	rate="0.10" />							<!-- 불고기 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200012"	rate="0.10" />							<!-- 불고기 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200012"	rate="0.10" />							<!-- 불고기 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 고블린 위저드 -->
+<DROPSET id="13" name="G13">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200013"	rate="0.10" />							<!-- 스테이크 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200013"	rate="0.10" />							<!-- 스테이크 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200013"	rate="0.10" />							<!-- 스테이크 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200013"	rate="0.10" />							<!-- 스테이크 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 대장 고블린 -->
+<DROPSET id="14" name="G14">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200021"	rate="0.06" />							<!-- 고블린 인형 -->
+		<ITEM id="200008"	rate="0.06" />							<!-- 고블린의 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200021"	rate="0.06" />							<!-- 고블린 인형 -->
+		<ITEM id="200008"	rate="0.06" />							<!-- 고블린의 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200021"	rate="0.06" />							<!-- 고블린 인형 -->
+		<ITEM id="200008"	rate="0.06" />							<!-- 고블린의 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200021"	rate="0.06" />							<!-- 고블린 인형 -->
+		<ITEM id="200008"	rate="0.06" />							<!-- 고블린의 두골 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 고블린 족장 -->
+<DROPSET id="15" name="G15">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200018"	rate="0.06" />							<!-- 그림스크의 목걸이 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200018"	rate="0.06" />							<!-- 그림스크의 목걸이 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200018"	rate="0.06" />							<!-- 그림스크의 목걸이 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200018"	rate="0.06" />							<!-- 그림스크의 목걸이 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 고블린킹 -->
+<DROPSET id="16" name="G16">
+	<ITEMSET QL="0">
+		<ITEM id="200009"	rate="0.5" />							<!-- 고블린 킹의 두골 -->
+		<ITEM id="200038"	rate="0.5" />							<!-- 고블린 킹의 도끼 -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="200009"	rate="0.2" />							<!-- 고블린 킹의 두골 -->
+		<ITEM id="200038"	rate="0.2" />							<!-- 고블린 킹의 도끼 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400503"	rate="0.15" 	rent_period="168" />	<!-- 남성용 고블린 모자 -->
+		<ITEM id="400504"	rate="0.15" 	rent_period="168" />	<!-- 여성용 고블린 모자 -->
+		<ITEM id="400501"	rate="0.15" 	rent_period="168" />	<!-- 고블린 런쳐 -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="200009"	rate="0.2" />							<!-- 고블린 킹의 두골 -->
+		<ITEM id="200038"	rate="0.2" />							<!-- 고블린 킹의 도끼 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400503"	rate="0.15" 	rent_period="168" />	<!-- 남성용 고블린 모자 -->
+		<ITEM id="400504"	rate="0.15" 	rent_period="168" />	<!-- 여성용 고블린 모자 -->
+		<ITEM id="400501"	rate="0.15" 	rent_period="168" />	<!-- 고블린 런쳐 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="200009"	rate="0.2" />							<!-- 고블린 킹의 두골 -->
+		<ITEM id="200038"	rate="0.2" />							<!-- 고블린 킹의 도끼 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400503"	rate="0.15" 	rent_period="168" />	<!-- 남성용 고블린 모자 -->
+		<ITEM id="400504"	rate="0.15" 	rent_period="168" />	<!-- 여성용 고블린 모자 -->
+		<ITEM id="400501"	rate="0.15" 	rent_period="168" />	<!-- 고블린 런쳐 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="200009"	rate="0.2" />							<!-- 고블린 킹의 두골 -->
+		<ITEM id="200038"	rate="0.2" />							<!-- 고블린 킹의 도끼 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400503"	rate="0.15" 	rent_period="168" />	<!-- 남성용 고블린 모자 -->
+		<ITEM id="400504"	rate="0.15" 	rent_period="168" />	<!-- 여성용 고블린 모자 -->
+		<ITEM id="400501"	rate="0.15" 	rent_period="168" />	<!-- 고블린 런쳐 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="200009"	rate="0.2" />							<!-- 고블린 킹의 두골 -->
+		<ITEM id="200038"	rate="0.2" />							<!-- 고블린 킹의 도끼 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400503"	rate="0.15" 	rent_period="168" />	<!-- 남성용 고블린 모자 -->
+		<ITEM id="400504"	rate="0.15" 	rent_period="168" />	<!-- 여성용 고블린 모자 -->
+		<ITEM id="400501"	rate="0.15" 	rent_period="168" />	<!-- 고블린 런쳐 -->
+	</ITEMSET>
+</DROPSET>
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 스켈레톤
+        
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<!-- 스켈레톤 -->
+<DROPSET id="31" name="S31">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 스켈레톤 메이지 -->
+<DROPSET id="32" name="S32">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200005"	rate="0.10" />							<!-- 작은두골 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 대장 스켈레톤 -->
+<DROPSET id="33" name="S33">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200019"	rate="0.06" />							<!-- 스켈레톤 인형 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200019"	rate="0.06" />							<!-- 스켈레톤 인형 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200019"	rate="0.06" />							<!-- 스켈레톤 인형 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200019"	rate="0.06" />							<!-- 스켈레톤 인형 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 거대 스켈레톤 -->
+<DROPSET id="34" name="S34">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200006"	rate="0.06" />							<!-- 큰 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200006"	rate="0.06" />							<!-- 큰 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200006"	rate="0.06" />							<!-- 큰 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.3" />
+		<ITEM id="200006"	rate="0.06" />							<!-- 큰 두골 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 저주받은 시신 -->
+<DROPSET id="35" name="S35">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200007"	rate="0.06" />							<!-- 수수께끼의 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200007"	rate="0.06" />							<!-- 수수께끼의 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200007"	rate="0.06" />							<!-- 수수께끼의 두골 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="200007"	rate="0.06" />							<!-- 수수께끼의 두골 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 리치 폰 -->
+<DROPSET id="36" name="S36">
+	<ITEMSET QL="0">
+		<ITEM id="mag1"		rate="0.6" />
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="mag1"		rate="0.6" />
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="mag1"		rate="0.6" />
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="mag1"		rate="0.6" />
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="mag1"		rate="0.6" />
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="mag1"		rate="0.6" />
+	</ITEMSET>
+</DROPSET>
+
+<!-- 슈페리온(보스) -->
+<DROPSET id="37" name="S37">
+	<ITEMSET QL="0">
+		<ITEM id="200040"	rate="1.0" />							<!-- 슈페리론의 칼 -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="200040"	rate="0.2" />							<!-- 슈페리론의 칼 -->
+		<ITEM id="200010"	rate="0.2" />							<!-- 거대한 유골 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400505"	rate="0.15" 	rent_period="168" />	<!-- 남성용 데몬핸드 -->
+		<ITEM id="400506"	rate="0.15" 	rent_period="168" />	<!-- 여성용 데몬핸드 -->
+		<ITEM id="400502"	rate="0.15"		rent_period="168" />	<!-- 데몬브링거 -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="200040"	rate="0.2" />							<!-- 슈페리론의 칼 -->
+		<ITEM id="200010"	rate="0.2" />							<!-- 거대한 유골 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400505"	rate="0.15" 	rent_period="168" />	<!-- 남성용 데몬핸드 -->
+		<ITEM id="400506"	rate="0.15" 	rent_period="168" />	<!-- 여성용 데몬핸드 -->
+		<ITEM id="400502"	rate="0.15"		rent_period="168" />	<!-- 데몬브링거 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="200040"	rate="0.2" />							<!-- 슈페리론의 칼 -->
+		<ITEM id="200010"	rate="0.2" />							<!-- 거대한 유골 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400505"	rate="0.15" 	rent_period="168" />	<!-- 남성용 데몬핸드 -->
+		<ITEM id="400506"	rate="0.15" 	rent_period="168" />	<!-- 여성용 데몬핸드 -->
+		<ITEM id="400502"	rate="0.15"		rent_period="168" />	<!-- 데몬브링거 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="200040"	rate="0.2" />							<!-- 슈페리론의 칼 -->
+		<ITEM id="200010"	rate="0.2" />							<!-- 거대한 유골 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400505"	rate="0.15" 	rent_period="168" />	<!-- 남성용 데몬핸드 -->
+		<ITEM id="400506"	rate="0.15" 	rent_period="168" />	<!-- 여성용 데몬핸드 -->
+		<ITEM id="400502"	rate="0.15"		rent_period="168" />	<!-- 데몬브링거 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="200040"	rate="0.2" />							<!-- 슈페리론의 칼 -->
+		<ITEM id="200010"	rate="0.2" />							<!-- 거대한 유골 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400505"	rate="0.15" 	rent_period="168" />	<!-- 남성용 데몬핸드 -->
+		<ITEM id="400506"	rate="0.15" 	rent_period="168" />	<!-- 여성용 데몬핸드 -->
+		<ITEM id="400502"	rate="0.15"		rent_period="168" />	<!-- 데몬브링거 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 아네라몬(보스) -->
+<DROPSET id="38" name="S38">
+	<ITEMSET QL="0">
+		<ITEM id="200041"	rate="1.0" />							<!-- 아네라몬의 칼 -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="200041"	rate="0.2" />							<!-- 아네라몬의 칼 -->
+		<ITEM id="200028"	rate="0.2" />							<!-- 악마의 사전 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400509"	rate="0.15" 	rent_period="168" />	<!-- 남성용 레더 랩 슈즈 -->
+		<ITEM id="400510"	rate="0.15" 	rent_period="168" />	<!-- 여성용 레더 랩 슈즈 -->
+		<ITEM id="400507"	rate="0.15" 	rent_period="168" />	<!-- 오드 건 -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="200041"	rate="0.2" />							<!-- 아네라몬의 칼 -->
+		<ITEM id="200028"	rate="0.2" />							<!-- 악마의 사전 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400509"	rate="0.15" 	rent_period="168" />	<!-- 남성용 레더 랩 슈즈 -->
+		<ITEM id="400510"	rate="0.15" 	rent_period="168" />	<!-- 여성용 레더 랩 슈즈 -->
+		<ITEM id="400507"	rate="0.15" 	rent_period="168" />	<!-- 오드 건 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="200041"	rate="0.2" />							<!-- 아네라몬의 칼 -->
+		<ITEM id="200028"	rate="0.2" />							<!-- 악마의 사전 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400509"	rate="0.15" 	rent_period="168" />	<!-- 남성용 레더 랩 슈즈 -->
+		<ITEM id="400510"	rate="0.15" 	rent_period="168" />	<!-- 여성용 레더 랩 슈즈 -->
+		<ITEM id="400507"	rate="0.15" 	rent_period="168" />	<!-- 오드 건 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="200041"	rate="0.2" />							<!-- 아네라몬의 칼 -->
+		<ITEM id="200028"	rate="0.2" />							<!-- 악마의 사전 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400509"	rate="0.15" 	rent_period="168" />	<!-- 남성용 레더 랩 슈즈 -->
+		<ITEM id="400510"	rate="0.15" 	rent_period="168" />	<!-- 여성용 레더 랩 슈즈 -->
+		<ITEM id="400507"	rate="0.15" 	rent_period="168" />	<!-- 오드 건 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="200041"	rate="0.2" />							<!-- 아네라몬의 칼 -->
+		<ITEM id="200028"	rate="0.2" />							<!-- 악마의 사전 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400509"	rate="0.15" 	rent_period="168" />	<!-- 남성용 레더 랩 슈즈 -->
+		<ITEM id="400510"	rate="0.15" 	rent_period="168" />	<!-- 여성용 레더 랩 슈즈 -->
+		<ITEM id="400507"	rate="0.15" 	rent_period="168" />	<!-- 오드 건 -->
+	</ITEMSET>
+</DROPSET>
+
+<!-- 리치(보스) -->
+<DROPSET id="39" name="S39">
+	<ITEMSET QL="0">
+		<ITEM id="200042"	rate="1.0" />							<!-- 리치의 꼬리 -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="200042"	rate="0.4" />							<!-- 리치의 꼬리 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400511"	rate="0.15" 	rent_period="168" />	<!-- 남성용 어둠의군주 바지 -->
+		<ITEM id="400512"	rate="0.15" 	rent_period="168" />	<!-- 여성용 어둠의군주 바지 -->
+		<ITEM id="400508"	rate="0.15" 	rent_period="168" />	<!-- 재앙의 날개 -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="200042"	rate="0.4" />							<!-- 리치의 꼬리 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400511"	rate="0.15" 	rent_period="168" />	<!-- 남성용 어둠의군주 바지 -->
+		<ITEM id="400512"	rate="0.15" 	rent_period="168" />	<!-- 여성용 어둠의군주 바지 -->
+		<ITEM id="400508"	rate="0.15" 	rent_period="168" />	<!-- 재앙의 날개 -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="200042"	rate="0.4" />							<!-- 리치의 꼬리 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400511"	rate="0.15" 	rent_period="168" />	<!-- 남성용 어둠의군주 바지 -->
+		<ITEM id="400512"	rate="0.15" 	rent_period="168" />	<!-- 여성용 어둠의군주 바지 -->
+		<ITEM id="400508"	rate="0.15" 	rent_period="168" />	<!-- 재앙의 날개 -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="200042"	rate="0.4" />							<!-- 리치의 꼬리 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400511"	rate="0.15" 	rent_period="168" />	<!-- 남성용 어둠의군주 바지 -->
+		<ITEM id="400512"	rate="0.15" 	rent_period="168" />	<!-- 여성용 어둠의군주 바지 -->
+		<ITEM id="400508"	rate="0.15" 	rent_period="168" />	<!-- 재앙의 날개 -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="200042"	rate="0.4" />							<!-- 리치의 꼬리 -->
+		<ITEM id="200004"	rate="0.15" />							<!-- 찢겨진 65페이지 -->
+		<ITEM id="400511"	rate="0.15" 	rent_period="168" />	<!-- 남성용 어둠의군주 바지 -->
+		<ITEM id="400512"	rate="0.15" 	rent_period="168" />	<!-- 여성용 어둠의군주 바지 -->
+		<ITEM id="400508"	rate="0.15" 	rent_period="168" />	<!-- 재앙의 날개 -->
+	</ITEMSET>
+</DROPSET>
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 이벤트용
+        
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<!-- 크리스마스 이벤트용 -->
+<DROPSET id="101" name="E01">
+	<ITEMSET QL="0">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="400010"	rate="0.07"		rent_period="72" />		<!-- 사탕 -->
+		<ITEM id="520013"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(남) -->
+		<ITEM id="520513"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(여) -->
+	</ITEMSET>
+	<ITEMSET QL="1">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="400010"	rate="0.07"		rent_period="72" />		<!-- 사탕 -->
+		<ITEM id="520013"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(남) -->
+		<ITEM id="520513"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(여) -->
+	</ITEMSET>
+	<ITEMSET QL="2">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="400010"	rate="0.07"		rent_period="72" />		<!-- 사탕 -->
+		<ITEM id="520013"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(남) -->
+		<ITEM id="520513"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(여) -->
+	</ITEMSET>
+	<ITEMSET QL="3">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="400010"	rate="0.07"		rent_period="72" />		<!-- 사탕 -->
+		<ITEM id="520013"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(남) -->
+		<ITEM id="520513"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(여) -->
+	</ITEMSET>
+	<ITEMSET QL="4">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="400010"	rate="0.07"		rent_period="72" />		<!-- 사탕 -->
+		<ITEM id="520013"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(남) -->
+		<ITEM id="520513"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(여) -->
+	</ITEMSET>
+	<ITEMSET QL="5">
+		<ITEM id="hp1"		rate="0.2" />
+		<ITEM id="ap1"		rate="0.2" />
+		<ITEM id="mag1"		rate="0.2" />
+		<ITEM id="400010"	rate="0.07"		rent_period="72" />		<!-- 사탕 -->
+		<ITEM id="520013"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(남) -->
+		<ITEM id="520513"	rate="0.03"		rent_period="72" />		<!-- 크리스마스 모자(여) -->
+	</ITEMSET>
+</DROPSET>
+
+</XML>

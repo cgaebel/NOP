@@ -1,0 +1,683 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<XML id="scenario">
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 정규 시나리오 : Mansion
+         
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<STANDARD_SCENARIO
+	QL="0"
+	title="Quest Mansion QL0"
+	DC="1"
+	mapset="Mansion"
+	XP="4000"
+	BP="500">
+
+	<!--  Hall1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="101">
+		<NPCSET_ARRAY>G01/G02/G03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="102">
+		<NPCSET_ARRAY>G01/G02/G03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="103">
+		<NPCSET_ARRAY>G01/G02/G03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="105">
+		<NPCSET_ARRAY>G01/G02/G03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="107">
+		<NPCSET_ARRAY>G01/G02/G03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="109">
+		<NPCSET_ARRAY>G01/G02/G03</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="1"
+	title="Quest Mansion QL1"
+	DC="1"
+	mapset="Mansion"
+	XP="10000"
+	BP="1000">
+
+	<!--  Hall1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="101">
+		<NPCSET_ARRAY>G11/G12/G13/G14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="102">
+		<NPCSET_ARRAY>G11/G12/G13/G14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="103">
+		<NPCSET_ARRAY>G11/G12/G13/G14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="105">
+		<NPCSET_ARRAY>G11/G12/G13/G14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="107">
+		<NPCSET_ARRAY>G11/G12/G13/G14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="109">
+		<NPCSET_ARRAY>G11/G12/G13/G14</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="2"
+	title="Quest Mansion QL2"
+	DC="1"
+	mapset="Mansion"
+	XP="32000"
+	BP="2400">
+
+	<!--  Hall1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="101">
+		<NPCSET_ARRAY>G21/G22/G23/G24/G25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="102">
+		<NPCSET_ARRAY>G21/G22/G23/G24/G25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="103">
+		<NPCSET_ARRAY>G21/G22/G23/G24/G25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="105">
+		<NPCSET_ARRAY>G21/G22/G23/G24/G25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="107">
+		<NPCSET_ARRAY>G21/G22/G23/G24/G25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="109">
+		<NPCSET_ARRAY>G21/G22/G23/G24/G25</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="3"
+	title="Quest Mansion QL3"
+	DC="1"
+	mapset="Mansion"
+	XP="64000"
+	BP="5000">
+	
+	<!--  Hall1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="101">
+		<NPCSET_ARRAY>G31/G32/G33/G34/G35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="102">
+		<NPCSET_ARRAY>G31/G32/G33/G34/G35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="103">
+		<NPCSET_ARRAY>G31/G32/G33/G34/G35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="105">
+		<NPCSET_ARRAY>G31/G32/G33/G34/G35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="107">
+		<NPCSET_ARRAY>G31/G32/G33/G34/G35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="109">
+		<NPCSET_ARRAY>G31/G32/G33/G34/G35</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="4"
+	title="Quest Mansion QL4"
+	DC="1"
+	mapset="Mansion"
+	XP="128000"
+	BP="10000">
+	
+	<!--  Hall1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="101">
+		<NPCSET_ARRAY>G41/G42/G43/G44/G45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="102">
+		<NPCSET_ARRAY>G41/G42/G43/G44/G45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="103">
+		<NPCSET_ARRAY>G41/G42/G43/G44/G45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="105">
+		<NPCSET_ARRAY>G41/G42/G43/G44/G45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="107">
+		<NPCSET_ARRAY>G41/G42/G43/G44/G45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="109">
+		<NPCSET_ARRAY>G41/G42/G43/G44/G45</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="5"
+	title="Quest Mansion QL5"
+	DC="1"
+	mapset="Mansion"
+	XP="256000"
+	BP="24000">
+	
+	<!--  Hall1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="101">
+		<NPCSET_ARRAY>G51/G52/G53/G54/G55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="102">
+		<NPCSET_ARRAY>G51/G52/G53/G54/G55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="103">
+		<NPCSET_ARRAY>G51/G52/G53/G54/G55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="105">
+		<NPCSET_ARRAY>G51/G52/G53/G54/G55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="107">
+		<NPCSET_ARRAY>G51/G52/G53/G54/G55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="109">
+		<NPCSET_ARRAY>G51/G52/G53/G54/G55</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 특별 시나리오 : Mansion
+ 
+  - 고블린 킹(보스)
+         
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<SPECIAL_SCENARIO id="11"
+	title="Goblin King"
+	QL="1"
+	DC="1"
+	mapset="Mansion"
+	XP="200000"
+	BP="20000">
+	<SACRI_ITEM itemid="200008" />		<!-- 고블린의 두골 -->
+	<SACRI_ITEM itemid="200018" />		<!-- 그림스크의 목걸이 -->
+	
+	<MAP dice="1" key_sector="102" key_npc="16" boss="true" >
+		<NPCSET_ARRAY>G61</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="13">
+	        <NPC npcid="11" rate="0.2" />
+		    <NPC npcid="12" rate="0.3" />
+		    <NPC npcid="13" rate="0.2" />
+		    <NPC npcid="14" rate="0.2" />
+		    <NPC npcid="15" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="2" key_sector="102" key_npc="16" boss="true">
+		<NPCSET_ARRAY>G61</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="13">
+	        <NPC npcid="11" rate="0.2" />
+		    <NPC npcid="12" rate="0.3" />
+		    <NPC npcid="13" rate="0.2" />
+		    <NPC npcid="14" rate="0.2" />
+		    <NPC npcid="15" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="3" key_sector="102" key_npc="16" boss="true">
+		<NPCSET_ARRAY>G61</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="13">
+	        <NPC npcid="11" rate="0.2" />
+		    <NPC npcid="12" rate="0.3" />
+		    <NPC npcid="13" rate="0.2" />
+		    <NPC npcid="14" rate="0.2" />
+		    <NPC npcid="15" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="4" key_sector="102" key_npc="16" boss="true">
+		<NPCSET_ARRAY>G61</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="13">
+	        <NPC npcid="11" rate="0.2" />
+		    <NPC npcid="12" rate="0.3" />
+		    <NPC npcid="13" rate="0.2" />
+		    <NPC npcid="14" rate="0.2" />
+		    <NPC npcid="15" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="5" key_sector="102" key_npc="16" boss="true">
+		<NPCSET_ARRAY>G61</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="13">
+	        <NPC npcid="11" rate="0.2" />
+		    <NPC npcid="12" rate="0.3" />
+		    <NPC npcid="13" rate="0.2" />
+		    <NPC npcid="14" rate="0.2" />
+		    <NPC npcid="15" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="6" key_sector="102" key_npc="16" boss="true">
+		<NPCSET_ARRAY>G61</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="13">
+	        <NPC npcid="11" rate="0.2" />
+		    <NPC npcid="12" rate="0.3" />
+		    <NPC npcid="13" rate="0.2" />
+		    <NPC npcid="14" rate="0.2" />
+		    <NPC npcid="15" rate="0.1" />
+		</JACO>
+	</MAP>
+</SPECIAL_SCENARIO>
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 정규 시나리오 : Dungeon
+         
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<STANDARD_SCENARIO
+	QL="0"
+	title="Quest Dungeon QL0"
+	DC="1"
+	mapset="Dungeon"
+	XP="4000"
+	BP="500">
+
+	<!-- nest1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="303">
+		<NPCSET_ARRAY>S01/S02/S03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="303">
+		<NPCSET_ARRAY>S01/S02/S03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="303">
+		<NPCSET_ARRAY>S01/S02/S03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="303">
+		<NPCSET_ARRAY>S01/S02/S03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="303">
+		<NPCSET_ARRAY>S01/S02/S03</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="303">
+		<NPCSET_ARRAY>S01/S02/S03</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="1"
+	title="Quest Dungeon QL1"
+	DC="1"
+	mapset="Dungeon"
+	XP="10000"
+	BP="1000">
+
+	<!-- nest1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="304">
+		<NPCSET_ARRAY>S11/S12/S13/S14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="304">
+		<NPCSET_ARRAY>S11/S12/S13/S14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="304">
+		<NPCSET_ARRAY>S11/S12/S13/S14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="304">
+		<NPCSET_ARRAY>S11/S12/S13/S14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="304">
+		<NPCSET_ARRAY>S11/S12/S13/S14</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="304">
+		<NPCSET_ARRAY>S11/S12/S13/S14</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="2"
+	title="Quest Dungeon QL2"
+	DC="1"
+	mapset="Dungeon"
+	XP="32000"
+	BP="2400">
+
+	<!-- passage3 맵 부터 시작 -->
+	<MAP dice="1" key_sector="306">
+		<NPCSET_ARRAY>S21/S22/S23/S24/S25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="306">
+		<NPCSET_ARRAY>S21/S22/S23/S24/S25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="306">
+		<NPCSET_ARRAY>S21/S22/S23/S24/S25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="306">
+		<NPCSET_ARRAY>S21/S22/S23/S24/S25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="306">
+		<NPCSET_ARRAY>S21/S22/S23/S24/S25</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="306">
+		<NPCSET_ARRAY>S21/S22/S23/S24/S25</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="3"
+	title="Quest Dungeon QL3"
+	DC="1"
+	mapset="Dungeon"
+	XP="64000"
+	BP="5000">
+	
+	<!-- passage1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="307">
+		<NPCSET_ARRAY>S31/S32/S33/S34/S35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="307">
+		<NPCSET_ARRAY>S31/S32/S33/S34/S35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="307">
+		<NPCSET_ARRAY>S31/S32/S33/S34/S35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="307">
+		<NPCSET_ARRAY>S31/S32/S33/S34/S35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="307">
+		<NPCSET_ARRAY>S31/S32/S33/S34/S35</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="307">
+		<NPCSET_ARRAY>S31/S32/S33/S34/S35</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="4"
+	title="Quest Dungeon QL4"
+	DC="1"
+	mapset="Dungeon"
+	XP="128000"
+	BP="10000">
+	
+	<!-- cavern2 맵 부터 시작 -->
+	<MAP dice="1" key_sector="308">
+		<NPCSET_ARRAY>S41/S42/S43/S44/S45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="308">
+		<NPCSET_ARRAY>S41/S42/S43/S44/S45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="308">
+		<NPCSET_ARRAY>S41/S42/S43/S44/S45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="308">
+		<NPCSET_ARRAY>S41/S42/S43/S44/S45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="308">
+		<NPCSET_ARRAY>S41/S42/S43/S44/S45</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="308">
+		<NPCSET_ARRAY>S41/S42/S43/S44/S45</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+<STANDARD_SCENARIO
+	QL="5"
+	title="Quest Dungeon QL5"
+	DC="1"
+	mapset="Dungeon"
+	XP="256000"
+	BP="24000">
+	
+	<!-- cavern1 맵 부터 시작 -->
+	<MAP dice="1" key_sector="309">
+		<NPCSET_ARRAY>S51/S52/S53/S54/S55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="2" key_sector="309">
+		<NPCSET_ARRAY>S51/S52/S53/S54/S55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="3" key_sector="309">
+		<NPCSET_ARRAY>S51/S52/S53/S54/S55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="4" key_sector="309">
+		<NPCSET_ARRAY>S51/S52/S53/S54/S55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="5" key_sector="309">
+		<NPCSET_ARRAY>S51/S52/S53/S54/S55</NPCSET_ARRAY>
+	</MAP>
+	<MAP dice="6" key_sector="309">
+		<NPCSET_ARRAY>S51/S52/S53/S54/S55</NPCSET_ARRAY>
+	</MAP>
+</STANDARD_SCENARIO>
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 특별 시나리오 : Dungeon
+ 
+  - 슈페리온(보스)
+         
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<SPECIAL_SCENARIO id="31"
+	title="Superion The Tainted"
+	QL="1"
+	DC="1"
+	mapset="Dungeon"
+	XP="200000"
+	BP="20000">
+	<SACRI_ITEM itemid="200006" />		<!-- 큰두골 -->
+	<SACRI_ITEM itemid="200019" />		<!-- 스켈레톤 인형 -->
+
+	<MAP dice="1" key_sector="306" key_npc="37" boss="true" >
+		<NPCSET_ARRAY>S61/S62/S63/S64</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.5" />
+	        <NPC npcid="32" rate="0.2" />
+		    <NPC npcid="33" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="2" key_sector="306" key_npc="37" boss="true">
+		<NPCSET_ARRAY>S61/S62/S63/S64</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.5" />
+	        <NPC npcid="32" rate="0.2" />
+		    <NPC npcid="33" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="3" key_sector="306" key_npc="37" boss="true">
+		<NPCSET_ARRAY>S61/S62/S63/S64</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.5" />
+	        <NPC npcid="32" rate="0.2" />
+		    <NPC npcid="33" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="4" key_sector="306" key_npc="37" boss="true">
+		<NPCSET_ARRAY>S61/S62/S63/S64</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.5" />
+	        <NPC npcid="32" rate="0.2" />
+		    <NPC npcid="33" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="5" key_sector="306" key_npc="37" boss="true">
+		<NPCSET_ARRAY>S61/S62/S63/S64</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.5" />
+	        <NPC npcid="32" rate="0.2" />
+		    <NPC npcid="33" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="6" key_sector="306" key_npc="37" boss="true">
+		<NPCSET_ARRAY>S61/S62/S63/S64</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.5" />
+	        <NPC npcid="32" rate="0.2" />
+		    <NPC npcid="33" rate="0.3" />
+		</JACO>
+	</MAP>
+</SPECIAL_SCENARIO>
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 특별 시나리오 : Dungeon
+ 
+  - 아네라몬(보스)
+         
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<SPECIAL_SCENARIO id="32"
+	title="Aneramon The Wicked"
+	QL="1"
+	DC="1"
+	mapset="Dungeon"
+	XP="200000"
+	BP="20000">
+	<SACRI_ITEM itemid="200007" />		<!-- 수수께기의 두골 -->
+	<SACRI_ITEM itemid="200019" />		<!-- 스켈레톤 인형 -->
+	
+	<MAP dice="1" key_sector="307" key_npc="38" boss="true" >
+		<NPCSET_ARRAY>S71/S72/S73/S74</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.2" />
+	        <NPC npcid="32" rate="0.2" />
+	        <NPC npcid="33" rate="0.3" />
+		    <NPC npcid="35" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="2" key_sector="307" key_npc="38" boss="true">
+		<NPCSET_ARRAY>S71/S72/S73/S74</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.2" />
+	        <NPC npcid="32" rate="0.2" />
+	        <NPC npcid="33" rate="0.3" />
+		    <NPC npcid="35" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="3" key_sector="307" key_npc="38" boss="true">
+		<NPCSET_ARRAY>S71/S72/S73/S74</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.2" />
+	        <NPC npcid="32" rate="0.2" />
+	        <NPC npcid="33" rate="0.3" />
+		    <NPC npcid="35" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="4" key_sector="307" key_npc="38" boss="true">
+		<NPCSET_ARRAY>S71/S72/S73/S74</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.2" />
+	        <NPC npcid="32" rate="0.2" />
+	        <NPC npcid="33" rate="0.3" />
+		    <NPC npcid="35" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="5" key_sector="307" key_npc="38" boss="true">
+		<NPCSET_ARRAY>S71/S72/S73/S74</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.2" />
+	        <NPC npcid="32" rate="0.2" />
+	        <NPC npcid="33" rate="0.3" />
+		    <NPC npcid="35" rate="0.3" />
+		</JACO>
+	</MAP>
+	<MAP dice="6" key_sector="307" key_npc="38" boss="true">
+		<NPCSET_ARRAY>S71/S72/S73/S74</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.2" />
+	        <NPC npcid="32" rate="0.2" />
+	        <NPC npcid="33" rate="0.3" />
+		    <NPC npcid="35" rate="0.3" />
+		</JACO>
+	</MAP>
+</SPECIAL_SCENARIO>
+
+
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ 특별 시나리오 : Dungeon
+ 
+  - 리치(보스)
+         
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<SPECIAL_SCENARIO id="33"
+	title="Lich"
+	QL="1"
+	DC="1"
+	mapset="Dungeon"
+	XP="240000"
+	BP="20000">
+	<SACRI_ITEM itemid="200010" />		<!-- 거대한 유골 -->
+	<SACRI_ITEM itemid="200028" />		<!-- 악마의 사전 -->
+	
+	<MAP dice="1" key_sector="309" key_npc="39" boss="true" >
+		<NPCSET_ARRAY>S81/S82/S83/S84</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.14" />
+	        <NPC npcid="32" rate="0.3" />
+	        <NPC npcid="33" rate="0.3" />
+	        <NPC npcid="34" rate="0.08" />
+	        <NPC npcid="35" rate="0.08" />
+		    <NPC npcid="36" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="2" key_sector="309" key_npc="39" boss="true">
+		<NPCSET_ARRAY>S81/S82/S83/S84</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.14" />
+	        <NPC npcid="32" rate="0.3" />
+	        <NPC npcid="33" rate="0.3" />
+	        <NPC npcid="34" rate="0.08" />
+	        <NPC npcid="35" rate="0.08" />
+		    <NPC npcid="36" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="3" key_sector="309" key_npc="39" boss="true">
+		<NPCSET_ARRAY>S81/S82/S83/S84</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.14" />
+	        <NPC npcid="32" rate="0.3" />
+	        <NPC npcid="33" rate="0.3" />
+	        <NPC npcid="34" rate="0.08" />
+	        <NPC npcid="35" rate="0.08" />
+		    <NPC npcid="36" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="4" key_sector="309" key_npc="39" boss="true">
+		<NPCSET_ARRAY>S81/S82/S83/S84</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.14" />
+	        <NPC npcid="32" rate="0.3" />
+	        <NPC npcid="33" rate="0.3" />
+	        <NPC npcid="34" rate="0.08" />
+	        <NPC npcid="35" rate="0.08" />
+		    <NPC npcid="36" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="5" key_sector="309" key_npc="39" boss="true">
+		<NPCSET_ARRAY>S81/S82/S83/S84</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.14" />
+	        <NPC npcid="32" rate="0.3" />
+	        <NPC npcid="33" rate="0.3" />
+	        <NPC npcid="34" rate="0.08" />
+	        <NPC npcid="35" rate="0.08" />
+		    <NPC npcid="36" rate="0.1" />
+		</JACO>
+	</MAP>
+	<MAP dice="6" key_sector="309" key_npc="39" boss="true">
+		<NPCSET_ARRAY>S81/S82/S83/S84</NPCSET_ARRAY>
+	    <JACO count="2" tick="5" min_npc="0" max_npc="12">
+	        <NPC npcid="31" rate="0.14" />
+	        <NPC npcid="32" rate="0.3" />
+	        <NPC npcid="33" rate="0.3" />
+	        <NPC npcid="34" rate="0.08" />
+	        <NPC npcid="35" rate="0.08" />
+		    <NPC npcid="36" rate="0.1" />
+		</JACO>
+	</MAP>
+</SPECIAL_SCENARIO>
+
+</XML>

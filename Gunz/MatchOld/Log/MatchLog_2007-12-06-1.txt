@@ -1,0 +1,22 @@
+Load XML from memory : strings.xml(0x0037) - SUCCESS
+Load XML from memory : cserror.xml(0x0037) - SUCCESS
+[12/06/07 10:49:06] DBMS connected
+[12/06/07 10:49:06] Command registeration completed
+Inited client file list (1)
+
+================================== Server configure info ==================================
+[12/06/07 10:49:07] Release Date : Jan 11 2007
+[12/06/07 10:49:07] X-Trap Off
+[12/06/07 10:49:07] Server Country : BRAZIL
+[12/06/07 10:49:07] Command version : (56)
+[12/06/07 10:49:07] Event usable state : (false)
+[12/06/07 10:49:07] Load event size : (1)
+[12/06/07 10:49:07] FileCRCCheckSum usable state : (false)
+[12/06/07 10:49:07] FileCRC size : (1)
+[12/06/07 10:49:07] Country Code Filter usalbe state : (false)
+[12/06/07 10:49:07] Accept Invalied IP state : (true)
+[12/06/07 10:49:07] Keeper IP : (127.0.0.1)
+===========================================================================================
+
+[12/06/07 10:49:07] Match Server Created (Port:6025)
+RealCPNet> SessionCreated=1, SessionDestroyed=0 
