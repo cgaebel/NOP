@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "NOP.h"
-#include "defs.h"
+#include "config.h"
 
 static BOOL EnumWindowsHandler(HWND hwnd, bool* retVal)
 {

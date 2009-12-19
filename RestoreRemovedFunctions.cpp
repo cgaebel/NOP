@@ -1,5 +1,6 @@
 #include "Core.h"
 #include "Patching.h"
+#include "config.h"
 
 // Decryption routines at: 0x00538680, 0x00538960, and 0x00538D12
 static void RestoreMRSDecryptionRoutines()

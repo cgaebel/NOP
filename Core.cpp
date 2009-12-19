@@ -1,7 +1,7 @@
 #include "Core.h"
 #include "ListSingletons.h"
 #include "NOP.h"
-#include "defs.h"
+#include "config.h"
 #include "Utilities.h"
 
 using namespace Utilities;

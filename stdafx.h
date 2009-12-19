@@ -62,7 +62,7 @@
 #pragma comment(lib, "d3dx9.lib")
 
 // Application-specific.
-#include "defs.h"
+#include "config.h"
 #include "IHash.h"
 #include "Detours/CDetour.h"
 #include "NOP.h"

@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "Patching.h"
-#include "defs.h"
+#include "config.h"
 
 PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 {

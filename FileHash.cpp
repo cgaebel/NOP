@@ -2,6 +2,7 @@
 #include "HashManager.h"
 #include "HMD6.h"
 #include "NOP.h"
+#include "config.h"
 
 static std::string GetFileHash()
 {
