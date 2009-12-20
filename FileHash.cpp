@@ -40,6 +40,7 @@ static std::string GetFileHash()
 	return hashContext->GetHash();
 }
 
+/*
 PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 {
 	auto hash = GetFileHash();
@@ -50,3 +51,4 @@ PASSIVE_PROTECTION(FileHash, "Checking file integrity...")
 
 	return (invalid) ? HACK_DETECTED : NO_HACK_DETECTED;
 }
+*/

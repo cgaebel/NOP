@@ -364,18 +364,6 @@
 					</File>
 				</Filter>
 				<Filter
-					Name="GunzOld"
-					>
-					<File
-						RelativePath=".\Gunz\GunzOld\GunzOld Address Dump.txt"
-						>
-					</File>
-					<File
-						RelativePath=".\Gunz\GunzOld\GunzOld PDB Dump.txt"
-						>
-					</File>
-				</Filter>
-				<Filter
 					Name="JGunzOld"
 					>
 					<File

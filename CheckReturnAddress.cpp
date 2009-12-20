@@ -44,6 +44,7 @@ static void ApplyExternalLibraryThunks()
 
 static void ApplyAutomaticallyGeneratedPatches();
 
+/*
 PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 {
 	// We patch all the functions listed by creating codecaves to check the return value and
@@ -208,6 +209,7 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 	// Hacks aren't detected here. The patch does it itself.
 	return NO_HACK_DETECTED;
 }
+*/
 
 // Ensures we're actually patching a retn.
 static void __cdecl PatchJumpToRETN(DWORD address)
