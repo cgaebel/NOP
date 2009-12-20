@@ -8,7 +8,7 @@ static std::string GetFileHash()
 {
 	static const char* protectedFiles[] = { FILE_CHECKSUM_PROTECTED_FILES };
 
-	std::tr1::shared_ptr<IHash> hashContext(new HMD6);
+	std::auto_ptr<IHash> hashContext(new HMD6);
 
 	char dstBuf[0x1000] = { 0 };
 	std::ifstream currentFile;
