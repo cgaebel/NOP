@@ -32,3 +32,5 @@ _ReSharper*/
 *.pchi
 *.dg
 *.dep
+*.idb
+*.res

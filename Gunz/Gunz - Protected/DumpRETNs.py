@@ -27,6 +27,7 @@ knownAddresses = [
 inputFile = 'svchost.exe'
 outputFile = 'output.txt'
 patchedFile = 'svchost_patched.exe'
+opCodeToPatch = 0x90	# NOP! :)
 
 def GetFileContents(filename):
     f = open(filename, 'rb')
@@ -81,7 +82,7 @@ def RemoveRETNs(locationsOfRETNs, oldFilesContents, newFilesName):
 
     for currentLoc in locationsOfRETNs:
         toPatch = currentLoc - 0x00400000
-        toOutput[toPatch] = 0xCC
+        toOutput[toPatch] = opCodeToPatch
 
     target.write(toOutput)
 

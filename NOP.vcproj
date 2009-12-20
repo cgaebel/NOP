@@ -335,6 +335,10 @@
 						>
 					</File>
 					<File
+						RelativePath=".\Gunz\Gunz - Protected\DumpRETNs.py"
+						>
+					</File>
+					<File
 						RelativePath=".\Gunz\Gunz - Protected\fmod.dll"
 						>
 					</File>

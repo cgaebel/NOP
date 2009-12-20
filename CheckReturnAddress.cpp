@@ -212,7 +212,7 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 // Ensures we're actually patching a retn.
 static void __cdecl PatchJumpToRETN(DWORD address)
 {
-	BYTE valid_bytes[] = { 0xC3, 0xCC, 0xCC, 0xCC, 0xCC };
+	BYTE valid_bytes[] = { 0x90, 0xCC, 0xCC, 0xCC, 0xCC };
 
 	if(memcmp((void*)address, valid_bytes, _countof(valid_bytes)))
 		Patching::PatchUnconditionalJump(address, RETN);
