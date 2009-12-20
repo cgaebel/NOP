@@ -1,6 +1,8 @@
 #include "Core.h"
 #include "Patching.h"
 #include "config.h"
+#include "NOP.h"
+#include "Utilities.h"
 
 static void ApplyAutomaticallyGeneratedPatches();
 
@@ -172,7 +174,7 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 																		// ZGetCamera
 	Patching::PatchUnconditionalJump(0x004ABD55, RETN);					// ZGetWeaponMeshMgr
 	Patching::PatchUnconditionalJump(0x0049A885, RETN);					// ZGetConfiguration
-	//Patching::PatchUnconditionalJump(0x004ABDCB, RETN);					// ZGetScreenEffectManager
+	//Patching::PatchUnconditionalJump(0x004ABDCB, RETN);				// ZGetScreenEffectManager
 	Patching::PatchUnconditionalJump(0x00465465, RETN);					// ZGetFlashBangEffect
 																		// ZGetIsCashItem
 																		// ZGetDirectInput
@@ -204,2128 +206,15 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 	return NO_HACK_DETECTED;
 }
 
-// I'm sorry :(
-static void ApplyAutomaticallyGeneratedPatches()
+// Ensures we're actually patching a retn.
+static void PatchJumpToRETN(DWORD address)
 {
-	Patching::PatchUnconditionalJump(0x401055, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x401070, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4010b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4011fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x401228, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4012b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x401564, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x401596, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4015a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x401678, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x401d17, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402108, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402380, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40241b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40243a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402481, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402493, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4024a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402510, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40253b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402596, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4025f0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402674, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402a29, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402ac5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402bb4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402db3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x402fd7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x403871, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x403b39, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4048d8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x404c28, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x404d0a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4053f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x405648, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x405ce0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4060b3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4062b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x406380, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x409f63, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40aa90, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40b0d9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40b100, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40b4b8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40b761, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40b780, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40b7b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40b9a8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40bb06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40bdb0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40c4d1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40c514, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40c576, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40c589, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40c5a8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40c5e8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40c666, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40c746, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40cd83, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40e245, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40e2c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40e9bb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40e9eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40f054, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40f121, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x40f243, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4105e7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x410684, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4107f2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x410950, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4109e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x411750, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x411a89, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x411ac5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x411c0b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x412420, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4124da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x412555, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x412744, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4127c1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4127e1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x412801, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x412c20, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x412cf6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x412d02, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4133e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x413871, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x413b55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x413bf2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x413ea0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4140a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4140da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4146ea, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41474a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x414905, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x414c51, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x414c75, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x414cc0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x414cea, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x414d41, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x414dc5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x414dd5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4153c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x415522, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x415568, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4155c0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x415713, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41576b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x415798, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4157eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x415818, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x415927, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x415f6a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41610a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x416588, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x416a97, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x417187, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4173a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4173c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x417795, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x417ef5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4181b3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418245, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4182d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418365, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4183f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418485, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418515, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418640, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418b52, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418ef0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418f81, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x418fd3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4190c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x419415, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x419484, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4194b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4194c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4194d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4194e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4194f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x419505, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x419515, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x419566, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x419f69, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41a1f6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41a307, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41a393, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41aa3b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41b8f1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41e625, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41e737, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41e785, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41e960, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41e9c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41f614, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41f8f1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41f958, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41fa93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x41fac4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x420448, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4204ba, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x420677, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4208c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4209f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x420a45, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x420c75, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x420d89, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x420f23, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x420f7b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x420fa8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x421316, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4213fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x421566, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x421616, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x421846, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x421bd3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x421ce6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x423109, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4243d8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x424455, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4244d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x424555, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4245d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x424e31, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x424f86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42506b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4254ba, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4254f1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42576a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4258e7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x425b9a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x425f34, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x426cf3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4288c3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4289fa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x428ab5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x428df5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x428e55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4293d2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4294d6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x429535, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x429639, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42969b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4298cb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x429aeb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a254, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a726, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a833, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a851, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a871, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a891, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a8b1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a8d1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a8f1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a923, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a943, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42a9c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42aab9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ac95, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ad89, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ae05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ae85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42af05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42afc2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b090, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b385, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b417, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b4a7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b537, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b551, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b5d3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b63b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42b9f3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ba13, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ba33, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ba53, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42babb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42bad3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42bb3b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42bb9b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42bd21, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42be48, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42be6b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42be8b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42bf36, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42c01b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42c0fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42c1fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42c346, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42c3f6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42cbd7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ccd7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42cd85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ce46, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42d106, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42d19a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42d3b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42da7b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42db46, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42dbeb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42dca6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42dde6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42def6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42df65, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42dfb6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42fef5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x42ffeb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x430057, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4305d0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4306d4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x430735, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x430770, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4307bb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4308d3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x430a20, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x430a44, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4312da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x431583, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4318f0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x431aa9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x431b61, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432521, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432543, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432568, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4325a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432729, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4327d6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43282b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432858, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432880, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432c31, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432cc6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432dc4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x432e27, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433146, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433257, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433306, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433476, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433587, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433636, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433747, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433857, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433967, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433ad6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433bf0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433ca6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433db7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433f30, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x433f70, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43485b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x434880, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x434d00, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x434e22, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4351d0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x435b4a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x435b93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x435bc3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x435ea1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x435f38, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x436b16, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x436bd3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437068, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437172, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437426, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437660, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437719, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4377c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437889, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4378c8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437990, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4379e8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437af3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437c03, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x437ff4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4384f2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4386ab, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4388f6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43a603, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43ab1a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43bcb1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43c323, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43c3c9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43ca54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43ce09, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43d0b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43d213, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43d249, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43e023, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x43ec02, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x441d29, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x441d92, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x441e85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x442102, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44276b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4427a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4428d2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x442986, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x443965, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x443ce0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x443d55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x444513, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x444d12, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x444e42, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x445212, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x445765, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x445775, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x445785, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x445795, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4457a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4457b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4457c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4457d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4457e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4457f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x445805, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x445ed5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x445fc5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446005, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446015, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446634, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446664, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4466d4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446704, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446734, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446764, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446794, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4467c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4467f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446824, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446854, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446884, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4468b4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4468e4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446914, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446944, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446974, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4469a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4469d4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446a04, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446a34, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446a64, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446a94, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446ac4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446af4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446b24, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446b54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446b84, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446c14, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446c44, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446c74, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446ca4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446cd4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446d04, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446d34, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446d64, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446d94, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446dc4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446df4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446e24, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446e54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446e84, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446eb4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446ee4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446f14, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446f44, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446f74, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446fa4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x446fd4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447054, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447124, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447184, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4471e4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447244, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4472a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4472d4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447304, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447334, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447364, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447394, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4473c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4473f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447424, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447454, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4474c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4474f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447524, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447554, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447584, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4475b4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4475e4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447614, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447644, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447674, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4476a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4476d4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447704, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447784, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4477b4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4477e4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447814, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447844, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447874, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4478a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4478d4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447904, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447934, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447964, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447994, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4479c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4479f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447a24, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447a54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447a84, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447ab4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447ae4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447b14, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447b44, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447b74, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447ba4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447c44, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447c74, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447ca4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447cd4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447d04, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447d34, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447d64, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447d94, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447dc4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447df4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447e24, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447e54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447e84, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447eb4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447ee4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447f14, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447fb4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x447fe4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448014, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4480a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448104, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448164, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4481c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448224, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448399, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44847b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4485e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4489eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448af7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448ba6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448d77, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x448f93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44927b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44a5e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44b61b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44caab, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44cb06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44ccf6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44ce76, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44d59b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44e775, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44e893, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44e934, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44e97b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44eb03, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44ecb9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44ed3b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44ee86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44eec6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44ef06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44ef46, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44ef86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44f05a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44f34b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44f3db, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44f66b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x44f851, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x451826, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x451be5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x451d02, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x451d93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x451dc5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x451f94, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x451fc4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x451ff4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x452024, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x452054, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x452084, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4520b4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4520e4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x452114, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x452144, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x452174, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4521a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4521d4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x452264, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x452346, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4523bb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4532d1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x453641, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x453bfa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x454760, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x454811, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x454944, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4549bb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x456b53, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x456c3a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x456d47, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x456e44, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x456f21, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45727b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4574b0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45752a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x457783, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x457a53, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x457af5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x457b3b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x457b96, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x457c43, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x457d06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x457da2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x458060, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4581e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x458296, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x458346, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4583d6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x458633, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x458b4b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x458f22, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x459409, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4595b4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45b600, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45bd5a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45bf6b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45c38a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45c860, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45cfe2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45d468, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45d4c9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45d5d1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45d6d1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45d709, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45d8d6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45d986, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45e9f9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45eb03, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45eb86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45ebb2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45f71a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45f79a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x45ff04, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4601d3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x460207, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4603b3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4608a8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x460a85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x460a93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x460bb3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x46158b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x461eb7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x461ef2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x462004, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x462064, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4620d6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x462155, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4621c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4621e9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4626f1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4627d2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4627f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x462961, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x462ac6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x462af4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x462e49, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x463570, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x464fba, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x465465, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x465475, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4654d7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x465743, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4657c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x465da6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466629, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466635, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466676, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466686, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x46671a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466832, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466852, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466872, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4668b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4668d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466915, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466935, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466955, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466975, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466995, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4669d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4669f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x466a15, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x467c67, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4696d2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x469dd9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x46ee9b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x46ef40, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x46f028, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x46f45b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47083a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x470f22, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x470f4b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x471394, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x471ad3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x471be4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x471c96, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x471e4b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4721a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x472471, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4728c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x472fd9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473153, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4731a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4731f3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473243, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473293, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473306, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4736a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473871, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473915, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473939, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473946, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47396a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4739d2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4739eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473a18, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473a48, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473a76, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473b8b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473bb8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473c0b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473c38, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473ca3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473d1a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x473da2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x474021, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47449a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x474948, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4749ea, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x474b60, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475096, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475188, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475249, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475266, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47570b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475776, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475b35, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475b45, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475bf5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x475ec2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x476000, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x476192, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4763f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x476aa3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x476e47, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x477316, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x477f31, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x477f90, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x478e06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x478f02, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x479575, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x479583, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x479595, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4795a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4795c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x479640, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x479e82, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47a1e8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47a208, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47a29a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47a55a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47a59a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47a5d0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47ace3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47af99, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47afd7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47b058, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47b6b9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c215, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c236, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c35a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c379, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c451, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c5da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c63a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c691, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c6c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c6e7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c804, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47c855, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47d639, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47d975, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47db20, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47df27, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47e1ca, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47e2d7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47e923, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47ea9b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47ef7a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47f272, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47f3a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47f95b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47f979, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x47ff09, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48001b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x480169, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4805b7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4805c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4808aa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x483551, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x483565, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4838c3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x483905, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x484260, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x484352, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x484507, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x484c18, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x484db3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x484e71, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x484fe5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x485385, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4859a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4859d8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4859e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4859f6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x485b40, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x485b55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x485cc2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x485cd5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x485d48, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x486070, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x486085, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48624a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x486255, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4869c7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4869e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4869f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x486b85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x486b98, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x486ba5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x486f13, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x486f25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x487056, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4870f7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48713a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x487168, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x487198, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4873d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x487409, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x487446, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x488685, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x488fa9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x489072, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x489129, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x489b83, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x489d06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x489d75, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x489d85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x489ddb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x489e08, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48a3e1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48a516, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48a80a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48a861, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48a9d4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48ab50, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48ac67, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48af99, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48b136, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48b833, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48ca62, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48d191, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48d1b3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48d371, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48d3a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48d50b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48d6d7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48d799, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48d8db, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48dd41, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48ddc5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48e335, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48e351, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48e365, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48eb54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48ec07, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f0a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f125, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f135, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f151, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f365, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f559, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f749, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f8c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f8d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f920, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f994, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48f9fa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48fa69, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48fab1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48fb36, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48fc14, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x48fcb9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490038, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490086, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490116, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490336, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490849, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490869, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490976, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490a49, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x490deb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x492483, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x493970, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x493c74, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x493dea, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x494311, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x494415, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x494b77, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x494fb6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x494fd1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x495366, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4953c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4953e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x495427, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x495461, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x495492, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4954db, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4956c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49581a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4958f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4959b8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x495f82, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x496183, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x496474, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x496872, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497013, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497070, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4970b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4970f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497105, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497115, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49713b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49717a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497192, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497453, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4974e9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497588, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497595, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4975c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497842, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4978aa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x497937, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4980b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4980e3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x498507, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4985a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x498652, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x498674, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x498858, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49a731, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49a7d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49a871, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49a885, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49a8a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49a8eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49a946, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ab52, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49abf1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ae26, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49c4ba, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49c524, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49dc3a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49e45b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49e589, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49e757, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49e839, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49e937, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49e996, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ea1b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ea48, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ea69, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ea76, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49eb06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49eb60, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ebc0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ec20, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ec80, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49ed04, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49efb1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49fcc0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x49fde7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a01d0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a0347, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a03f6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a04a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a05b7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a06c7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a07d7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a0886, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a0936, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a09e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a0cb4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a0ddb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a1165, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a1be9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a343a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a3c52, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a5463, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a5619, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a73b2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a9e4a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a9f14, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4a9feb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aa073, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aa4c7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abc71, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abd05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abd15, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abd2b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abd35, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abd45, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abd55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abd65, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abd87, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abda6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abdbb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abdcb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abdeb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abe06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abe26, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abf7a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4abfa6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ac056, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ac527, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ac5ab, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ac868, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ac8f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ad123, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ad1b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ad200, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ad3fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ad458, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ad4c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ad504, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4adeab, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae17b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae55b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae588, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae5db, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae608, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae65b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae688, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae6db, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae708, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae75b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae788, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae7db, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae808, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae85b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ae888, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aeb28, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aeb48, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aeb55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aec05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aec78, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aec85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4aed35, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4af1fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b0094, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b02b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b02c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b0367, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b0409, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b0525, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b0559, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b07ba, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b0847, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b0926, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b1456, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b151b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b1581, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b16e2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b1722, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b20a9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2181, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2263, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b24a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b24c9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2570, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b25e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2651, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2872, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2999, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2a68, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2d57, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b2fc4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b3206, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b41b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4270, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4298, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4331, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4345, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4434, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4548, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4630, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b484a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4881, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4895, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4a12, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b4a25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b5c25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7a65, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7af1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7b05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7b94, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7ba5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7d01, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7da4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7e03, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b7e41, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b86e8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b8866, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b88c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b88f0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b8906, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b89e8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b8a31, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b9192, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b93b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b9d71, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b9dda, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4b9e9a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ba2e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ba3fa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ba546, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bb5f8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bb698, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bb76b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bb7b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bb8b9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bbab1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bc2e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bc3fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bc697, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bc6e2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bc7eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bc996, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bca40, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bce21, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bd592, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bdab7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bdb41, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bdeb9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bdf16, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bdf23, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bdfd5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4be0c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4be4f7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4be6c7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4be755, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4be76b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4be95a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4bf762, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c0161, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c072b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c0953, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c0b6b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c139b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c14b0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c1cc4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c2601, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c2bf3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c2d25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c2d57, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c2ff7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c34c8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c382b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c3b51, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c3c45, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c4117, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c4227, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c42d6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c4386, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c4497, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c4656, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c473b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c47e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c4a33, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c4b14, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c4de6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c5308, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c53a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c5457, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c75d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4c7699, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ca159, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ca299, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ca507, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ca7b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cad31, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4caf96, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cafe6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cb040, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cb0a0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cb13a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cb1ca, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cc564, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cc7c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cc963, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ccae4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ccc10, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cd440, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cd589, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cde97, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ce147, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ce3a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ce3d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ce8ca, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ce962, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ce9d9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ceb66, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ced30, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ced54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ced92, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cedd5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cf0eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cf187, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cf198, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cf301, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cf506, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cf5ca, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cf666, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4cf886, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0086, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0106, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0164, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d01d2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0223, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0258, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d02b9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0ce0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0d50, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0dc8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0e96, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0eb9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d0fd4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d2487, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d24b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d2523, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d2967, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d2a21, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d2aa6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d2b36, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d2ca6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d3090, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d3838, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d38d0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d3b34, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d3b52, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d3b6b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d3fda, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d4499, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d45c8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d48a1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d4933, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d4a03, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d4c42, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d4d27, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d5239, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d5950, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d5ad1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d5bc0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d5dc1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d5e3b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d60d0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d6455, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d65b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d6ae4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d7956, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d79f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d7a05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d7a3a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d7b66, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d7ce9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d7f13, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d80f9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d8282, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d8339, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d8445, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d8504, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d8586, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d85ea, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d8610, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d8738, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d884b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d9084, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d90b8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4d9623, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4da408, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4daa69, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dab44, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dab74, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dabd9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dac15, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4db192, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4db240, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4db7f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbe6b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbe75, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbe85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbe95, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbea5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbee5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbef5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbf05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbf15, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbf25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbf39, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbfbb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbfc5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dbff8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc009, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc015, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc151, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc214, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc259, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc327, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc3f8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc534, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc657, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc728, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc777, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc795, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc7c8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc862, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dc875, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dcd00, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dce53, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dcef7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dcfa3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dd028, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dd0ca, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dd109, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dd2c1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dda06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ddba8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dde29, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de004, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de0a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de226, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de387, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de555, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de7e7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de7fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de80b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de81b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de896, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de8a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de8c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de924, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de9c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4de9fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dea38, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4dea94, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4deaa9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ded0a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ded75, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4deeb8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4def12, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4def80, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df1f2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df261, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df48b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df4a8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df4e7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df743, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df769, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df788, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4df7a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e08e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e0929, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e1110, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e19da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e2489, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e24a9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e257a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e2916, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e2e28, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e2f10, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e339b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e5281, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e52a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e52f3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e53e4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e55d2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e56a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e5836, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e5843, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e5c59, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e5d94, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e60c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e60f9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e6125, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e6994, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e73a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e749a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e754a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e7678, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e7689, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e7699, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e76a9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e7703, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e7723, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e78a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e7a5a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e7b30, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e836b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e87d7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8801, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8831, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8938, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8948, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e89b4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8a30, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8c95, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8f3b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8fd2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e8fe9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e9080, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e90e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e9715, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e9bb7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4e9d17, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ea785, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eacd2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eafa0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eb051, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eb346, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eb5d1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eb5fa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eb7a7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eb9f6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eba96, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ebc93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ec0e4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ec11a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ec154, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ecee0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ecff2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ed2e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ed440, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ed697, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ee07b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ee17a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ee694, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ee8c1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eea69, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4eec71, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ef311, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ef819, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ef889, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ef8a8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ef975, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ef985, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ef995, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f0873, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f08f1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f0924, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f0949, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f09a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f0a03, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f148a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f1864, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f1d0a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f202a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f2390, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f2475, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f24e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f26cb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f26d9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f26e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f2723, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f274b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f2981, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f2eb7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f3002, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f32d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f3328, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f335b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f3429, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f3b1a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f3c75, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f4078, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f40e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f4160, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f4322, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f47a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f47b3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f4821, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f4896, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f496a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f49e7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f4e50, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f4f7a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f4fc4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f5102, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f5d14, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f5df1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f6253, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f940a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f9499, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f9538, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f9606, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f9683, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f9bb9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f9d21, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f9ef6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4f9f5a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fa136, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4faac7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fab37, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fab5b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fad62, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fb859, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fba11, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fcc49, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fccb4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fcdeb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fce95, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fd055, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fd3e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fdbb3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fdfe0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fe1d1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fe6a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fed28, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fed62, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ff451, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ff564, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ff593, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ffe38, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4ffee0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fff16, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x4fff30, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5000a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x500e1b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x501be4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x501eb7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50280a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x502c39, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x503437, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5036a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x503af0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x503b06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x503b93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x503be6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x503c51, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x503f38, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x503f93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x504038, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5040b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5044f7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5049e7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x504a11, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x504be0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x504c31, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5051ea, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5052c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505394, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505468, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505486, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5056d3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505826, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505b00, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505b15, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505b45, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505bca, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505be6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505bf5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505c9a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505cb6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505cc5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505d6a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505d86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505d95, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505ea7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505f2a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505f35, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505fa5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505fe7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x505ff5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5060f7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506163, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506183, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506195, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50623a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506253, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506265, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50630a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506325, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506335, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5063d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5063e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506487, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506495, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506520, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506547, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506555, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5065e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506615, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506655, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506706, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5068da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5068f7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506905, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506c47, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x506ca8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5071fa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x507260, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5072c8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x507373, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x507437, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5075c9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x507a86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x507da6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5084e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5084f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50851b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x508d06, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x508da0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x508e23, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x508f25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x508f55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x508f7b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x509085, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50964b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5096a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5096b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5096f7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x509725, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x509c51, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x509c67, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x509c89, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50a113, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50a376, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50a3b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50a5c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50b6e3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50c8fa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50ca4a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50cc6a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50cdf0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50ce38, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50cfdb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50d056, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50d55b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50ec2a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50ecd9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50eceb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50ee22, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50ee83, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50eee6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50eef6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50f149, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50f2e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x50f9bb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x510c19, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x510cc9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51103a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5110f4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51160b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51178b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51250a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5125b4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x512623, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x512f43, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x512fd3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5132cb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5132f0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5133b7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513993, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5139e3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513a33, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513a83, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513ad3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513b23, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513b73, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513bc3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513c13, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513c63, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513cb3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513d03, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513d53, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513da3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513df3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513e43, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513e53, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513ed8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x513fa8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x515100, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x515220, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x515288, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5155d9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5155f7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x515ee4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x515f70, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x515faa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51672b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5168c9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5168f9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x516947, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5171cb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x517494, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x517dea, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5183f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x518525, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51862a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5186db, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x518778, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5187b8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5187ea, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x518877, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x518c05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x518de3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x519899, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x519bca, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x519be6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x519cab, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x519e76, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51aa16, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51b330, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51b3b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51b49a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51b593, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51b630, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51b9b1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51ba08, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51bd45, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51bde6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51be75, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51bf07, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51bf1a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51bf55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51bf79, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51c013, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51c0e3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51c182, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51c339, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51c354, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51c381, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51c550, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51ce49, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51cee1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51cf36, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51cf86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51d675, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x51d6c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52ef63, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52efdb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f040, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f146, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f198, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f357, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f441, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f469, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f660, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f987, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52f9d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52fa28, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52fbc8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x52fefa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x530403, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x530a48, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x530c88, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53122b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5314c1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x531559, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x531608, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x531728, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x531762, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5317d8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5318e2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x531aa1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x531c0b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x531f92, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x532066, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5323eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5325a7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x532705, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53274a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5328f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x532915, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x534fd6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x535049, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5350c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x535168, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5351e4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5351f3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x535356, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5353c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x535b63, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x536f18, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x536fb2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x536ff7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5371e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5372a0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x537312, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53756b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x537625, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x537658, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5376a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5377b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5377f1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5379ba, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538072, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538127, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53816b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538198, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5381a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538428, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5384e2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538608, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53867d, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538736, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538743, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538811, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538ba8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x538c1a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x539181, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x539228, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53926b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5392c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x539620, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5396bb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5396d0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53970a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x539748, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x539797, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5397d8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x539864, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5399e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x539a75, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x539ae8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53ac68, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53b8f7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53bcc9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53bd05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53bd3a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53bf08, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53c730, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53c786, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53d265, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53f3d3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53f5a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fc31, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fd13, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fd64, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fdd9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fe32, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fe73, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fe83, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53feb3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fec6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53feda, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53fef3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53ff17, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53ff29, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53ff33, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x53ff70, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x540259, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x540376, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x540393, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x540439, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x540469, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5404f0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x540613, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5407b3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5407f0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x540b54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5413c4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x541915, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x541955, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5419b8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x541e97, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x541f50, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x541ff5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x542038, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x542053, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x542180, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5421e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x542226, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543015, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543497, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5434c9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5435e3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5435f6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543606, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543616, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543626, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543a39, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543aa6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543b86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543ca8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x543e00, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x544111, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5441eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x544270, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5449c0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5458da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5458e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x54617b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546193, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546457, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546485, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546533, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546cc6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546ce6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546d37, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546e0a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546e16, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x546e86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5470d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5471a3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x547de0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x54834a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5484b1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x549968, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x549af5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x54b136, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x54ba55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x54d8c2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x555749, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5569ab, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x556c7b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x556ca9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x556ce6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x556cf9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x556d05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x556fc0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557030, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557068, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5570e8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557116, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5571f8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557221, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5572e6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5576e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557c47, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557d37, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557d50, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557d65, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557d95, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557db3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557dc3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557dd5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x557de6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5586c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5586d6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x558872, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5588a7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55891b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x558e25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5596c7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5596f6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5598d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x559d35, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x559ef5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x559f15, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x559f35, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x559f45, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55a640, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55a6c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55a7a7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55a81a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55a825, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55a8f3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55a91a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55adb7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55af91, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b652, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b666, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b676, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b686, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b696, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b6a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b6b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b6c6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b788, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b7b7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b8a6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b8b6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b9a7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55b9e0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55ba54, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55bbca, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55bc0b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55bc36, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55bc86, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55bca6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55c9e7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55cb57, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55cba7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55cc07, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55cd64, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55cdf4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55ce24, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55ced0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55cfd5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55d086, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55dd1a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55e108, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55e3a4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55e45a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55e47a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55e5b4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55e889, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55ec37, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55eff1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55f251, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55f353, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55f380, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55f5d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55f703, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55ff33, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x55ff96, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5602da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x560341, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5606a9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x560c16, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x560c87, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x560d16, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x560e61, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x560ed0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x560f55, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5611aa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5611da, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5613b5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x561465, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5617d6, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5618c8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x561ed4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x561fe8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x562b21, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x562b87, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x562d25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x562ef3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x562f38, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x563181, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5634a2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x563637, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x563698, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x563725, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x563924, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x563af5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x563e05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x563e25, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x56fc04, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x56fc28, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x56fc44, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x56fc64, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5719e1, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x571e1b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x571fa4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x57294b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x573109, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x57337b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x573e19, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x57445b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5748d2, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x575045, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x575095, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x575555, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x575657, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x575c69, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x575ec7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5784c8, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5789a9, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x57973a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x579792, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x57c450, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x580c70, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x580ce0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x582d39, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5842d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5aefd7, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5ce1aa, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5ce29a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5ce65b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3b85, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3bb4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3bd4, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3beb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3c05, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3c1b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3c2b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3de0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3fa3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e3fdb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e414b, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4165, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4185, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e41a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e41c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e41e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4205, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4225, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4245, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4265, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4285, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e42a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e42c5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e42e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e43e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4405, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e45c0, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4783, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e47a5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e47bb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e47d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e47f5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4883, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e48b3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e48d5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e48eb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4905, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4926, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4945, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4974, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4995, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e49bb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e49cb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e49e5, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e49fb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4a41, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4ac3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4b0a, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4b41, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4b50, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4b73, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4b93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4c60, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4e03, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4e23, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4e73, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4e93, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4efb, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e4fa3, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e5007, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e5057, RETN);	// AUTOMATICALLY GENERATED
-	Patching::PatchUnconditionalJump(0x5e50a7, RETN);	// AUTOMATICALLY GENERATED
+	BYTE valid_bytes[] = { 0xC3, 0xCC, 0xCC, 0xCC, 0xCC };
+
+	if(memcmp((void*)address, valid_bytes, _countof(valid_bytes)))
+		Patching::PatchUnconditionalJump(address, RETN);
+	else
+		LogInformation((std::string("Attempting to patch to an invalid location: ") + Utilities::ConvertUIntToString(address)).c_str());
 }
 
 #undef RETN4
@@ -2338,3 +227,2127 @@ static void ApplyAutomaticallyGeneratedPatches()
 #undef ADD_ESP_10_RETN
 #undef FS_RETN
 #undef RETN
+
+// THIS WAS AUTOMATICALLY GENERATED BY: ./Gunz/Gunz - Protected/DumpRETNs.py using ./Gunz/Gunz - Protected/svchost.exe
+// Patches:  2118 
+static void ApplyAutomaticallyGeneratedPatches()
+{
+	PatchJumpToRETN(0x401055);
+	PatchJumpToRETN(0x401070);
+	PatchJumpToRETN(0x4010b6);
+	PatchJumpToRETN(0x4011fb);
+	PatchJumpToRETN(0x401228);
+	PatchJumpToRETN(0x4012b5);
+	PatchJumpToRETN(0x401564);
+	PatchJumpToRETN(0x401596);
+	PatchJumpToRETN(0x4015a5);
+	PatchJumpToRETN(0x401678);
+	PatchJumpToRETN(0x401d17);
+	PatchJumpToRETN(0x402108);
+	PatchJumpToRETN(0x402380);
+	PatchJumpToRETN(0x40241b);
+	PatchJumpToRETN(0x40243a);
+	PatchJumpToRETN(0x402481);
+	PatchJumpToRETN(0x402493);
+	PatchJumpToRETN(0x4024a3);
+	PatchJumpToRETN(0x402510);
+	PatchJumpToRETN(0x40253b);
+	PatchJumpToRETN(0x402596);
+	PatchJumpToRETN(0x4025f0);
+	PatchJumpToRETN(0x402674);
+	PatchJumpToRETN(0x402a29);
+	PatchJumpToRETN(0x402ac5);
+	PatchJumpToRETN(0x402bb4);
+	PatchJumpToRETN(0x402db3);
+	PatchJumpToRETN(0x402fd7);
+	PatchJumpToRETN(0x403871);
+	PatchJumpToRETN(0x403b39);
+	PatchJumpToRETN(0x4048d8);
+	PatchJumpToRETN(0x404c28);
+	PatchJumpToRETN(0x404d0a);
+	PatchJumpToRETN(0x4053f4);
+	PatchJumpToRETN(0x405648);
+	PatchJumpToRETN(0x405ce0);
+	PatchJumpToRETN(0x4060b3);
+	PatchJumpToRETN(0x4062b5);
+	PatchJumpToRETN(0x406380);
+	PatchJumpToRETN(0x409f63);
+	PatchJumpToRETN(0x40aa90);
+	PatchJumpToRETN(0x40b0d9);
+	PatchJumpToRETN(0x40b100);
+	PatchJumpToRETN(0x40b4b8);
+	PatchJumpToRETN(0x40b761);
+	PatchJumpToRETN(0x40b780);
+	PatchJumpToRETN(0x40b7b6);
+	PatchJumpToRETN(0x40b9a8);
+	PatchJumpToRETN(0x40bb06);
+	PatchJumpToRETN(0x40bdb0);
+	PatchJumpToRETN(0x40c4d1);
+	PatchJumpToRETN(0x40c514);
+	PatchJumpToRETN(0x40c576);
+	PatchJumpToRETN(0x40c589);
+	PatchJumpToRETN(0x40c5a8);
+	PatchJumpToRETN(0x40c5e8);
+	PatchJumpToRETN(0x40c666);
+	PatchJumpToRETN(0x40c746);
+	PatchJumpToRETN(0x40cd83);
+	PatchJumpToRETN(0x40e245);
+	PatchJumpToRETN(0x40e2c2);
+	PatchJumpToRETN(0x40e9bb);
+	PatchJumpToRETN(0x40e9eb);
+	PatchJumpToRETN(0x40f054);
+	PatchJumpToRETN(0x40f121);
+	PatchJumpToRETN(0x40f243);
+	PatchJumpToRETN(0x4105e7);
+	PatchJumpToRETN(0x410684);
+	PatchJumpToRETN(0x4107f2);
+	PatchJumpToRETN(0x410950);
+	PatchJumpToRETN(0x4109e6);
+	PatchJumpToRETN(0x411750);
+	PatchJumpToRETN(0x411a89);
+	PatchJumpToRETN(0x411ac5);
+	PatchJumpToRETN(0x411c0b);
+	PatchJumpToRETN(0x412420);
+	PatchJumpToRETN(0x4124da);
+	PatchJumpToRETN(0x412555);
+	PatchJumpToRETN(0x412744);
+	PatchJumpToRETN(0x4127c1);
+	PatchJumpToRETN(0x4127e1);
+	PatchJumpToRETN(0x412801);
+	PatchJumpToRETN(0x412c20);
+	PatchJumpToRETN(0x412cf6);
+	PatchJumpToRETN(0x412d02);
+	PatchJumpToRETN(0x4133e6);
+	PatchJumpToRETN(0x413871);
+	PatchJumpToRETN(0x413b55);
+	PatchJumpToRETN(0x413bf2);
+	PatchJumpToRETN(0x413ea0);
+	PatchJumpToRETN(0x4140a3);
+	PatchJumpToRETN(0x4140da);
+	PatchJumpToRETN(0x4146ea);
+	PatchJumpToRETN(0x41474a);
+	PatchJumpToRETN(0x414905);
+	PatchJumpToRETN(0x414c51);
+	PatchJumpToRETN(0x414c75);
+	PatchJumpToRETN(0x414cc0);
+	PatchJumpToRETN(0x414cea);
+	PatchJumpToRETN(0x414d41);
+	PatchJumpToRETN(0x414dc5);
+	PatchJumpToRETN(0x414dd5);
+	PatchJumpToRETN(0x4153c6);
+	PatchJumpToRETN(0x415522);
+	PatchJumpToRETN(0x415568);
+	PatchJumpToRETN(0x4155c0);
+	PatchJumpToRETN(0x415713);
+	PatchJumpToRETN(0x41576b);
+	PatchJumpToRETN(0x415798);
+	PatchJumpToRETN(0x4157eb);
+	PatchJumpToRETN(0x415818);
+	PatchJumpToRETN(0x415927);
+	PatchJumpToRETN(0x415f6a);
+	PatchJumpToRETN(0x41610a);
+	PatchJumpToRETN(0x416588);
+	PatchJumpToRETN(0x416a97);
+	PatchJumpToRETN(0x417187);
+	PatchJumpToRETN(0x4173a4);
+	PatchJumpToRETN(0x4173c5);
+	PatchJumpToRETN(0x417795);
+	PatchJumpToRETN(0x417ef5);
+	PatchJumpToRETN(0x4181b3);
+	PatchJumpToRETN(0x418245);
+	PatchJumpToRETN(0x4182d5);
+	PatchJumpToRETN(0x418365);
+	PatchJumpToRETN(0x4183f5);
+	PatchJumpToRETN(0x418485);
+	PatchJumpToRETN(0x418515);
+	PatchJumpToRETN(0x418640);
+	PatchJumpToRETN(0x418b52);
+	PatchJumpToRETN(0x418ef0);
+	PatchJumpToRETN(0x418f81);
+	PatchJumpToRETN(0x418fd3);
+	PatchJumpToRETN(0x4190c6);
+	PatchJumpToRETN(0x419415);
+	PatchJumpToRETN(0x419484);
+	PatchJumpToRETN(0x4194b5);
+	PatchJumpToRETN(0x4194c5);
+	PatchJumpToRETN(0x4194d5);
+	PatchJumpToRETN(0x4194e5);
+	PatchJumpToRETN(0x4194f5);
+	PatchJumpToRETN(0x419505);
+	PatchJumpToRETN(0x419515);
+	PatchJumpToRETN(0x419566);
+	PatchJumpToRETN(0x419f69);
+	PatchJumpToRETN(0x41a1f6);
+	PatchJumpToRETN(0x41a307);
+	PatchJumpToRETN(0x41a393);
+	PatchJumpToRETN(0x41aa3b);
+	PatchJumpToRETN(0x41b8f1);
+	PatchJumpToRETN(0x41e625);
+	PatchJumpToRETN(0x41e737);
+	PatchJumpToRETN(0x41e785);
+	PatchJumpToRETN(0x41e960);
+	PatchJumpToRETN(0x41e9c5);
+	PatchJumpToRETN(0x41f614);
+	PatchJumpToRETN(0x41f8f1);
+	PatchJumpToRETN(0x41f958);
+	PatchJumpToRETN(0x41fa93);
+	PatchJumpToRETN(0x41fac4);
+	PatchJumpToRETN(0x420448);
+	PatchJumpToRETN(0x4204ba);
+	PatchJumpToRETN(0x420677);
+	PatchJumpToRETN(0x4208c6);
+	PatchJumpToRETN(0x4209f5);
+	PatchJumpToRETN(0x420a45);
+	PatchJumpToRETN(0x420c75);
+	PatchJumpToRETN(0x420d89);
+	PatchJumpToRETN(0x420f23);
+	PatchJumpToRETN(0x420f7b);
+	PatchJumpToRETN(0x420fa8);
+	PatchJumpToRETN(0x421316);
+	PatchJumpToRETN(0x4213fb);
+	PatchJumpToRETN(0x421566);
+	PatchJumpToRETN(0x421616);
+	PatchJumpToRETN(0x421846);
+	PatchJumpToRETN(0x421bd3);
+	PatchJumpToRETN(0x421ce6);
+	PatchJumpToRETN(0x423109);
+	PatchJumpToRETN(0x4243d8);
+	PatchJumpToRETN(0x424455);
+	PatchJumpToRETN(0x4244d5);
+	PatchJumpToRETN(0x424555);
+	PatchJumpToRETN(0x4245d5);
+	PatchJumpToRETN(0x424e31);
+	PatchJumpToRETN(0x424f86);
+	PatchJumpToRETN(0x42506b);
+	PatchJumpToRETN(0x4254ba);
+	PatchJumpToRETN(0x4254f1);
+	PatchJumpToRETN(0x42576a);
+	PatchJumpToRETN(0x4258e7);
+	PatchJumpToRETN(0x425b9a);
+	PatchJumpToRETN(0x425f34);
+	PatchJumpToRETN(0x426cf3);
+	PatchJumpToRETN(0x4288c3);
+	PatchJumpToRETN(0x4289fa);
+	PatchJumpToRETN(0x428ab5);
+	PatchJumpToRETN(0x428df5);
+	PatchJumpToRETN(0x428e55);
+	PatchJumpToRETN(0x4293d2);
+	PatchJumpToRETN(0x4294d6);
+	PatchJumpToRETN(0x429535);
+	PatchJumpToRETN(0x429639);
+	PatchJumpToRETN(0x42969b);
+	PatchJumpToRETN(0x4298cb);
+	PatchJumpToRETN(0x429aeb);
+	PatchJumpToRETN(0x42a254);
+	PatchJumpToRETN(0x42a726);
+	PatchJumpToRETN(0x42a833);
+	PatchJumpToRETN(0x42a851);
+	PatchJumpToRETN(0x42a871);
+	PatchJumpToRETN(0x42a891);
+	PatchJumpToRETN(0x42a8b1);
+	PatchJumpToRETN(0x42a8d1);
+	PatchJumpToRETN(0x42a8f1);
+	PatchJumpToRETN(0x42a923);
+	PatchJumpToRETN(0x42a943);
+	PatchJumpToRETN(0x42a9c5);
+	PatchJumpToRETN(0x42aab9);
+	PatchJumpToRETN(0x42ac95);
+	PatchJumpToRETN(0x42ad89);
+	PatchJumpToRETN(0x42ae05);
+	PatchJumpToRETN(0x42ae85);
+	PatchJumpToRETN(0x42af05);
+	PatchJumpToRETN(0x42afc2);
+	PatchJumpToRETN(0x42b090);
+	PatchJumpToRETN(0x42b385);
+	PatchJumpToRETN(0x42b417);
+	PatchJumpToRETN(0x42b4a7);
+	PatchJumpToRETN(0x42b537);
+	PatchJumpToRETN(0x42b551);
+	PatchJumpToRETN(0x42b5d3);
+	PatchJumpToRETN(0x42b63b);
+	PatchJumpToRETN(0x42b9f3);
+	PatchJumpToRETN(0x42ba13);
+	PatchJumpToRETN(0x42ba33);
+	PatchJumpToRETN(0x42ba53);
+	PatchJumpToRETN(0x42babb);
+	PatchJumpToRETN(0x42bad3);
+	PatchJumpToRETN(0x42bb3b);
+	PatchJumpToRETN(0x42bb9b);
+	PatchJumpToRETN(0x42bd21);
+	PatchJumpToRETN(0x42be48);
+	PatchJumpToRETN(0x42be6b);
+	PatchJumpToRETN(0x42be8b);
+	PatchJumpToRETN(0x42bf36);
+	PatchJumpToRETN(0x42c01b);
+	PatchJumpToRETN(0x42c0fb);
+	PatchJumpToRETN(0x42c1fb);
+	PatchJumpToRETN(0x42c346);
+	PatchJumpToRETN(0x42c3f6);
+	PatchJumpToRETN(0x42cbd7);
+	PatchJumpToRETN(0x42ccd7);
+	PatchJumpToRETN(0x42cd85);
+	PatchJumpToRETN(0x42ce46);
+	PatchJumpToRETN(0x42d106);
+	PatchJumpToRETN(0x42d19a);
+	PatchJumpToRETN(0x42d3b6);
+	PatchJumpToRETN(0x42da7b);
+	PatchJumpToRETN(0x42db46);
+	PatchJumpToRETN(0x42dbeb);
+	PatchJumpToRETN(0x42dca6);
+	PatchJumpToRETN(0x42dde6);
+	PatchJumpToRETN(0x42def6);
+	PatchJumpToRETN(0x42df65);
+	PatchJumpToRETN(0x42dfb6);
+	PatchJumpToRETN(0x42fef5);
+	PatchJumpToRETN(0x42ffeb);
+	PatchJumpToRETN(0x430057);
+	PatchJumpToRETN(0x4305d0);
+	PatchJumpToRETN(0x4306d4);
+	PatchJumpToRETN(0x430735);
+	PatchJumpToRETN(0x430770);
+	PatchJumpToRETN(0x4307bb);
+	PatchJumpToRETN(0x4308d3);
+	PatchJumpToRETN(0x430a20);
+	PatchJumpToRETN(0x430a44);
+	PatchJumpToRETN(0x4312da);
+	PatchJumpToRETN(0x431583);
+	PatchJumpToRETN(0x4318f0);
+	PatchJumpToRETN(0x431aa9);
+	PatchJumpToRETN(0x431b61);
+	PatchJumpToRETN(0x432521);
+	PatchJumpToRETN(0x432543);
+	PatchJumpToRETN(0x432568);
+	PatchJumpToRETN(0x4325a3);
+	PatchJumpToRETN(0x432729);
+	PatchJumpToRETN(0x4327d6);
+	PatchJumpToRETN(0x43282b);
+	PatchJumpToRETN(0x432858);
+	PatchJumpToRETN(0x432880);
+	PatchJumpToRETN(0x432c31);
+	PatchJumpToRETN(0x432cc6);
+	PatchJumpToRETN(0x432dc4);
+	PatchJumpToRETN(0x432e27);
+	PatchJumpToRETN(0x433146);
+	PatchJumpToRETN(0x433257);
+	PatchJumpToRETN(0x433306);
+	PatchJumpToRETN(0x433476);
+	PatchJumpToRETN(0x433587);
+	PatchJumpToRETN(0x433636);
+	PatchJumpToRETN(0x433747);
+	PatchJumpToRETN(0x433857);
+	PatchJumpToRETN(0x433967);
+	PatchJumpToRETN(0x433ad6);
+	PatchJumpToRETN(0x433bf0);
+	PatchJumpToRETN(0x433ca6);
+	PatchJumpToRETN(0x433db7);
+	PatchJumpToRETN(0x433f30);
+	PatchJumpToRETN(0x433f70);
+	PatchJumpToRETN(0x43485b);
+	PatchJumpToRETN(0x434880);
+	PatchJumpToRETN(0x434d00);
+	PatchJumpToRETN(0x434e22);
+	PatchJumpToRETN(0x4351d0);
+	PatchJumpToRETN(0x435b4a);
+	PatchJumpToRETN(0x435b93);
+	PatchJumpToRETN(0x435bc3);
+	PatchJumpToRETN(0x435ea1);
+	PatchJumpToRETN(0x435f38);
+	PatchJumpToRETN(0x436b16);
+	PatchJumpToRETN(0x436bd3);
+	PatchJumpToRETN(0x437068);
+	PatchJumpToRETN(0x437172);
+	PatchJumpToRETN(0x437426);
+	PatchJumpToRETN(0x437660);
+	PatchJumpToRETN(0x437719);
+	PatchJumpToRETN(0x4377c5);
+	PatchJumpToRETN(0x437889);
+	PatchJumpToRETN(0x4378c8);
+	PatchJumpToRETN(0x437990);
+	PatchJumpToRETN(0x4379e8);
+	PatchJumpToRETN(0x437af3);
+	PatchJumpToRETN(0x437c03);
+	PatchJumpToRETN(0x437ff4);
+	PatchJumpToRETN(0x4384f2);
+	PatchJumpToRETN(0x4386ab);
+	PatchJumpToRETN(0x4388f6);
+	PatchJumpToRETN(0x43a603);
+	PatchJumpToRETN(0x43ab1a);
+	PatchJumpToRETN(0x43bcb1);
+	PatchJumpToRETN(0x43c323);
+	PatchJumpToRETN(0x43c3c9);
+	PatchJumpToRETN(0x43ca54);
+	PatchJumpToRETN(0x43ce09);
+	PatchJumpToRETN(0x43d0b6);
+	PatchJumpToRETN(0x43d213);
+	PatchJumpToRETN(0x43d249);
+	PatchJumpToRETN(0x43e023);
+	PatchJumpToRETN(0x43ec02);
+	PatchJumpToRETN(0x441d29);
+	PatchJumpToRETN(0x441d92);
+	PatchJumpToRETN(0x441e85);
+	PatchJumpToRETN(0x442102);
+	PatchJumpToRETN(0x44276b);
+	PatchJumpToRETN(0x4427a3);
+	PatchJumpToRETN(0x4428d2);
+	PatchJumpToRETN(0x442986);
+	PatchJumpToRETN(0x443965);
+	PatchJumpToRETN(0x443ce0);
+	PatchJumpToRETN(0x443d55);
+	PatchJumpToRETN(0x444513);
+	PatchJumpToRETN(0x444d12);
+	PatchJumpToRETN(0x444e42);
+	PatchJumpToRETN(0x445212);
+	PatchJumpToRETN(0x445765);
+	PatchJumpToRETN(0x445775);
+	PatchJumpToRETN(0x445785);
+	PatchJumpToRETN(0x445795);
+	PatchJumpToRETN(0x4457a5);
+	PatchJumpToRETN(0x4457b5);
+	PatchJumpToRETN(0x4457c5);
+	PatchJumpToRETN(0x4457d5);
+	PatchJumpToRETN(0x4457e5);
+	PatchJumpToRETN(0x4457f5);
+	PatchJumpToRETN(0x445805);
+	PatchJumpToRETN(0x445ed5);
+	PatchJumpToRETN(0x445fc5);
+	PatchJumpToRETN(0x446005);
+	PatchJumpToRETN(0x446015);
+	PatchJumpToRETN(0x446634);
+	PatchJumpToRETN(0x446664);
+	PatchJumpToRETN(0x4466d4);
+	PatchJumpToRETN(0x446704);
+	PatchJumpToRETN(0x446734);
+	PatchJumpToRETN(0x446764);
+	PatchJumpToRETN(0x446794);
+	PatchJumpToRETN(0x4467c4);
+	PatchJumpToRETN(0x4467f4);
+	PatchJumpToRETN(0x446824);
+	PatchJumpToRETN(0x446854);
+	PatchJumpToRETN(0x446884);
+	PatchJumpToRETN(0x4468b4);
+	PatchJumpToRETN(0x4468e4);
+	PatchJumpToRETN(0x446914);
+	PatchJumpToRETN(0x446944);
+	PatchJumpToRETN(0x446974);
+	PatchJumpToRETN(0x4469a4);
+	PatchJumpToRETN(0x4469d4);
+	PatchJumpToRETN(0x446a04);
+	PatchJumpToRETN(0x446a34);
+	PatchJumpToRETN(0x446a64);
+	PatchJumpToRETN(0x446a94);
+	PatchJumpToRETN(0x446ac4);
+	PatchJumpToRETN(0x446af4);
+	PatchJumpToRETN(0x446b24);
+	PatchJumpToRETN(0x446b54);
+	PatchJumpToRETN(0x446b84);
+	PatchJumpToRETN(0x446c14);
+	PatchJumpToRETN(0x446c44);
+	PatchJumpToRETN(0x446c74);
+	PatchJumpToRETN(0x446ca4);
+	PatchJumpToRETN(0x446cd4);
+	PatchJumpToRETN(0x446d04);
+	PatchJumpToRETN(0x446d34);
+	PatchJumpToRETN(0x446d64);
+	PatchJumpToRETN(0x446d94);
+	PatchJumpToRETN(0x446dc4);
+	PatchJumpToRETN(0x446df4);
+	PatchJumpToRETN(0x446e24);
+	PatchJumpToRETN(0x446e54);
+	PatchJumpToRETN(0x446e84);
+	PatchJumpToRETN(0x446eb4);
+	PatchJumpToRETN(0x446ee4);
+	PatchJumpToRETN(0x446f14);
+	PatchJumpToRETN(0x446f44);
+	PatchJumpToRETN(0x446f74);
+	PatchJumpToRETN(0x446fa4);
+	PatchJumpToRETN(0x446fd4);
+	PatchJumpToRETN(0x447054);
+	PatchJumpToRETN(0x447124);
+	PatchJumpToRETN(0x447184);
+	PatchJumpToRETN(0x4471e4);
+	PatchJumpToRETN(0x447244);
+	PatchJumpToRETN(0x4472a4);
+	PatchJumpToRETN(0x4472d4);
+	PatchJumpToRETN(0x447304);
+	PatchJumpToRETN(0x447334);
+	PatchJumpToRETN(0x447364);
+	PatchJumpToRETN(0x447394);
+	PatchJumpToRETN(0x4473c4);
+	PatchJumpToRETN(0x4473f4);
+	PatchJumpToRETN(0x447424);
+	PatchJumpToRETN(0x447454);
+	PatchJumpToRETN(0x4474c4);
+	PatchJumpToRETN(0x4474f4);
+	PatchJumpToRETN(0x447524);
+	PatchJumpToRETN(0x447554);
+	PatchJumpToRETN(0x447584);
+	PatchJumpToRETN(0x4475b4);
+	PatchJumpToRETN(0x4475e4);
+	PatchJumpToRETN(0x447614);
+	PatchJumpToRETN(0x447644);
+	PatchJumpToRETN(0x447674);
+	PatchJumpToRETN(0x4476a4);
+	PatchJumpToRETN(0x4476d4);
+	PatchJumpToRETN(0x447704);
+	PatchJumpToRETN(0x447784);
+	PatchJumpToRETN(0x4477b4);
+	PatchJumpToRETN(0x4477e4);
+	PatchJumpToRETN(0x447814);
+	PatchJumpToRETN(0x447844);
+	PatchJumpToRETN(0x447874);
+	PatchJumpToRETN(0x4478a4);
+	PatchJumpToRETN(0x4478d4);
+	PatchJumpToRETN(0x447904);
+	PatchJumpToRETN(0x447934);
+	PatchJumpToRETN(0x447964);
+	PatchJumpToRETN(0x447994);
+	PatchJumpToRETN(0x4479c4);
+	PatchJumpToRETN(0x4479f4);
+	PatchJumpToRETN(0x447a24);
+	PatchJumpToRETN(0x447a54);
+	PatchJumpToRETN(0x447a84);
+	PatchJumpToRETN(0x447ab4);
+	PatchJumpToRETN(0x447ae4);
+	PatchJumpToRETN(0x447b14);
+	PatchJumpToRETN(0x447b44);
+	PatchJumpToRETN(0x447b74);
+	PatchJumpToRETN(0x447ba4);
+	PatchJumpToRETN(0x447c44);
+	PatchJumpToRETN(0x447c74);
+	PatchJumpToRETN(0x447ca4);
+	PatchJumpToRETN(0x447cd4);
+	PatchJumpToRETN(0x447d04);
+	PatchJumpToRETN(0x447d34);
+	PatchJumpToRETN(0x447d64);
+	PatchJumpToRETN(0x447d94);
+	PatchJumpToRETN(0x447dc4);
+	PatchJumpToRETN(0x447df4);
+	PatchJumpToRETN(0x447e24);
+	PatchJumpToRETN(0x447e54);
+	PatchJumpToRETN(0x447e84);
+	PatchJumpToRETN(0x447eb4);
+	PatchJumpToRETN(0x447ee4);
+	PatchJumpToRETN(0x447f14);
+	PatchJumpToRETN(0x447fb4);
+	PatchJumpToRETN(0x447fe4);
+	PatchJumpToRETN(0x448014);
+	PatchJumpToRETN(0x4480a4);
+	PatchJumpToRETN(0x448104);
+	PatchJumpToRETN(0x448164);
+	PatchJumpToRETN(0x4481c4);
+	PatchJumpToRETN(0x448224);
+	PatchJumpToRETN(0x448399);
+	PatchJumpToRETN(0x44847b);
+	PatchJumpToRETN(0x4485e6);
+	PatchJumpToRETN(0x4489eb);
+	PatchJumpToRETN(0x448af7);
+	PatchJumpToRETN(0x448ba6);
+	PatchJumpToRETN(0x448d77);
+	PatchJumpToRETN(0x448f93);
+	PatchJumpToRETN(0x44927b);
+	PatchJumpToRETN(0x44a5e6);
+	PatchJumpToRETN(0x44b61b);
+	PatchJumpToRETN(0x44caab);
+	PatchJumpToRETN(0x44cb06);
+	PatchJumpToRETN(0x44ccf6);
+	PatchJumpToRETN(0x44ce76);
+	PatchJumpToRETN(0x44d59b);
+	PatchJumpToRETN(0x44e775);
+	PatchJumpToRETN(0x44e893);
+	PatchJumpToRETN(0x44e934);
+	PatchJumpToRETN(0x44e97b);
+	PatchJumpToRETN(0x44eb03);
+	PatchJumpToRETN(0x44ecb9);
+	PatchJumpToRETN(0x44ed3b);
+	PatchJumpToRETN(0x44ee86);
+	PatchJumpToRETN(0x44eec6);
+	PatchJumpToRETN(0x44ef06);
+	PatchJumpToRETN(0x44ef46);
+	PatchJumpToRETN(0x44ef86);
+	PatchJumpToRETN(0x44f05a);
+	PatchJumpToRETN(0x44f34b);
+	PatchJumpToRETN(0x44f3db);
+	PatchJumpToRETN(0x44f66b);
+	PatchJumpToRETN(0x44f851);
+	PatchJumpToRETN(0x451826);
+	PatchJumpToRETN(0x451be5);
+	PatchJumpToRETN(0x451d02);
+	PatchJumpToRETN(0x451d93);
+	PatchJumpToRETN(0x451dc5);
+	PatchJumpToRETN(0x451f94);
+	PatchJumpToRETN(0x451fc4);
+	PatchJumpToRETN(0x451ff4);
+	PatchJumpToRETN(0x452024);
+	PatchJumpToRETN(0x452054);
+	PatchJumpToRETN(0x452084);
+	PatchJumpToRETN(0x4520b4);
+	PatchJumpToRETN(0x4520e4);
+	PatchJumpToRETN(0x452114);
+	PatchJumpToRETN(0x452144);
+	PatchJumpToRETN(0x452174);
+	PatchJumpToRETN(0x4521a4);
+	PatchJumpToRETN(0x4521d4);
+	PatchJumpToRETN(0x452264);
+	PatchJumpToRETN(0x452346);
+	PatchJumpToRETN(0x4523bb);
+	PatchJumpToRETN(0x4532d1);
+	PatchJumpToRETN(0x453641);
+	PatchJumpToRETN(0x453bfa);
+	PatchJumpToRETN(0x454760);
+	PatchJumpToRETN(0x454811);
+	PatchJumpToRETN(0x454944);
+	PatchJumpToRETN(0x4549bb);
+	PatchJumpToRETN(0x456b53);
+	PatchJumpToRETN(0x456c3a);
+	PatchJumpToRETN(0x456d47);
+	PatchJumpToRETN(0x456e44);
+	PatchJumpToRETN(0x456f21);
+	PatchJumpToRETN(0x45727b);
+	PatchJumpToRETN(0x4574b0);
+	PatchJumpToRETN(0x45752a);
+	PatchJumpToRETN(0x457783);
+	PatchJumpToRETN(0x457a53);
+	PatchJumpToRETN(0x457af5);
+	PatchJumpToRETN(0x457b3b);
+	PatchJumpToRETN(0x457b96);
+	PatchJumpToRETN(0x457c43);
+	PatchJumpToRETN(0x457d06);
+	PatchJumpToRETN(0x457da2);
+	PatchJumpToRETN(0x458060);
+	PatchJumpToRETN(0x4581e0);
+	PatchJumpToRETN(0x458296);
+	PatchJumpToRETN(0x458346);
+	PatchJumpToRETN(0x4583d6);
+	PatchJumpToRETN(0x458633);
+	PatchJumpToRETN(0x458b4b);
+	PatchJumpToRETN(0x458f22);
+	PatchJumpToRETN(0x459409);
+	PatchJumpToRETN(0x4595b4);
+	PatchJumpToRETN(0x45b600);
+	PatchJumpToRETN(0x45bd5a);
+	PatchJumpToRETN(0x45bf6b);
+	PatchJumpToRETN(0x45c38a);
+	PatchJumpToRETN(0x45c860);
+	PatchJumpToRETN(0x45cfe2);
+	PatchJumpToRETN(0x45d468);
+	PatchJumpToRETN(0x45d4c9);
+	PatchJumpToRETN(0x45d5d1);
+	PatchJumpToRETN(0x45d6d1);
+	PatchJumpToRETN(0x45d709);
+	PatchJumpToRETN(0x45d8d6);
+	PatchJumpToRETN(0x45d986);
+	PatchJumpToRETN(0x45e9f9);
+	PatchJumpToRETN(0x45eb03);
+	PatchJumpToRETN(0x45eb86);
+	PatchJumpToRETN(0x45ebb2);
+	PatchJumpToRETN(0x45f71a);
+	PatchJumpToRETN(0x45f79a);
+	PatchJumpToRETN(0x45ff04);
+	PatchJumpToRETN(0x4601d3);
+	PatchJumpToRETN(0x460207);
+	PatchJumpToRETN(0x4603b3);
+	PatchJumpToRETN(0x4608a8);
+	PatchJumpToRETN(0x460a85);
+	PatchJumpToRETN(0x460a93);
+	PatchJumpToRETN(0x460bb3);
+	PatchJumpToRETN(0x46158b);
+	PatchJumpToRETN(0x461eb7);
+	PatchJumpToRETN(0x461ef2);
+	PatchJumpToRETN(0x462004);
+	PatchJumpToRETN(0x462064);
+	PatchJumpToRETN(0x4620d6);
+	PatchJumpToRETN(0x462155);
+	PatchJumpToRETN(0x4621c2);
+	PatchJumpToRETN(0x4621e9);
+	PatchJumpToRETN(0x4626f1);
+	PatchJumpToRETN(0x4627d2);
+	PatchJumpToRETN(0x4627f5);
+	PatchJumpToRETN(0x462961);
+	PatchJumpToRETN(0x462ac6);
+	PatchJumpToRETN(0x462af4);
+	PatchJumpToRETN(0x462e49);
+	PatchJumpToRETN(0x463570);
+	PatchJumpToRETN(0x464fba);
+	PatchJumpToRETN(0x465465);
+	PatchJumpToRETN(0x465475);
+	PatchJumpToRETN(0x4654d7);
+	PatchJumpToRETN(0x465743);
+	PatchJumpToRETN(0x4657c2);
+	PatchJumpToRETN(0x465da6);
+	PatchJumpToRETN(0x466629);
+	PatchJumpToRETN(0x466635);
+	PatchJumpToRETN(0x466676);
+	PatchJumpToRETN(0x466686);
+	PatchJumpToRETN(0x46671a);
+	PatchJumpToRETN(0x466832);
+	PatchJumpToRETN(0x466852);
+	PatchJumpToRETN(0x466872);
+	PatchJumpToRETN(0x4668b5);
+	PatchJumpToRETN(0x4668d5);
+	PatchJumpToRETN(0x466915);
+	PatchJumpToRETN(0x466935);
+	PatchJumpToRETN(0x466955);
+	PatchJumpToRETN(0x466975);
+	PatchJumpToRETN(0x466995);
+	PatchJumpToRETN(0x4669d5);
+	PatchJumpToRETN(0x4669f5);
+	PatchJumpToRETN(0x466a15);
+	PatchJumpToRETN(0x467c67);
+	PatchJumpToRETN(0x4696d2);
+	PatchJumpToRETN(0x469dd9);
+	PatchJumpToRETN(0x46ee9b);
+	PatchJumpToRETN(0x46ef40);
+	PatchJumpToRETN(0x46f028);
+	PatchJumpToRETN(0x46f45b);
+	PatchJumpToRETN(0x47083a);
+	PatchJumpToRETN(0x470f22);
+	PatchJumpToRETN(0x470f4b);
+	PatchJumpToRETN(0x471394);
+	PatchJumpToRETN(0x471ad3);
+	PatchJumpToRETN(0x471be4);
+	PatchJumpToRETN(0x471c96);
+	PatchJumpToRETN(0x471e4b);
+	PatchJumpToRETN(0x4721a3);
+	PatchJumpToRETN(0x472471);
+	PatchJumpToRETN(0x4728c6);
+	PatchJumpToRETN(0x472fd9);
+	PatchJumpToRETN(0x473153);
+	PatchJumpToRETN(0x4731a3);
+	PatchJumpToRETN(0x4731f3);
+	PatchJumpToRETN(0x473243);
+	PatchJumpToRETN(0x473293);
+	PatchJumpToRETN(0x473306);
+	PatchJumpToRETN(0x4736a3);
+	PatchJumpToRETN(0x473871);
+	PatchJumpToRETN(0x473915);
+	PatchJumpToRETN(0x473939);
+	PatchJumpToRETN(0x473946);
+	PatchJumpToRETN(0x47396a);
+	PatchJumpToRETN(0x4739d2);
+	PatchJumpToRETN(0x4739eb);
+	PatchJumpToRETN(0x473a18);
+	PatchJumpToRETN(0x473a48);
+	PatchJumpToRETN(0x473a76);
+	PatchJumpToRETN(0x473b8b);
+	PatchJumpToRETN(0x473bb8);
+	PatchJumpToRETN(0x473c0b);
+	PatchJumpToRETN(0x473c38);
+	PatchJumpToRETN(0x473ca3);
+	PatchJumpToRETN(0x473d1a);
+	PatchJumpToRETN(0x473da2);
+	PatchJumpToRETN(0x474021);
+	PatchJumpToRETN(0x47449a);
+	PatchJumpToRETN(0x474948);
+	PatchJumpToRETN(0x4749ea);
+	PatchJumpToRETN(0x474b60);
+	PatchJumpToRETN(0x475096);
+	PatchJumpToRETN(0x475188);
+	PatchJumpToRETN(0x475249);
+	PatchJumpToRETN(0x475266);
+	PatchJumpToRETN(0x47570b);
+	PatchJumpToRETN(0x475776);
+	PatchJumpToRETN(0x475b35);
+	PatchJumpToRETN(0x475b45);
+	PatchJumpToRETN(0x475bf5);
+	PatchJumpToRETN(0x475ec2);
+	PatchJumpToRETN(0x476000);
+	PatchJumpToRETN(0x476192);
+	PatchJumpToRETN(0x4763f4);
+	PatchJumpToRETN(0x476aa3);
+	PatchJumpToRETN(0x476e47);
+	PatchJumpToRETN(0x477316);
+	PatchJumpToRETN(0x477f31);
+	PatchJumpToRETN(0x477f90);
+	PatchJumpToRETN(0x478e06);
+	PatchJumpToRETN(0x478f02);
+	PatchJumpToRETN(0x479575);
+	PatchJumpToRETN(0x479583);
+	PatchJumpToRETN(0x479595);
+	PatchJumpToRETN(0x4795a6);
+	PatchJumpToRETN(0x4795c6);
+	PatchJumpToRETN(0x479640);
+	PatchJumpToRETN(0x479e82);
+	PatchJumpToRETN(0x47a1e8);
+	PatchJumpToRETN(0x47a208);
+	PatchJumpToRETN(0x47a29a);
+	PatchJumpToRETN(0x47a55a);
+	PatchJumpToRETN(0x47a59a);
+	PatchJumpToRETN(0x47a5d0);
+	PatchJumpToRETN(0x47ace3);
+	PatchJumpToRETN(0x47af99);
+	PatchJumpToRETN(0x47afd7);
+	PatchJumpToRETN(0x47b058);
+	PatchJumpToRETN(0x47b6b9);
+	PatchJumpToRETN(0x47c215);
+	PatchJumpToRETN(0x47c236);
+	PatchJumpToRETN(0x47c35a);
+	PatchJumpToRETN(0x47c379);
+	PatchJumpToRETN(0x47c451);
+	PatchJumpToRETN(0x47c5da);
+	PatchJumpToRETN(0x47c63a);
+	PatchJumpToRETN(0x47c691);
+	PatchJumpToRETN(0x47c6c6);
+	PatchJumpToRETN(0x47c6e7);
+	PatchJumpToRETN(0x47c804);
+	PatchJumpToRETN(0x47c855);
+	PatchJumpToRETN(0x47d639);
+	PatchJumpToRETN(0x47d975);
+	PatchJumpToRETN(0x47db20);
+	PatchJumpToRETN(0x47df27);
+	PatchJumpToRETN(0x47e1ca);
+	PatchJumpToRETN(0x47e2d7);
+	PatchJumpToRETN(0x47e923);
+	PatchJumpToRETN(0x47ea9b);
+	PatchJumpToRETN(0x47ef7a);
+	PatchJumpToRETN(0x47f272);
+	PatchJumpToRETN(0x47f3a6);
+	PatchJumpToRETN(0x47f95b);
+	PatchJumpToRETN(0x47f979);
+	PatchJumpToRETN(0x47ff09);
+	PatchJumpToRETN(0x48001b);
+	PatchJumpToRETN(0x480169);
+	PatchJumpToRETN(0x4805b7);
+	PatchJumpToRETN(0x4805c5);
+	PatchJumpToRETN(0x4808aa);
+	PatchJumpToRETN(0x483551);
+	PatchJumpToRETN(0x483565);
+	PatchJumpToRETN(0x4838c3);
+	PatchJumpToRETN(0x483905);
+	PatchJumpToRETN(0x484260);
+	PatchJumpToRETN(0x484352);
+	PatchJumpToRETN(0x484507);
+	PatchJumpToRETN(0x484c18);
+	PatchJumpToRETN(0x484db3);
+	PatchJumpToRETN(0x484e71);
+	PatchJumpToRETN(0x484fe5);
+	PatchJumpToRETN(0x485385);
+	PatchJumpToRETN(0x4859a6);
+	PatchJumpToRETN(0x4859d8);
+	PatchJumpToRETN(0x4859e5);
+	PatchJumpToRETN(0x4859f6);
+	PatchJumpToRETN(0x485b40);
+	PatchJumpToRETN(0x485b55);
+	PatchJumpToRETN(0x485cc2);
+	PatchJumpToRETN(0x485cd5);
+	PatchJumpToRETN(0x485d48);
+	PatchJumpToRETN(0x486070);
+	PatchJumpToRETN(0x486085);
+	PatchJumpToRETN(0x48624a);
+	PatchJumpToRETN(0x486255);
+	PatchJumpToRETN(0x4869c7);
+	PatchJumpToRETN(0x4869e0);
+	PatchJumpToRETN(0x4869f5);
+	PatchJumpToRETN(0x486b85);
+	PatchJumpToRETN(0x486b98);
+	PatchJumpToRETN(0x486ba5);
+	PatchJumpToRETN(0x486f13);
+	PatchJumpToRETN(0x486f25);
+	PatchJumpToRETN(0x487056);
+	PatchJumpToRETN(0x4870f7);
+	PatchJumpToRETN(0x48713a);
+	PatchJumpToRETN(0x487168);
+	PatchJumpToRETN(0x487198);
+	PatchJumpToRETN(0x4873d5);
+	PatchJumpToRETN(0x487409);
+	PatchJumpToRETN(0x487446);
+	PatchJumpToRETN(0x488685);
+	PatchJumpToRETN(0x488fa9);
+	PatchJumpToRETN(0x489072);
+	PatchJumpToRETN(0x489129);
+	PatchJumpToRETN(0x489b83);
+	PatchJumpToRETN(0x489d06);
+	PatchJumpToRETN(0x489d75);
+	PatchJumpToRETN(0x489d85);
+	PatchJumpToRETN(0x489ddb);
+	PatchJumpToRETN(0x489e08);
+	PatchJumpToRETN(0x48a3e1);
+	PatchJumpToRETN(0x48a516);
+	PatchJumpToRETN(0x48a80a);
+	PatchJumpToRETN(0x48a861);
+	PatchJumpToRETN(0x48a9d4);
+	PatchJumpToRETN(0x48ab50);
+	PatchJumpToRETN(0x48ac67);
+	PatchJumpToRETN(0x48af99);
+	PatchJumpToRETN(0x48b136);
+	PatchJumpToRETN(0x48b833);
+	PatchJumpToRETN(0x48ca62);
+	PatchJumpToRETN(0x48d191);
+	PatchJumpToRETN(0x48d1b3);
+	PatchJumpToRETN(0x48d371);
+	PatchJumpToRETN(0x48d3a2);
+	PatchJumpToRETN(0x48d50b);
+	PatchJumpToRETN(0x48d6d7);
+	PatchJumpToRETN(0x48d799);
+	PatchJumpToRETN(0x48d8db);
+	PatchJumpToRETN(0x48dd41);
+	PatchJumpToRETN(0x48ddc5);
+	PatchJumpToRETN(0x48e335);
+	PatchJumpToRETN(0x48e351);
+	PatchJumpToRETN(0x48e365);
+	PatchJumpToRETN(0x48eb54);
+	PatchJumpToRETN(0x48ec07);
+	PatchJumpToRETN(0x48f0a2);
+	PatchJumpToRETN(0x48f125);
+	PatchJumpToRETN(0x48f135);
+	PatchJumpToRETN(0x48f151);
+	PatchJumpToRETN(0x48f365);
+	PatchJumpToRETN(0x48f559);
+	PatchJumpToRETN(0x48f749);
+	PatchJumpToRETN(0x48f8c5);
+	PatchJumpToRETN(0x48f8d5);
+	PatchJumpToRETN(0x48f920);
+	PatchJumpToRETN(0x48f994);
+	PatchJumpToRETN(0x48f9fa);
+	PatchJumpToRETN(0x48fa69);
+	PatchJumpToRETN(0x48fab1);
+	PatchJumpToRETN(0x48fb36);
+	PatchJumpToRETN(0x48fc14);
+	PatchJumpToRETN(0x48fcb9);
+	PatchJumpToRETN(0x490038);
+	PatchJumpToRETN(0x490086);
+	PatchJumpToRETN(0x490116);
+	PatchJumpToRETN(0x490336);
+	PatchJumpToRETN(0x490849);
+	PatchJumpToRETN(0x490869);
+	PatchJumpToRETN(0x490976);
+	PatchJumpToRETN(0x490a49);
+	PatchJumpToRETN(0x490deb);
+	PatchJumpToRETN(0x492483);
+	PatchJumpToRETN(0x493970);
+	PatchJumpToRETN(0x493c74);
+	PatchJumpToRETN(0x493dea);
+	PatchJumpToRETN(0x494311);
+	PatchJumpToRETN(0x494415);
+	PatchJumpToRETN(0x494b77);
+	PatchJumpToRETN(0x494fb6);
+	PatchJumpToRETN(0x494fd1);
+	PatchJumpToRETN(0x495366);
+	PatchJumpToRETN(0x4953c4);
+	PatchJumpToRETN(0x4953e6);
+	PatchJumpToRETN(0x495427);
+	PatchJumpToRETN(0x495461);
+	PatchJumpToRETN(0x495492);
+	PatchJumpToRETN(0x4954db);
+	PatchJumpToRETN(0x4956c4);
+	PatchJumpToRETN(0x49581a);
+	PatchJumpToRETN(0x4958f4);
+	PatchJumpToRETN(0x4959b8);
+	PatchJumpToRETN(0x495f82);
+	PatchJumpToRETN(0x496183);
+	PatchJumpToRETN(0x496474);
+	PatchJumpToRETN(0x496872);
+	PatchJumpToRETN(0x497013);
+	PatchJumpToRETN(0x497070);
+	PatchJumpToRETN(0x4970b5);
+	PatchJumpToRETN(0x4970f5);
+	PatchJumpToRETN(0x497105);
+	PatchJumpToRETN(0x497115);
+	PatchJumpToRETN(0x49713b);
+	PatchJumpToRETN(0x49717a);
+	PatchJumpToRETN(0x497192);
+	PatchJumpToRETN(0x497453);
+	PatchJumpToRETN(0x4974e9);
+	PatchJumpToRETN(0x497588);
+	PatchJumpToRETN(0x497595);
+	PatchJumpToRETN(0x4975c2);
+	PatchJumpToRETN(0x497842);
+	PatchJumpToRETN(0x4978aa);
+	PatchJumpToRETN(0x497937);
+	PatchJumpToRETN(0x4980b6);
+	PatchJumpToRETN(0x4980e3);
+	PatchJumpToRETN(0x498507);
+	PatchJumpToRETN(0x4985a2);
+	PatchJumpToRETN(0x498652);
+	PatchJumpToRETN(0x498674);
+	PatchJumpToRETN(0x498858);
+	PatchJumpToRETN(0x49a731);
+	PatchJumpToRETN(0x49a7d5);
+	PatchJumpToRETN(0x49a871);
+	PatchJumpToRETN(0x49a885);
+	PatchJumpToRETN(0x49a8a5);
+	PatchJumpToRETN(0x49a8eb);
+	PatchJumpToRETN(0x49a946);
+	PatchJumpToRETN(0x49ab52);
+	PatchJumpToRETN(0x49abf1);
+	PatchJumpToRETN(0x49ae26);
+	PatchJumpToRETN(0x49c4ba);
+	PatchJumpToRETN(0x49c524);
+	PatchJumpToRETN(0x49dc3a);
+	PatchJumpToRETN(0x49e45b);
+	PatchJumpToRETN(0x49e589);
+	PatchJumpToRETN(0x49e757);
+	PatchJumpToRETN(0x49e839);
+	PatchJumpToRETN(0x49e937);
+	PatchJumpToRETN(0x49e996);
+	PatchJumpToRETN(0x49ea1b);
+	PatchJumpToRETN(0x49ea48);
+	PatchJumpToRETN(0x49ea69);
+	PatchJumpToRETN(0x49ea76);
+	PatchJumpToRETN(0x49eb06);
+	PatchJumpToRETN(0x49eb60);
+	PatchJumpToRETN(0x49ebc0);
+	PatchJumpToRETN(0x49ec20);
+	PatchJumpToRETN(0x49ec80);
+	PatchJumpToRETN(0x49ed04);
+	PatchJumpToRETN(0x49efb1);
+	PatchJumpToRETN(0x49fcc0);
+	PatchJumpToRETN(0x49fde7);
+	PatchJumpToRETN(0x4a01d0);
+	PatchJumpToRETN(0x4a0347);
+	PatchJumpToRETN(0x4a03f6);
+	PatchJumpToRETN(0x4a04a6);
+	PatchJumpToRETN(0x4a05b7);
+	PatchJumpToRETN(0x4a06c7);
+	PatchJumpToRETN(0x4a07d7);
+	PatchJumpToRETN(0x4a0886);
+	PatchJumpToRETN(0x4a0936);
+	PatchJumpToRETN(0x4a09e6);
+	PatchJumpToRETN(0x4a0cb4);
+	PatchJumpToRETN(0x4a0ddb);
+	PatchJumpToRETN(0x4a1165);
+	PatchJumpToRETN(0x4a1be9);
+	PatchJumpToRETN(0x4a343a);
+	PatchJumpToRETN(0x4a3c52);
+	PatchJumpToRETN(0x4a5463);
+	PatchJumpToRETN(0x4a5619);
+	PatchJumpToRETN(0x4a73b2);
+	PatchJumpToRETN(0x4a9e4a);
+	PatchJumpToRETN(0x4a9f14);
+	PatchJumpToRETN(0x4a9feb);
+	PatchJumpToRETN(0x4aa073);
+	PatchJumpToRETN(0x4aa4c7);
+	PatchJumpToRETN(0x4abc71);
+	PatchJumpToRETN(0x4abd05);
+	PatchJumpToRETN(0x4abd15);
+	PatchJumpToRETN(0x4abd2b);
+	PatchJumpToRETN(0x4abd35);
+	PatchJumpToRETN(0x4abd45);
+	PatchJumpToRETN(0x4abd55);
+	PatchJumpToRETN(0x4abd65);
+	PatchJumpToRETN(0x4abd87);
+	PatchJumpToRETN(0x4abda6);
+	PatchJumpToRETN(0x4abdbb);
+	PatchJumpToRETN(0x4abdcb);
+	PatchJumpToRETN(0x4abdeb);
+	PatchJumpToRETN(0x4abe06);
+	PatchJumpToRETN(0x4abe26);
+	PatchJumpToRETN(0x4abf7a);
+	PatchJumpToRETN(0x4abfa6);
+	PatchJumpToRETN(0x4ac056);
+	PatchJumpToRETN(0x4ac527);
+	PatchJumpToRETN(0x4ac5ab);
+	PatchJumpToRETN(0x4ac868);
+	PatchJumpToRETN(0x4ac8f4);
+	PatchJumpToRETN(0x4ad123);
+	PatchJumpToRETN(0x4ad1b5);
+	PatchJumpToRETN(0x4ad200);
+	PatchJumpToRETN(0x4ad3fb);
+	PatchJumpToRETN(0x4ad458);
+	PatchJumpToRETN(0x4ad4c4);
+	PatchJumpToRETN(0x4ad504);
+	PatchJumpToRETN(0x4adeab);
+	PatchJumpToRETN(0x4ae17b);
+	PatchJumpToRETN(0x4ae55b);
+	PatchJumpToRETN(0x4ae588);
+	PatchJumpToRETN(0x4ae5db);
+	PatchJumpToRETN(0x4ae608);
+	PatchJumpToRETN(0x4ae65b);
+	PatchJumpToRETN(0x4ae688);
+	PatchJumpToRETN(0x4ae6db);
+	PatchJumpToRETN(0x4ae708);
+	PatchJumpToRETN(0x4ae75b);
+	PatchJumpToRETN(0x4ae788);
+	PatchJumpToRETN(0x4ae7db);
+	PatchJumpToRETN(0x4ae808);
+	PatchJumpToRETN(0x4ae85b);
+	PatchJumpToRETN(0x4ae888);
+	PatchJumpToRETN(0x4aeb28);
+	PatchJumpToRETN(0x4aeb48);
+	PatchJumpToRETN(0x4aeb55);
+	PatchJumpToRETN(0x4aec05);
+	PatchJumpToRETN(0x4aec78);
+	PatchJumpToRETN(0x4aec85);
+	PatchJumpToRETN(0x4aed35);
+	PatchJumpToRETN(0x4af1fb);
+	PatchJumpToRETN(0x4b0094);
+	PatchJumpToRETN(0x4b02b5);
+	PatchJumpToRETN(0x4b02c4);
+	PatchJumpToRETN(0x4b0367);
+	PatchJumpToRETN(0x4b0409);
+	PatchJumpToRETN(0x4b0525);
+	PatchJumpToRETN(0x4b0559);
+	PatchJumpToRETN(0x4b07ba);
+	PatchJumpToRETN(0x4b0847);
+	PatchJumpToRETN(0x4b0926);
+	PatchJumpToRETN(0x4b1456);
+	PatchJumpToRETN(0x4b151b);
+	PatchJumpToRETN(0x4b1581);
+	PatchJumpToRETN(0x4b16e2);
+	PatchJumpToRETN(0x4b1722);
+	PatchJumpToRETN(0x4b20a9);
+	PatchJumpToRETN(0x4b2181);
+	PatchJumpToRETN(0x4b2263);
+	PatchJumpToRETN(0x4b24a6);
+	PatchJumpToRETN(0x4b24c9);
+	PatchJumpToRETN(0x4b2570);
+	PatchJumpToRETN(0x4b25e6);
+	PatchJumpToRETN(0x4b2651);
+	PatchJumpToRETN(0x4b2872);
+	PatchJumpToRETN(0x4b2999);
+	PatchJumpToRETN(0x4b2a68);
+	PatchJumpToRETN(0x4b2d57);
+	PatchJumpToRETN(0x4b2fc4);
+	PatchJumpToRETN(0x4b3206);
+	PatchJumpToRETN(0x4b41b5);
+	PatchJumpToRETN(0x4b4270);
+	PatchJumpToRETN(0x4b4298);
+	PatchJumpToRETN(0x4b4331);
+	PatchJumpToRETN(0x4b4345);
+	PatchJumpToRETN(0x4b4434);
+	PatchJumpToRETN(0x4b4548);
+	PatchJumpToRETN(0x4b4630);
+	PatchJumpToRETN(0x4b484a);
+	PatchJumpToRETN(0x4b4881);
+	PatchJumpToRETN(0x4b4895);
+	PatchJumpToRETN(0x4b4a12);
+	PatchJumpToRETN(0x4b4a25);
+	PatchJumpToRETN(0x4b5c25);
+	PatchJumpToRETN(0x4b7a65);
+	PatchJumpToRETN(0x4b7af1);
+	PatchJumpToRETN(0x4b7b05);
+	PatchJumpToRETN(0x4b7b94);
+	PatchJumpToRETN(0x4b7ba5);
+	PatchJumpToRETN(0x4b7d01);
+	PatchJumpToRETN(0x4b7da4);
+	PatchJumpToRETN(0x4b7e03);
+	PatchJumpToRETN(0x4b7e41);
+	PatchJumpToRETN(0x4b86e8);
+	PatchJumpToRETN(0x4b8866);
+	PatchJumpToRETN(0x4b88c4);
+	PatchJumpToRETN(0x4b88f0);
+	PatchJumpToRETN(0x4b8906);
+	PatchJumpToRETN(0x4b89e8);
+	PatchJumpToRETN(0x4b8a31);
+	PatchJumpToRETN(0x4b9192);
+	PatchJumpToRETN(0x4b93b5);
+	PatchJumpToRETN(0x4b9d71);
+	PatchJumpToRETN(0x4b9dda);
+	PatchJumpToRETN(0x4b9e9a);
+	PatchJumpToRETN(0x4ba2e5);
+	PatchJumpToRETN(0x4ba3fa);
+	PatchJumpToRETN(0x4ba546);
+	PatchJumpToRETN(0x4bb5f8);
+	PatchJumpToRETN(0x4bb698);
+	PatchJumpToRETN(0x4bb76b);
+	PatchJumpToRETN(0x4bb7b5);
+	PatchJumpToRETN(0x4bb8b9);
+	PatchJumpToRETN(0x4bbab1);
+	PatchJumpToRETN(0x4bc2e0);
+	PatchJumpToRETN(0x4bc3fb);
+	PatchJumpToRETN(0x4bc697);
+	PatchJumpToRETN(0x4bc6e2);
+	PatchJumpToRETN(0x4bc7eb);
+	PatchJumpToRETN(0x4bc996);
+	PatchJumpToRETN(0x4bca40);
+	PatchJumpToRETN(0x4bce21);
+	PatchJumpToRETN(0x4bd592);
+	PatchJumpToRETN(0x4bdab7);
+	PatchJumpToRETN(0x4bdb41);
+	PatchJumpToRETN(0x4bdeb9);
+	PatchJumpToRETN(0x4bdf16);
+	PatchJumpToRETN(0x4bdf23);
+	PatchJumpToRETN(0x4bdfd5);
+	PatchJumpToRETN(0x4be0c6);
+	PatchJumpToRETN(0x4be4f7);
+	PatchJumpToRETN(0x4be6c7);
+	PatchJumpToRETN(0x4be755);
+	PatchJumpToRETN(0x4be76b);
+	PatchJumpToRETN(0x4be95a);
+	PatchJumpToRETN(0x4bf762);
+	PatchJumpToRETN(0x4c0161);
+	PatchJumpToRETN(0x4c072b);
+	PatchJumpToRETN(0x4c0953);
+	PatchJumpToRETN(0x4c0b6b);
+	PatchJumpToRETN(0x4c139b);
+	PatchJumpToRETN(0x4c14b0);
+	PatchJumpToRETN(0x4c1cc4);
+	PatchJumpToRETN(0x4c2601);
+	PatchJumpToRETN(0x4c2bf3);
+	PatchJumpToRETN(0x4c2d25);
+	PatchJumpToRETN(0x4c2d57);
+	PatchJumpToRETN(0x4c2ff7);
+	PatchJumpToRETN(0x4c34c8);
+	PatchJumpToRETN(0x4c382b);
+	PatchJumpToRETN(0x4c3b51);
+	PatchJumpToRETN(0x4c3c45);
+	PatchJumpToRETN(0x4c4117);
+	PatchJumpToRETN(0x4c4227);
+	PatchJumpToRETN(0x4c42d6);
+	PatchJumpToRETN(0x4c4386);
+	PatchJumpToRETN(0x4c4497);
+	PatchJumpToRETN(0x4c4656);
+	PatchJumpToRETN(0x4c473b);
+	PatchJumpToRETN(0x4c47e6);
+	PatchJumpToRETN(0x4c4a33);
+	PatchJumpToRETN(0x4c4b14);
+	PatchJumpToRETN(0x4c4de6);
+	PatchJumpToRETN(0x4c5308);
+	PatchJumpToRETN(0x4c53a2);
+	PatchJumpToRETN(0x4c5457);
+	PatchJumpToRETN(0x4c75d5);
+	PatchJumpToRETN(0x4c7699);
+	PatchJumpToRETN(0x4ca159);
+	PatchJumpToRETN(0x4ca299);
+	PatchJumpToRETN(0x4ca507);
+	PatchJumpToRETN(0x4ca7b5);
+	PatchJumpToRETN(0x4cad31);
+	PatchJumpToRETN(0x4caf96);
+	PatchJumpToRETN(0x4cafe6);
+	PatchJumpToRETN(0x4cb040);
+	PatchJumpToRETN(0x4cb0a0);
+	PatchJumpToRETN(0x4cb13a);
+	PatchJumpToRETN(0x4cb1ca);
+	PatchJumpToRETN(0x4cc564);
+	PatchJumpToRETN(0x4cc7c4);
+	PatchJumpToRETN(0x4cc963);
+	PatchJumpToRETN(0x4ccae4);
+	PatchJumpToRETN(0x4ccc10);
+	PatchJumpToRETN(0x4cd440);
+	PatchJumpToRETN(0x4cd589);
+	PatchJumpToRETN(0x4cde97);
+	PatchJumpToRETN(0x4ce147);
+	PatchJumpToRETN(0x4ce3a5);
+	PatchJumpToRETN(0x4ce3d5);
+	PatchJumpToRETN(0x4ce8ca);
+	PatchJumpToRETN(0x4ce962);
+	PatchJumpToRETN(0x4ce9d9);
+	PatchJumpToRETN(0x4ceb66);
+	PatchJumpToRETN(0x4ced30);
+	PatchJumpToRETN(0x4ced54);
+	PatchJumpToRETN(0x4ced92);
+	PatchJumpToRETN(0x4cedd5);
+	PatchJumpToRETN(0x4cf0eb);
+	PatchJumpToRETN(0x4cf187);
+	PatchJumpToRETN(0x4cf198);
+	PatchJumpToRETN(0x4cf301);
+	PatchJumpToRETN(0x4cf506);
+	PatchJumpToRETN(0x4cf5ca);
+	PatchJumpToRETN(0x4cf666);
+	PatchJumpToRETN(0x4cf886);
+	PatchJumpToRETN(0x4d0086);
+	PatchJumpToRETN(0x4d0106);
+	PatchJumpToRETN(0x4d0164);
+	PatchJumpToRETN(0x4d01d2);
+	PatchJumpToRETN(0x4d0223);
+	PatchJumpToRETN(0x4d0258);
+	PatchJumpToRETN(0x4d02b9);
+	PatchJumpToRETN(0x4d0ce0);
+	PatchJumpToRETN(0x4d0d50);
+	PatchJumpToRETN(0x4d0dc8);
+	PatchJumpToRETN(0x4d0e96);
+	PatchJumpToRETN(0x4d0eb9);
+	PatchJumpToRETN(0x4d0fd4);
+	PatchJumpToRETN(0x4d2487);
+	PatchJumpToRETN(0x4d24b6);
+	PatchJumpToRETN(0x4d2523);
+	PatchJumpToRETN(0x4d2967);
+	PatchJumpToRETN(0x4d2a21);
+	PatchJumpToRETN(0x4d2aa6);
+	PatchJumpToRETN(0x4d2b36);
+	PatchJumpToRETN(0x4d2ca6);
+	PatchJumpToRETN(0x4d3090);
+	PatchJumpToRETN(0x4d3838);
+	PatchJumpToRETN(0x4d38d0);
+	PatchJumpToRETN(0x4d3b34);
+	PatchJumpToRETN(0x4d3b52);
+	PatchJumpToRETN(0x4d3b6b);
+	PatchJumpToRETN(0x4d3fda);
+	PatchJumpToRETN(0x4d4499);
+	PatchJumpToRETN(0x4d45c8);
+	PatchJumpToRETN(0x4d48a1);
+	PatchJumpToRETN(0x4d4933);
+	PatchJumpToRETN(0x4d4a03);
+	PatchJumpToRETN(0x4d4c42);
+	PatchJumpToRETN(0x4d4d27);
+	PatchJumpToRETN(0x4d5239);
+	PatchJumpToRETN(0x4d5950);
+	PatchJumpToRETN(0x4d5ad1);
+	PatchJumpToRETN(0x4d5bc0);
+	PatchJumpToRETN(0x4d5dc1);
+	PatchJumpToRETN(0x4d5e3b);
+	PatchJumpToRETN(0x4d60d0);
+	PatchJumpToRETN(0x4d6455);
+	PatchJumpToRETN(0x4d65b5);
+	PatchJumpToRETN(0x4d6ae4);
+	PatchJumpToRETN(0x4d7956);
+	PatchJumpToRETN(0x4d79f4);
+	PatchJumpToRETN(0x4d7a05);
+	PatchJumpToRETN(0x4d7a3a);
+	PatchJumpToRETN(0x4d7b66);
+	PatchJumpToRETN(0x4d7ce9);
+	PatchJumpToRETN(0x4d7f13);
+	PatchJumpToRETN(0x4d80f9);
+	PatchJumpToRETN(0x4d8282);
+	PatchJumpToRETN(0x4d8339);
+	PatchJumpToRETN(0x4d8504);
+	PatchJumpToRETN(0x4d8586);
+	PatchJumpToRETN(0x4d85ea);
+	PatchJumpToRETN(0x4d8610);
+	PatchJumpToRETN(0x4d8738);
+	PatchJumpToRETN(0x4d884b);
+	PatchJumpToRETN(0x4d9084);
+	PatchJumpToRETN(0x4d90b8);
+	PatchJumpToRETN(0x4d9623);
+	PatchJumpToRETN(0x4da408);
+	PatchJumpToRETN(0x4daa69);
+	PatchJumpToRETN(0x4dab44);
+	PatchJumpToRETN(0x4dab74);
+	PatchJumpToRETN(0x4dabd9);
+	PatchJumpToRETN(0x4dac15);
+	PatchJumpToRETN(0x4db192);
+	PatchJumpToRETN(0x4db240);
+	PatchJumpToRETN(0x4db7f4);
+	PatchJumpToRETN(0x4dbe6b);
+	PatchJumpToRETN(0x4dbe75);
+	PatchJumpToRETN(0x4dbe85);
+	PatchJumpToRETN(0x4dbe95);
+	PatchJumpToRETN(0x4dbea5);
+	PatchJumpToRETN(0x4dbee5);
+	PatchJumpToRETN(0x4dbef5);
+	PatchJumpToRETN(0x4dbf05);
+	PatchJumpToRETN(0x4dbf15);
+	PatchJumpToRETN(0x4dbf25);
+	PatchJumpToRETN(0x4dbf39);
+	PatchJumpToRETN(0x4dbfbb);
+	PatchJumpToRETN(0x4dbfc5);
+	PatchJumpToRETN(0x4dbff8);
+	PatchJumpToRETN(0x4dc009);
+	PatchJumpToRETN(0x4dc015);
+	PatchJumpToRETN(0x4dc151);
+	PatchJumpToRETN(0x4dc214);
+	PatchJumpToRETN(0x4dc259);
+	PatchJumpToRETN(0x4dc327);
+	PatchJumpToRETN(0x4dc3f8);
+	PatchJumpToRETN(0x4dc534);
+	PatchJumpToRETN(0x4dc657);
+	PatchJumpToRETN(0x4dc728);
+	PatchJumpToRETN(0x4dc777);
+	PatchJumpToRETN(0x4dc795);
+	PatchJumpToRETN(0x4dc7c8);
+	PatchJumpToRETN(0x4dc862);
+	PatchJumpToRETN(0x4dc875);
+	PatchJumpToRETN(0x4dcd00);
+	PatchJumpToRETN(0x4dce53);
+	PatchJumpToRETN(0x4dcef7);
+	PatchJumpToRETN(0x4dcfa3);
+	PatchJumpToRETN(0x4dd028);
+	PatchJumpToRETN(0x4dd0ca);
+	PatchJumpToRETN(0x4dd109);
+	PatchJumpToRETN(0x4dd2c1);
+	PatchJumpToRETN(0x4dda06);
+	PatchJumpToRETN(0x4ddba8);
+	PatchJumpToRETN(0x4dde29);
+	PatchJumpToRETN(0x4de004);
+	PatchJumpToRETN(0x4de0a5);
+	PatchJumpToRETN(0x4de226);
+	PatchJumpToRETN(0x4de387);
+	PatchJumpToRETN(0x4de555);
+	PatchJumpToRETN(0x4de7e7);
+	PatchJumpToRETN(0x4de7fb);
+	PatchJumpToRETN(0x4de80b);
+	PatchJumpToRETN(0x4de81b);
+	PatchJumpToRETN(0x4de896);
+	PatchJumpToRETN(0x4de8a6);
+	PatchJumpToRETN(0x4de8c6);
+	PatchJumpToRETN(0x4de924);
+	PatchJumpToRETN(0x4de9c4);
+	PatchJumpToRETN(0x4de9fb);
+	PatchJumpToRETN(0x4dea38);
+	PatchJumpToRETN(0x4dea94);
+	PatchJumpToRETN(0x4deaa9);
+	PatchJumpToRETN(0x4ded0a);
+	PatchJumpToRETN(0x4ded75);
+	PatchJumpToRETN(0x4deeb8);
+	PatchJumpToRETN(0x4def12);
+	PatchJumpToRETN(0x4def80);
+	PatchJumpToRETN(0x4df1f2);
+	PatchJumpToRETN(0x4df261);
+	PatchJumpToRETN(0x4df48b);
+	PatchJumpToRETN(0x4df4a8);
+	PatchJumpToRETN(0x4df4e7);
+	PatchJumpToRETN(0x4df743);
+	PatchJumpToRETN(0x4df769);
+	PatchJumpToRETN(0x4df788);
+	PatchJumpToRETN(0x4df7a2);
+	PatchJumpToRETN(0x4e08e6);
+	PatchJumpToRETN(0x4e0929);
+	PatchJumpToRETN(0x4e1110);
+	PatchJumpToRETN(0x4e19da);
+	PatchJumpToRETN(0x4e2489);
+	PatchJumpToRETN(0x4e24a9);
+	PatchJumpToRETN(0x4e257a);
+	PatchJumpToRETN(0x4e2916);
+	PatchJumpToRETN(0x4e2e28);
+	PatchJumpToRETN(0x4e2f10);
+	PatchJumpToRETN(0x4e339b);
+	PatchJumpToRETN(0x4e5281);
+	PatchJumpToRETN(0x4e52a3);
+	PatchJumpToRETN(0x4e52f3);
+	PatchJumpToRETN(0x4e53e4);
+	PatchJumpToRETN(0x4e55d2);
+	PatchJumpToRETN(0x4e56a3);
+	PatchJumpToRETN(0x4e5836);
+	PatchJumpToRETN(0x4e5843);
+	PatchJumpToRETN(0x4e5c59);
+	PatchJumpToRETN(0x4e5d94);
+	PatchJumpToRETN(0x4e60c5);
+	PatchJumpToRETN(0x4e60f9);
+	PatchJumpToRETN(0x4e6125);
+	PatchJumpToRETN(0x4e6994);
+	PatchJumpToRETN(0x4e73a2);
+	PatchJumpToRETN(0x4e749a);
+	PatchJumpToRETN(0x4e754a);
+	PatchJumpToRETN(0x4e7678);
+	PatchJumpToRETN(0x4e7689);
+	PatchJumpToRETN(0x4e7699);
+	PatchJumpToRETN(0x4e76a9);
+	PatchJumpToRETN(0x4e7703);
+	PatchJumpToRETN(0x4e7723);
+	PatchJumpToRETN(0x4e78a5);
+	PatchJumpToRETN(0x4e7a5a);
+	PatchJumpToRETN(0x4e7b30);
+	PatchJumpToRETN(0x4e836b);
+	PatchJumpToRETN(0x4e87d7);
+	PatchJumpToRETN(0x4e8801);
+	PatchJumpToRETN(0x4e8831);
+	PatchJumpToRETN(0x4e8938);
+	PatchJumpToRETN(0x4e8948);
+	PatchJumpToRETN(0x4e89b4);
+	PatchJumpToRETN(0x4e8a30);
+	PatchJumpToRETN(0x4e8c95);
+	PatchJumpToRETN(0x4e8f3b);
+	PatchJumpToRETN(0x4e8fd2);
+	PatchJumpToRETN(0x4e8fe9);
+	PatchJumpToRETN(0x4e9080);
+	PatchJumpToRETN(0x4e90e6);
+	PatchJumpToRETN(0x4e9715);
+	PatchJumpToRETN(0x4e9bb7);
+	PatchJumpToRETN(0x4e9d17);
+	PatchJumpToRETN(0x4ea785);
+	PatchJumpToRETN(0x4eacd2);
+	PatchJumpToRETN(0x4eafa0);
+	PatchJumpToRETN(0x4eb051);
+	PatchJumpToRETN(0x4eb346);
+	PatchJumpToRETN(0x4eb5d1);
+	PatchJumpToRETN(0x4eb5fa);
+	PatchJumpToRETN(0x4eb7a7);
+	PatchJumpToRETN(0x4eb9f6);
+	PatchJumpToRETN(0x4eba96);
+	PatchJumpToRETN(0x4ebc93);
+	PatchJumpToRETN(0x4ec0e4);
+	PatchJumpToRETN(0x4ec11a);
+	PatchJumpToRETN(0x4ec154);
+	PatchJumpToRETN(0x4ecee0);
+	PatchJumpToRETN(0x4ecff2);
+	PatchJumpToRETN(0x4ed2e0);
+	PatchJumpToRETN(0x4ed440);
+	PatchJumpToRETN(0x4ed697);
+	PatchJumpToRETN(0x4ee07b);
+	PatchJumpToRETN(0x4ee17a);
+	PatchJumpToRETN(0x4ee694);
+	PatchJumpToRETN(0x4ee8c1);
+	PatchJumpToRETN(0x4eea69);
+	PatchJumpToRETN(0x4eec71);
+	PatchJumpToRETN(0x4ef311);
+	PatchJumpToRETN(0x4ef819);
+	PatchJumpToRETN(0x4ef889);
+	PatchJumpToRETN(0x4ef8a8);
+	PatchJumpToRETN(0x4ef975);
+	PatchJumpToRETN(0x4ef985);
+	PatchJumpToRETN(0x4ef995);
+	PatchJumpToRETN(0x4f0873);
+	PatchJumpToRETN(0x4f08f1);
+	PatchJumpToRETN(0x4f0924);
+	PatchJumpToRETN(0x4f0949);
+	PatchJumpToRETN(0x4f09a2);
+	PatchJumpToRETN(0x4f0a03);
+	PatchJumpToRETN(0x4f148a);
+	PatchJumpToRETN(0x4f1864);
+	PatchJumpToRETN(0x4f1d0a);
+	PatchJumpToRETN(0x4f202a);
+	PatchJumpToRETN(0x4f2390);
+	PatchJumpToRETN(0x4f2475);
+	PatchJumpToRETN(0x4f24e6);
+	PatchJumpToRETN(0x4f26cb);
+	PatchJumpToRETN(0x4f26d9);
+	PatchJumpToRETN(0x4f26e5);
+	PatchJumpToRETN(0x4f2723);
+	PatchJumpToRETN(0x4f274b);
+	PatchJumpToRETN(0x4f2981);
+	PatchJumpToRETN(0x4f2eb7);
+	PatchJumpToRETN(0x4f3002);
+	PatchJumpToRETN(0x4f32d5);
+	PatchJumpToRETN(0x4f3328);
+	PatchJumpToRETN(0x4f335b);
+	PatchJumpToRETN(0x4f3429);
+	PatchJumpToRETN(0x4f3b1a);
+	PatchJumpToRETN(0x4f3c75);
+	PatchJumpToRETN(0x4f4078);
+	PatchJumpToRETN(0x4f40e5);
+	PatchJumpToRETN(0x4f4160);
+	PatchJumpToRETN(0x4f4322);
+	PatchJumpToRETN(0x4f47a4);
+	PatchJumpToRETN(0x4f47b3);
+	PatchJumpToRETN(0x4f4821);
+	PatchJumpToRETN(0x4f4896);
+	PatchJumpToRETN(0x4f496a);
+	PatchJumpToRETN(0x4f49e7);
+	PatchJumpToRETN(0x4f4e50);
+	PatchJumpToRETN(0x4f4f7a);
+	PatchJumpToRETN(0x4f4fc4);
+	PatchJumpToRETN(0x4f5102);
+	PatchJumpToRETN(0x4f5d14);
+	PatchJumpToRETN(0x4f5df1);
+	PatchJumpToRETN(0x4f6253);
+	PatchJumpToRETN(0x4f940a);
+	PatchJumpToRETN(0x4f9499);
+	PatchJumpToRETN(0x4f9538);
+	PatchJumpToRETN(0x4f9606);
+	PatchJumpToRETN(0x4f9683);
+	PatchJumpToRETN(0x4f9bb9);
+	PatchJumpToRETN(0x4f9d21);
+	PatchJumpToRETN(0x4f9ef6);
+	PatchJumpToRETN(0x4f9f5a);
+	PatchJumpToRETN(0x4fa136);
+	PatchJumpToRETN(0x4faac7);
+	PatchJumpToRETN(0x4fab37);
+	PatchJumpToRETN(0x4fab5b);
+	PatchJumpToRETN(0x4fad62);
+	PatchJumpToRETN(0x4fb859);
+	PatchJumpToRETN(0x4fba11);
+	PatchJumpToRETN(0x4fcc49);
+	PatchJumpToRETN(0x4fccb4);
+	PatchJumpToRETN(0x4fcdeb);
+	PatchJumpToRETN(0x4fce95);
+	PatchJumpToRETN(0x4fd055);
+	PatchJumpToRETN(0x4fd3e5);
+	PatchJumpToRETN(0x4fdbb3);
+	PatchJumpToRETN(0x4fdfe0);
+	PatchJumpToRETN(0x4fe1d1);
+	PatchJumpToRETN(0x4fe6a2);
+	PatchJumpToRETN(0x4fed28);
+	PatchJumpToRETN(0x4fed62);
+	PatchJumpToRETN(0x4ff451);
+	PatchJumpToRETN(0x4ff564);
+	PatchJumpToRETN(0x4ff593);
+	PatchJumpToRETN(0x4ffe38);
+	PatchJumpToRETN(0x4ffee0);
+	PatchJumpToRETN(0x4fff16);
+	PatchJumpToRETN(0x4fff30);
+	PatchJumpToRETN(0x5000a6);
+	PatchJumpToRETN(0x500e1b);
+	PatchJumpToRETN(0x501be4);
+	PatchJumpToRETN(0x501eb7);
+	PatchJumpToRETN(0x50280a);
+	PatchJumpToRETN(0x502c39);
+	PatchJumpToRETN(0x503437);
+	PatchJumpToRETN(0x5036a5);
+	PatchJumpToRETN(0x503af0);
+	PatchJumpToRETN(0x503b06);
+	PatchJumpToRETN(0x503b93);
+	PatchJumpToRETN(0x503be6);
+	PatchJumpToRETN(0x503c51);
+	PatchJumpToRETN(0x503f38);
+	PatchJumpToRETN(0x503f93);
+	PatchJumpToRETN(0x504038);
+	PatchJumpToRETN(0x5040b6);
+	PatchJumpToRETN(0x5044f7);
+	PatchJumpToRETN(0x5049e7);
+	PatchJumpToRETN(0x504a11);
+	PatchJumpToRETN(0x504be0);
+	PatchJumpToRETN(0x504c31);
+	PatchJumpToRETN(0x5051ea);
+	PatchJumpToRETN(0x5052c2);
+	PatchJumpToRETN(0x505394);
+	PatchJumpToRETN(0x505468);
+	PatchJumpToRETN(0x505486);
+	PatchJumpToRETN(0x5056d3);
+	PatchJumpToRETN(0x505826);
+	PatchJumpToRETN(0x505b00);
+	PatchJumpToRETN(0x505b15);
+	PatchJumpToRETN(0x505b45);
+	PatchJumpToRETN(0x505bca);
+	PatchJumpToRETN(0x505be6);
+	PatchJumpToRETN(0x505bf5);
+	PatchJumpToRETN(0x505c9a);
+	PatchJumpToRETN(0x505cb6);
+	PatchJumpToRETN(0x505cc5);
+	PatchJumpToRETN(0x505d6a);
+	PatchJumpToRETN(0x505d86);
+	PatchJumpToRETN(0x505d95);
+	PatchJumpToRETN(0x505ea7);
+	PatchJumpToRETN(0x505f2a);
+	PatchJumpToRETN(0x505f35);
+	PatchJumpToRETN(0x505fa5);
+	PatchJumpToRETN(0x505fe7);
+	PatchJumpToRETN(0x505ff5);
+	PatchJumpToRETN(0x5060f7);
+	PatchJumpToRETN(0x506163);
+	PatchJumpToRETN(0x506183);
+	PatchJumpToRETN(0x506195);
+	PatchJumpToRETN(0x50623a);
+	PatchJumpToRETN(0x506253);
+	PatchJumpToRETN(0x506265);
+	PatchJumpToRETN(0x50630a);
+	PatchJumpToRETN(0x506325);
+	PatchJumpToRETN(0x506335);
+	PatchJumpToRETN(0x5063d5);
+	PatchJumpToRETN(0x5063e5);
+	PatchJumpToRETN(0x506487);
+	PatchJumpToRETN(0x506495);
+	PatchJumpToRETN(0x506520);
+	PatchJumpToRETN(0x506547);
+	PatchJumpToRETN(0x506555);
+	PatchJumpToRETN(0x5065e0);
+	PatchJumpToRETN(0x506615);
+	PatchJumpToRETN(0x506655);
+	PatchJumpToRETN(0x506706);
+	PatchJumpToRETN(0x5068da);
+	PatchJumpToRETN(0x5068f7);
+	PatchJumpToRETN(0x506905);
+	PatchJumpToRETN(0x506c47);
+	PatchJumpToRETN(0x506ca8);
+	PatchJumpToRETN(0x5071fa);
+	PatchJumpToRETN(0x507260);
+	PatchJumpToRETN(0x5072c8);
+	PatchJumpToRETN(0x507373);
+	PatchJumpToRETN(0x507437);
+	PatchJumpToRETN(0x5075c9);
+	PatchJumpToRETN(0x507a86);
+	PatchJumpToRETN(0x507da6);
+	PatchJumpToRETN(0x5084e0);
+	PatchJumpToRETN(0x5084f5);
+	PatchJumpToRETN(0x50851b);
+	PatchJumpToRETN(0x508d06);
+	PatchJumpToRETN(0x508da0);
+	PatchJumpToRETN(0x508e23);
+	PatchJumpToRETN(0x508f25);
+	PatchJumpToRETN(0x508f55);
+	PatchJumpToRETN(0x508f7b);
+	PatchJumpToRETN(0x509085);
+	PatchJumpToRETN(0x50964b);
+	PatchJumpToRETN(0x5096a6);
+	PatchJumpToRETN(0x5096b6);
+	PatchJumpToRETN(0x5096f7);
+	PatchJumpToRETN(0x509725);
+	PatchJumpToRETN(0x509c51);
+	PatchJumpToRETN(0x509c67);
+	PatchJumpToRETN(0x509c89);
+	PatchJumpToRETN(0x50a113);
+	PatchJumpToRETN(0x50a376);
+	PatchJumpToRETN(0x50a3b6);
+	PatchJumpToRETN(0x50a5c2);
+	PatchJumpToRETN(0x50b6e3);
+	PatchJumpToRETN(0x50c8fa);
+	PatchJumpToRETN(0x50ca4a);
+	PatchJumpToRETN(0x50cc6a);
+	PatchJumpToRETN(0x50cdf0);
+	PatchJumpToRETN(0x50ce38);
+	PatchJumpToRETN(0x50cfdb);
+	PatchJumpToRETN(0x50d056);
+	PatchJumpToRETN(0x50d55b);
+	PatchJumpToRETN(0x50ec2a);
+	PatchJumpToRETN(0x50ecd9);
+	PatchJumpToRETN(0x50eceb);
+	PatchJumpToRETN(0x50ee22);
+	PatchJumpToRETN(0x50ee83);
+	PatchJumpToRETN(0x50eee6);
+	PatchJumpToRETN(0x50eef6);
+	PatchJumpToRETN(0x50f149);
+	PatchJumpToRETN(0x50f2e5);
+	PatchJumpToRETN(0x50f9bb);
+	PatchJumpToRETN(0x510c19);
+	PatchJumpToRETN(0x510cc9);
+	PatchJumpToRETN(0x51103a);
+	PatchJumpToRETN(0x5110f4);
+	PatchJumpToRETN(0x51160b);
+	PatchJumpToRETN(0x51178b);
+	PatchJumpToRETN(0x51250a);
+	PatchJumpToRETN(0x5125b4);
+	PatchJumpToRETN(0x512623);
+	PatchJumpToRETN(0x512f43);
+	PatchJumpToRETN(0x512fd3);
+	PatchJumpToRETN(0x5132cb);
+	PatchJumpToRETN(0x5132f0);
+	PatchJumpToRETN(0x5133b7);
+	PatchJumpToRETN(0x513993);
+	PatchJumpToRETN(0x5139e3);
+	PatchJumpToRETN(0x513a33);
+	PatchJumpToRETN(0x513a83);
+	PatchJumpToRETN(0x513ad3);
+	PatchJumpToRETN(0x513b23);
+	PatchJumpToRETN(0x513b73);
+	PatchJumpToRETN(0x513bc3);
+	PatchJumpToRETN(0x513c13);
+	PatchJumpToRETN(0x513c63);
+	PatchJumpToRETN(0x513cb3);
+	PatchJumpToRETN(0x513d03);
+	PatchJumpToRETN(0x513d53);
+	PatchJumpToRETN(0x513da3);
+	PatchJumpToRETN(0x513df3);
+	PatchJumpToRETN(0x513e43);
+	PatchJumpToRETN(0x513e53);
+	PatchJumpToRETN(0x513ed8);
+	PatchJumpToRETN(0x513fa8);
+	PatchJumpToRETN(0x515100);
+	PatchJumpToRETN(0x515220);
+	PatchJumpToRETN(0x515288);
+	PatchJumpToRETN(0x5155d9);
+	PatchJumpToRETN(0x5155f7);
+	PatchJumpToRETN(0x515ee4);
+	PatchJumpToRETN(0x515f70);
+	PatchJumpToRETN(0x515faa);
+	PatchJumpToRETN(0x51672b);
+	PatchJumpToRETN(0x5168c9);
+	PatchJumpToRETN(0x5168f9);
+	PatchJumpToRETN(0x516947);
+	PatchJumpToRETN(0x5171cb);
+	PatchJumpToRETN(0x517494);
+	PatchJumpToRETN(0x517dea);
+	PatchJumpToRETN(0x5183f5);
+	PatchJumpToRETN(0x518525);
+	PatchJumpToRETN(0x51862a);
+	PatchJumpToRETN(0x5186db);
+	PatchJumpToRETN(0x518778);
+	PatchJumpToRETN(0x5187b8);
+	PatchJumpToRETN(0x5187ea);
+	PatchJumpToRETN(0x518877);
+	PatchJumpToRETN(0x518c05);
+	PatchJumpToRETN(0x518de3);
+	PatchJumpToRETN(0x519899);
+	PatchJumpToRETN(0x519bca);
+	PatchJumpToRETN(0x519be6);
+	PatchJumpToRETN(0x519cab);
+	PatchJumpToRETN(0x519e76);
+	PatchJumpToRETN(0x51aa16);
+	PatchJumpToRETN(0x51b330);
+	PatchJumpToRETN(0x51b3b6);
+	PatchJumpToRETN(0x51b49a);
+	PatchJumpToRETN(0x51b593);
+	PatchJumpToRETN(0x51b630);
+	PatchJumpToRETN(0x51b9b1);
+	PatchJumpToRETN(0x51ba08);
+	PatchJumpToRETN(0x51bd45);
+	PatchJumpToRETN(0x51bde6);
+	PatchJumpToRETN(0x51be75);
+	PatchJumpToRETN(0x51bf07);
+	PatchJumpToRETN(0x51bf1a);
+	PatchJumpToRETN(0x51bf55);
+	PatchJumpToRETN(0x51bf79);
+	PatchJumpToRETN(0x51c013);
+	PatchJumpToRETN(0x51c0e3);
+	PatchJumpToRETN(0x51c182);
+	PatchJumpToRETN(0x51c339);
+	PatchJumpToRETN(0x51c354);
+	PatchJumpToRETN(0x51c381);
+	PatchJumpToRETN(0x51c550);
+	PatchJumpToRETN(0x51ce49);
+	PatchJumpToRETN(0x51cee1);
+	PatchJumpToRETN(0x51cf36);
+	PatchJumpToRETN(0x51cf86);
+	PatchJumpToRETN(0x51d675);
+	PatchJumpToRETN(0x51d6c6);
+	PatchJumpToRETN(0x52ef63);
+	PatchJumpToRETN(0x52efdb);
+	PatchJumpToRETN(0x52f040);
+	PatchJumpToRETN(0x52f146);
+	PatchJumpToRETN(0x52f198);
+	PatchJumpToRETN(0x52f357);
+	PatchJumpToRETN(0x52f441);
+	PatchJumpToRETN(0x52f469);
+	PatchJumpToRETN(0x52f660);
+	PatchJumpToRETN(0x52f987);
+	PatchJumpToRETN(0x52f9d5);
+	PatchJumpToRETN(0x52fa28);
+	PatchJumpToRETN(0x52fbc8);
+	PatchJumpToRETN(0x52fefa);
+	PatchJumpToRETN(0x530403);
+	PatchJumpToRETN(0x530a48);
+	PatchJumpToRETN(0x530c88);
+	PatchJumpToRETN(0x53122b);
+	PatchJumpToRETN(0x5314c1);
+	PatchJumpToRETN(0x531559);
+	PatchJumpToRETN(0x531608);
+	PatchJumpToRETN(0x531728);
+	PatchJumpToRETN(0x531762);
+	PatchJumpToRETN(0x5317d8);
+	PatchJumpToRETN(0x5318e2);
+	PatchJumpToRETN(0x531aa1);
+	PatchJumpToRETN(0x531c0b);
+	PatchJumpToRETN(0x531f92);
+	PatchJumpToRETN(0x532066);
+	PatchJumpToRETN(0x5323eb);
+	PatchJumpToRETN(0x5325a7);
+	PatchJumpToRETN(0x532705);
+	PatchJumpToRETN(0x53274a);
+	PatchJumpToRETN(0x5328f5);
+	PatchJumpToRETN(0x532915);
+	PatchJumpToRETN(0x534fd6);
+	PatchJumpToRETN(0x535049);
+	PatchJumpToRETN(0x5350c2);
+	PatchJumpToRETN(0x535168);
+	PatchJumpToRETN(0x5351e4);
+	PatchJumpToRETN(0x5351f3);
+	PatchJumpToRETN(0x535356);
+	PatchJumpToRETN(0x5353c6);
+	PatchJumpToRETN(0x535b63);
+	PatchJumpToRETN(0x536f18);
+	PatchJumpToRETN(0x536fb2);
+	PatchJumpToRETN(0x536ff7);
+	PatchJumpToRETN(0x5371e0);
+	PatchJumpToRETN(0x5372a0);
+	PatchJumpToRETN(0x537312);
+	PatchJumpToRETN(0x53756b);
+	PatchJumpToRETN(0x537625);
+	PatchJumpToRETN(0x537658);
+	PatchJumpToRETN(0x5376a3);
+	PatchJumpToRETN(0x5377b5);
+	PatchJumpToRETN(0x5377f1);
+	PatchJumpToRETN(0x5379ba);
+	PatchJumpToRETN(0x538072);
+	PatchJumpToRETN(0x538127);
+	PatchJumpToRETN(0x53816b);
+	PatchJumpToRETN(0x538198);
+	PatchJumpToRETN(0x5381a6);
+	PatchJumpToRETN(0x538428);
+	PatchJumpToRETN(0x5384e2);
+	PatchJumpToRETN(0x538608);
+	PatchJumpToRETN(0x53867d);
+	PatchJumpToRETN(0x538736);
+	PatchJumpToRETN(0x538743);
+	PatchJumpToRETN(0x538811);
+	PatchJumpToRETN(0x538ba8);
+	PatchJumpToRETN(0x538c1a);
+	PatchJumpToRETN(0x539181);
+	PatchJumpToRETN(0x539228);
+	PatchJumpToRETN(0x53926b);
+	PatchJumpToRETN(0x5392c2);
+	PatchJumpToRETN(0x539620);
+	PatchJumpToRETN(0x5396bb);
+	PatchJumpToRETN(0x5396d0);
+	PatchJumpToRETN(0x53970a);
+	PatchJumpToRETN(0x539748);
+	PatchJumpToRETN(0x539797);
+	PatchJumpToRETN(0x5397d8);
+	PatchJumpToRETN(0x539864);
+	PatchJumpToRETN(0x5399e0);
+	PatchJumpToRETN(0x539a75);
+	PatchJumpToRETN(0x539ae8);
+	PatchJumpToRETN(0x53ac68);
+	PatchJumpToRETN(0x53b8f7);
+	PatchJumpToRETN(0x53bcc9);
+	PatchJumpToRETN(0x53bd05);
+	PatchJumpToRETN(0x53bd3a);
+	PatchJumpToRETN(0x53bf08);
+	PatchJumpToRETN(0x53c730);
+	PatchJumpToRETN(0x53c786);
+	PatchJumpToRETN(0x53d265);
+	PatchJumpToRETN(0x53f3d3);
+	PatchJumpToRETN(0x53f5a4);
+	PatchJumpToRETN(0x53fc31);
+	PatchJumpToRETN(0x53fd13);
+	PatchJumpToRETN(0x53fd64);
+	PatchJumpToRETN(0x53fdd9);
+	PatchJumpToRETN(0x53fe32);
+	PatchJumpToRETN(0x53fe73);
+	PatchJumpToRETN(0x53fe83);
+	PatchJumpToRETN(0x53feb3);
+	PatchJumpToRETN(0x53fec6);
+	PatchJumpToRETN(0x53feda);
+	PatchJumpToRETN(0x53fef3);
+	PatchJumpToRETN(0x53ff17);
+	PatchJumpToRETN(0x53ff29);
+	PatchJumpToRETN(0x53ff33);
+	PatchJumpToRETN(0x53ff70);
+	PatchJumpToRETN(0x540259);
+	PatchJumpToRETN(0x540376);
+	PatchJumpToRETN(0x540393);
+	PatchJumpToRETN(0x540439);
+	PatchJumpToRETN(0x540469);
+	PatchJumpToRETN(0x5404f0);
+	PatchJumpToRETN(0x540613);
+	PatchJumpToRETN(0x5407b3);
+	PatchJumpToRETN(0x5407f0);
+	PatchJumpToRETN(0x540b54);
+	PatchJumpToRETN(0x5413c4);
+	PatchJumpToRETN(0x541915);
+	PatchJumpToRETN(0x541955);
+	PatchJumpToRETN(0x5419b8);
+	PatchJumpToRETN(0x541e97);
+	PatchJumpToRETN(0x541f50);
+	PatchJumpToRETN(0x541ff5);
+	PatchJumpToRETN(0x542038);
+	PatchJumpToRETN(0x542053);
+	PatchJumpToRETN(0x542180);
+	PatchJumpToRETN(0x5421e6);
+	PatchJumpToRETN(0x542226);
+	PatchJumpToRETN(0x543015);
+	PatchJumpToRETN(0x543497);
+	PatchJumpToRETN(0x5434c9);
+	PatchJumpToRETN(0x5435e3);
+	PatchJumpToRETN(0x5435f6);
+	PatchJumpToRETN(0x543606);
+	PatchJumpToRETN(0x543616);
+	PatchJumpToRETN(0x543626);
+	PatchJumpToRETN(0x543a39);
+	PatchJumpToRETN(0x543aa6);
+	PatchJumpToRETN(0x543b86);
+	PatchJumpToRETN(0x543ca8);
+	PatchJumpToRETN(0x543e00);
+	PatchJumpToRETN(0x544111);
+	PatchJumpToRETN(0x5441eb);
+	PatchJumpToRETN(0x544270);
+	PatchJumpToRETN(0x5449c0);
+	PatchJumpToRETN(0x5458da);
+	PatchJumpToRETN(0x5458e6);
+	PatchJumpToRETN(0x54617b);
+	PatchJumpToRETN(0x546193);
+	PatchJumpToRETN(0x546457);
+	PatchJumpToRETN(0x546485);
+	PatchJumpToRETN(0x546533);
+	PatchJumpToRETN(0x546cc6);
+	PatchJumpToRETN(0x546ce6);
+	PatchJumpToRETN(0x546d37);
+	PatchJumpToRETN(0x546e0a);
+	PatchJumpToRETN(0x546e16);
+	PatchJumpToRETN(0x546e86);
+	PatchJumpToRETN(0x5470d5);
+	PatchJumpToRETN(0x5471a3);
+	PatchJumpToRETN(0x547de0);
+	PatchJumpToRETN(0x54834a);
+	PatchJumpToRETN(0x5484b1);
+	PatchJumpToRETN(0x549968);
+	PatchJumpToRETN(0x549af5);
+	PatchJumpToRETN(0x54b136);
+	PatchJumpToRETN(0x54ba55);
+	PatchJumpToRETN(0x54d8c2);
+	PatchJumpToRETN(0x555749);
+	PatchJumpToRETN(0x5569ab);
+	PatchJumpToRETN(0x556c7b);
+	PatchJumpToRETN(0x556ca9);
+	PatchJumpToRETN(0x556ce6);
+	PatchJumpToRETN(0x556cf9);
+	PatchJumpToRETN(0x556d05);
+	PatchJumpToRETN(0x556fc0);
+	PatchJumpToRETN(0x557030);
+	PatchJumpToRETN(0x557068);
+	PatchJumpToRETN(0x5570e8);
+	PatchJumpToRETN(0x557116);
+	PatchJumpToRETN(0x5571f8);
+	PatchJumpToRETN(0x557221);
+	PatchJumpToRETN(0x5572e6);
+	PatchJumpToRETN(0x5576e5);
+	PatchJumpToRETN(0x557c47);
+	PatchJumpToRETN(0x557d37);
+	PatchJumpToRETN(0x557d50);
+	PatchJumpToRETN(0x557d65);
+	PatchJumpToRETN(0x557d95);
+	PatchJumpToRETN(0x557db3);
+	PatchJumpToRETN(0x557dc3);
+	PatchJumpToRETN(0x557dd5);
+	PatchJumpToRETN(0x557de6);
+	PatchJumpToRETN(0x5586c6);
+	PatchJumpToRETN(0x5586d6);
+	PatchJumpToRETN(0x558872);
+	PatchJumpToRETN(0x5588a7);
+	PatchJumpToRETN(0x55891b);
+	PatchJumpToRETN(0x558e25);
+	PatchJumpToRETN(0x5596c7);
+	PatchJumpToRETN(0x5596f6);
+	PatchJumpToRETN(0x5598d5);
+	PatchJumpToRETN(0x559d35);
+	PatchJumpToRETN(0x559ef5);
+	PatchJumpToRETN(0x559f15);
+	PatchJumpToRETN(0x559f35);
+	PatchJumpToRETN(0x559f45);
+	PatchJumpToRETN(0x55a640);
+	PatchJumpToRETN(0x55a6c5);
+	PatchJumpToRETN(0x55a7a7);
+	PatchJumpToRETN(0x55a81a);
+	PatchJumpToRETN(0x55a825);
+	PatchJumpToRETN(0x55a8f3);
+	PatchJumpToRETN(0x55a91a);
+	PatchJumpToRETN(0x55adb7);
+	PatchJumpToRETN(0x55af91);
+	PatchJumpToRETN(0x55b652);
+	PatchJumpToRETN(0x55b666);
+	PatchJumpToRETN(0x55b676);
+	PatchJumpToRETN(0x55b686);
+	PatchJumpToRETN(0x55b696);
+	PatchJumpToRETN(0x55b6a6);
+	PatchJumpToRETN(0x55b6b6);
+	PatchJumpToRETN(0x55b6c6);
+	PatchJumpToRETN(0x55b788);
+	PatchJumpToRETN(0x55b7b7);
+	PatchJumpToRETN(0x55b8a6);
+	PatchJumpToRETN(0x55b8b6);
+	PatchJumpToRETN(0x55b9a7);
+	PatchJumpToRETN(0x55b9e0);
+	PatchJumpToRETN(0x55ba54);
+	PatchJumpToRETN(0x55bbca);
+	PatchJumpToRETN(0x55bc0b);
+	PatchJumpToRETN(0x55bc36);
+	PatchJumpToRETN(0x55bc86);
+	PatchJumpToRETN(0x55bca6);
+	PatchJumpToRETN(0x55c9e7);
+	PatchJumpToRETN(0x55cb57);
+	PatchJumpToRETN(0x55cba7);
+	PatchJumpToRETN(0x55cc07);
+	PatchJumpToRETN(0x55cd64);
+	PatchJumpToRETN(0x55cdf4);
+	PatchJumpToRETN(0x55ce24);
+	PatchJumpToRETN(0x55ced0);
+	PatchJumpToRETN(0x55cfd5);
+	PatchJumpToRETN(0x55d086);
+	PatchJumpToRETN(0x55dd1a);
+	PatchJumpToRETN(0x55e108);
+	PatchJumpToRETN(0x55e3a4);
+	PatchJumpToRETN(0x55e45a);
+	PatchJumpToRETN(0x55e47a);
+	PatchJumpToRETN(0x55e5b4);
+	PatchJumpToRETN(0x55e889);
+	PatchJumpToRETN(0x55ec37);
+	PatchJumpToRETN(0x55eff1);
+	PatchJumpToRETN(0x55f251);
+	PatchJumpToRETN(0x55f353);
+	PatchJumpToRETN(0x55f380);
+	PatchJumpToRETN(0x55f5d5);
+	PatchJumpToRETN(0x55f703);
+	PatchJumpToRETN(0x55ff33);
+	PatchJumpToRETN(0x55ff96);
+	PatchJumpToRETN(0x5602da);
+	PatchJumpToRETN(0x560341);
+	PatchJumpToRETN(0x5606a9);
+	PatchJumpToRETN(0x560c16);
+	PatchJumpToRETN(0x560c87);
+	PatchJumpToRETN(0x560d16);
+	PatchJumpToRETN(0x560e61);
+	PatchJumpToRETN(0x560ed0);
+	PatchJumpToRETN(0x560f55);
+	PatchJumpToRETN(0x5611aa);
+	PatchJumpToRETN(0x5611da);
+	PatchJumpToRETN(0x5613b5);
+	PatchJumpToRETN(0x561465);
+	PatchJumpToRETN(0x5617d6);
+	PatchJumpToRETN(0x5618c8);
+	PatchJumpToRETN(0x561ed4);
+	PatchJumpToRETN(0x561fe8);
+	PatchJumpToRETN(0x562b21);
+	PatchJumpToRETN(0x562b87);
+	PatchJumpToRETN(0x562d25);
+	PatchJumpToRETN(0x562ef3);
+	PatchJumpToRETN(0x562f38);
+	PatchJumpToRETN(0x563181);
+	PatchJumpToRETN(0x5634a2);
+	PatchJumpToRETN(0x563637);
+	PatchJumpToRETN(0x563698);
+	PatchJumpToRETN(0x563725);
+	PatchJumpToRETN(0x563924);
+	PatchJumpToRETN(0x563af5);
+	PatchJumpToRETN(0x563e05);
+	PatchJumpToRETN(0x563e25);
+	PatchJumpToRETN(0x56fc04);
+	PatchJumpToRETN(0x56fc28);
+	PatchJumpToRETN(0x56fc44);
+	PatchJumpToRETN(0x56fc64);
+	PatchJumpToRETN(0x5719e1);
+	PatchJumpToRETN(0x571e1b);
+	PatchJumpToRETN(0x571fa4);
+	PatchJumpToRETN(0x57294b);
+	PatchJumpToRETN(0x573109);
+	PatchJumpToRETN(0x57337b);
+	PatchJumpToRETN(0x573e19);
+	PatchJumpToRETN(0x57445b);
+	PatchJumpToRETN(0x5748d2);
+	PatchJumpToRETN(0x575045);
+	PatchJumpToRETN(0x575095);
+	PatchJumpToRETN(0x575555);
+	PatchJumpToRETN(0x575657);
+	PatchJumpToRETN(0x575c69);
+	PatchJumpToRETN(0x575ec7);
+	PatchJumpToRETN(0x5784c8);
+	PatchJumpToRETN(0x5789a9);
+	PatchJumpToRETN(0x57973a);
+	PatchJumpToRETN(0x579792);
+	PatchJumpToRETN(0x57c450);
+	PatchJumpToRETN(0x580c70);
+	PatchJumpToRETN(0x580ce0);
+	PatchJumpToRETN(0x582d39);
+	PatchJumpToRETN(0x5842d5);
+	PatchJumpToRETN(0x5aefd7);
+	PatchJumpToRETN(0x5ce1aa);
+	PatchJumpToRETN(0x5ce29a);
+	PatchJumpToRETN(0x5ce65b);
+	PatchJumpToRETN(0x5e3b85);
+	PatchJumpToRETN(0x5e3bb4);
+	PatchJumpToRETN(0x5e3bd4);
+	PatchJumpToRETN(0x5e3beb);
+	PatchJumpToRETN(0x5e3c05);
+	PatchJumpToRETN(0x5e3c1b);
+	PatchJumpToRETN(0x5e3c2b);
+	PatchJumpToRETN(0x5e3de0);
+	PatchJumpToRETN(0x5e3fa3);
+	PatchJumpToRETN(0x5e3fdb);
+	PatchJumpToRETN(0x5e414b);
+	PatchJumpToRETN(0x5e4165);
+	PatchJumpToRETN(0x5e4185);
+	PatchJumpToRETN(0x5e41a5);
+	PatchJumpToRETN(0x5e41c5);
+	PatchJumpToRETN(0x5e41e5);
+	PatchJumpToRETN(0x5e4205);
+	PatchJumpToRETN(0x5e4225);
+	PatchJumpToRETN(0x5e4245);
+	PatchJumpToRETN(0x5e4265);
+	PatchJumpToRETN(0x5e4285);
+	PatchJumpToRETN(0x5e42a5);
+	PatchJumpToRETN(0x5e42c5);
+	PatchJumpToRETN(0x5e42e5);
+	PatchJumpToRETN(0x5e43e5);
+	PatchJumpToRETN(0x5e4405);
+	PatchJumpToRETN(0x5e45c0);
+	PatchJumpToRETN(0x5e4783);
+	PatchJumpToRETN(0x5e47a5);
+	PatchJumpToRETN(0x5e47bb);
+	PatchJumpToRETN(0x5e47d5);
+	PatchJumpToRETN(0x5e47f5);
+	PatchJumpToRETN(0x5e4883);
+	PatchJumpToRETN(0x5e48b3);
+	PatchJumpToRETN(0x5e48d5);
+	PatchJumpToRETN(0x5e48eb);
+	PatchJumpToRETN(0x5e4905);
+	PatchJumpToRETN(0x5e4926);
+	PatchJumpToRETN(0x5e4945);
+	PatchJumpToRETN(0x5e4974);
+	PatchJumpToRETN(0x5e4995);
+	PatchJumpToRETN(0x5e49bb);
+	PatchJumpToRETN(0x5e49cb);
+	PatchJumpToRETN(0x5e49e5);
+	PatchJumpToRETN(0x5e49fb);
+	PatchJumpToRETN(0x5e4a41);
+	PatchJumpToRETN(0x5e4ac3);
+	PatchJumpToRETN(0x5e4b0a);
+	PatchJumpToRETN(0x5e4b41);
+	PatchJumpToRETN(0x5e4b50);
+	PatchJumpToRETN(0x5e4b73);
+	PatchJumpToRETN(0x5e4b93);
+	PatchJumpToRETN(0x5e4c60);
+	PatchJumpToRETN(0x5e4e03);
+	PatchJumpToRETN(0x5e4e23);
+	PatchJumpToRETN(0x5e4e73);
+	PatchJumpToRETN(0x5e4e93);
+	PatchJumpToRETN(0x5e4efb);
+	PatchJumpToRETN(0x5e4fa3);
+	PatchJumpToRETN(0x5e5007);
+	PatchJumpToRETN(0x5e5057);
+	PatchJumpToRETN(0x5e50a7);
+}
