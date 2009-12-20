@@ -104,6 +104,9 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 #define PATCH_RETN_XOR_RETN(src)	Patching::Patch((void*)src, "\xEB\x02\x31\xC0", 4); \
 								Patching::PatchUnconditionalJump(src + 4, RETN)
 
+	// First, apply the auto patches, so that we have more direct control with the manual patches.
+	ApplyAutomaticallyGeneratedPatches();
+
 	// Now we patch the various functions to jump to the codecaves. Feel free to comment out any of these
 	// lines if you need access to any of these functions. Bear in mind that if you can call it, so can
 	// other DLLs. Lines that are commented out are purposely unpatched because they're used by this, or
@@ -196,8 +199,6 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 	Patching::PatchUnconditionalJump(0x00497588, RETN);					// ZGetGameClient
 	Patching::Patch((void*)0x00484533, "\xEB\x04\x90", 3);				// ZObjectManager::GetObjectA
 	Patching::PatchUnconditionalJump(0x00484539, RETN4);				// ...
-
-	ApplyAutomaticallyGeneratedPatches();
 
 	// Hacks aren't detected here. The patch does it itself.
 	return NO_HACK_DETECTED;
