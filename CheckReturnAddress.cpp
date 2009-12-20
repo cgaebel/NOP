@@ -210,7 +210,7 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 }
 
 // Ensures we're actually patching a retn.
-static void PatchJumpToRETN(DWORD address)
+static void __cdecl PatchJumpToRETN(DWORD address)
 {
 	BYTE valid_bytes[] = { 0xC3, 0xCC, 0xCC, 0xCC, 0xCC };
 
@@ -224,6 +224,7 @@ static void PatchJumpToRETN(DWORD address)
 // Patches:  2119 
 static void ApplyAutomaticallyGeneratedPatches()
 {
+	MessageBoxA(NULL, NULL, NULL, NULL);
 	PatchJumpToRETN(0x401055);
 	PatchJumpToRETN(0x401070);
 	PatchJumpToRETN(0x4010b6);
