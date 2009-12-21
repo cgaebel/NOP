@@ -69,7 +69,8 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="1"
+				LinkIncremental="2"
+				GenerateManifest="false"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -165,6 +166,7 @@
 				Name="VCLinkerTool"
 				AdditionalOptions=""
 				LinkIncremental="1"
+				GenerateManifest="false"
 				UACExecutionLevel="1"
 				GenerateDebugInformation="false"
 				SubSystem="2"
@@ -317,17 +319,417 @@
 						>
 					</File>
 				</Filter>
+			</Filter>
+			<Filter
+				Name="Runnable"
+				>
 				<Filter
-					Name="GunzOld"
+					Name="Gunz - Protected"
 					>
 					<File
-						RelativePath=".\Whitepapers\GunzOld Address Dump.txt"
+						RelativePath=".\Gunz\Gunz - Protected\d3dx9_41.dll"
 						>
 					</File>
 					<File
-						RelativePath=".\Whitepapers\GunzOld PDB Dump.txt"
+						RelativePath=".\Gunz\Gunz - Protected\dbghelp.dll"
 						>
 					</File>
+					<File
+						RelativePath=".\Gunz\Gunz - Protected\DumpRETNs.py"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\Gunz - Protected\fmod.dll"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\Gunz - Protected\gdiplus.dll"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\Gunz - Protected\HanAuthForClient.dll"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\Gunz - Protected\HanPollForClient.dll"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\Gunz - Protected\HanReportForClient.dll"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\Gunz - Protected\svchost.exe"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="JGunzOld"
+					>
+					<File
+						RelativePath=".\Gunz\JGunzOld\Addresses.txt"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\JGunzOld\Gunz.exe"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\JGunzOld\Parameters.txt"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="MatchOld"
+					>
+					<File
+						RelativePath=".\Gunz\MatchOld\AntiCpSvr.dll"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\channel.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\channelrule.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\cserror.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\dbghelp.dll"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\droptable.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\Event.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\EventList.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\filelistcrc.txt"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\formula.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\HackShield.crc"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\hashmap.txt"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\ladder_stat.dat"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\libcomservice2.dll"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\Locator.pdb"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\MatchServer PDB Dump.txt"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\MatchServer.exe"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\MatchServer.i64"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\MatchServer.pdb"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\messages.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\npc.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\npcset.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\port.txt"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\questmap.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\SacrificeTable.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\scenario.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\server.ini"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\ServerKeeper.pdb"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\shop.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\shutdown.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\strings.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\tips.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\worlditem.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\zitem.xml"
+						>
+					</File>
+					<File
+						RelativePath=".\Gunz\MatchOld\zquestitem.xml"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="MatchServer"
+					>
+					<Filter
+						Name="Database"
+						>
+						<File
+							RelativePath=".\Gunz\MatchServer\Database\Database_GunzDB.sql"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\Database\GunzDB.bak"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="Server Manager"
+						>
+						<File
+							RelativePath=".\Gunz\MatchServer\Gunz Server Manager\Gunz Remote Manager.exe"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\Gunz Server Manager\Gunz Server Manager.exe"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="Locator"
+						>
+						<File
+							RelativePath=".\Gunz\MatchServer\Locator\dbghelp.dll"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\Locator\Locator.exe"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\Locator\Locator.ini"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\Locator\Locator.pdb"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="MatchAgent"
+						>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchAgent\AgentConfig.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchAgent\LIST.TXT"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchAgent\MatchAgent.exe"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchAgent\MatchAgent.pdb"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="MatchServer"
+						>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\AntiCpSvr.dll"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\channel.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\channelrule.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\cserror.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\dbghelp.dll"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\droptable.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\Event.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\EventList.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\filelistcrc.txt"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\formula.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\Gunz_map1.CS3"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\Gunz_map2.CS3"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\HackShield.crc"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\hashmap.txt"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\libcomservice2.dll"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\MatchServer.exe"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\MatchServer.fgunz.exe"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\MD5HashValue.txt"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\messages.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\npc.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\npcset.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\protocol.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\questmap.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\SacrificeTable.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\scenario.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\server.ini"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\shop.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\shutdown.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\strings.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\tips.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\worlditem.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\XTrapCC.dll"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\zitem.xml"
+							>
+						</File>
+						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\zquestitem.xml"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 		</Filter>
@@ -339,15 +741,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\config.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Core.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\Core.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Ignore.h"
 				>
 			</File>
 			<File
@@ -410,10 +812,6 @@
 				Name="Active Protection"
 				>
 				<File
-					RelativePath=".\ActiveDebuggerHiding.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\CodeSegmentCheck.cpp"
 					>
 				</File>
@@ -437,10 +835,6 @@
 					RelativePath=".\HideFromPEB.cpp"
 					>
 				</File>
-				<File
-					RelativePath=".\PassiveDebuggerHiding.cpp"
-					>
-				</File>
 			</Filter>
 			<Filter
 				Name="Initialization"
@@ -454,11 +848,19 @@
 					>
 				</File>
 				<File
+					RelativePath=".\ProtocolUpdate.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\RestoreRemovedFunctions.cpp"
 					>
 				</File>
 				<File
 					RelativePath=".\UnmaskAdminNames.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\UnmaskDuelChat.cpp"
 					>
 				</File>
 			</Filter>
@@ -467,7 +869,11 @@
 			Name="Helpers"
 			>
 			<File
-				RelativePath=".\defs.h"
+				RelativePath=".\DllInstance.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\DllInstance.h"
 				>
 			</File>
 			<File
@@ -476,14 +882,6 @@
 			</File>
 			<File
 				RelativePath=".\HashManager.h"
-				>
-			</File>
-			<File
-				RelativePath=".\HideThreadFromDebugger.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\HideThreadFromDebugger.h"
 				>
 			</File>
 			<File

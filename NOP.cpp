@@ -1,28 +1,21 @@
 #include "stdafx.h"
-#include "NOP.h"
 #include "Core.h"
+#include "DllInstance.h"
 
 using namespace std;
 
-HINSTANCE g_hInstance;
+static void SaveInstance(HINSTANCE dllHandle)
+{
+	DllInstance::GetInstance() = dllHandle;
+}
 
-bool DllMain(HINSTANCE hDllHandle, DWORD reason, void*)
+bool DllMain(HINSTANCE dllHandle, DWORD reason, void*)
 {
 	if(reason == DLL_PROCESS_ATTACH)
 	{
-		LogInformation("Attached!");
-
-		DisableThreadLibraryCalls(hDllHandle);
-		g_hInstance = hDllHandle;
-
-		try {
-			StartAntiHack();
-
-		} catch(exception& ex) {
-			OnFailure(ex.what());
-		} catch(...) {
-			OnFailure("Something that should not have gone wrong, did go wrong.");
-		}
+		DisableThreadLibraryCalls(dllHandle);
+		SaveInstance(dllHandle);
+		StartAntiHack();
 	}
 	else if(reason == DLL_PROCESS_DETACH)
 	{

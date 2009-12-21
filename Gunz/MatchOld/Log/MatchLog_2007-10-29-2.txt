@@ -1,0 +1,3 @@
+Load XML from memory : strings.xml(0x0037) - SUCCESS
+Load XML from memory : cserror.xml(0x0037) - SUCCESS
+[10/29/07 22:06:33] Can't Connect To DBMS

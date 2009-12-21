@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{EAF909A5-FA59-4C3D-9431-0FCC20D5BCF9}") = "NOP", "NOP.icproj", "{C9572D59-0FE0-4959-9259-DA2AC44F4916}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A13E011C-9B3D-408D-9A7C-A9434249F8C5} = {A13E011C-9B3D-408D-9A7C-A9434249F8C5}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcproj", "{A13E011C-9B3D-408D-9A7C-A9434249F8C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +18,10 @@ Global
 		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Debug|Win32.Build.0 = Debug|Win32
 		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Release|Win32.ActiveCfg = Release|Win32
 		{C9572D59-0FE0-4959-9259-DA2AC44F4916}.Release|Win32.Build.0 = Release|Win32
+		{A13E011C-9B3D-408D-9A7C-A9434249F8C5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A13E011C-9B3D-408D-9A7C-A9434249F8C5}.Debug|Win32.Build.0 = Debug|Win32
+		{A13E011C-9B3D-408D-9A7C-A9434249F8C5}.Release|Win32.ActiveCfg = Release|Win32
+		{A13E011C-9B3D-408D-9A7C-A9434249F8C5}.Release|Win32.Build.0 = Release|Win32
 		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Debug|Win32.ActiveCfg = Debug|Win32
 		{9BFA4695-FD72-46B8-9451-C391BE5CCAA1}.Release|Win32.ActiveCfg = Release|Win32
 	EndGlobalSection

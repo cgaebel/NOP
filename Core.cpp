@@ -1,70 +1,24 @@
 #include "Core.h"
 #include "ListSingletons.h"
 #include "NOP.h"
-#include "defs.h"
+#include "config.h"
 #include "Utilities.h"
 
 using namespace Utilities;
 
 // Variables that sanity check the developer. We are all our own worst enemies!
-static auto initialized = false;
-static auto passived = true;
-
-static bool IsIgnoredModule(const std::tr1::shared_ptr<Module> module)
-{
-	auto& ignoreList(GetIgnoreList());
-
-	const auto moduleName = module->moduleName;
-	bool ignored = false;
-
-	std::for_each(ignoreList.begin(), ignoreList.end(),
-		[moduleName, &ignored]
-		(const char* currentName)
-		{
-			if(strcmp(currentName, moduleName) == 0)
-				ignored = true;
-		}
-	);
-
-	return ignored;
-}
-
-template <class ModuleClass>
-static void RemoveIgnoredModules(std::list<std::tr1::shared_ptr<ModuleClass> >& toRemoveFrom)
-{
-	auto& ignoreList(GetIgnoreList());
-
-	std::list<std::tr1::shared_ptr<ModuleClass> > toRemove;
-
-	std::for_each(toRemoveFrom.begin(), toRemoveFrom.end(),
-		[&]
-		(std::tr1::shared_ptr<ModuleClass> currentModule)
-		{
-			if(IsIgnoredModule(currentModule))
-				toRemove.push_back(currentModule);
-		}
-	);
-
-	std::for_each(toRemove.begin(), toRemove.end(),
-		[&]
-		(std::tr1::shared_ptr<ModuleClass> removeTarget)
-		{
-			LogInformation((std::string("Warning: Ignoring module ") + removeTarget->moduleName).c_str());
-			toRemoveFrom.remove(removeTarget);
-		}
-	);
-}
+static bool initialized = false;
+static bool passived = true;
 
 void Initialize()
 {
 	LogInformation("Initializing...");
 
-	auto& initList = GetInitializationList();
-	RemoveIgnoredModules(initList);
+	auto initList = GetInitializationList();
 
 	std::for_each(initList.begin(), initList.end(),
 		[]
-		(std::tr1::shared_ptr<InitializationModule> currentModule)
+		(std::tr1::shared_ptr<InitializationModule>& currentModule)
 		{
 			LogInformation(currentModule->logMessage);
 			currentModule->Run();
@@ -83,12 +37,11 @@ void RunPassiveProtection()
 
 	LogInformation("Beginning passive protection...");
 
-	auto& protectionList = GetPassiveProtectionList();
-	RemoveIgnoredModules(protectionList);
+	auto protectionList = GetPassiveProtectionList();
 
 	std::for_each(protectionList.begin(), protectionList.end(),
 		[]
-		(std::tr1::shared_ptr<PassiveProtectionModule> currentModule)
+		(std::tr1::shared_ptr<PassiveProtectionModule>& currentModule)
 		{
 			LogInformation(currentModule->logMessage);
 
@@ -115,34 +68,44 @@ void BeginActiveProtection()
 			LogInformation("Beginning active protection...");
 			SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_LOWEST);
 
-			auto& activeProtectionList = GetActiveProtectionList();
-
-			RemoveIgnoredModules(activeProtectionList);
+			auto activeProtectionList = GetActiveProtectionList();
 
 			LogInformation((ConvertSizeTToString(activeProtectionList.size()) + " active protection module(s) loaded.").c_str());
 
 			for(;;)
 			{
-				for(auto i = activeProtectionList.begin(); i != activeProtectionList.end(); ++i)
-				{
-					auto currentModule = *i;
+				std::for_each(activeProtectionList.begin(), activeProtectionList.end(),
+					[](std::tr1::shared_ptr<ActiveProtectionModule>& currentModule)
+					{
+						if(currentModule->Run())
+							OnHackDetected(currentModule->moduleName);
 
-					if(currentModule->Run())
-						OnHackDetected(currentModule->moduleName);
-
-					Sleep(INNER_CORE_LOOP_DELAY);
-				}
+						Sleep(INNER_CORE_LOOP_DELAY);
+					}
+				);
 
 				Sleep(OUTER_CORE_LOOP_DELAY);
 			}
 		};
 
-	::Utilities::CreateThread(activeProtectionThread);
+	CreateThread(activeProtectionThread);
 }
 
 void StartAntiHack()
 {
-	Initialize();
-	RunPassiveProtection();
-	BeginActiveProtection();
+	LogInformation("Anti-hack core starting...");
+	try
+	{
+		Initialize();
+		RunPassiveProtection();
+		BeginActiveProtection();
+	}
+	catch(std::exception& ex)
+	{
+		OnFailure(ex.what());
+	}
+	catch(...)
+	{
+		OnFailure("Something that should not have gone wrong in the anti-hack core, did go wrong.");
+	}
 }

@@ -12,6 +12,18 @@ HashManager& HashManager::Get()
 	return instance;
 }
 
+void HashManager::RemoveBlankHashesFromSingleTree(std::set<std::string>& tree)
+{
+	for(auto blankHash = tree.find(""); blankHash != tree.end(); blankHash = tree.find(""))
+		tree.erase(blankHash);
+}
+
+void HashManager::RemoveAllBlankHashes()
+{
+	RemoveBlankHashesFromSingleTree(memoryHashTree);
+	RemoveBlankHashesFromSingleTree(fileHashTree);
+}
+
 // Grabs the hashes based on the format of | <- n -> | <- n -> |
 void HashManager::ParseSingleLine(const string& lineToParse)
 {
@@ -65,6 +77,8 @@ void HashManager::InitHashTree()
 
 		ParseSingleLine(currentLine);
 	}
+
+	RemoveAllBlankHashes();
 }
 
 bool HashManager::IsValidFileHash(std::string fileHash)

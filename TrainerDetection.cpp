@@ -1,24 +1,12 @@
 #include "Core.h"
 #include "NOP.h"
-#include "defs.h"
+#include "config.h"
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
-/// @brief	Handles the EnumWindows callback to stop any trainers with "ZxPwd" in the title.
-/// 
-/// @author	Clark Gaebel
-/// @date	8/10/2009
-/// 
-/// @param	hwnd	Handle to the window.
-/// @param	retVal	The return value.
-/// 
-/// @return			true to keep searching, false to stop.
-////////////////////////////////////////////////////////////////////////////////////////////////////
 static BOOL EnumWindowsHandler(HWND hwnd, bool* retVal)
 {
 	char title[0x1000];
 	GetWindowText(hwnd, title, _countof(title));
 
-	// Add any more blacklisted titles here:
 	static const char* titleBlacklist[] = {
 		TRAINER_WINDOW_TITLE_BLACKLIST
 	};

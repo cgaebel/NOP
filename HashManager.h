@@ -13,6 +13,8 @@ private:
 	std::set<std::string> memoryHashTree;
 
 	void ParseSingleLine(const std::string& lineToParse);
+	static void RemoveBlankHashesFromSingleTree(std::set<std::string>& tree);
+	void RemoveAllBlankHashes();
 
 public:
 	bool IsValidFileHash(std::string fileHash);

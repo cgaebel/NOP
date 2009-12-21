@@ -61,10 +61,11 @@
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
 
-// Application-specific.
-#include "defs.h"
+// Application specific.
+#include "config.h"
 #include "IHash.h"
 #include "Detours/CDetour.h"
 #include "NOP.h"
 #include "Core.h"
 #include "Utilities.h"
+#include "DllInstance.h"

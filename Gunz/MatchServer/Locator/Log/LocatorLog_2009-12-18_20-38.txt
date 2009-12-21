@@ -1,0 +1,25 @@
+MLocator create.
+
+===========================Loator self dump(2009-12-18 20:42)=========================
+ - Server dead count list- 
+LiveServerCount(1) : DeadServerCount(0)
+
+Country code3 cache hit miss count : 0
+Invalid IP count : 0
+Block Count : 0
+Country code check count : 0
+Block country code hit count : 0
+========================================================================================
+
+
+===========================Loator self dump(2009-12-18 21:42)=========================
+ - Server dead count list- 
+LiveServerCount(1) : DeadServerCount(0)
+
+Country code3 cache hit miss count : 0
+Invalid IP count : 0
+Block Count : 0
+Country code check count : 0
+Block country code hit count : 0
+========================================================================================
+

@@ -25,21 +25,22 @@ namespace Utilities
 	std::string ConvertUIntToString(const unsigned int var);
 	std::string ConvertSizeTToString(const size_t var);
 
-	template <class _Functor>
-	int __stdcall CreateThreadProxy(_Functor* functor)
+	namespace
 	{
-		(*functor)();
+		template <class _Functor>
+		int __stdcall CreateThreadProxy(_Functor* functor)
+		{
+			(*functor)();
 
-		delete functor;
-		return 0;
+			delete functor;
+			return 0;
+		}
 	}
 
 	template <class _Functor>
 	void CreateThread(_Functor toRun)
 	{
-		auto* proxy = new _Functor;
-		*proxy = toRun;
-
+		_Functor* proxy = new _Functor(toRun);
 		::CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)CreateThreadProxy<_Functor>, proxy, NULL, NULL);
 	}
 }

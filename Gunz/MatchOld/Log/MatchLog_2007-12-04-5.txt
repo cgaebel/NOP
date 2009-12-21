@@ -1,0 +1,27 @@
+Load XML from memory : strings.xml(0x0037) - SUCCESS
+Load XML from memory : cserror.xml(0x0037) - SUCCESS
+[12/04/07 23:22:42] DBMS connected
+[12/04/07 23:22:42] Command registeration completed
+
+10
+MBClannServer::AddClanServerSwitchDownSchedule - 클랜서버다운 커맨드 생성 성공. 다음실행시간:7년12월31일 23시50분
+
+10
+Inited client file list (1)
+
+================================== Server configure info ==================================
+[12/04/07 23:22:42] Release Date : Jan 11 2007
+[12/04/07 23:22:42] X-Trap Off
+[12/04/07 23:22:42] Server Country : BRAZIL
+[12/04/07 23:22:42] Command version : (56)
+[12/04/07 23:22:42] Event usable state : (false)
+[12/04/07 23:22:42] Load event size : (1)
+[12/04/07 23:22:42] FileCRCCheckSum usable state : (false)
+[12/04/07 23:22:42] FileCRC size : (1)
+[12/04/07 23:22:42] Country Code Filter usalbe state : (false)
+[12/04/07 23:22:42] Accept Invalied IP state : (true)
+[12/04/07 23:22:42] Keeper IP : (127.0.0.1)
+===========================================================================================
+
+[12/04/07 23:22:42] Match Server Created (Port:6010)
+success to update CustomIP

@@ -1,5 +1,5 @@
 #include "Patching.h"
-#include "defs.h"
+#include "config.h"
 
 namespace Patching
 {

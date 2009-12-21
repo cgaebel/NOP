@@ -1,7 +1,7 @@
 #include "Core.h"
 #include "NOP.h"
 #include "HashManager.h"
-#include "defs.h"
+#include "config.h"
 #include "HMD6.h"
 
 static std::string MemoryChecksum()

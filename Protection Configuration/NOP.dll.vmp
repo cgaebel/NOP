@@ -1,6 +1,6 @@
 [ProjectInfo]
 InputFileName=C:\Users\Clark Gaebel\Documents\Visual Studio 2008\Projects\NOP\Release\NOP.dll
-Count=3
+Count=2
 Options=1320
 VMExecutorCount=2
 CheckKernelModeDebugger=0
@@ -15,21 +15,15 @@ WaterMarkName=Signature
 [Folders]
 Count=0
 [Procedures]
-Address0=268546784
+Address0=268626800
 NeedCompile0=1
 Options0=1
 CompilationType0=0
 MapAddress0=EntryPoint
 ExtAddressCount0=0
-Address1=268517008
+Address1=268460416
 NeedCompile1=1
 Options1=1
 CompilationType1=0
-MapAddress1=OnFailure
+MapAddress1=OnHackDetected
 ExtAddressCount1=0
-Address2=268455536
-NeedCompile2=1
-Options2=1
-CompilationType2=0
-MapAddress2=OnHackDetected
-ExtAddressCount2=0

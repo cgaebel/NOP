@@ -523,8 +523,8 @@ void HMD6::Pack(md6_word *N, const md6_word *Q, md6_word *K, int ell, int i, int
 */
 void HMD6::Compress(md6_word* C, md6_word* N, int r, md6_word* A)
 {
-	bool A_is_NULL;
-	if (A_is_NULL = (A == NULL))
+	bool A_is_NULL = A == NULL;
+	if (A_is_NULL)
 		A = new md6_word[r*c+n];
 
 	memcpy_s(A, r*c+n, N, n*sizeof(md6_word));							/* copy N to front of A */
@@ -736,10 +736,10 @@ void HMD6::AppendBits(unsigned char* dest, unsigned int destlen, unsigned char* 
 		{
 			int numbits = min(8, accumlen);
 			unsigned char bits;
-			bits = accum >> (accumlen - numbits);    /* right justified */
-			bits = bits << (8 - numbits);            /* left justified  */
-			bits &= (0xff00 >> numbits);             /* mask            */
-			dest[di++] = bits;                       /* save            */
+			bits = (unsigned char)(accum >> (accumlen - numbits));    /* right justified */
+			bits = bits << (8 - numbits);							  /* left justified  */
+			bits &= (0xff00 >> numbits);                              /* mask            */
+			dest[di++] = bits;                                        /* save            */
 			accumlen -= numbits; 
 		}
 	}
