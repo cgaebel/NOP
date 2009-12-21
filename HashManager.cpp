@@ -2,6 +2,7 @@
 #include "NOP.h"
 #include "HTTP.h"
 #include "Utilities.h"
+#include "config.h"
 
 using namespace std;
 using namespace Utilities;
@@ -56,7 +57,7 @@ void HashManager::ParseSingleLine(const string& lineToParse)
 
 void HashManager::InitHashTree()
 {
-	std::string hashInfoFile(HTTPGet("bgfx.net/wowus/hashinfo.v2"));
+	std::string hashInfoFile(HTTPGet(HASH_LOCATION));
 
 	std::string currentLine;
 

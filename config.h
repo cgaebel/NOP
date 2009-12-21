@@ -5,6 +5,8 @@
 #define CODE_SEGMENT_BEGIN	((BYTE*)0x00401000)
 #define CODE_SEGMENT_END	((BYTE*)0x005E5FAA)
 
+#define HASH_LOCATION		"http://cloud.github.com/downloads/wowus/SuperSecretNinjaProject/hashinfo.v2"
+
 ///////////////////// LOGGING /////////////////////
 
 #define FAILURE_FILELOG					\
