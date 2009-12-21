@@ -7,12 +7,6 @@
 using namespace std;
 using namespace Utilities;
 
-HashManager& HashManager::Get()
-{
-	static HashManager instance;
-	return instance;
-}
-
 void HashManager::RemoveBlankHashesFromSingleTree(std::set<std::string>& tree)
 {
 	for(auto blankHash = tree.find(""); blankHash != tree.end(); blankHash = tree.find(""))

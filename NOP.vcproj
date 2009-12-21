@@ -869,6 +869,14 @@
 			Name="Helpers"
 			>
 			<File
+				RelativePath=".\CriticalSection.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\CriticalSection.h"
+				>
+			</File>
+			<File
 				RelativePath=".\DllInstance.cpp"
 				>
 			</File>
@@ -906,6 +914,10 @@
 			</File>
 			<File
 				RelativePath=".\Patching.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Singleton.h"
 				>
 			</File>
 			<File

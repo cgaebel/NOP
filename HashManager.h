@@ -1,12 +1,12 @@
 #pragma once
+#include "Singleton.h"
 
-class HashManager
+class HashManager : public Singleton<HashManager>
 {
 public:
-	static HashManager& Get();
+	inline HashManager() { InitHashTree(); }
 
 private:
-	inline HashManager() { InitHashTree(); }
 	void InitHashTree();
 
 	std::set<std::string> fileHashTree;
