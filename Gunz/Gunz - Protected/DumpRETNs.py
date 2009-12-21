@@ -27,7 +27,8 @@ knownAddresses = [
 inputFile = 'svchost.exe'
 outputFile = 'output.txt'
 patchedFile = 'svchost_patched.exe'
-opCodeToPatch = 0x90	# NOP! :)
+opCodeToPatch = 0x90	            # NOP! :)
+maximumAddressToCheck = 0x447454    # The highest possible address we'll patch - anything after it gets dropped.
 
 def GetFileContents(filename):
     f = open(filename, 'rb')
@@ -56,6 +57,14 @@ def FixOffsets(offsetList):
     for current in range(0, len(offsetList)):
         offsetList[current] += 0x00400000
     return offsetList
+
+def RemoveBlockedOffsets(offsetList):
+    newList = []
+    for o in offsetList:
+        if o <= maximumAddressToCheck:
+            newList.append(o)
+
+    return newList
 
 def AbsentFromList(toFind, theList):
     for i in theList:
@@ -89,6 +98,6 @@ def RemoveRETNs(locationsOfRETNs, oldFilesContents, newFilesName):
     target.close()
 
 fileContents = GetFileContents(inputFile)
-offsets = FixOffsets(FindAll(fileContents, '\xC3\xCC\xCC\xCC\xCC'))
+offsets = RemoveBlockedOffsets(FixOffsets(FindAll(fileContents, '\xC3\xCC\xCC\xCC\xCC')))
 PrintOffsetList(offsets, outputFile)
 RemoveRETNs(offsets, fileContents, patchedFile)
