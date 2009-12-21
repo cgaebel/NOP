@@ -3,10 +3,10 @@
 
 class HashManager : public Singleton<HashManager>
 {
-public:
-	inline HashManager() { InitHashTree(); }
+	friend class Singleton<HashManager>;
 
 private:
+	inline HashManager() { InitHashTree(); }
 	void InitHashTree();
 
 	std::set<std::string> fileHashTree;
