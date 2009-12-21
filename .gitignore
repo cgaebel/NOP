@@ -23,7 +23,6 @@ Thumbs.db
 *.sbr
 obj/
 _ReSharper*/
-[Tt]est[Rr]esult*
 *.suo
 *.htm
 *.manifest
