@@ -658,6 +658,10 @@
 							>
 						</File>
 						<File
+							RelativePath=".\Gunz\MatchServer\MatchServer\MatchServer.fgunz.exe"
+							>
+						</File>
+						<File
 							RelativePath=".\Gunz\MatchServer\MatchServer\MD5HashValue.txt"
 							>
 						</File>
@@ -841,6 +845,10 @@
 				</File>
 				<File
 					RelativePath=".\InitializeWinsock.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\ProtocolUpdate.cpp"
 					>
 				</File>
 				<File

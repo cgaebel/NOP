@@ -52,6 +52,9 @@
 #define OVERLAY_TEXT							\
 			"0x90 "
 
+#define GUNZ_PROTOCOL_KEY						\
+			"\x90"
+
 // Use Viewport.Width - (your x value here) to denote distance from the right.
 #define OVERLAY_POSITION_X						\
 			10

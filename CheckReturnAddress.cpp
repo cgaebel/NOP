@@ -301,7 +301,6 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x411c0b);
 	PatchJumpToRETN(0x412420);
 	PatchJumpToRETN(0x4124da);
-// MARK
 	PatchJumpToRETN(0x412555);
 	PatchJumpToRETN(0x412744);
 	PatchJumpToRETN(0x4127c1);
@@ -339,7 +338,6 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x415927);
 	PatchJumpToRETN(0x415f6a);
 	PatchJumpToRETN(0x41610a);
-/*
 	PatchJumpToRETN(0x416588);
 	PatchJumpToRETN(0x416a97);
 	PatchJumpToRETN(0x417187);
@@ -377,6 +375,7 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x41aa3b);
 	PatchJumpToRETN(0x41b8f1);
 	PatchJumpToRETN(0x41e625);
+// MARK
 	PatchJumpToRETN(0x41e737);
 	PatchJumpToRETN(0x41e785);
 	PatchJumpToRETN(0x41e960);
@@ -670,6 +669,8 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x4473f4);
 	PatchJumpToRETN(0x447424);
 	PatchJumpToRETN(0x447454);
+//	Every release, uncomment another couple hundred of these to keep reversing efforts at bay.
+/*
 	PatchJumpToRETN(0x4474c4);
 	PatchJumpToRETN(0x4474f4);
 	PatchJumpToRETN(0x447524);
