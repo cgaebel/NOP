@@ -117,35 +117,35 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 	// other DLLs. Lines that are commented out are purposely unpatched because they're used by this, or
 	// other "safe" DLLs. Lines that are empty have not yet been patched. Feel free to build these yourself.
 	Patching::PatchUnconditionalJump(0x00429A09, ADD_ESP_10_RETN);		// ZPostChannelChat
-	Patching::PatchUnconditionalJump(0x004C4114, ADD_ESP_10_RETN);		// ZPostChannelRequestJoin
-	Patching::PatchUnconditionalJump(0x004489E8, ADD_ESP_10_RETN);		// ZPostCreateMyChar
-	Patching::PatchUnconditionalJump(0x0047C801, ADD_ESP_1C_RETN);		// ZPostDash
-	Patching::PatchUnconditionalJump(0x004A0883, ADD_ESP_10_RETN);		// ZPostGameKill
-	Patching::PatchUnconditionalJump(0x004298C8, ADD_ESP_10_RETN);		// ZPostPeerChat
-	Patching::PatchUnconditionalJump(0x0045D8D3, ADD_ESP_10_RETN);		// ZPostQuestReadToNewSector
-	Patching::PatchUnconditionalJump(0x0048AB4D, ADD_ESP_10_RETN);		// ZPostQuestRequestNPCDead
+	Patching::PatchUnconditionalJump(0x004C4117, RETN);					// ZPostChannelRequestJoin
+	Patching::PatchUnconditionalJump(0x004489EB, RETN);					// ZPostCreateMyChar
+	Patching::PatchUnconditionalJump(0x0047C804, RETN);					// ZPostDash
+	Patching::PatchUnconditionalJump(0x004A0886, RETN);					// ZPostGameKill
+	Patching::PatchUnconditionalJump(0x004298CB, RETN);					// ZPostPeerChat
+	Patching::PatchUnconditionalJump(0x0045D8D6, RETN);					// ZPostQuestReadToNewSector
+	Patching::PatchUnconditionalJump(0x0048AB50, RETN);					// ZPostQuestRequestNPCDead
 	Patching::PatchUnconditionalJump(0x004325A3, RETN);					// ZPostReload
-	Patching::PatchUnconditionalJump(0x004CAD2E, ADD_ESP_10_RETN);		// ZPostRequestAgreedJoinClan
-	Patching::PatchUnconditionalJump(0x00425068, ADD_ESP_10_RETN);		// ZPostRequestExpelClanMember
-	Patching::PatchUnconditionalJump(0x004B286F, ADD_ESP_1C_RETN);		// ZPostRequestSpawn
+	Patching::PatchUnconditionalJump(0x004CAD31, RETN);					// ZPostRequestAgreedJoinClan
+	Patching::PatchUnconditionalJump(0x0042506B, RETN);					// ZPostRequestExpelClanMember
+	Patching::PatchUnconditionalJump(0x004B2872, RETN);					// ZPostRequestSpawn
 	Patching::PatchUnconditionalJump(0x004B47C5, FS_RETN);				// ZPostRequestSpawnWorldItem
-	Patching::PatchUnconditionalJump(0x004258E4, ADD_ESP_10_RETN);		// ZPostRequestStageJoin
+	Patching::PatchUnconditionalJump(0x004258E7, RETN);					// ZPostRequestStageJoin
 	Patching::PatchUnconditionalJump(0x0047E019, ADD_ESP_20_RETN);		// ZPostShot
-	Patching::PatchUnconditionalJump(0x00475EBF, ADD_ESP_1C_RETN);		// ZPostShotSp
-	Patching::PatchUnconditionalJump(0x0047E1C7, ADD_ESP_1C_RETN);		// ZPostShotMelee
+	Patching::PatchUnconditionalJump(0x00475EC2, RETN);					// ZPostShotSp
+	Patching::PatchUnconditionalJump(0x0047E1CA, RETN);					// ZPostShotMelee
 	Patching::PatchUnconditionalJump(0x0047DF27, RETN);					// ZPostSkill
 	Patching::PatchUnconditionalJump(0x004180B9, ADD_ESP_10_RETN);		// ZPostStageChat
-	Patching::PatchUnconditionalJump(0x0042AAB6, ADD_ESP_10_RETN);		// ZPostStageCreate
-	Patching::PatchUnconditionalJump(0x004A06C4, ADD_ESP_10_RETN);		// ZPostStageEnterBattle
-	Patching::PatchUnconditionalJump(0x00433584, ADD_ESP_10_RETN);		// ZPostStageLeaveBattle
+	Patching::PatchUnconditionalJump(0x0042AAB9, RETN);					// ZPostStageCreate
+	Patching::PatchUnconditionalJump(0x004A06C7, RETN);					// ZPostStageEnterBattle
+	Patching::PatchUnconditionalJump(0x00433587, RETN);					// ZPostStageLeaveBattle
 	Patching::PatchUnconditionalJump(0x0045BF6B, RETN);					// ZPostStageSetting
-	Patching::PatchUnconditionalJump(0x00448F90, ADD_ESP_10_RETN);		// ZPostStageStart
-	Patching::PatchUnconditionalJump(0x004485E3, ADD_ESP_10_RETN);		// ZPostStageTeam
+	Patching::PatchUnconditionalJump(0x00448F93, RETN);					// ZPostStageStart
+	Patching::PatchUnconditionalJump(0x004485E6, RETN);					// ZPostStageTeam
 	Patching::PatchUnconditionalJump(0x00485E10, RETN4);				// SetHP
 	Patching::Patch((void*)0x00485DB7, "\xEB\x57\x90" , 3);				// SetHP Part 2
 	Patching::PatchUnconditionalJump(0x00485EE0, RETN4);				// SetAP
 	Patching::Patch((void*)0x00485E87, "\xEB\x57\x90" , 3);				// SetAP Part 2
-	Patching::PatchUnconditionalJump(0x004213F8, ADD_ESP_10_RETN);		// ZPostRequestCharInfoDetail
+	Patching::PatchUnconditionalJump(0x004213FB, RETN);					// ZPostRequestCharInfoDetail
 	Patching::PatchUnconditionalJump(0x0042A254, RETN);					// ZChatOutput
 	Patching::PatchUnconditionalJump(0x004B3812, RETN4);				// ZRuleBerserker::BonusHealth
 																		// ZRuleBerserker::PenaltyHealth
