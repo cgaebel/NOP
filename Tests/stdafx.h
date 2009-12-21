@@ -79,3 +79,6 @@
 
 // Testing
 #include "UnitTest++.h"
+
+// Application specific.
+#include "../stdafx.h"

@@ -44,7 +44,6 @@ static void ApplyExternalLibraryThunks()
 
 static void ApplyAutomaticallyGeneratedPatches();
 
-/*
 PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 {
 	// We patch all the functions listed by creating codecaves to check the return value and
@@ -209,7 +208,6 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 	// Hacks aren't detected here. The patch does it itself.
 	return NO_HACK_DETECTED;
 }
-*/
 
 // Ensures we're actually patching a retn.
 static void __cdecl PatchJumpToRETN(DWORD address)
@@ -303,6 +301,7 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x411c0b);
 	PatchJumpToRETN(0x412420);
 	PatchJumpToRETN(0x4124da);
+// MARK
 	PatchJumpToRETN(0x412555);
 	PatchJumpToRETN(0x412744);
 	PatchJumpToRETN(0x4127c1);
@@ -340,6 +339,7 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x415927);
 	PatchJumpToRETN(0x415f6a);
 	PatchJumpToRETN(0x41610a);
+/*
 	PatchJumpToRETN(0x416588);
 	PatchJumpToRETN(0x416a97);
 	PatchJumpToRETN(0x417187);
@@ -2345,4 +2345,5 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x5e5007);
 	PatchJumpToRETN(0x5e5057);
 	PatchJumpToRETN(0x5e50a7);
+*/
 }

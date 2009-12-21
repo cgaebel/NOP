@@ -1,5 +1,6 @@
 #include "Core.h"
 #include "config.h"
+#include "Patching.h"
 
 typedef HRESULT (WINAPI* CreateDevice_Prototype)        (LPDIRECT3D9, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, LPDIRECT3DDEVICE9*);
 typedef HRESULT (WINAPI* Reset_Prototype)               (LPDIRECT3DDEVICE9, D3DPRESENT_PARAMETERS*);
@@ -183,9 +184,7 @@ static HRESULT WINAPI EndScene_Detour(LPDIRECT3DDEVICE9 Device_Interface)
 	return EndScene_Pointer(Device_Interface);
 }
 
-/*
 INITIALIZER(Overlay, "Loading the NOP overlay...")
 {
-	CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)VirtualMethodTableRepatchingLoopToCounterExtensionRepatching, NULL, NULL, NULL);
+	Patching::Patch((void*)0x005F1FB8, OVERLAY_TEXT, strlen(OVERLAY_TEXT) + 1);
 }
-*/

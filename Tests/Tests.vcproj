@@ -407,6 +407,10 @@
 		<Filter
 			Name="Unit Tests"
 			>
+			<File
+				RelativePath=".\MD6Test.cpp"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>
