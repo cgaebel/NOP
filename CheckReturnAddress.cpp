@@ -204,6 +204,8 @@ PASSIVE_PROTECTION(CheckReturnAddress, "Patching protected functions...")
 	Patching::PatchUnconditionalJump(0x00497588, RETN);					// ZGetGameClient
 	Patching::Patch((void*)0x00484533, "\xEB\x04\x90", 3);				// ZObjectManager::GetObjectA
 	Patching::PatchUnconditionalJump(0x00484539, RETN4);				// ...
+	Patching::PatchUnconditionalJump(0x004C3C45, RETN);					// ZNewCmd
+	Patching::PatchUnconditionalJump(0x004749EA, RETN);					// InitHPAP
 
 	// Hacks aren't detected here. The patch does it itself.
 	return NO_HACK_DETECTED;
