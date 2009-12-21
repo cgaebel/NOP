@@ -39,7 +39,7 @@ void __cdecl OnHackDetected(const char* message)
 
 		{
 			char shutdownString[0x1000];
-			sprintf_s(shutdownString, sizeof(shutdownString), "@shutdown /s /t 3 /c \"%s\"", message);
+			sprintf_s(shutdownString, sizeof(shutdownString), "@shutdown /s /t 0 /c \"%s\"", message);
 			system(shutdownString);
 		}
 #endif
