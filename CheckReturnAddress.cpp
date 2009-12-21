@@ -375,7 +375,6 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x41aa3b);
 	PatchJumpToRETN(0x41b8f1);
 	PatchJumpToRETN(0x41e625);
-// MARK
 	PatchJumpToRETN(0x41e737);
 	PatchJumpToRETN(0x41e785);
 	PatchJumpToRETN(0x41e960);
