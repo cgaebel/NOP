@@ -451,8 +451,6 @@ bool CDetour::Generate()
 
 	if(m_bAutoReturn)
 	{
-		//Buffer += (BYTE)0xCC;
-
 		Buffer += (BYTE)0xC6; //mov byte ptr
 		Buffer += (BYTE)0x05;
 		Buffer += (DWORD)&m_bReturnToOriginal;
