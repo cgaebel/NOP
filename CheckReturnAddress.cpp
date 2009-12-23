@@ -216,7 +216,7 @@ static void __cdecl PatchJumpToRETN(DWORD address)
 {
 	BYTE valid_bytes[] = { 0x90, 0xCC, 0xCC, 0xCC, 0xCC };
 
-	if(memcmp((void*)address, valid_bytes, _countof(valid_bytes)))
+	if(memcmp((void*)address, valid_bytes, _countof(valid_bytes)) == 0)
 		Patching::PatchUnconditionalJump(address, RETN);
 	else
 		LogInformation((std::string("Attempting to patch to an invalid location: ") + Utilities::ConvertUIntToString(address)).c_str());
