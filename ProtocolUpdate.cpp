@@ -24,48 +24,48 @@
 	Please note that the second byte in the
 	disasesmbly is the "key".
    
-        ASSEMBLY CLIENT:
-	0052F308   B0 90            MOV AL,90
-	0052F30A   5E               POP ESI
-	0052F30B   52               PUSH EDX
-	0052F30C   BA 0F000000      MOV EDX,0F
-	0052F311   83C2 01          ADD EDX,1
-	0052F314   880411           MOV BYTE PTR DS:[ECX+EDX],AL
-	0052F317   83FA 1F          CMP EDX,1F
-	0052F31A  ^75 F5            JNZ SHORT GunzA.0052F311
-	0052F31C   5A               POP EDX
-	0052F31D   8B4C24 18        MOV ECX,DWORD PTR SS:[ESP+18]
-	0052F321   5D               POP EBP
-	0052F322   5B               POP EBX
-	0052F323   E8 061E0400      CALL GunzA.0057112E
-	0052F328   83C4 14          ADD ESP,14
-	0052F32B   C3               RETN
+	CPU Disasm
+	Address      Hex dump       Command                                  Comments
+	0052F308      B0 90         MOV AL,90
+	0052F30A      5E            POP ESI
+	0052F30B      52            PUSH EDX
+	0052F30C      BA 0F000000   MOV EDX,0F
+	0052F311      42            INC EDX
+	0052F312      88040A        MOV BYTE PTR DS:[ECX+EDX],AL
+	0052F315      83FA 1F       CMP EDX,1F
+	0052F318    ^ 75 F7         JNE SHORT 0052F311
+	0052F31A      5A            POP EDX
+	0052F31B      8B4CE4 18     MOV ECX,DWORD PTR SS:[ESP+18]
+	0052F31F      5D            POP EBP
+	0052F320      5B            POP EBX
+	0052F321      E8 081E0400   CALL 0057112E
+	0052F326      83C4 14       ADD ESP,14
+	0052F329      C3            RETN
  
 	ON THE CLIENT:
 	@ 0x0052F308	(65 bytes)
-	B0 90 5E 52 BA 0F 00 00 00 83 C2 01 88 04 11 83 
-	FA 1F 75 F5 5A 8B 4C 24 18 5D 5B E8 06 1E 04 00
-	83 C4 14 C3 CC CC CC CC CC CC CC CC CC CC CC CC 
+	B0 90 5E 52 BA 0F 00 00 00 42 88 04 0A 83 FA 1F
+	75 F7 5A 8B 4C E4 18 5D 5B E8 08 1E 04 00 83 C4
+	14 C3 CC CC CC CC CC CC CC CC CC CC CC CC CC CC
 	CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC
 	CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC
 
 	ON THE SERVER:
 	@ 0x004534B8	(65 bytes)
-	B0 90 5E 52 BA 0F 00 00 00 83 C2 01 88 04 11 83 
-        FA 1F 75 F5 5A 8B 4C 24 18 5D 5B E8 1F D8 05 00
-        83 C4 14 C3 CC CC CC CC CC CC CC CC CC CC CC CC
-        CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC
-        CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC
-
+	B0 90 5E 52 BA 0F 00 00 00 42 88 04 0A 83 FA 1F
+	75 F7 5A 8B 4C E4 18 5D 5B E8 08 1E 04 00 83 C4
+	14 C3 CC CC CC CC CC CC CC CC CC CC CC CC CC CC
+	CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC
+	CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC CC
 */
 
 INITIALIZER(ProtocolUpdate, "Updating GPP...")
 {
 	Patching::Patch((void*)0x0052F308,
-		"\xB0" GUNZ_PROTOCOL_KEY "\x5E\x52\xBA\x0F\x00\x00\x00\x83\xC2\x01\x88\x04\x11\x83"
-                "\xFA\x1F\x75\xF5\x5A\x8B\x4C\x24\x18\x5D\x5B\xE8\x06\x1E\x04\x00"
-                "\x83\xC4\x14\xC3\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC"
-                "\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC"
-                "\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC"
-		, 4 * 16 + 1);
+		"\xB0" GUNZ_PROTOCOL_KEY "\x5E\x52\xBA\x0F\x00\x00\x00\x42\x88\x04\x0A\x83\xFA\x1F"
+		"\x75\xF7\x5A\x8B\x4C\xE4\x18\x5D\x5B\xE8\x08\x1E\x04\x00\x83\xC4"
+		"\x14\xC3\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC"
+		"\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC"
+		"\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC\xCC"
+		, 5 * 16);
 }
