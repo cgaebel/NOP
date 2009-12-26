@@ -670,7 +670,7 @@ static void ApplyAutomaticallyGeneratedPatches()
 	PatchJumpToRETN(0x4473f4);
 	PatchJumpToRETN(0x447424);
 	PatchJumpToRETN(0x447454);
-//	Every release, uncomment another couple hundred of these to keep reversing efforts at bay.
+// Every release, uncomment another couple hundred of these to keep reversing efforts at bay.
 /*
 	PatchJumpToRETN(0x4474c4);
 	PatchJumpToRETN(0x4474f4);

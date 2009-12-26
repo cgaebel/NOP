@@ -25,7 +25,7 @@
 	disasesmbly is the "key".
    
 	CPU Disasm
-	Address      Hex dump       Command                                  Comments
+	Address      Hex dump       Command
 	0052F308      B0 90         MOV AL,90
 	0052F30A      5E            POP ESI
 	0052F30B      52            PUSH EDX
