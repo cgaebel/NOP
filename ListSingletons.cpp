@@ -1,22 +1,15 @@
 #include "ListSingletons.h"
 
-std::list<std::tr1::shared_ptr<InitializationModule> >& GetInitializationList()
-{
-	static std::list<std::tr1::shared_ptr<InitializationModule> > instance;
-	return instance;
-}
+#define MAKE_LIST(type, name)	\
+	std::list<std::tr1::shared_ptr<type> >& name()
+	{
+		static std::list<std::tr1::shared_ptr<type> > instance;
+		return instance;
+	}
 
-std::list<std::tr1::shared_ptr<PassiveProtectionModule> >& GetPassiveProtectionList()
-{
-	static std::list<std::tr1::shared_ptr<PassiveProtectionModule> > instance;
-	return instance;
-}
-
-std::list<std::tr1::shared_ptr<ActiveProtectionModule> >& GetActiveProtectionList()
-{
-	static std::list<std::tr1::shared_ptr<ActiveProtectionModule> > instance;
-	return instance;
-}
+MAKE_LIST(InitializationModule, GetInitializationList)
+MAKE_LIST(PassiveProtectionModule, GetPassiveProtectionList)
+MAKE_LIST(ActiveProtectionModule, GetActiveProtectionList)
 
 std::list<const char*>& GetIgnoreList()
 {
